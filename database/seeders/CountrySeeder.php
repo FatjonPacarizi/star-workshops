@@ -16,7 +16,6 @@ class CountrySeeder extends Seeder
      */
     public function run()
     {
-        //
 
         DB::table('countries')->insert([
             'name' => Str::random(10),
