@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\Controller;
+use App\Http\Controllers\SuperAdmin\TestController;
+use App\Http\Controllers\Admin\UserManageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +28,38 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+Route::group(['middleware' => 'auth'],function(){
+    //Super Admin group routes
+    Route::group(
+        [
+            'middleware'=>'is_superadmin',
+            'as' => 'superadmin.',
+        ], function(){
+
+            // Add routes here for superadmin
+            Route::get('superadmin',[testController::class,'index'])->name('superadmin'); //this is a test route
+        });
+
+
+    //Admin group routes
+    Route::group(
+        [
+            'middleware'=>'is_admin',
+            'as' => 'admin.',
+        ], function(){
+
+             // Add routes here for admin
+            Route::get('usersmanage',[userManageController::class,'index'])->name('manageusers');//this is a test route
+        });
+
+    //Users group routes
+    Route::group(
+        [
+            'as'=>'user.',
+        ],function(){
+             // Add routes here for users
+            Route::get('users', [Controller::class,'index'])->name('users');//this is a test route
+     });
 });
