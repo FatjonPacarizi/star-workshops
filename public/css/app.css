@@ -2612,15 +2612,6 @@ hr{
 }
 
 
-#app{
-    padding-left: 15rem ;
-
-}
-body{
-    padding-left: 15rem;
-    background-color: #f3f4f6;
-}
-
 
 @media (min-width:1024px){
     #app{width:auto}}
