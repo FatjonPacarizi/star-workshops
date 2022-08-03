@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\Controller;
 use App\Http\Controllers\SuperAdmin\TestController;
 use App\Http\Controllers\Admin\UserManageController;
+use App\Http\Controllers\LandingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,8 @@ use App\Http\Controllers\Admin\UserManageController;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::get('/landing',[LandingController::class,'index'])->name('landing');
 
 Route::middleware([
     'auth:sanctum',
