@@ -30,5 +30,6 @@ class DatabaseSeeder extends Seeder
             TypeSeeder::class,
             WorkshopSeeder::class,
         ]);
+
     }
 }
