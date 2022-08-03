@@ -19,15 +19,20 @@
     <div class="text-center lg:w-2/3 w-full">
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-red-600">About Star Workshops</h1>
       <p class="mb-8 leading-relaxed">Our primary purpose is to improve the professionalism and competence of all those involved in nuclear security so that nuclear and other radioactive materials are not used for terrorist or other criminal purposes. This requires confidence that the management and regulatory systems that support nuclear security are effective against the postulated threats including physical, cyber and insiders, as well as combinations thereof. We support this objective by sharing best security practices and advocating for the professional certification of all personnel with responsibilities for nuclear security.</p>
-      <div class="text-center lg:w-3/3 w-full">
-        <img class="object-cover object-center rounded" alt="Map" src="{{ asset('img/map.jpg') }}">
-        <span class="text-red-600 text-3xl"> <b>5974</b></span><br>
-        <span>members worldwide in</span><br>
-        <span class="text-red-600 text-3xl"><b>150 Countries</b></span>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
+      <div class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
+          <img class="object-cover w-full h-48" alt="Map" src="{{ asset('img/map.jpg') }}">
+          <div class="absolute top-0 left-0 px-6 py-4">
+            <h4 class="mb-3 text-xl font-semibold tracking-tight"> 
+              <span class="text-red-600"> <b>5974</b></span><br>
+              <span class="text-black">members worldwide in</span><br>
+              <span class="text-red-600"><b>150 Countries</b></span>
+            </h4>
+          </div>
+        </div>
       </div>
-
-
     </div>
+  </div>
 </section>
 
 <section class="text-white body-font bg-red-600">
@@ -61,7 +66,6 @@
     </div>
   </div>
 </section>
-
 
 <section class="text-white body-font bg-red-600">
   <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
