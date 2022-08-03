@@ -15,6 +15,15 @@ class CreateWorkshopsTable extends Migration
     {
         Schema::create('workshops', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->bigInteger('type_id')->unsigned();
+            $table->foreign('type_id')->references('id')->on('types');
+            $table->bigInteger('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('countries');
+            $table->bigInteger('city_id')->unsigned();
+            $table->foreign('city_id')->references('id')->on('cities');
+            $table->bigInteger('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }

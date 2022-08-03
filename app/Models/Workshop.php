@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Workshop extends Model
 {
     use HasFactory;
+
+    public static function create(array $array)
+    {
+    }
 }

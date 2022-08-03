@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Country;
+use App\Models\Faq;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class FaqSeeder extends Seeder
 {
@@ -13,6 +16,27 @@ class FaqSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Faq::create([
+            'question'      => 'Who attends The Start Workshop?',
+            'answer'     => 'People from all walks of life and professions, all ages, and many different countries. ',
+        ]);
+        Faq::create([
+            'question'      => 'What language is the course taught in?',
+            'answer'     => 'The Creativity Workshop is taught in Albanian,English.',
+        ]);
+        Faq::create([
+            'question'      => 'Do you offer certificates of completion?',
+            'answer'     => 'Yes, we offer certificates upon request at the end of the workshop.',
+            ]);
+        Faq::create([
+            'question'      => 'What is the payment schedule?',
+            'answer'     => 'The payment schedule varies depending on the workshop. You will find a payment schedule at the bottom of each individual workshop’s page.',
+        ]);
+        Faq::create([
+            'question'      => 'Will i be able to join with via the phone?',
+            'answer'     => 'This is an interactive workshop with different media used throughout the session. Participation will be extremely hampered if you do not have access to a personal computer with a camera and microphone.',
+        ]);
     }
+
+
 }
