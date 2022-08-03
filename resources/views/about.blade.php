@@ -21,7 +21,7 @@ Located in 1700 square meters in the center of Prishtina, we operate with 200 en
       <div class="flex justify-center">
        <a href="{{url('https://www.starlabs.dev/')}}"> <button style="    margin-top: 20px;
     margin-left: -4px;"class="ml-4 inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg">Find out more</button>
-      </a</div>
+      </a></div>
     </div>
     <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
       <img class="object-cover object-center rounded" alt="Workshops and Training" src="{{ asset('img/3.png') }}">
