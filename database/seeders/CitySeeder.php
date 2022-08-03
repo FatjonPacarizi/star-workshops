@@ -2,7 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\City;
+use App\Models\Country;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class CitySeeder extends Seeder
 {
@@ -13,6 +17,9 @@ class CitySeeder extends Seeder
      */
     public function run()
     {
-        //
+        City::create([
+            'name' => 'Prizren',
+            'postalcode' => '20000',
+        ]);
     }
 }
