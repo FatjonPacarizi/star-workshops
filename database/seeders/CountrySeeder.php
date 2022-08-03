@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Country;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class CountrySeeder extends Seeder
 {
@@ -13,6 +15,10 @@ class CountrySeeder extends Seeder
      */
     public function run()
     {
-        //
+        Country::create([
+            'name'      => 'Albania',
+            'language'     => 'Shqip',
+            'region'  => 'Eastern Europe',
+        ]);
     }
 }
