@@ -1,17 +1,44 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+  <div class="p-6 flex flex-col  items-center">
 
-    <div class="py-12 ">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <h1>Manage Users</h1>
-            </div>
-
-         
+    <div class="w-full bg-white border border-gray-200 rounded">
+      
+            <h1 class = "p-3 text-slate-900 border-b border-gray-200 mb-4 ">User Managment</h1>
+             <div class="w-full flex justify-center">
+            <table class="w-full mx-4">
+              <tr class="border-y border-gray-200 ">
+                <td class="font-bold p-3">User Status </td>
+                <td class="font-bold">Email</td>
+                <td class="font-bold">Email</td>
+                <td class="font-bold text-center w-1/9">Actions</td>
+              </tr>
+            @unless($users->isEmpty())
+            @foreach($users as $user)
+            <tr @if($user->user_status == 'superadmin') class = 'bg-gray-100' @endif>
+              <td class = "p-3" >{{$user->user_status}}</td>
+              <td >{{$user->name}}</td>
+              <td ><a href="#" class = "text-blue-600"> {{$user->email}}</a></td>
+              <td class = "flex justify-center items-center" >
+                 <a href="/usersManager/{{$user->id}}/edit" class="bg-sky-500 text-white px-4 py-1 text-sm rounded m-3">
+                    Edit
+                  </a>
+                <form method="POST" action="/usersManager/{{$user->id}}">
+                  @csrf
+                  @method('DELETE')
+                  <button class="bg-red-500 text-white px-4 py-1 text-sm rounded"> Delete</button>
+                </form>
+              </td>
+            </tr>
+            @endforeach
+            @else
+            <tr>
+              <td >
+                <p class="text-center">No users Found</p>
+              </td>
+            </tr>
+            @endunless
+    </table>
+  </div>
         </div>
-    </div>
+      </div>
 </x-app-layout>
