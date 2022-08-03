@@ -15,7 +15,7 @@ use App\Http\Controllers\Admin\UserManageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::view('/about','about');
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
