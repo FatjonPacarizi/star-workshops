@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\Controller;
-use App\Http\Controllers\SuperAdmin\TestController;
-use App\Http\Controllers\Admin\UserManageController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\InformationController;
+use App\Http\Controllers\SuperAdmin\TestController;
+use App\Http\Controllers\SuperAdmin\UserManageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +47,8 @@ Route::group(['middleware' => 'auth'],function(){
             Route::get('usersManager/{id}/edit',[UserManageController::class,'edit']);
             Route::put('/usersManager/{id}',[UserManageController::class, 'update']);
             Route::delete('/usersManager/{user}', [UserManageController::class, 'destroy']);
-
+            Route::get('/appInfos1', [InformationController::class, 'index'])->name('ShowAppInfos');
+            Route::put('/appInfos1/{id}/edit', [InformationController::class, 'update']);
         });
 
 
@@ -59,6 +61,7 @@ Route::group(['middleware' => 'auth'],function(){
 
              // Add routes here for admin
              Route::get('admin',[testController::class,'index'])->name('admin'); //this is a test route
+             Route::get('/appInfos2', [InformationController::class, 'index'])->name('ShowAppInfos');
         });
 
     //Users group routes
