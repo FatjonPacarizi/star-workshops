@@ -20,10 +20,9 @@ class WorkshopSeeder extends Seeder
      *
      * @return void
      */
+
     public function run()
     {
-;
-
         DB::table('workshops')->insert([
             'name' => 'Bootcamps',
             'type_id' => '1',

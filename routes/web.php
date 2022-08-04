@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('workshop', function () {
+    return view('workshopPage');
+});
+
 Route::get('/landing',[LandingController::class,'index'])->name('landing');
 
 Route::middleware([
