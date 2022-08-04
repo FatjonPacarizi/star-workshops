@@ -27,7 +27,7 @@ class InformationController extends Controller
     ]);
 
     if(request()->hasFile('logo_name')) {
-        $formFields['logo_name'] = request()->file('logo_name')->store('public');
+        $formFields['logo_name'] = request()->file('logo_name')->store('logos','public');
     }
 
     Informations::find($id)->update($formFields);

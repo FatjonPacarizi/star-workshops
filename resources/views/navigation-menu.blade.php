@@ -6,7 +6,10 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
-                    <img src="{{URL::asset('/img/23.png')}}" alt="" height="300" width="400">
+                        @php
+                               $information = App\Models\Informations::find(1);
+                        @endphp
+                    <img src="{{asset('storage/' . $information->logo_name)}}"  alt="" height="300" width="400">
                     </a>
                 </div>
                 

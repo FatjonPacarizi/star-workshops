@@ -7,7 +7,7 @@
               <a href="/dashboard" class="p-3 text-gray-400"> Cancel</a>
             </div>
               <div class="flex flex-col items-center">
-            <form method="POST" action="/appInfos1/{{$informations[0]->id}}/edit" enctype="multipart/form-data">
+            <form method="POST" action="/appInfos/{{$informations[0]->id}}/edit" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="mb-6">
@@ -26,10 +26,7 @@
                     App Logo
                   </label>
                   <input type="file" class="border border-gray-200 rounded p-2 w-full" name="logo_name" />
-          
-                  <img class="w-48 mr-6 mb-6"
-                    src="{{$informations[0]->logo_name ? asset('storage/' . $informations[0]->logo_name) : asset('/img/23.png')}}" alt="" />
-          
+                    
                   @error('logo_name')
                   <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                   @enderror

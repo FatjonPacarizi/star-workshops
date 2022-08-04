@@ -63,7 +63,7 @@ Route::group(['middleware' => 'auth'],function(){
         });
 
 
-    //SuperAdmin,Admin group routes 
+    //SuperAdmin and Admin group routes 
     Route::group(
         [
             'middleware' => ['is_admin_or_superadmin'],
