@@ -28,7 +28,7 @@ class UserFactory extends Factory
             'name' => 'admin',
             'email' => 'admin@admin.com',
             'email_verified_at' => now(),
-            'password' => 'secret', // password
+            'password' => '$2y$10$Mce3xViPlXMwIxAooHi.k.8RTC1m0xz/CGgpAQVFrj8h6bV9Ilwgq', // password
             'remember_token' => Str::random(10),
             'user_status' => 'superadmin'
         ];
