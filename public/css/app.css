@@ -2599,3 +2599,90 @@ select {
   }
 }
 
+
+/*! tailwindcss v2.1.4  */
+
+
+*,::after,::before{box-sizing:border-box}
+html{-moz-tab-size:4;-o-tab-size:4;tab-size:4}
+html{line-height:1.15;-webkit-text-size-adjust:100%}
+
+hr{
+    height:0;color:inherit
+}
+
+
+
+@media (min-width:1024px){
+    #app{width:auto}}
+.main-section{padding:1.5rem}
+
+@media (min-width:1024px){
+    .m-clipped,
+    .m-clipped
+    body{
+        overflow:visible
+    }
+}
+
+#app{
+    width:100vw;
+    transition-property:all;
+    transition-timing-function:cubic-bezier(.4,0,.2,1);
+    transition-duration:150ms
+}
+.aside{
+    --tw-bg-opacity:1;
+    background-color:#3c4b64;
+    height:100vh;
+    position:fixed;
+    top:64px;
+    left:-15rem;
+    width:15rem;
+    z-index:40;
+    transition-property:all;
+    transition-timing-function:cubic-bezier(.4,0,.2,1);
+    transition-duration:150ms
+}
+
+.aside-tools{--tw-bg-opacity:1;
+    background-color:#3c4b64;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    flex:1 1 0%;
+    height:3.5rem;
+    padding-left:.75rem;
+    padding-right:.75rem;
+    --tw-text-opacity:1;color:rgba(255,255,255,var(--tw-text-opacity));
+    width:100%
+}
+.aside-mobile-expanded .aside{left:0}
+.aside-mobile-expanded #app{margin-left:15rem}
+
+.menu-label{font-size:.75rem;line-height:1rem;padding:.75rem;--tw-text-opacity:1;color:rgba(156,163,175,var(--tw-text-opacity));text-transform:uppercase}
+.menu-list li a{display:flex;padding-top:.5rem;padding-bottom:.5rem;--tw-text-opacity:1;color:rgba(209,213,219,var(--tw-text-opacity))}
+.menu-list li>a:hover{--tw-bg-opacity:1;background-color:#46546c}
+.menu-list li a .menu-item-label{flex-grow:1}
+.menu-list li a .icon{flex:none;width:3rem}
+.menu-list li.active>a{--tw-bg-opacity:1;background-color:#46546c}
+.menu-list li ul{display:none}.menu-list li ul a{font-size:.875rem;line-height:1.25rem;padding:.75rem}
+.menu-list li.active ul{--tw-bg-opacity:1;background-color:rgba(75,85,99,var(--tw-bg-opacity));display:block}
+.icon{display:inline-flex;align-items:center;justify-content:center;height:1.5rem;width:1.5rem}
+.icon.widget-icon{height:5rem;width:5rem}
+.icon.large{height:3rem;width:3rem}
+.icon i{display:inline-flex}
+
+@media (min-width:1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+@media (min-width:1024px){
+    .aside{left:0}
+}
+@media (min-width:1024px){
+    #app{width:auto}
+}
+
+
+
+
+
