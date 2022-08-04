@@ -42,7 +42,11 @@ Route::group(['middleware' => 'auth'],function(){
         ], function(){
 
             // Add routes here for superadmin
-            Route::get('superadmin',[testController::class,'index'])->name('superadmin'); //this is a test route
+            Route::get('usersManager',[UserManageController::class,'index'])->name('showManageUsers');
+            Route::get('usersManager/{id}/edit',[UserManageController::class,'edit']);
+            Route::put('/usersManager/{id}',[UserManageController::class, 'update']);
+            Route::delete('/usersManager/{user}', [UserManageController::class, 'destroy']);
+
         });
 
 
@@ -54,7 +58,7 @@ Route::group(['middleware' => 'auth'],function(){
         ], function(){
 
              // Add routes here for admin
-            Route::get('usersmanage',[userManageController::class,'index'])->name('manageusers');//this is a test route
+             Route::get('admin',[testController::class,'index'])->name('admin'); //this is a test route
         });
 
     //Users group routes

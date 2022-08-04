@@ -16,11 +16,15 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
+                @can('is_super_admin')
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('admin.manageusers') }}">
+                    <x-jet-nav-link href="{{ route('superadmin.showManageUsers') }}" :active="request()->routeIs('usersManager')">
                         {{ __('Manage Users') }}
                     </x-jet-nav-link>
                 </div>
+                @endcan
+               
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -103,7 +107,8 @@
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
-                            </x-jet-dropdown-link>
+                            </x-jet-dropdown-link> 
+                            
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
