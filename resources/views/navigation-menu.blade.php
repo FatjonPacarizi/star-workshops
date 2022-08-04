@@ -22,20 +22,14 @@
                         {{ __('Manage Users') }}
                     </x-jet-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('superadmin.ShowAppInfos') }}" :active="request()->routeIs('appInfos1')">
+                @endcan
+                @can('is_admin_or_superadmin')
+                  <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('adminsuperadmin.ShowAppInfos') }}" :active="request()->routeIs('appInfos')">
                         {{ __('App Informations') }}
                     </x-jet-nav-link>
                 </div>
-                @endcan
-                @can('is_admin')
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('admin.ShowAppInfos') }}" :active="request()->routeIs('appInfos2')">
-                        {{ __('App Informations') }}
-                    </x-jet-nav-link>
-                </div>
-                @endcan
-               
+               @endcan
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
