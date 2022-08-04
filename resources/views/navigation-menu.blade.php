@@ -9,7 +9,7 @@
                         @php
                                $information = App\Models\Informations::find(1);
                         @endphp
-                    <img src="{{asset('storage/' . $information->logo_name)}}"  alt="" height="300" width="400">
+                    <img src="{{$information->logo_name ? asset('storage/' . $information->logo_name) : asset('/img/23.png')}}"  alt="" height="300" width="400">
                     </a>
                 </div>
                 
