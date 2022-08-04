@@ -2,15 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
-use App\Models\City;
-use App\Models\Country;
+use Informations;
 use App\Models\Faq;
-use App\Models\Feedback;
+use App\Models\City;
 use App\Models\Type;
 use App\Models\User;
+use App\Models\Country;
+use App\Models\Category;
+use App\Models\Feedback;
 use App\Models\Workshop;
 use Illuminate\Database\Seeder;
+use Database\Seeders\InformationSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -29,6 +31,7 @@ class DatabaseSeeder extends Seeder
             FeedbackSeeder::class,
             TypeSeeder::class,
             WorkshopSeeder::class,
+            InformationsSeeder::class
         ]);
 
     }

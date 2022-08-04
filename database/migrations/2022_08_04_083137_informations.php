@@ -13,10 +13,10 @@ class Informations extends Migration
      */
     public function up()
     {
-        Schema::create('informatios', function (Blueprint $table) {
+        Schema::create('informations', function (Blueprint $table) {
             $table->id();
             $table->string('app_name');
-            $table->string('logo_name');
+            $table->string('logo_name')->nullable();
             $table->timestamps();
         });
     }
