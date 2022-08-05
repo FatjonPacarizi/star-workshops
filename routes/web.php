@@ -17,12 +17,8 @@ use App\Http\Controllers\SuperAdmin\UserManageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/about','about');
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
 
-Route::get('/landing',[LandingController::class,'index'])->name('landing');
+Route::get('/',[LandingController::class,'index'])->name('landing');
 
 Route::middleware([
     'auth:sanctum',
