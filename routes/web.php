@@ -18,6 +18,10 @@ use App\Http\Controllers\SuperAdmin\UserManageController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
 Route::get('/',[LandingController::class,'index'])->name('landing');
 
 Route::middleware([
