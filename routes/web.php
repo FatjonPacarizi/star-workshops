@@ -31,6 +31,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/workshop', function () {
+    return view('workshopPage');
+});
+
 Route::get('/',[LandingController::class,'index'])->name('landing');
 
 Route::middleware([
@@ -56,7 +60,7 @@ Route::group(['middleware' => 'auth'],function(){
             Route::get('usersManager/{id}/edit',[UserManageController::class,'edit']);
             Route::put('/usersManager/{id}',[UserManageController::class, 'update']);
             Route::delete('/usersManager/{user}', [UserManageController::class, 'destroy']);
-           
+
         });
 
 
@@ -72,13 +76,13 @@ Route::group(['middleware' => 'auth'],function(){
         });
 
 
-    //SuperAdmin and Admin group routes 
+    //SuperAdmin and Admin group routes
     Route::group(
         [
             'middleware' => ['is_admin_or_superadmin'],
             'as' => 'adminsuperadmin.',
         ], function() {
-         // Add routes here for admin and superadmin 
+         // Add routes here for admin and superadmin
 
          Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
          Route::put('/appInfos/{id}/edit', [InformationController::class, 'update']);
