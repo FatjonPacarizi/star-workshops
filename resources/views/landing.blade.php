@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="text-white body-font bg-red-600 bg-red-600">
+<section class="text-white body-font  bg-red-600">
   <div class="container-fluid mx-auto flex px-5 py-24 justify-left flex-col">
     <div class="lg:w-2/3 w-full">
       <h1 class="title-font sm:text-1xl text-1xl mb-4 font-medium text-white">A STAR WORKSHOPS SPECIAL MESSAGE</h1>

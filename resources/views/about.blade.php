@@ -37,3 +37,7 @@
 
 
 </x-app-layout>
+
+
+@yield('content')
+    @include('layouts.partials.footer')
