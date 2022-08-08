@@ -2,9 +2,15 @@
 
 @section('content')
 
+
+<section class="text-white body-font  bg-red-600">
+  <div class="container-fluid mx-auto flex px-5 py-24 justify-left flex-col">
+    <div class="lg:w-2/3 w-full">
+
 <section class="text-white body-font bg-red-600 bg-red-600">
   <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
     <div class="text-center lg:w-2/3 w-full">
+
       <h1 class="title-font sm:text-1xl text-1xl mb-4 font-medium text-white">A STAR WORKSHOPS SPECIAL MESSAGE</h1>
       <p class="mb-8 leading-relaxed text-white text-3xl">Star Workshops condemns any military attacks on Ukraine’s nuclear infrastructure and expresses its support for those working hard to protect and secure these sites.</p>
       <div class="flex justify-center">
