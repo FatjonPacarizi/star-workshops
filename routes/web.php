@@ -18,6 +18,10 @@ use App\Http\Controllers\SuperAdmin\UserManageController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
 Route::get('/',[LandingController::class,'index'])->name('landing');
 
 Route::middleware([
@@ -26,7 +30,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('layouts.dashboard');
     })->name('dashboard');
 });
 
