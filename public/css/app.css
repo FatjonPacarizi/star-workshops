@@ -2000,6 +2000,9 @@ select {
 .pb-2 {
   padding-bottom: 0.5rem;
 }
+.pr-16 {
+  padding-right: 4rem;
+}
 .text-left {
   text-align: left;
 }
