@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\About;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class AboutController extends Controller
 {   
@@ -29,7 +30,8 @@ class AboutController extends Controller
         $about->paragraf = $request->input('paragraf');
         $about->button = $request->input('button');
         if($request->hasfile('image'))
-        {
+        {   
+          
             $file = $request->file('image');
             $extention = $file->getClientOriginalExtension();
             $filetitle = time().'.'.$extention;
@@ -37,7 +39,7 @@ class AboutController extends Controller
             $about->image = $filetitle;
         }
      
-        $about->save();
+        $about->update();
         return redirect()->back()->with('status','about Image Added Successfully');
     }
 
@@ -58,7 +60,11 @@ class AboutController extends Controller
         if($request->hasfile('image'))
         {
             $destination = 'uploads/abouts/'.$about->image;
-            
+           
+            if (File::exists($destination))
+            {
+                File::delete($destination);
+            }
             $file = $request->file('image');
             $extention = $file->getClientOriginalExtension();
             $filetitle = time().'.'.$extention;
