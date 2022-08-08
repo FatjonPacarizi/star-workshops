@@ -18,7 +18,7 @@ class CreateAboutsTable extends Migration
             
             $table->string('title');
             $table->string('heading');
-            $table->string('paragraf');
+            $table->text('paragraf');
             $table->string('image');
             $table->string('button');
             $table->timestamps();
