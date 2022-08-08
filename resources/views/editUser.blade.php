@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.app')
 @section('content')
   <div class="w-full h-full p-6 flex flex-col  items-center border">
 
@@ -51,7 +51,7 @@
               
           
                 <div class="w-full p-2 flex justify-end border-t border-gray-200">
-                  <button class="rounded py-2 px-4 bg-blue-800 text-white hover:bg-blue-900">Update User</button>
+                  <button class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600">Update User</button>
           
                  
                 </div>

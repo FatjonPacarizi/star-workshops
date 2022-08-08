@@ -30,7 +30,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('layouts.dashboard');
+        return view('layouts.app');
     })->name('dashboard');
 });
 
