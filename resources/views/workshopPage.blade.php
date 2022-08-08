@@ -1,13 +1,15 @@
-<x-app-layout >
+@extends('layouts.landinglayouts')
 
-    <section class="text-white body-font bg-red-700 clippath">
+@section('content')
 
-        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-            <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+    <section class="text-white body-font bg-red-700 clippath ">
+
+        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col  " >
+            <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left ">
                 <div class="flex ">
                     <a href="#" class="inline-flex border-0 text-black rounded text-sm hover:text-white"> < BACK TO EVENTS</a>
                 </div>
-                <h1 class="title-font sm:text-4xl mb-4 font-medium text-white text-5xl">Star
+                <h1 class="title-font sm:text-4xl mb-4 font-medium text-white text-5xl ">Star
                     <br class="hidden lg:inline-block">Workshop`s
                 </h1>
                 <p class="mb-8 leading-relaxed w-6/12">Star Workshop is a company that manages workshops for the clients. It started working on 15 September 2022 and since then has proceeded with the good team work. You can learn more about it on our page.</p>
@@ -17,14 +19,14 @@
             </div>
 
             <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                <img class="object-cover object-center rounded" alt="hero" src="{{ asset('img/workshop.jpg') }}">
+                <img class="object-cover rounded" alt="hero" src="{{ asset('img/workshop.jpg') }}">
             </div> </div>
     </section>
 
 
     <section class="text-white body-font bg-white">
-        <div class="container mx-auto px-5 py-24  items-center">
-            <div class="lg:flex-grow lg:pl-24 md:pl-16 md:items-start md:text-left items-center text-center">
+        <div class="container mx-auto px-5 py-24  ">
+            <div class="lg:flex-grow lg:pl-24 md:pl-16 md:items-start md:text-left ">
                 <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white text-red-600">Background</h1>
                 <p class="mb-8 leading-relaxed text-xl text-red-900">Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security</p>
                 <p class="mb-8 leading-relaxed text-black">WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply.
@@ -33,7 +35,7 @@
                     Pristina, KOSOVO </p>
             </div>
 
-            <div class="lg:flex-grow lg:pl-24 md:pl-16 md:text-left items-center text-center">
+            <div class="lg:flex-grow lg:pl-24 md:pl-16 md:text-left">
                 <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white text-red-600">Objectives</h1>
                 <p class="mb-8 leading-relaxed text-xl text-black">The key objectives of the side event were:</p>
                 <p class="mb-8 leading-relaxed text-black"><span class="text-red-600">-</span> To promote the new WINS Best Practice Guide on Regulatory Practices for Radioactive Source Security,</p>
@@ -44,7 +46,7 @@
             </div>
 
 
-            <div class="lg:flex-grow lg:pl-24 md:pl-16 md:text-left items-center text-center">
+            <div class="lg:flex-grow lg:pl-24 md:pl-16 md:text-left">
                 <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white text-red-600">Audience</h1>
                 <p class="mb-8 leading-relaxed text-xl text-white">The target audience was:</p>
                 <p class="mb-8 leading-relaxed text-black"><span class="text-red-600">-</span> Nuclear regulatory bodies,</p>
@@ -54,7 +56,7 @@
                 <p class="mb-8 leading-relaxed text-black"><span class="text-red-600">-</span> Government officials.</p>
             </div>
 
-            <div class="lg:flex-grow lg:pl-24 md:pl-16 md:text-left items-center text-center">
+            <div class="lg:flex-grow lg:pl-24 md:pl-16 md:text-left">
                 <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white text-red-600">Process</h1>
                 <p class="mb-8 leading-relaxed  text-black">The one hour, in-person event was facilitated by Mr. Tomas Bieda, WINS, and included presentations and discussions. The lead author for the Guide, a representative from a competent authority and a representative from a licensee were invited to contribute to the discussion. Hard copies of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security were made available during the event.</p>
                 <p class="mb-8 leading-relaxed text-black"> The event was conducted as a side event on the margins of the IAEA International Conference on the Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours (20–24 June 2022). To attend this side event, the participants needed to be registered for the conference since the access to the premises is limited.</p>
@@ -63,8 +65,4 @@
                 <p class="mb-8 leading-relaxed text-black"> WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.</p>
             </div></div>
     </section>
-
-    @include('layouts.partials.footer')
-
-</x-app-layout>
-
+@endsection
