@@ -2,12 +2,18 @@
 
 @section('content')
 
+
 <section class="text-white body-font  bg-red-600">
   <div class="container-fluid mx-auto flex px-5 py-24 justify-left flex-col">
     <div class="lg:w-2/3 w-full">
+
+<section class="text-white body-font bg-red-600 bg-red-600">
+  <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+    <div class="text-center lg:w-2/3 w-full">
+
       <h1 class="title-font sm:text-1xl text-1xl mb-4 font-medium text-white">A STAR WORKSHOPS SPECIAL MESSAGE</h1>
       <p class="mb-8 leading-relaxed text-white text-3xl">Star Workshops condemns any military attacks on Ukraine’s nuclear infrastructure and expresses its support for those working hard to protect and secure these sites.</p>
-      <div class="flex justify-left">
+      <div class="flex justify-center">
         <button class="ml-4 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-100 rounded-full text-lg">Read the full statement</button>
       </div>
     </div>
@@ -19,14 +25,14 @@
     <div class="text-center lg:w-2/3 w-full">
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-red-600">About Star Workshops</h1>
       <p class="mb-8 leading-relaxed">Our primary purpose is to improve the professionalism and competence of all those involved in nuclear security so that nuclear and other radioactive materials are not used for terrorist or other criminal purposes. This requires confidence that the management and regulatory systems that support nuclear security are effective against the postulated threats including physical, cyber and insiders, as well as combinations thereof. We support this objective by sharing best security practices and advocating for the professional certification of all personnel with responsibilities for nuclear security.</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
-      <div class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
-          <img class="object-cover w-full h-48" alt="Map" src="{{ asset('img/map.jpg') }}">
-          <div class="absolute top-0 left-0 px-6 py-4">
-            <h4 class="mb-3 text-xl font-semibold tracking-tight"> 
-              <span class="text-red-600"> <b>5974</b></span><br>
+      <div class="grid grid-cols-1 gap-6 w-full">
+        <div class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
+          <img class="object-cover w-full" alt="Map" src="{{ asset('img/map.jpg') }}">
+          <div class="absolute inset-0 inset-y-32">
+            <h4 class="mb-3 text-7xl font-semibold tracking-tight">
+              <span class="text-red-900"> <b>5974</b></span><br>
               <span class="text-black">members worldwide in</span><br>
-              <span class="text-red-600"><b>150 Countries</b></span>
+              <span class="text-red-900"><b>150 Countries</b></span>
             </h4>
           </div>
         </div>
@@ -42,7 +48,7 @@
       </h1>
       <p class="mb-8 leading-relaxed">Our professionally facilitated workshops and training courses provide excellent learning and peer-to-peer networking opportunities with a cross-section of the nuclear industry—from licensees and regulators to security experts, academics, law enforcement and vendors.</p>
       <div class="flex justify-center">
-        <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg">Find out more</button>
+        <button class="ml-4 mb-2 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg">Find out more</button>
       </div>
     </div>
     <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
@@ -74,7 +80,7 @@
       </h1>
       <p class="mb-8 leading-relaxed">The Knowledge Centre gives Star Workshops Members access to a constantly expanding archive of information on nuclear security, both from Star Workshops and from external sources.</p>
       <div class="flex justify-center">
-        <button class="ml-4 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg">Find out more</button>
+        <button class="ml-4 mb-2 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg">Find out more</button>
       </div>
     </div>
     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
@@ -85,7 +91,7 @@
 
 <section class="text-gray-600 body-font">
   <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+    <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
       <img class="object-cover object-center rounded" alt="Evaluation" src="{{ asset('img/Evaluation.jpg') }}">
     </div>
     <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">

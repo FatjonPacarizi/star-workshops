@@ -18,6 +18,7 @@ use App\Http\Controllers\SuperAdmin\UserManageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('abouts', [AboutController::class, 'index']);
 Route::get('add-about', [AboutController::class, 'create']);
 Route::post('add-about', [AboutController::class, 'store']);
@@ -25,11 +26,12 @@ Route::get('edit-about/{id}', [AboutController::class, 'edit']);
 Route::put('update-about/{id}', [AboutController::class, 'update']);
 Route::delete('delete-about/{id}', [AboutController::class, 'destroy']);
 Route::view('/about','about');
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/landing',[LandingController::class,'index'])->name('landing');
+Route::get('/',[LandingController::class,'index'])->name('landing');
 
 Route::middleware([
     'auth:sanctum',
@@ -37,7 +39,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('layouts.app');
     })->name('dashboard');
 });
 

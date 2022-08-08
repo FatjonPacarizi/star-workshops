@@ -1,7 +1,8 @@
-<x-app-layout>
-  <div class="p-6 flex flex-col  items-center">
+@extends('layouts.app')
+@section('content')
+  <div class="w-full h-full p-6 flex flex-col  items-center border">
 
-    <div class="w-full bg-white border border-gray-200 rounded">
+    <div class="w-full bg-white border border-gray-200 rounded mt-12">
             <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
 
             <h1 class = "p-3 text-slate-900">User Managment</h1>
@@ -50,7 +51,7 @@
               
           
                 <div class="w-full p-2 flex justify-end border-t border-gray-200">
-                  <button class="rounded py-2 px-4 bg-blue-800 text-white hover:bg-blue-900">Update User</button>
+                  <button class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600">Update User</button>
           
                  
                 </div>
@@ -58,5 +59,4 @@
         </div>
 
   </div>
-   
-</x-app-layout>
+   @endsection
