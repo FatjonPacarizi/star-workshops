@@ -12,27 +12,6 @@
                     <img src="{{$information->logo_name ? asset('storage/' . $information->logo_name) : asset('/img/23.png')}}"  alt="" height="300" width="400">
                     </a>
                 </div>
-                
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-jet-nav-link>
-                </div>
-                @can('is_super_admin')
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('superadmin.showManageUsers') }}" :active="request()->routeIs('usersManager')">
-                        {{ __('Manage Users') }}
-                    </x-jet-nav-link>
-                </div>
-                @endcan
-                @can('is_admin_or_superadmin')
-                  <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('adminsuperadmin.ShowAppInfos') }}" :active="request()->routeIs('appInfos')">
-                        {{ __('App Informations') }}
-                    </x-jet-nav-link>
-                </div>
-               @endcan
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

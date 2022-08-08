@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.app')
   @section('content')
   <div class="w-full h-full p-6  flex flex-col  items-center">
 
@@ -21,12 +21,17 @@
               <td ><a href="#" class = "text-blue-600"> {{$user->email}}</a></td>
               <td class = "flex justify-center items-center" >
                  <a href="/usersManager/{{$user->id}}/edit" class="bg-sky-500 text-white px-4 py-1 text-sm rounded m-3">
-                    Edit
+                  <span class="inline-flex items-center justify-center h-6 w-6"><i class="mdi mdi-pencil-outline inline-flex"></i></span>
+
+                  Edit
                   </a>
                 <form method="POST" action="/usersManager/{{$user->id}}">
                   @csrf
                   @method('DELETE')
-                  <button class="bg-red-500 text-white px-4 py-1 text-sm rounded"> Delete</button>
+                  <button class="bg-red-500 text-white px-4 py-1 text-sm rounded">
+                  <span class="inline-flex items-center justify-center h-6 w-6"><i class="mdi mdi-delete-outline inline-flex"></i></span>
+                    Delete
+                  </button>
                 </form>
               </td>
             </tr>
