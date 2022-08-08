@@ -1,67 +1,55 @@
-
-
 <x-app-layout>
+  <div class="p-6 flex flex-col  items-center">
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Laravel 8 IMAGE CRUD
-                        <a href="{{ url('add-about') }}" class="btn btn-primary float-end">Add Student</a>
-                    </h4>
-                </div>
-                <div class="card-body">
-
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Image</th>
-                                <th>title</th>
-                                <th>heading</th>
-                                <th>paragraf</th>
-                                <th>button</th>
-                                <th>Image</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+    <div class="w-full bg-white border border-gray-200 rounded pb-4">
+      
+            <h1 class = "p-3 text-slate-900 border-b border-gray-200 mb-4 ">About Curd</h1>
+             <div class="w-full flex justify-center">
+            <table class="w-full mx-4">
+        
+              <tr class="border-y border-gray-200 ">
+                                <td class="font-bold p-3">ID</td>
+                             
+                                <td class="font-bold">Title</td>
+                                <td class="font-bold">Heading</td>
+                                <td class="font-bold" >Paragraf</td>
+                                <td class="font-bold">Button</td>
+                                <td class="font-bold" >Image</td>
+                                <td class="font-bold text-center w-1/9">Actions</td>
                             </tr>
-                        </thead>
-                        <tbody>
+                        
+                      
                             @foreach ($about as $item)
-                            <tr>
+                            <tr  class = 'bg-gray-100'>
                                 <td>{{ $item->id }}</td>
-                                <td>
-                                    <img src="{{ asset('uploads/abouts/'.$item->image_section) }}" width="70px" height="70px" alt="Image">
-                                </td>
+                                
                                 <td>{{ $item->title }}</td>
                                 <td>{{ $item->heading }}</td>
-                                <td>{{ $item->button }}</td>
+                               
                                 <td>{{ $item->paragraf }}</td>
+                                <td>{{ $item->button }}</td>
                                 <td>
                                     <img src="{{ asset('uploads/abouts/'.$item->image) }}" width="70px" height="70px" alt="Image">
                                 </td>
                                
-                                <td>
-                                    <a href="{{ url('edit-about/'.$item->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                <td >
+                                    <a href="{{ url('edit-about/'.$item->id) }}" class="bg-sky-500 text-white px-4 py-1 text-sm rounded m-3">Edit</a>
                                 </td>
                                 <td>
-                                    {{-- <a href="{{ url('delete-about/'.$item->id) }}" class="btn btn-danger btn-sm">Delete</a> --}}
+                                    {{-- <a href="{{ url('delete-about/'.$item->id) }}" class="bg-red-500 text-white px-4 py-1 text-sm rounded">Delete</a> --}}
                                     <form action="{{ url('delete-about/'.$item->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        <button type="submit" class="bg-red-500 text-white px-4 py-1 text-sm rounded">Delete</button>
                                     </form>
                                 </td>
                             </tr>
                             @endforeach
-                        </tbody>
+                     
                     </table>
 
-                </div>
-            </div>
+                    </div>
         </div>
-    </div>
-</div>
+      </div>
 
 </x-app-layout>

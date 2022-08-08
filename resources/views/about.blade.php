@@ -16,12 +16,11 @@
 @php
                                $about = App\Models\About::find(1);
                         @endphp  <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium">{{$about->heading}}</h1>
-      <p>
+                        @php
+                               $about = App\Models\About::find(1);
+                        @endphp   <p>
     
-StarLabs was established in 2015 in Prishtina, the Capital City of Kosovo in southeastern Europe. Our Company was established by two technology and business management experts who have over 10 years of experience in ICT outsourcing services.
-
-Located in 1700 square meters in the center of Prishtina, we operate with 200 engineering teams. Our biggest advantage is that we have access to the biggest pool of talents through our access in Digital School – The sister company, which is the biggest programming school for youth in the country as well as a franchise in over 50 locations worldwide.</p>
-      <div class="flex justify-center">
+                        {{$about->paragraf}}  <div class="flex justify-center">
        <a href="{{url('https://www.starlabs.dev/')}}"> <button style="    margin-top: 20px;
     margin-left: -4px;"class="ml-4 inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg">Find out more</button>
       </a></div>
