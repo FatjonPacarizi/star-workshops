@@ -3,11 +3,11 @@
 @section('content')
 
 <section class="text-white body-font bg-red-600 bg-red-600">
-  <div class="container-fluid mx-auto flex px-5 py-24 justify-left flex-col">
-    <div class="lg:w-2/3 w-full">
+  <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+    <div class="text-center lg:w-2/3 w-full">
       <h1 class="title-font sm:text-1xl text-1xl mb-4 font-medium text-white">A STAR WORKSHOPS SPECIAL MESSAGE</h1>
       <p class="mb-8 leading-relaxed text-white text-3xl">Star Workshops condemns any military attacks on Ukraine’s nuclear infrastructure and expresses its support for those working hard to protect and secure these sites.</p>
-      <div class="flex justify-left">
+      <div class="flex justify-center">
         <button class="ml-4 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-100 rounded-full text-lg">Read the full statement</button>
       </div>
     </div>
@@ -22,11 +22,11 @@
       <div class="grid grid-cols-1 gap-6 w-full">
         <div class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
           <img class="object-cover w-full" alt="Map" src="{{ asset('img/map.jpg') }}">
-          <div class="absolute top-0 left-0 px-6 py-4">
-            <h4 class="mb-3 text-xl font-semibold tracking-tight">
-              <span class="text-red-600"> <b>5974</b></span><br>
+          <div class="absolute inset-0 inset-y-32">
+            <h4 class="mb-3 text-7xl font-semibold tracking-tight">
+              <span class="text-red-900"> <b>5974</b></span><br>
               <span class="text-black">members worldwide in</span><br>
-              <span class="text-red-600"><b>150 Countries</b></span>
+              <span class="text-red-900"><b>150 Countries</b></span>
             </h4>
           </div>
         </div>

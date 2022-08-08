@@ -33,7 +33,9 @@
                 </div>
                 <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                     <div class="flex-shrink-0 flex items-center">
-                        <img class="block h-48 p-5 mt-2 w-auto" alt="Logo" src="{{ asset('img/Logo.png') }}">
+                        <a href="{{ route('landing' ) }}">
+                            <img class="block h-48 p-5 mt-2 w-auto" alt="Logo" src="{{ asset('img/Logo.png') }}">
+                        </a>
                     </div>
                     <div class="hidden sm:block sm:ml-6">
                         <div class="flex space-x-4">
