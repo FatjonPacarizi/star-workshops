@@ -1,46 +1,38 @@
 
-
 <x-app-layout>
-<div class="p-6 flex flex-col  items-center">
-  
-      <div class="w-full bg-white border border-gray-200 rounded">
-              <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
-              <h1 class = "p-3 text-slate-900">App Information</h1>
+  <div class="p-6 flex flex-col  items-center">
+
+    <div class="w-full bg-white border border-gray-200 rounded">
+            <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
+                <h1 class = "p-3 text-slate-900">App About</h1>
               <a href="/dashboard" class="p-3 text-gray-400"> Cancel</a>
             </div>
-            <div class="card">
-                <div class="card-header">
-                    <h4>Add Student with IMAGE
-                        <a href="{{ url('about') }}" class="btn btn-danger float-end">BACK</a>
-                    </h4>
-                </div>
-                <div class="card-body">
-
+           
                     <form action="{{ url('add-about') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                        
-                        <div class="form-group mb-3">
-                            <label for="">Student Name</label>
-                            <input type="text" name="title" class="form-control">
+                        <div class="mb-6 flex items-center">
+                            <label class="w-28 text-sm mx-5" for="">About Title</label>
+                            <input type="text" name="title" class="border border-gray-200 rounded p-1 w-full mx-5">
                         </div>
-                        <div class="form-group mb-3">
-                            <label for="">Student Email</label>
-                            <input type="text" name="heading" class="form-control">
+                        <div class="mb-6 flex items-center">
+                            <label class="w-28 text-sm mx-5" for="">About Title</label>
+                            <input type="text" name="heading" class="border border-gray-200 rounded p-1 w-full mx-5">
                         </div>
-                        <div class="form-group mb-3">
-                            <label for="">Student Course</label>
-                            <input type="text" name="paragraf" class="form-control">
+                        <div class="mb-6 flex items-center">
+                            <label class="w-28 text-sm mx-5" for="">About Text</label>
+                            <input type="text" name="paragraf" class="border border-gray-200 rounded p-1 w-full mx-5">
                         </div>
-                        <div class="form-group mb-3">
-                            <label for="">Student Course</label>
-                            <input type="text" name="button" class="form-control">
+                        <div class="mb-6 flex items-center">
+                            <label class="w-28 text-sm mx-5" for="">About Button</label>
+                            <input type="text" name="button" class="border border-gray-200 rounded p-1 w-full mx-5">
                         </div>
-                        <div class="form-group mb-3">
-                            <label for="">Student Profile Image</label>
-                            <input type="file" name="image" class="form-control">
+                        <div class="mb-6 flex items-center">
+                            <label class="w-28 text-sm mx-5" for="">About  Image</label>
+                            <input type="file" name="image" class="border border-gray-200 rounded p-1 w-full mx-5">
                         </div>
-                        <div class="form-group mb-3">
-                            <button type="submit" class="btn btn-primary">Save Student</button>
+                        <div class="w-full p-2 flex justify-end border-t border-gray-200">
+                            <button type="submit" class="rounded py-2 px-5 bg-blue-800 text-white hover:bg-blue-900" >Add About</button>
                         </div>
 
                     </form>
