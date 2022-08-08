@@ -11,8 +11,8 @@
                                 <td class="font-bold p-3">ID</td>
                              
                                 <td class="font-bold">Title</td>
-                                <td class="font-bold">Heading</td>
-                                <td class="font-bold" >Paragraf</td>
+                                <td class="font-bold">Title</td>
+                                <td class="font-bold" >Text</td>
                                 <td class="font-bold">Button</td>
                                 <td class="font-bold" >Image</td>
                                 <td class="font-bold text-center w-1/9">Actions</td>
