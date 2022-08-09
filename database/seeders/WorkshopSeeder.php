@@ -23,28 +23,6 @@ class WorkshopSeeder extends Seeder
     public function run()
     {
 ;
-
-        DB::table('workshops')->insert([
-            'name' => 'Bootcamps',
-            'type_id' => '1',
-            'country_id' => '1',
-            'city_id' => '1',
-            'category_id' => '1',
-        ]);
-
-        DB::table('workshops')->insert([
-            'name' => 'Online Workshops',
-            'type_id' => '1',
-            'country_id' => '1',
-            'city_id' => '1',
-            'category_id' => '1',
-        ]);
-        DB::table('workshops')->insert([
-            'name' => 'Live Trainings',
-            'type_id' => '1',
-            'country_id' => '1',
-            'city_id' => '1',
-            'category_id' => '1',
-        ]);
+        \App\Models\Workshop::factory(8)->create();
     }
 }
