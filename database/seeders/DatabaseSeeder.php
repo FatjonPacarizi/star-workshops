@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             TypeSeeder::class,
             WorkshopSeeder::class,
             InformationsSeeder::class
+            AboutsSeeder::class
         ]);
 
     }
