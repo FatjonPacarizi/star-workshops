@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\Controller;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\SuperAdmin\TestController;
 use App\Http\Controllers\Admin\UserManageController;
-use App\Http\Controllers\LandingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +20,14 @@ use App\Http\Controllers\LandingController;
 */
 
 
-
+Route::get('/',[LandingController::class,'index'])->name('landing');
 
 Route::get('/workshop', function () {
     return view('workshopPage');
 });
 
 Route::get('/',[LandingController::class,'index'])->name('landing');
+
 
 Route::get('/workshops',[WorkshopController::class,'index'])->name('workshops');
 
@@ -91,4 +92,5 @@ Route::group(['middleware' => 'auth'],function(){
              // Add routes here for users
             Route::get('users', [Controller::class,'index'])->name('users');//this is a test route
      });
+
 });
