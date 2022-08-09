@@ -6,7 +6,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\SuperAdmin\TestController;
-use App\Http\Controllers\SuperAdmin\UserManageController;
+use App\Http\Controllers\Admin\UserManageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +20,11 @@ use App\Http\Controllers\SuperAdmin\UserManageController;
 */
 
 
+Route::get('/',[LandingController::class,'index'])->name('landing');
 
 Route::get('/workshop', function () {
     return view('workshopPage');
 });
-
-
-Route::get('/',[LandingController::class,'index'])->name('landing');
 
 Route::get('/workshops',[WorkshopController::class,'index'])->name('workshops');
 
@@ -36,52 +34,37 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('layouts.app');
+        return view('dashboard');
     })->name('dashboard');
 });
 
 Route::group(['middleware' => 'auth'],function(){
-    //Super Admin only group routes
+    //Super Admin group routes
     Route::group(
         [
             'middleware'=>'is_superadmin',
             'as' => 'superadmin.',
         ], function(){
 
-            // Add routes here for superadmin only
-            Route::get('usersManager',[UserManageController::class,'index'])->name('showManageUsers');
-            Route::get('usersManager/{id}/edit',[UserManageController::class,'edit']);
-            Route::put('/usersManager/{id}',[UserManageController::class, 'update']);
-            Route::delete('/usersManager/{user}', [UserManageController::class, 'destroy']);
-           
-        });
+        // Add routes here for superadmin
+        Route::get('usersManager',[UserManageController::class,'index'])->name('showManageUsers');
+        Route::get('usersManager/{id}/edit',[UserManageController::class,'edit']);
+        Route::put('/usersManager/{id}',[UserManageController::class, 'update']);
+        Route::delete('/usersManager/{user}', [UserManageController::class, 'destroy']);
+
+    });
 
 
-    //Admin only group routes
+    //Admin group routes
     Route::group(
         [
             'middleware'=>'is_admin',
             'as' => 'admin.',
         ], function(){
 
-             // Add routes here for admin only
-             Route::get('admin',[testController::class,'index'])->name('admin'); //this is a test route
-        });
-
-
-    //SuperAdmin and Admin group routes 
-    Route::group(
-        [
-            'middleware' => ['is_admin_or_superadmin'],
-            'as' => 'adminsuperadmin.',
-        ], function() {
-         // Add routes here for admin and superadmin 
-
-         Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
-         Route::put('/appInfos/{id}/edit', [InformationController::class, 'update']);
-      });
-
-
+        // Add routes here for admin
+        Route::get('admin',[testController::class,'index'])->name('admin'); //this is a test route
+    });
 
     //Users group routes
     Route::group(
