@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\Controller;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\SuperAdmin\TestController;
 use App\Http\Controllers\SuperAdmin\UserManageController;
-use App\Http\Controllers\WorkshopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +19,18 @@ use App\Http\Controllers\WorkshopController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
 
 Route::get('/',[LandingController::class,'index'])->name('landing');
+
+Route::get('/workshop', function () {
+    return view('workshopPage');
+});
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/',[LandingController::class,'index'])->name('landing');
+
 
 Route::get('/workshops',[WorkshopController::class,'index'])->name('workshops');
 
@@ -50,7 +57,12 @@ Route::group(['middleware' => 'auth'],function(){
             Route::get('usersManager/{id}/edit',[UserManageController::class,'edit']);
             Route::put('/usersManager/{id}',[UserManageController::class, 'update']);
             Route::delete('/usersManager/{user}', [UserManageController::class, 'destroy']);
-           
+            Route::get('abouts', [AboutController::class, 'index']);
+            Route::get('add-about', [AboutController::class, 'create']);
+            Route::post('add-about', [AboutController::class, 'store']);
+            Route::get('edit-about/{id}', [AboutController::class, 'edit']);
+            Route::put('update-about/{id}', [AboutController::class, 'update']);
+            Route::delete('delete-about/{id}', [AboutController::class, 'destroy']);   
         });
 
 
@@ -88,4 +100,5 @@ Route::group(['middleware' => 'auth'],function(){
              // Add routes here for users
             Route::get('users', [Controller::class,'index'])->name('users');//this is a test route
      });
+
 });

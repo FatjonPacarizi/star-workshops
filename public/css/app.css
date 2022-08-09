@@ -1402,9 +1402,6 @@ select {
 .-mt-40 {
   margin-top: -10rem;
 }
-.-mb-10 {
-  margin-bottom: -2.5rem;
-}
 .block {
   display: block;
 }
@@ -1531,9 +1528,6 @@ select {
 .w-28 {
   width: 7rem;
 }
-.w-64 {
-  width: 16rem;
-}
 .min-w-0 {
   min-width: 0px;
 }
@@ -1557,9 +1551,6 @@ select {
 }
 .shrink-0 {
   flex-shrink: 0;
-}
-.flex-grow {
-  flex-grow: 1;
 }
 .grow {
   flex-grow: 1;
@@ -1605,9 +1596,6 @@ select {
 }
 .list-disc {
   list-style-type: disc;
-}
-.list-none {
-  list-style-type: none;
 }
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -1843,6 +1831,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(51 65 85 / var(--tw-bg-opacity));
 }
+.bg-blue-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
+}
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }
@@ -1993,6 +1985,9 @@ select {
 }
 .pl-10 {
   padding-left: 2.5rem;
+}
+.pr-16 {
+  padding-right: 4rem;
 }
 .text-left {
   text-align: left;
@@ -2316,6 +2311,10 @@ select {
 .hover\:bg-sky-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(2 132 199 / var(--tw-bg-opacity));
+}
+.hover\:bg-blue-900:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 58 138 / var(--tw-bg-opacity));
 }
 .hover\:text-gray-500:hover {
   --tw-text-opacity: 1;
@@ -2719,11 +2718,6 @@ select {
     grid-column: span 1 / span 1;
   }
 
-  .md\:mx-0 {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-
   .md\:mt-0 {
     margin-top: 0px;
   }
@@ -2756,20 +2750,8 @@ select {
     flex-direction: row;
   }
 
-  .md\:flex-nowrap {
-    flex-wrap: nowrap;
-  }
-
   .md\:items-start {
     align-items: flex-start;
-  }
-
-  .md\:items-center {
-    align-items: center;
-  }
-
-  .md\:justify-start {
-    justify-content: flex-start;
   }
 
   .md\:gap-6 {
@@ -2790,10 +2772,6 @@ select {
 
   .md\:pr-16 {
     padding-right: 4rem;
-  }
-
-  .md\:pl-20 {
-    padding-left: 5rem;
   }
 
   .md\:text-left {
@@ -2836,10 +2814,6 @@ select {
 
   .lg\:flex-grow {
     flex-grow: 1;
-  }
-
-  .lg\:items-start {
-    align-items: flex-start;
   }
 
   .lg\:px-8 {
