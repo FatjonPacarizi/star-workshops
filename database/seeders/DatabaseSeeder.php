@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             FeedbackSeeder::class,
             TypeSeeder::class,
             WorkshopSeeder::class,
-            InformationsSeeder::class
+            InformationsSeeder::class,
             AboutsSeeder::class
         ]);
 
