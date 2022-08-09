@@ -1,17 +1,23 @@
-<x-app-layout >
 
+@extends('layouts.landinglayouts')
 
+@section('content')
 
 
 <section class="body-font bg-white-600">
+
 <img src="{{ asset('img/2.png') }}" alt="">
+
 
   <div class="text-red-600 container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
     <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
       <p class="mb-8 leading-relaxed">About Us
 </p>
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium">We at StarLabs, know what it means to start from the bottom. We started from 0, and became 200! </h1>
+
+     
+      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium">We at StarLabs, know what it means to start from the bottom. We started from 0, and became 200!</h1>
       <p>
+
 StarLabs was established in 2015 in Prishtina, the Capital City of Kosovo in southeastern Europe. Our Company was established by two technology and business management experts who have over 10 years of experience in ICT outsourcing services.
 
 Located in 1700 square meters in the center of Prishtina, we operate with 200 engineering teams. Our biggest advantage is that we have access to the biggest pool of talents through our access in Digital School – The sister company, which is the biggest programming school for youth in the country as well as a franchise in over 50 locations worldwide.</p>
@@ -28,8 +34,4 @@ Located in 1700 square meters in the center of Prishtina, we operate with 200 en
 
 
 
-
-</x-app-layout>
-
-        
-
+@endsection
