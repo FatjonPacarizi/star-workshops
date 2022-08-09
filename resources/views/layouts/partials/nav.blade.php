@@ -2,7 +2,7 @@
 
 <header>
     <!-- This example requires Tailwind CSS  -->
-    <nav class="bg-white fixed w-full z-40">
+    <nav class="bg-white">
         <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16">
                 <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
