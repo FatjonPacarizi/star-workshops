@@ -1,3 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.roundedTop{
+    clip-path: ellipse(80% 85% at 50% 100%);
+}

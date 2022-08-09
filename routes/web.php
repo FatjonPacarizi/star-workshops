@@ -6,6 +6,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\SuperAdmin\TestController;
 use App\Http\Controllers\SuperAdmin\UserManageController;
+use App\Http\Controllers\WorkshopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,8 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/',[LandingController::class,'index'])->name('landing');
+
+Route::get('/workshops',[WorkshopController::class,'index'])->name('workshops');
 
 Route::middleware([
     'auth:sanctum',

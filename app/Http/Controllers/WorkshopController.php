@@ -15,7 +15,7 @@ class WorkshopController extends Controller
      */
     public function index()
     {
-        //
+        return view('workshops',['upcomings'=>Workshop::whereNotNull('upcoming')->get(),'pasts'=>Workshop::whereNull('upcoming')->get()]);
     }
 
     /**

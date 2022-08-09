@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class CreateWorkshopsTable extends Migration
 {
@@ -24,6 +25,7 @@ class CreateWorkshopsTable extends Migration
             $table->foreign('city_id')->references('id')->on('cities');
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->string('upcoming')->nullable();
             $table->timestamps();
         });
     }
