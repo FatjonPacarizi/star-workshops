@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('layouts.app')
+  @section('content')
   <div class="p-6 flex flex-col  items-center">
 
     <div class="w-full bg-white border border-gray-200 rounded">
@@ -55,4 +56,4 @@
     </div>
 </div>
 
-</x-app-layout>
+@endsection
