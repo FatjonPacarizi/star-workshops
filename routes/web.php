@@ -35,10 +35,7 @@ Route::get('/', function () {
 
 
 Route::get('/',[LandingController::class,'index'])->name('landing');
-Route::get('/workshop', function () {
-    return view('workshopPage');
-});
-
+Route::get('/workshop', function () { return view('workshopPage');})->name('workshop');
 Route::get('/workshops',[WorkshopController::class,'index'])->name('workshops');
 
 
