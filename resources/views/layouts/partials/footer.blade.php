@@ -2,7 +2,7 @@
     <div class="bg-red-600">
         <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row ">
             <p class="text-white text-sm text-center sm:text-left">&copy; 2022 Star Workshops —
-                <a href="" rel="noopener noreferrer" class="text-white ml-1" target="_blank">@starworkshops</a>
+                <a href="" rel="noopener noreferrer" class="text-white ml-1" target="_blank"><a href="{{url('https://www.starlabs.dev')}}">@starworkshops </a>
             </p>
             <span class="inline-flex sm:ml-auto sm:mt-0 justify-center sm:justify-start">
                 <a class="text-white">
