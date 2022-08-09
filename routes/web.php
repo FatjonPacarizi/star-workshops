@@ -25,6 +25,9 @@ Route::get('/',[LandingController::class,'index'])->name('landing');
 Route::get('/workshop', function () {
     return view('workshopPage');
 });
+Route::get('/about', function () {
+    return view('about');
+});
 
 Route::get('/',[LandingController::class,'index'])->name('landing');
 
@@ -54,7 +57,12 @@ Route::group(['middleware' => 'auth'],function(){
             Route::get('usersManager/{id}/edit',[UserManageController::class,'edit']);
             Route::put('/usersManager/{id}',[UserManageController::class, 'update']);
             Route::delete('/usersManager/{user}', [UserManageController::class, 'destroy']);
-           
+            Route::get('abouts', [AboutController::class, 'index']);
+            Route::get('add-about', [AboutController::class, 'create']);
+            Route::post('add-about', [AboutController::class, 'store']);
+            Route::get('edit-about/{id}', [AboutController::class, 'edit']);
+            Route::put('update-about/{id}', [AboutController::class, 'update']);
+            Route::delete('delete-about/{id}', [AboutController::class, 'destroy']);   
         });
 
 

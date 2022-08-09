@@ -40,7 +40,7 @@
                     <div class="hidden sm:block sm:ml-6">
                         <div class="flex space-x-4">
                             <!-- Current: "bg-red-700 text-white", Default: "text-white hover:bg-red-700 hover:text-white" -->
-                            <a href="#" class="bg-red-700 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">WHO WE ARE</a>
+                            <a href="/about" class="bg-red-700 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">WHO WE ARE</a>
 
                             <a href="#" class="text-white hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">OUR SERVICES</a>
 
