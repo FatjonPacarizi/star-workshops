@@ -2,7 +2,7 @@
 
 <header>
     <!-- This example requires Tailwind CSS  -->
-    <nav class="bg-red-700">
+    <nav class="bg-white">
         <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16">
                 <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -40,13 +40,13 @@
                     <div class="hidden sm:block sm:ml-6">
                         <div class="flex space-x-4">
                             <!-- Current: "bg-red-700 text-white", Default: "text-white hover:bg-red-700 hover:text-white" -->
-                            <a href="/about" class="bg-red-700 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">WHO WE ARE</a>
+                            <a href="/about" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium" aria-current="page">WHO WE ARE</a>
 
-                            <a href="#" class="text-white hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">OUR SERVICES</a>
+                            <a href="#" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">OUR SERVICES</a>
 
-                            <a href="#" class="text-white hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">EVENTS</a>
+                            <a href="#" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">EVENTS</a>
 
-                            <a href="#" class="text-white hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">NEWS</a>
+                            <a href="#" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">NEWS</a>
                         </div>
                     </div>
                 </div>
@@ -57,13 +57,13 @@
         <div class="sm:hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <!-- Current: "bg-red-500 text-white", Default: "text-white hover:bg-red-500 hover:text-white" -->
-                <a href="#" class="text-white hover:bg-red-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium">WHO WE ARE</a>
+                <a href="#" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">WHO WE ARE</a>
 
-                <a href="#" class="text-white hover:bg-red-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium">OUR SERVICES</a>
+                <a href="#" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">OUR SERVICES</a>
 
-                <a href="#" class="text-white hover:bg-red-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium">EVENTS</a>
+                <a href="#" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">EVENTS</a>
 
-                <a href="#" class="text-white hover:bg-red-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium">NEWS</a>
+                <a href="#" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">NEWS</a>
             </div>
         </div>
     </nav>
