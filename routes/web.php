@@ -20,7 +20,7 @@ use App\Http\Controllers\SuperAdmin\UserManageController;
 |
 */
 
-
+Route::get('abouts', [AboutController::class, 'index']);
 Route::view('/about','about');
 Route::view('/workshop','workshop');
 Route::get('/', function () {
@@ -60,7 +60,12 @@ Route::group(['middleware' => 'auth'],function(){
             Route::get('usersManager/{id}/edit',[UserManageController::class,'edit']);
             Route::put('/usersManager/{id}',[UserManageController::class, 'update']);
             Route::delete('/usersManager/{user}', [UserManageController::class, 'destroy']);
- 
+            Route::get('abouts', [AboutController::class, 'index'])->name('showabouts');
+            Route::get('add-about', [AboutController::class, 'create']);
+            Route::post('add-about', [AboutController::class, 'store']);
+            Route::get('edit-about/{id}', [AboutController::class, 'edit']);
+            Route::put('update-about/{id}', [AboutController::class, 'update']);
+            Route::delete('delete-about/{id}', [AboutController::class, 'destroy']);   
         });
 
 
@@ -86,12 +91,6 @@ Route::group(['middleware' => 'auth'],function(){
 
          Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
          Route::put('/appInfos/{id}/edit', [InformationController::class, 'update']);
-         Route::get('abouts', [AboutController::class, 'index'])->name('showabouts');
-         Route::get('add-about', [AboutController::class, 'create']);
-         Route::post('add-about', [AboutController::class, 'store']);
-         Route::get('edit-about/{id}', [AboutController::class, 'edit']);
-         Route::put('update-about/{id}', [AboutController::class, 'update']);
-         Route::delete('delete-about/{id}', [AboutController::class, 'destroy']);  
       });
 
 
