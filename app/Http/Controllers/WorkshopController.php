@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Workshop;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
@@ -15,7 +16,8 @@ class WorkshopController extends Controller
      */
     public function index()
     {
-        return view('workshops',['upcomings'=>Workshop::whereNotNull('upcoming')->get(),'pasts'=>Workshop::whereNull('upcoming')->get()]);
+        $mytime = Carbon::now('Europe/Tirane');
+        return view('workshops',['upcomings'=>Workshop::whereDate('time', '>=', $mytime->toDateTimeString())->get(),'pasts'=>Workshop::whereDate('time', '<', $mytime->toDateTimeString())->get()]);
     }
 
     /**

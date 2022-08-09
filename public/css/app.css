@@ -1246,14 +1246,8 @@ select {
 .-right-4 {
   right: -1rem;
 }
-.bottom-0 {
-  bottom: 0px;
-}
 .-bottom-1 {
   bottom: -0.25rem;
-}
-.-bottom-20 {
-  bottom: -5rem;
 }
 .z-0 {
   z-index: 0;
@@ -1264,17 +1258,11 @@ select {
 .z-40 {
   z-index: 40;
 }
-.z-10 {
-  z-index: 10;
-}
 .col-span-6 {
   grid-column: span 6 / span 6;
 }
 .m-3 {
   margin: 0.75rem;
-}
-.m-10 {
-  margin: 2.5rem;
 }
 .mx-auto {
   margin-left: auto;
@@ -1291,6 +1279,10 @@ select {
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 .my-5 {
   margin-top: 1.25rem;
@@ -1407,17 +1399,11 @@ select {
 .-ml-4 {
   margin-left: -1rem;
 }
-.-mb-10 {
-  margin-bottom: -2.5rem;
-}
 .-mt-40 {
   margin-top: -10rem;
 }
-.ml-10 {
-  margin-left: 2.5rem;
-}
-.ml-20 {
-  margin-left: 5rem;
+.-mb-10 {
+  margin-bottom: -2.5rem;
 }
 .block {
   display: block;
@@ -1482,15 +1468,6 @@ select {
 .h-screen {
   height: 100vh;
 }
-.h-3\/4 {
-  height: 75%;
-}
-.h-1\/4 {
-  height: 25%;
-}
-.h-40 {
-  height: 10rem;
-}
 .h-80 {
   height: 20rem;
 }
@@ -1548,14 +1525,14 @@ select {
 .w-80 {
   width: 20rem;
 }
-.w-64 {
-  width: 16rem;
-}
-.w-1\/4 {
-  width: 25%;
+.w-6\/12 {
+  width: 50%;
 }
 .w-28 {
   width: 7rem;
+}
+.w-64 {
+  width: 16rem;
 }
 .min-w-0 {
   min-width: 0px;
@@ -1783,17 +1760,13 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
-.border-gray-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(156 163 175 / var(--tw-border-opacity));
-}
 .border-red-200 {
   --tw-border-opacity: 1;
   border-color: rgb(254 202 202 / var(--tw-border-opacity));
 }
-.border-red-400 {
+.border-gray-400 {
   --tw-border-opacity: 1;
-  border-color: rgb(248 113 113 / var(--tw-border-opacity));
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
 .border-opacity-60 {
   --tw-border-opacity: 0.6;
@@ -1979,10 +1952,6 @@ select {
   padding-left: 2rem;
   padding-right: 2rem;
 }
-.py-20 {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -2070,6 +2039,10 @@ select {
 }
 .text-7xl {
   font-size: 4.5rem;
+  line-height: 1;
+}
+.text-5xl {
+  font-size: 3rem;
   line-height: 1;
 }
 .text-4xl {
@@ -2540,6 +2513,11 @@ select {
     margin-bottom: -1px;
   }
 
+  .sm\:mx-10 {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+  }
+
   .sm\:ml-3 {
     margin-left: 0.75rem;
   }
@@ -2826,6 +2804,10 @@ select {
 
   .lg\:col-span-4 {
     grid-column: span 4 / span 4;
+  }
+
+  .lg\:inline-block {
+    display: inline-block;
   }
 
   .lg\:w-2\/3 {

@@ -9,6 +9,14 @@ class Workshop extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'type_id',
+        'country_id',
+        'city_id',
+        'category_id',
+        'time'
+    ];
     public static function create(array $array)
     {
     }

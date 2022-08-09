@@ -14,9 +14,9 @@
     <h1 class="mb-2 font-bold">EVENTS</h1>
     <h1 class="text-2xl ">UPCOMING EVENTS</h1>
   </div>
-    <div class="w-full flex flex-wrap">
+    <div class="w-full flex flex-wrap ">
       @foreach($upcomings as $upcoming)
-        <div class="w-1/4 rounded shadow-lg m-10 bg-white">
+        <div class="w-3/4 rounded shadow-lg my-10  bg-white  sm:w:1/2  lg:w-1/4 sm:mx-10">
           <img class = "rounded" src="{{ asset('img/test.jpg') }} "/>
           <div class="flex">
 
@@ -34,7 +34,7 @@
     
     <div class="w-5/6 flex flex-wrap justify-around">
       @foreach($pasts as $past)
-        <div class="w-1/4 rounded shadow-lg mx-10 mb-10">
+        <div class="w-3/4 rounded shadow-lg mx-10 mb-10 sm:w:1/2  lg:w-1/4">
           <img class = "rounded" src="{{ asset('img/test.jpg') }} "/>
           <div class="flex">
 
