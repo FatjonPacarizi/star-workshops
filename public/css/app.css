@@ -1524,6 +1524,9 @@ select {
 .w-80 {
   width: 20rem;
 }
+.w-6\/12 {
+  width: 50%;
+}
 .w-64 {
   width: 16rem;
 }
@@ -1532,9 +1535,6 @@ select {
 }
 .w-28 {
   width: 7rem;
-}
-.w-6\/12 {
-  width: 50%;
 }
 .min-w-0 {
   min-width: 0px;
@@ -2050,13 +2050,13 @@ select {
   font-size: 4.5rem;
   line-height: 1;
 }
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 .font-medium {
   font-weight: 500;
