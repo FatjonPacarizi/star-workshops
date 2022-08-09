@@ -7,10 +7,15 @@ use Illuminate\Support\Facades\File;
 
 class AboutController extends Controller
 {   
+    function about () {
+        $about = About::all();
+        return view('about.index', compact('about'));
+    }
+    
     public function index()
     {
-        $abouts = About::all()->toArray();
-        return view('about.index', compact('abouts'));
+        $about = About::all();
+        return view('about.index', compact('about'));
     }
 
     public function create()
