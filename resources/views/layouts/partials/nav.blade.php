@@ -44,9 +44,8 @@
 
                             <a href="{{route('workshop')}}" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">WORKSHOP</a>
 
-                            <a href="#" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">EVENTS</a>
+                            <a href="/about" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">ABOUT US</a>
 
-                            <a href="#" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">NEWS</a>
                         </div>
                     </div>
                 </div>
@@ -61,9 +60,8 @@
 
                 <a href="{{route('workshop')}}" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">Workshop</a>
 
-                <a href="#" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">EVENTS</a>
+                <a href="/about" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">ABOUT US</a>
 
-                <a href="#" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">NEWS</a>
             </div>
         </div>
     </nav>
