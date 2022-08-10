@@ -16,8 +16,8 @@ class WorkshopController extends Controller
      */
     public function index()
     {
-        $mytime = Carbon::now('Europe/Tirane');
-        return view('workshops',['upcomings'=>Workshop::whereDate('time', '>=', $mytime->toDateTimeString())->get(),'pasts'=>Workshop::whereDate('time', '<', $mytime->toDateTimeString())->get()]);
+        $currentTime = Carbon::now('Europe/Tirane');
+        return view('workshops',['upcomings'=>Workshop::whereDate('time', '>=', $currentTime->toDateTimeString())->get(),'pasts'=>Workshop::whereDate('time', '<', $currentTime->toDateTimeString())->get()]);
     }
 
     /**
