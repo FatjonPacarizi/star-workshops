@@ -20,9 +20,10 @@
 
                                 
                                 <td>{{ $item->title }}</td>
-                                <td>{{ $item->heading }}</td>
+                              
+                                <td>  {{ Illuminate\Support\Str::limit($item->heading, 20, $end='...') }}</td>
                                
-                                <td>{{ $item->paragraf }}</td>
+                                <td> {{ Illuminate\Support\Str::limit($item->paragraf, 20, $end='...') }}</td>
                                 <td>{{ $item->button }}</td>
                                 <td>
                                     <img src="{{ asset('uploads/abouts/'.$item->image) }}" width="70px" height="70px" alt="Image">
