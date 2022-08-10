@@ -5,6 +5,7 @@ use App\Models\About;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
+
 class AboutController extends Controller
 {   
     function about () {
