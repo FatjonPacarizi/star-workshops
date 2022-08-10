@@ -106,11 +106,11 @@
         <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
       </svg>
       <p class="text-white">MEMBER STORIES</p>
-      <p class="leading-relaxed text-lg">I firmly believe the Star Workshops certification programmes will help change perceptions towards nuclear security and will lead to greater security globally as more and more people enroll and build competence in their areas of responsibility.</p>
+      <p class="leading-relaxed text-lg">I firmly believe the Star Workshops certification programmes will help change perceptions, towards nuclear security and will lead to greater security globally as more and more people enroll and build competence in their areas of responsibility.</p>
       <span class="inline-block h-1 w-10 rounded bg-red-500 mt-8 mb-6"></span>
-      <h2 class="text-white font-medium title-font tracking-wider text-sm">Raymond Agalga, Ghana</h2>
+      <h2 class="text-white font-medium title-font tracking-wider text-sm">Ramadan Gashi, Web developer</h2>
       <div class="flex justify-center">
-        <button class="my-4 ml-4 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg">Become a member</button>
+        <button class="my-4 ml-4 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg"><a href="http://127.0.0.1:8000/register">Become a member</a></button>
       </div>
     </div>
   </div>
@@ -131,18 +131,18 @@
 <section class="text-white body-font bg-red-600">
   <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-      <img class="object-cover object-center rounded" alt="Star Workshops Scholarships" src="{{ asset('img/Scholarships1.png') }}">
+      <img class="object-cover object-center rounded" alt="Star Workshops Scholarships" src="{{ asset('img/team1.png') }}">
     </div>
-    <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">Star Workshops Scholarships
+    <div class="lg:flex-grow md:w-1/2 lg:pl-18 md:pl-68 flex flex-col md:items-start md:text-left items-center text-center">
+      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">Star Workshop Company
       </h1>
-      <p class="mb-8 leading-relaxed">Thanks to the generous support of our funders, we are able to provide an extensive number of scholarships to individuals who wish to enrol in the Star Workshops Academy. Women and individuals from official development assistance (ODA) countries--as designated by the OECD--are especially encouraged to apply.</p>
+      <p class="mb-8 leading-relaxed">We partner up with our clients by setting up, managing and operating their extended teams across Software Development, Quality Assurance, Customer Support, Technical Support and Business process outsourcing services. We make sure that our teams remain satisfied and therefore dedicated to our client’s needs. This makes us reliable, effective and productive. We offer a stress-free workplace, with recreative environments and competitive working conditions with the biggest tech Companies in Kosovo. </p>
       <div class="flex justify-center">
-        <button class="ml-4 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg">Learn more</button>
+        <button class="ml-4 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg"><a href="https://www.starlabs.dev/whyus/">Learn more</a></button>
       </div>
     </div>
     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-      <img class="object-cover object-center rounded" alt="Star Workshops Scholarships" src="{{ asset('img/Scholarships2.png') }}">
+      <img class="object-cover object-center rounded" alt="Star Workshops Scholarships" src="{{ asset('img/team2.png') }}">
     </div>
   </div>
 </section>
@@ -150,7 +150,8 @@
 <section class="text-red-600 body-font">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-20">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-red-600">Latest News</h1>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-red-600">Latest Events</h1>
+      <p>Star workshops, training courses, roundtables and webinars are innovative, thought-provoking and collaborative. We invite you to join us at an upcoming event.</p>
     </div>
     <div class="flex flex-wrap">
       <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
@@ -190,7 +191,7 @@
         </a>
       </div>
     </div>
-    <button class="flex mx-auto mt-16 text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded-full text-lg">View all news</button>
+    <button class="flex mx-auto mt-16 text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded-full text-lg"><a href="http://127.0.0.1:8000/workshops">View all events</a></button>
   </div>
 </section>
 
