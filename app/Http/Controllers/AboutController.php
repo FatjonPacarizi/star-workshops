@@ -77,12 +77,5 @@ class AboutController extends Controller
         return redirect()->back()->with('status','about Image Updated Successfully');
     }
 
-    public function destroy($id)
-    {
-        $about = about::find($id);
-        $destination = 'uploads/abouts/'.$about->image;
-        
-        $about->delete();
-        return redirect()->back()->with('status','about Image Deleted Successfully');
-    }
+   
 }
