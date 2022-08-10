@@ -3,7 +3,7 @@
 @section('content')
 <section class = "relative">
   <img class = "inline-block w-full h-80 " src="{{ asset('img/banner.jpg') }} "/>
-  <svg class="swirl absolute -bottom-1 w-full h-20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3091 338" preserveAspectRatio="none">
+  <svg class="swirl absolute -bottom-1 w-full h-6 md:h-20 " xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3091 338" preserveAspectRatio="none">
     <path fill-rule="evenodd"  fill="rgb(229,231,235)" d="M1.000,334.000 L0.000,205.000 C0.000,205.000 587.208,-196.779 1435.424,126.865 C2283.640,450.508 3075.779,281.603 3090.000,282.000 C3090.871,282.610 3091.000,338.000 3091.000,338.000 "></path>
     <path fill="url(#PSgrad_0)" d="M1.000,334.000 L0.000,205.000 C0.000,205.000 587.208,-196.779 1435.424,126.865 C2283.640,450.508 3075.779,281.603 3090.000,282.000 C3090.871,282.610 3091.000,338.000 3091.000,338.000 "></path>
     </svg>
@@ -13,10 +13,10 @@
     <div class="pl-10">
     <h1 class="mb-2 font-bold">EVENTS</h1>
     <h1 class="text-2xl ">UPCOMING EVENTS</h1>
-  </div>
-    <div class="w-full flex flex-wrap  ">
+    </div>
+    <div class="w-3/4 mx-auto flex flex-wrap  sm:w-full ">
       @foreach($upcomings as $upcoming)
-        <div class="w-3/4 rounded shadow-lg my-10  bg-white  sm:w-2/5 sm:mx-auto  lg:mx-10  lg:w-1/4">
+        <div class="w-full rounded shadow-lg my-10  bg-white  sm:w-2/5 sm:mx-auto  lg:mx-10  lg:w-1/4 ">
           <img class = "rounded" src="{{ asset('img/test.jpg') }} "/>
           <div class="flex">
 
