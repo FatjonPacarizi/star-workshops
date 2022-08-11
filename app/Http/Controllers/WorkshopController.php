@@ -48,7 +48,6 @@ class WorkshopController extends Controller
      */
     public function store(StoreWorkshopRequest $request)
     {
-        dd($request);
 
         $formFields = $request->validate([
             'name' => 'required',
@@ -66,7 +65,7 @@ class WorkshopController extends Controller
         
         Workshop::create($formFields);
         
-        return back();
+        return view('manageWorkshops',['workshops'=>Workshop::all()]);
     }
 
     /**
