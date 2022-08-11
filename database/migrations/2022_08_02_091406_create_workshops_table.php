@@ -26,6 +26,7 @@ class CreateWorkshopsTable extends Migration
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->dateTime('time');
+            $table->string('img_workshop')->nullable();
             $table->timestamps();
         });
     }

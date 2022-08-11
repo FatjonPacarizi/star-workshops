@@ -18,7 +18,20 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::create([
-            'name' => 'Star Labs',
+            'name' => 'Front-End Developer',
         ]);
+        Category::create([
+            'name' => 'Back-End Developer',
+        ]);
+        Category::create([
+            'name' => 'Mobile Developer',
+        ]);
+        Category::create([
+            'name' => 'Web Developer',
+        ]);
+        Category::create([
+            'name' => 'Full Stack Developer',
+        ]);  
+
     }
 }

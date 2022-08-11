@@ -21,6 +21,23 @@ class CountrySeeder extends Seeder
             'language'     => 'Shqip',
             'region'  => 'Eastern Europe',
         ]);
+        Country::create([
+            'name'      => 'Kosova',
+            'language'     => 'Shqip',
+            'region'  => 'Eastern Europe',
+        ]);
+
+        Country::create([
+            'name'      => 'England',
+            'language'     => 'English',
+            'region'  => 'Eastern Europe',
+        ]);
+
+        Country::create([
+            'name'      => 'Germany',
+            'language'     => 'German',
+            'region'  => 'Eastern Europe',
+        ]);
 
     }
 }

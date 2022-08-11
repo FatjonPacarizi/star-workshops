@@ -32,8 +32,10 @@ Route::get('/members',[WorkshopController::class, 'showMembers']);
 
 
 Route::get('/',[LandingController::class,'index'])->name('landing');
-Route::get('/workshop', function () { return view('workshopPage');})->name('workshop');
+Route::get('/workshop/{id}',[WorkshopController::class,'show'])->name('single-workshop');
+
 Route::get('/workshops',[WorkshopController::class,'index'])->name('workshops');
+
 
 
 Route::middleware([
@@ -90,6 +92,24 @@ Route::group(['middleware' => 'auth'],function(){
 
          Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
          Route::put('/appInfos/{id}/edit', [InformationController::class, 'update']);
+
+         //Show insert workshop page
+         Route::get('/workshopManage/insert',[WorkshopController::class,'create'])->name('showInsert');
+
+        //Insert workshop 
+         Route::post('/workshopManage',[WorkshopController::class,'store'])->name('storeWorkshop');
+
+         //Show workshops page
+         Route::get('/workshopManage',[WorkshopController::class,'showWorkshopManage'])->name('showManageWorkshops');
+        
+         //Show update workshop
+         Route::get('workshopManage/{id}/edit',[WorkshopController::class,'edit']);
+
+         //Update a workshop
+         Route::put('workshopManage/{id}',[WorkshopController::class,'update']);
+
+         //Delete a workshop
+         Route::delete('/workshopManage/{workshop}', [WorkshopController::class, 'destroy']);
       });
 
 
