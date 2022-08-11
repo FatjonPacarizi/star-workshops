@@ -27,5 +27,17 @@ class CountrySeeder extends Seeder
             'region'  => 'Eastern Europe',
         ]);
 
+        Country::create([
+            'name'      => 'England',
+            'language'     => 'English',
+            'region'  => 'Eastern Europe',
+        ]);
+
+        Country::create([
+            'name'      => 'Germany',
+            'language'     => 'German',
+            'region'  => 'Eastern Europe',
+        ]);
+
     }
 }
