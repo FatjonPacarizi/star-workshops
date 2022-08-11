@@ -13,8 +13,8 @@ class AboutController extends Controller
     }
     public function index()
     {
-        $about = about::all();
-        return view('about.index', compact('about'));
+        $about = About::find(1);
+        return view('about.index',['about'=> $about]);
     }
 
     public function create()
