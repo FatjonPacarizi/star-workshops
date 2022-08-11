@@ -25,6 +25,12 @@ class WorkshopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function showMembers(){
+
+        return view('workshopMembers');
+
+    }
     public function create()
     {
         //
