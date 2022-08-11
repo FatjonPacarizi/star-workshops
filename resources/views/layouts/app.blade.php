@@ -4,6 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+ <link rel="icon" href="{{ asset('img/icon.png') }}">
+    <title>Star Workshop</title>
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -27,10 +29,7 @@
             <!-- Page Content -->
             <div class="w-full h-screen flex ">
                 <aside class=" bg-[#3c4b64]  w-80 ">
-                        <div class="w-full bg-[#303C54] p-5 flex justify-center text-white">
-                            <span class="inline-flex text-xl font-bold -ml-4 relative"> Core <sup class="absolute top-2 -right-4">UI</sup></span>
-                                           
-                        </div>
+                    
                     <div class="menu is-menu-main px-5">
                         <a href="{{ route('dashboard') }}" class="flex items-center p-2 my-2  hover:bg-slate-600 rounded text-white {{Request::is('dashboard') ? 'bg-slate-500' : ''}}">
                             <span class="inline-flex items-center justify-center h-6 w-6"><i class="mdi mdi-speedometer inline-flex"></i></span>
@@ -47,6 +46,14 @@
                             <a href="{{ route('superadmin.showManageUsers') }}" class="flex p-2   rounded {{Request::is('usersManager') ? 'bg-slate-500' : 'hover:bg-slate-600'}}">
                                 <span class="inline-flex items-center justify-center h-6 w-6"><i class="mdi mdi-account-outline inline-flex"></i></span>
                                 <span class="grow">Manage Users</span>
+                            </a>
+                        </li>
+                        @endcan
+                        @can('is_super_admin')
+                        <li class="--set-active-tables-html my-2">
+                            <a href="{{ route('superadmin.showabouts') }}" class="flex p-2   rounded {{Request::is('abouts') ? 'bg-slate-500' : 'hover:bg-slate-600'}}">
+                                <span class="inline-flex items-center justify-center h-6 w-6"><i class="mdi mdi-account-outline inline-flex"></i></span>
+                                <span class="grow">About Us</span>
                             </a>
                         </li>
                         @endcan
