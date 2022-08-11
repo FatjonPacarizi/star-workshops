@@ -9,7 +9,7 @@
             
           </div>
             
-            <form method="POST" action="{{route('storeWorkshop')}}" enctype="multipart/form-data">
+            <form method="POST" action="{{route('adminsuperadmin.storeWorkshop')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-6 flex items-center">
                   <label  class="w-28 text-sm mx-5">Name</label>
