@@ -1,0 +1,27 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class Positions_Users_Seeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        //
+
+        DB::table('positions_users')->insert([
+            'user_id' => 1,
+            'position_id'=> 2,
+
+
+        ]);
+
+    }
+}
