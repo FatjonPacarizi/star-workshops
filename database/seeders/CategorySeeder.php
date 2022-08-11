@@ -20,5 +20,8 @@ class CategorySeeder extends Seeder
         Category::create([
             'name' => 'Star Labs',
         ]);
+        Category::create([
+            'name' => 'Star Labs 2',
+        ]);
     }
 }

@@ -15,9 +15,17 @@ class Workshop extends Model
         'country_id',
         'city_id',
         'category_id',
-        'time'
+        'time',
+        'img_workshop'
+
     ];
-    public static function create(array $array)
-    {
-    }
+    
+    public function workshopsItems(){
+
+        //customer_id is a foreign key in customer_items table
+    
+        return $this->hasOne(Country::class, 'category_id');
+    
+        // A customer will has many items thats why hasMany relation is used here
+         }
 }

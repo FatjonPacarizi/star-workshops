@@ -23,21 +23,21 @@ class WorkshopSeeder extends Seeder
     public function run()
     {
         DB::table('workshops')->insert([
-            'name' => 'Bootcamps',
+            'name' => 'WINS Side Event at the IAEA Conference on Safety and Security of Radioactive Sources 2022',
             'type_id' => '1',
             'country_id' => '1',
             'city_id' => '1',
             'category_id' => '1',
-            'time' => '2022-09-09 12:14:19'
+            'time' => '2022-09-09 12:14:19',
         ]);
 
         DB::table('workshops')->insert([
-            'name' => 'Online Workshops',
+            'name' => '2 WINS Side Event at the IAEA Conference on Safety and Security of Radioactive Sources 2022',
             'type_id' => '1',
             'country_id' => '1',
             'city_id' => '1',
             'category_id' => '1',
-            'time' => '2022-09-09 12:14:19'
+            'time' => '2022-09-09 12:14:19',
         ]);
        
         \App\Models\Workshop::factory(6)->create();
