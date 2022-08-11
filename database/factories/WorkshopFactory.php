@@ -21,5 +21,7 @@ class WorkshopFactory extends Factory
             'category_id' => '1',
             'time' => '2022-08-09 13:53:08',
         ];
+
+
     }
 }
