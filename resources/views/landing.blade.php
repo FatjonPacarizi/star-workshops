@@ -14,7 +14,7 @@
   </div>
 </section>
 
-<section class="text-gray-600 body-font">
+<section class="text-black body-font">
   <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
     <div class="text-center lg:w-2/3 w-full">
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-red-600">About Star Workshops</h1>
@@ -46,12 +46,12 @@
       </div>
     </div>
     <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-      <img class="object-cover object-center rounded" alt="Workshops and Training" src="{{ asset('img/Workshops.png') }}">
+      <img class="object-cover object-center rounded" alt="Workshops and Training" src="{{ asset('img/Workshops.jpg') }}">
     </div>
   </div>
 </section>
 
-<section class="text-gray-600 body-font">
+<section class="text-black body-font">
   <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
     <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
       <img class="object-cover object-center rounded" alt="Academy" src="{{ asset('img/Picture.png') }}">
@@ -83,7 +83,7 @@
   </div>
 </section>
 
-<section class="text-gray-600 body-font">
+<section class="text-black body-font">
   <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
     <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
       <img class="object-cover object-center rounded" alt="Evaluation" src="{{ asset('img/Evaluation.jpg') }}">
@@ -116,7 +116,7 @@
   </div>
 </section>
 
-<section class="text-gray-600 body-font">
+<section class="text-black body-font">
   <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
     <div class="text-center lg:w-2/3 w-full">
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-red-600">Popular Courses</h1>
@@ -147,76 +147,55 @@
   </div>
 </section>
 
-<section class="text-red-600 body-font">
+<section class="body-font">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-20">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-red-600">Latest Events</h1>
       <p>Star workshops, training courses, roundtables and webinars are innovative, thought-provoking and collaborative. We invite you to join us at an upcoming event.</p>
     </div>
-    <div class="flex flex-wrap">
-      <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-        <h2 class="text-lg sm:text-xl  font-medium title-font mb-2 text-red-600">28 July 2022</h2>
-        <p class="leading-relaxed text-base mb-4">Setting the Standard: An Interview with Thailand’s OAP</p>
-        <a class="text-red-500 inline-flex items-center">Learn More
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
+    <div class="w-full mx-auto flex flex-wrap lg:w-5/6 lg:justify-center ">
+      @foreach($latest_workshops as $workshop)
+      <div class="w-full relative rounded shadow-lg my-10  bg-white  sm:w-2/5 sm:mx-auto  lg:mx-10  lg:w-1/4 ">
+        <a href="{{route('single-workshop',$workshop->id)}}">
+          <div class="w-full h-3/4 bg-black absolute opacity-50"> </div>
+          <img class="w-full h-3/4 " src="{{$workshop->img_workshop ? asset('/storage/' . $workshop->img_workshop) : asset('/img/test.jpg')}}" />
+          <h1 class=" absolute top-0 left-0 text-white p-3 font-bold">{{$workshop->name}}</h1>
+          <div class="flex">
+            <span class="inline-flex items-center justify-center h-6 w-6 text-red-500"><i class="mdi mdi-CalendarRange text-red-500 inline-flex"></i></span>
+            <h1 class="my-5">{{$workshop->time}}</h1>
+          </div>
         </a>
       </div>
-      <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-        <h2 class="text-lg sm:text-xl font-medium title-font mb-2 text-red-600">28 July 2022</h2>
-        <p class="leading-relaxed text-base mb-4">Setting the Standard: An Interview with Thailand’s OAP</p>
-        <a class="text-red-500 inline-flex items-center">Learn More
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
-      <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-        <h2 class="text-lg sm:text-xl font-medium title-font mb-2 text-red-600">28 July 2022</h2>
-        <p class="leading-relaxed text-base mb-4">Setting the Standard: An Interview with Thailand’s OAP</p>
-        <a class="text-red-500 inline-flex items-center">Learn More
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
-      <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-        <h2 class="text-lg sm:text-xl font-medium title-font mb-2 text-red-600">28 July 2022</h2>
-        <p class="leading-relaxed text-base mb-4">Setting the Standard: An Interview with Thailand’s OAP</p>
-        <a class="text-red-500 inline-flex items-center">Learn More
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
+      @endforeach
     </div>
     <button class="flex mx-auto mt-16 text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded-full text-lg"><a href="http://127.0.0.1:8000/workshops">View all events</a></button>
   </div>
 </section>
 
 
-        <button id="to-top-button" onclick="goToTop()" title="Go To Top"
-        class="hidden fixed z-90 bottom-8 right-8 border-0 w-16 h-16 rounded-full drop-shadow-md bg-red-900 text-white text-3xl font-bold">&uarr;</button>  
-  
+<button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed z-90 bottom-8 right-8 border-0 w-16 h-16 rounded-full drop-shadow-md bg-red-900 text-white text-3xl font-bold">&uarr;</button>
 
-      <!-- Javascript code -->
-      <script>
-        var toTopButton = document.getElementById("to-top-button");
 
-        // When the user scrolls down 200px from the top of the document, show the button
-        window.onscroll = function () {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                toTopButton.classList.remove("hidden");
-            } else {
-                toTopButton.classList.add("hidden");
-            }
-        }
+<!-- Javascript code -->
+<script>
+  var toTopButton = document.getElementById("to-top-button");
 
-        // When the user clicks on the button, scroll to the top of the document
-        function goToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
+  // When the user scrolls down 200px from the top of the document, show the button
+  window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      toTopButton.classList.remove("hidden");
+    } else {
+      toTopButton.classList.add("hidden");
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function goToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+</script>
 
 @endsection
