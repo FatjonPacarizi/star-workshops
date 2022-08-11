@@ -32,7 +32,9 @@ class DatabaseSeeder extends Seeder
             TypeSeeder::class,
             WorkshopSeeder::class,
             InformationsSeeder::class,
-            AboutsSeeder::class
+            AboutsSeeder::class,
+            PositionsSeeder::class,
+            Positions_Users_Seeder::class
         ]);
 
     }
