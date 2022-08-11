@@ -18,6 +18,10 @@ class CitySeeder extends Seeder
     public function run()
     {
         City::create([
+            'name' => 'Gjilan',
+            'postalcode' => '61000',
+        ]);
+        City::create([
             'name' => 'Prizren',
             'postalcode' => '20000',
         ]);

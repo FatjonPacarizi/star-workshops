@@ -1,25 +1,24 @@
 @extends('layouts.landinglayouts')
 
 @section('content')
-
     <section class="text-white body-font bg-red-700 clippath ">
-
         <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col  " >
             <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left ">
                 <div class="flex ">
-                    <a href="#" class="inline-flex border-0 text-black rounded text-sm hover:text-white"> < BACK TO EVENTS</a>
+                    <a href="{{route('workshops')}}" class="inline-flex border-0 text-black rounded text-sm hover:text-white"> < BACK TO EVENTS</a>
                 </div>
-                <h1 class="title-font sm:text-4xl mb-4 font-medium text-white text-5xl ">Star
-                    <br class="hidden lg:inline-block">Workshop`s
+                <h1 class="title-font sm:text-4xl mb-4 font-medium text-white text-5xl ">
+                    {{$workshop->name}}
                 </h1>
-                <p class="mb-8 leading-relaxed w-6/12">Star Workshop is a company that manages workshops for the clients. It started working on 15 September 2022 and since then has proceeded with the good team work. You can learn more about it on our page.</p>
-                <p class="mb-8 leading-relaxed">22 JUNE 2022 - 22 JUNE 2022<br>
-                    Pristina, KOSOVO </p>
+                <p class="mb-8 leading-relaxed"> {{$workshop->time}} </p>
+                <p class="mb-8 leading-relaxed"> {{$workshop->country}} </p>
+
                 <p class="mb-8 leading-relaxed">Applications for this event are closed</p>
             </div>
 
             <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                <img class="object-cover rounded" alt="hero" src="{{ asset('img/workshop.jpg') }}">
+                
+                <img class="object-cover rounded" alt="hero" src="{{$workshop->img_workshop ? asset('/storage/' . $workshop->img_workshop) : asset('/img/test.jpg')}}">
             </div> </div>
     </section>
 

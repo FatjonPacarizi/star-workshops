@@ -42,7 +42,6 @@
                             <!-- Current: "bg-red-700 text-white", Default: "text-white hover:bg-red-700 hover:text-white" -->
                             <a href="{{route('workshops')}}" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium" aria-current="page">WORKSHOPS</a>
 
-                            <a href="{{route('workshop')}}" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">WORKSHOP</a>
 
                             <a href="/about" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">ABOUT US</a>
 
@@ -58,7 +57,6 @@
                 <!-- Current: "bg-red-500 text-white", Default: "text-white hover:bg-red-500 hover:text-white" -->
                 <a href="{{route('workshops')}}" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">Workshops</a>
 
-                <a href="{{route('workshop')}}" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">Workshop</a>
 
                 <a href="/about" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">ABOUT US</a>
 

@@ -19,7 +19,7 @@ class WorkshopFactory extends Factory
             'country_id' => '1',
             'city_id' => '1',
             'category_id' => '1',
-            'time' => '2022-08-09 13:53:08'
+            'time' => '2022-08-09 13:53:08',
         ];
     }
 }
