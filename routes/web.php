@@ -27,6 +27,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/members',[WorkshopController::class, 'showMembers']);
+
 
 
 Route::get('/',[LandingController::class,'index'])->name('landing');
@@ -64,7 +66,7 @@ Route::group(['middleware' => 'auth'],function(){
             Route::post('add-about', [AboutController::class, 'store']);
             Route::get('edit-about/{id}', [AboutController::class, 'edit']);
             Route::put('update-about/{id}', [AboutController::class, 'update']);
-           
+
         });
 
 
@@ -80,13 +82,13 @@ Route::group(['middleware' => 'auth'],function(){
         });
 
 
-    //SuperAdmin and Admin group routes 
+    //SuperAdmin and Admin group routes
     Route::group(
         [
             'middleware' => ['is_admin_or_superadmin'],
             'as' => 'adminsuperadmin.',
         ], function() {
-         // Add routes here for admin and superadmin 
+         // Add routes here for admin and superadmin
 
          Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
          Route::put('/appInfos/{id}/edit', [InformationController::class, 'update']);
