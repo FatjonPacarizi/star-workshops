@@ -42,7 +42,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('layouts.app');
+        return view('layouts.index');
     })->name('dashboard');
 });
 
