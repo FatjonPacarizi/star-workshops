@@ -8,6 +8,7 @@ use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\SuperAdmin\TestController;
 use App\Http\Controllers\SuperAdmin\UserManageController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ use App\Http\Controllers\SuperAdmin\UserManageController;
 |
 */
 
-Route::get('abouts', [AboutController::class, 'index']);
+Route::get('abouts', [AboutController::class, 'contact']);
 Route::view('/about','about');
 Route::view('/workshop','workshop');
 Route::get('/', function () {
@@ -30,6 +31,8 @@ Route::get('/', function () {
 Route::get('/members',[WorkshopController::class, 'showMembers']);
 
 
+Route::get('contact',[ContactController::class, 'index']);
+Route::post('send',[ContactController::class, 'send'])->name('emailsend');
 
 Route::get('/',[LandingController::class,'index'])->name('landing');
 Route::get('/workshop/{id}',[WorkshopController::class,'show'])->name('single-workshop');
@@ -96,12 +99,12 @@ Route::group(['middleware' => 'auth'],function(){
          //Show insert workshop page
          Route::get('/workshopManage/insert',[WorkshopController::class,'create'])->name('showInsert');
 
-        //Insert workshop 
+        //Insert workshop
          Route::post('/workshopManage',[WorkshopController::class,'store'])->name('storeWorkshop');
 
          //Show workshops page
          Route::get('/workshopManage',[WorkshopController::class,'showWorkshopManage'])->name('showManageWorkshops');
-        
+
          //Show update workshop
          Route::get('workshopManage/{id}/edit',[WorkshopController::class,'edit']);
 
