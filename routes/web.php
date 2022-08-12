@@ -8,6 +8,7 @@ use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\SuperAdmin\TestController;
 use App\Http\Controllers\SuperAdmin\UserManageController;
+use App\Http\Controllers\usersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,8 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/members',[WorkshopController::class, 'showMembers']);
+
+Route::get('/test',[usersController::class, 'getUsersByStaffPosition']);
 
 
 
