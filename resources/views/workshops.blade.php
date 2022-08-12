@@ -10,11 +10,11 @@
 </section>
 <section class="w-full pb-20 mb-8 flex justify-center  bg-gray-200  ">
   <div class="w-full lg:w-5/6 ">
-    <div class="pl-10">
+    <div class="pl-24">
     <h1 class="mb-2 font-bold">EVENTS</h1>
     <h1 class="text-2xl ">UPCOMING EVENTS</h1>
     </div>
-    <div class="w-3/4 mx-auto flex flex-wrap  sm:w-full pl-6 ">
+    <div class="w-3/4 mx-auto flex flex-wrap  sm:w-full pl-14 ">
       @foreach($upcomings as $upcoming)
         <div class="w-full relative rounded shadow-lg my-10  bg-white  sm:w-2/5 sm:mx-auto  lg:mx-10  lg:w-1/4 ">
           <a  href = "{{route('single-workshop',$upcoming->id)}}">
