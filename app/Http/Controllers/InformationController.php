@@ -20,7 +20,7 @@ class InformationController extends Controller
     }
 
 
-   // Update informations 
+   // Update informations
    public function update($id) {
     $formFields = request()->validate([
         'app_name' => 'required',

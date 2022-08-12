@@ -21,12 +21,12 @@
                   @enderror
                 </div>
 
-
-                <div class="mb-6">
-                  <label  class="inline-block text-lg mb-2">
+                <label  class="inline-block text-lg mb-2">
                     App Logo
-                  </label>
+                </label>
+                <div class="mb-6 flex">
                   <input type="file" class="border border-gray-200 rounded p-2 w-full" name="logo_name" />
+                    <img class="object-cover rounded w-1/4" alt="hero" src="{{$informations[0]->logo_name ? asset('/storage/' . $informations[0]->logo_name) : asset('/img/Logo.png')}}" width="10%">
 
                   @error('logo_name')
                   <p class="text-red-500 text-xs mt-1">{{$message}}</p>
