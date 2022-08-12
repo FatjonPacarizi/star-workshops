@@ -8,6 +8,7 @@ use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\SuperAdmin\TestController;
 use App\Http\Controllers\SuperAdmin\UserManageController;
+use App\Http\Controllers\usersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,10 @@ Route::view('/workshop','workshop');
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::get('/members',[WorkshopController::class, 'showMembers']);
+
+Route::get('/test',[usersController::class, 'getUsersByStaffPosition']);
 
 
 
@@ -64,7 +69,7 @@ Route::group(['middleware' => 'auth'],function(){
             Route::post('add-about', [AboutController::class, 'store']);
             Route::get('edit-about/{id}', [AboutController::class, 'edit']);
             Route::put('update-about/{id}', [AboutController::class, 'update']);
-           
+
         });
 
 
@@ -80,13 +85,13 @@ Route::group(['middleware' => 'auth'],function(){
         });
 
 
-    //SuperAdmin and Admin group routes 
+    //SuperAdmin and Admin group routes
     Route::group(
         [
             'middleware' => ['is_admin_or_superadmin'],
             'as' => 'adminsuperadmin.',
         ], function() {
-         // Add routes here for admin and superadmin 
+         // Add routes here for admin and superadmin
 
          Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
          Route::put('/appInfos/{id}/edit', [InformationController::class, 'update']);

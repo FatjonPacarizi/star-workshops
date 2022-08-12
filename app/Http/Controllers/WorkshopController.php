@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\City;
 use App\Models\Type;
+use App\Models\User;
 use App\Models\Country;
 use App\Models\Category;
 use App\Models\Workshop;
@@ -12,6 +13,7 @@ use Illuminate\Queue\Worker;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
+use App\Models\Positions;
 
 class WorkshopController extends Controller
 {
@@ -33,6 +35,23 @@ class WorkshopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function showMembers(){
+
+
+        $staffMembers = User::Join("positions_users", function($join){
+            $join->on("users.id", "=", "positions_users.user_id");
+        })
+        ->Join("positions", function($join){
+            $join->on("positions_users.position_id", "=", "positions.id");
+        })
+        ->where('positions.position','staff')
+        ->select("users.name as name","users.description as description")
+        ->get();
+
+        return view('workshopMembers',['staffMembers' => $staffMembers]);
+
+    }
     public function create()
     {
         return view('insertWorkshop',[

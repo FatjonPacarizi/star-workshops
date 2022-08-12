@@ -34,7 +34,12 @@ class AboutController extends Controller
         $about->button = $request->input('button');
         if($request->hasfile('image'))
         {   
-          
+            $destination = 'uploads/abouts/'.$about->image;
+           
+            if (File::exists($destination))
+            {
+                File::delete($destination);
+            }
             $file = $request->file('image');
             $extention = $file->getClientOriginalExtension();
             $filetitle = time().'.'.$extention;
