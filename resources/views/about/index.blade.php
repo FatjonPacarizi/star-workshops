@@ -8,10 +8,10 @@
              <div class="w-full flex justify-center">
             <table class="w-full mx-4">
               <tr class="border-y border-gray-200 ">
-                <td class="font-bold p-3">Ttile</td>
-                <td class="font-bold">Title</td>
-                <td class="font-bold">Text</td>
-                <td class="font-bold">Button</td>
+                <td class="font-bold p-3">About Ttile</td>
+                <td class="font-bold">About Title</td>
+                <td class="font-bold">About Text</td>
+                <td class="font-bold">About Button</td>
                 <td class="font-bold">Image</td>
                 <td class="font-bold text-center w-1/9">Actions</td>
               </tr>
