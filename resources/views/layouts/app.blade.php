@@ -27,7 +27,7 @@
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation-menu')
             <!-- Page Content -->
-            <div class="w-full h-screen flex ">
+            <div class="w-full h-screen flex fixed">
                 <aside class=" bg-[#3c4b64]  w-80 ">
                     
                     <div class="menu is-menu-main px-5">
@@ -75,7 +75,7 @@
                         @endcan
                     </div>
                 </aside>
-                <div class="w-full flex justify-left items-left">
+                <div class="w-full flex justify-left items-left overflow-y-auto">
                     @yield('content')
            
                 </div>

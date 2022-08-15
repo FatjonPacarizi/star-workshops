@@ -1237,6 +1237,9 @@ select {
 .right-0 {
   right: 0px;
 }
+.-bottom-1 {
+  bottom: -0.25rem;
+}
 .top-0 {
   top: 0px;
 }
@@ -1268,6 +1271,33 @@ select {
   margin-left: auto;
   margin-right: auto;
 }
+<<<<<<< Updated upstream
+=======
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.mx-8 {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+>>>>>>> Stashed changes
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
@@ -1276,6 +1306,7 @@ select {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
 }
+<<<<<<< Updated upstream
 .my-5 {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
@@ -1284,10 +1315,13 @@ select {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
+=======
+>>>>>>> Stashed changes
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
+<<<<<<< Updated upstream
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -1304,6 +1338,8 @@ select {
   margin-left: 2rem;
   margin-right: 2rem;
 }
+=======
+>>>>>>> Stashed changes
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -1373,6 +1409,7 @@ select {
 .mb-4 {
   margin-bottom: 1rem;
 }
+<<<<<<< Updated upstream
 .-mt-px {
   margin-top: -1px;
 }
@@ -1388,6 +1425,23 @@ select {
 .-mt-40 {
   margin-top: -10rem;
 }
+=======
+.mt-12 {
+  margin-top: 3rem;
+}
+.mb-8 {
+  margin-bottom: 2rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.-mt-40 {
+  margin-top: -10rem;
+}
+.-mt-px {
+  margin-top: -1px;
+}
+>>>>>>> Stashed changes
 .mb-3 {
   margin-bottom: 0.75rem;
 }
@@ -1460,9 +1514,12 @@ select {
 .h-80 {
   height: 20rem;
 }
+<<<<<<< Updated upstream
 .h-1 {
   height: 0.25rem;
 }
+=======
+>>>>>>> Stashed changes
 .h-3\/4 {
   height: 75%;
 }
@@ -1471,6 +1528,12 @@ select {
   height: -moz-fit-content;
   height: fit-content;
 }
+<<<<<<< Updated upstream
+=======
+.h-1 {
+  height: 0.25rem;
+}
+>>>>>>> Stashed changes
 .h-screen {
   height: 100vh;
 }
@@ -1528,6 +1591,7 @@ select {
 .w-1\/4 {
   width: 25%;
 }
+<<<<<<< Updated upstream
 .w-28 {
   width: 7rem;
 }
@@ -1540,6 +1604,20 @@ select {
 .w-80 {
   width: 20rem;
 }
+=======
+.w-80 {
+  width: 20rem;
+}
+.w-28 {
+  width: 7rem;
+}
+.w-1\/4 {
+  width: 25%;
+}
+.w-9\/12 {
+  width: 75%;
+}
+>>>>>>> Stashed changes
 .min-w-0 {
   min-width: 0px;
 }
@@ -1764,10 +1842,13 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
+<<<<<<< Updated upstream
 .border-gray-400 {
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
+=======
+>>>>>>> Stashed changes
 .border-indigo-100 {
   --tw-border-opacity: 1;
   border-color: rgb(224 231 255 / var(--tw-border-opacity));
@@ -1836,6 +1917,13 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
+<<<<<<< Updated upstream
+=======
+.bg-\[\#303C54\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(48 60 84 / var(--tw-bg-opacity));
+}
+>>>>>>> Stashed changes
 .bg-\[\#3c4b64\] {
   --tw-bg-opacity: 1;
   background-color: rgb(60 75 100 / var(--tw-bg-opacity));
@@ -1844,10 +1932,13 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(100 116 139 / var(--tw-bg-opacity));
 }
+<<<<<<< Updated upstream
 .bg-\[\#303C54\] {
   --tw-bg-opacity: 1;
   background-color: rgb(48 60 84 / var(--tw-bg-opacity));
 }
+=======
+>>>>>>> Stashed changes
 .bg-blue-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(30 64 175 / var(--tw-bg-opacity));
@@ -1881,6 +1972,7 @@ select {
 .p-3 {
   padding: 0.75rem;
 }
+<<<<<<< Updated upstream
 .p-4 {
   padding: 1rem;
 }
@@ -1895,6 +1987,22 @@ select {
 }
 .p-5 {
   padding: 1.25rem;
+=======
+.p-20 {
+  padding: 5rem;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-5 {
+  padding: 1.25rem;
+}
+.p-1 {
+  padding: 0.25rem;
+}
+.p-14 {
+  padding: 3.5rem;
+>>>>>>> Stashed changes
 }
 .px-4 {
   padding-left: 1rem;
@@ -2000,21 +2108,36 @@ select {
 .pb-20 {
   padding-bottom: 5rem;
 }
+<<<<<<< Updated upstream
 .pl-10 {
   padding-left: 2.5rem;
 }
 .pr-16 {
   padding-right: 4rem;
 }
+=======
+>>>>>>> Stashed changes
 .pl-24 {
   padding-left: 6rem;
 }
 .pl-14 {
   padding-left: 3.5rem;
 }
+.pt-8 {
+  padding-top: 2rem;
+}
 .pl-20 {
   padding-left: 5rem;
 }
+<<<<<<< Updated upstream
+=======
+.pr-16 {
+  padding-right: 4rem;
+}
+.pl-10 {
+  padding-left: 2.5rem;
+}
+>>>>>>> Stashed changes
 .text-left {
   text-align: left;
 }
@@ -2058,6 +2181,17 @@ select {
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
+<<<<<<< Updated upstream
+=======
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+>>>>>>> Stashed changes
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
@@ -2169,6 +2303,7 @@ select {
   --tw-text-opacity: 1;
   color: rgb(34 197 94 / var(--tw-text-opacity));
 }
+<<<<<<< Updated upstream
 .text-gray-200 {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
@@ -2181,15 +2316,21 @@ select {
   --tw-text-opacity: 1;
   color: rgb(185 28 28 / var(--tw-text-opacity));
 }
+=======
+>>>>>>> Stashed changes
 .text-slate-900 {
   --tw-text-opacity: 1;
   color: rgb(15 23 42 / var(--tw-text-opacity));
 }
+<<<<<<< Updated upstream
 .text-\[\#00517E\] {
   --tw-text-opacity: 1;
   color: rgb(0 81 126 / var(--tw-text-opacity));
 }
 .text-black {
+=======
+.text-blue-600 {
+>>>>>>> Stashed changes
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
@@ -2200,6 +2341,22 @@ select {
 .text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
+}
+.text-red-700 {
+  --tw-text-opacity: 1;
+  color: rgb(185 28 28 / var(--tw-text-opacity));
+}
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.text-red-900 {
+  --tw-text-opacity: 1;
+  color: rgb(127 29 29 / var(--tw-text-opacity));
+}
+.text-\[\#00517E\] {
+  --tw-text-opacity: 1;
+  color: rgb(0 81 126 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -2342,21 +2499,37 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
+<<<<<<< Updated upstream
 .hover\:bg-sky-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(2 132 199 / var(--tw-bg-opacity));
 }
+=======
+>>>>>>> Stashed changes
 .hover\:bg-gray-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
+<<<<<<< Updated upstream
+=======
+.hover\:bg-red-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+}
+>>>>>>> Stashed changes
 .hover\:bg-slate-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(71 85 105 / var(--tw-bg-opacity));
 }
+<<<<<<< Updated upstream
 .hover\:bg-red-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+=======
+.hover\:bg-sky-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(2 132 199 / var(--tw-bg-opacity));
+>>>>>>> Stashed changes
 }
 .hover\:bg-blue-900:hover {
   --tw-bg-opacity: 1;
@@ -2844,8 +3017,21 @@ select {
     margin-right: 2.5rem;
   }
 
+<<<<<<< Updated upstream
   .lg\:w-1\/2 {
     width: 50%;
+=======
+  .lg\:w-5\/6 {
+    width: 83.333333%;
+  }
+
+  .lg\:w-1\/4 {
+    width: 25%;
+  }
+
+  .lg\:w-2\/3 {
+    width: 66.666667%;
+>>>>>>> Stashed changes
   }
 
   .lg\:w-full {
@@ -2860,12 +3046,17 @@ select {
     width: 75%;
   }
 
+<<<<<<< Updated upstream
   .lg\:w-5\/6 {
     width: 83.333333%;
   }
 
   .lg\:w-1\/4 {
     width: 25%;
+=======
+  .lg\:w-1\/2 {
+    width: 50%;
+>>>>>>> Stashed changes
   }
 
   .lg\:max-w-lg {
