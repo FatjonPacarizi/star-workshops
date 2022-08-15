@@ -27,8 +27,9 @@
         <div class="h-full bg-gray-100">
             @livewire('navigation-menu')
             <!-- Page Content -->
-            <div class="w-full h-full flex ">
-                <aside class=" bg-[#3c4b64] h-full  w-80 ">
+
+            <div class="w-full h-screen flex fixed">
+                <aside class=" bg-[#3c4b64]  w-80 ">
                     
                     <div class="menu is-menu-main h-full px-5">
                         <a href="{{ route('dashboard') }}" class="flex items-center p-2 my-2  hover:bg-slate-600 rounded text-white {{Request::is('dashboard') ? 'bg-slate-500' : ''}}">
@@ -75,7 +76,7 @@
                         @endcan
                     </div>
                 </aside>
-                <div class="w-full flex justify-left items-left">
+                <div class="w-full flex justify-left items-left overflow-y-auto">
                     @yield('content')
            
                 </div>

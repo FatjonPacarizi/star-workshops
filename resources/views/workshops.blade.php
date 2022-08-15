@@ -36,7 +36,7 @@
     
     <div class="w-full border border-red-900 mx-auto flex flex-wrap   lg:w-4/5 lg:justify-between">
       @foreach($pasts as $past)
-      <div class="w-full relative rounded shadow-lg m-10  bg-white border sm:w-2/5  md:w-3/5    lg:w-1/4 ">
+      <div class="w-full relative rounded shadow-lg m-10  bg-white border sm:w-2/5 sm:m-auto  lg:w-1/4 lg:m-10 ">
         <a  href = "{{route('single-workshop',$past->id)}}">
           <div class="w-full h-3/4 bg-black absolute opacity-50"> </div>
           <img class = "w-full h-3/4 " src="{{$past->img_workshop ? asset('/storage/' . $past->img_workshop) : asset('/img/test.jpg')}}"/>           
