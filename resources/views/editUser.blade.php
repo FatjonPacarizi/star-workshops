@@ -46,7 +46,7 @@
                   <select class = "w-full mx-5 rounded border border-gray-200 p-1" name = 'position_id' >
 
                       @foreach($positions as $position)
-                      <option @if($position->position == $myPosition->position) selected @endif  value = '{{$position->id}}'>{{$position->position}}</option>
+                      <option @if($position->position == $userPosition->position) selected @endif  value = '{{$position->id}}'>{{$position->position}}</option>
                       @endforeach
                      
                   </select>
