@@ -32,15 +32,15 @@
     </section>
     <section class=" w-full py-10 flex flex-col items-center ">
 
-        <h1 class = "w-full p-20 text-center text-4xl roundedTop -mt-40 bg-white">StarWorkshops Members</h1>
+        <h1 class = "w-full p-14 lg:p-20 text-center text-4xl roundedTop -mt-40 bg-white">StarWorkshops Members</h1>
  
        @foreach ($staffMembers as $staffMember)
             
-            <div class=" my-10 w-9/12 flex">
+            <div class=" my-10 w-9/12  flex flex-wrap">
             
-                <img class="w-1/2 " src="{{ asset('img/shef.png') }} " alt=""  />
+                <img class=" w-7/8 lg:w-1/2 " src="{{ asset('img/shef.png') }} " alt=""  />
             
-                <div class="w-1/2 flex flex-col justify-center  pl-20">
+                <div class="w-full mt-5  flex flex-col justify-center  lg:pl-20 lg:w-1/2">
                     <h5 class="mb-6 text-[#00517E] text-4xl font-bold tracking-tight dark:text-white">{{$staffMember->name}}</h5>
                     <p class="text-gray-700  dark:text-gray-400">{{$staffMember->description}}</p>
                 </div>

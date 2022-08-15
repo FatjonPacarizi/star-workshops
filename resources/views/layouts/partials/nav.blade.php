@@ -39,7 +39,7 @@
                             $information = App\Models\Informations::find(1);
                               @endphp
                      
-                         <img class="block h-48 p-5 mt-2 w-auto"alt="Logo" src="{{$information->logo_name ? asset('/storage/' . $information->logo_name) : asset('/img/Logo.png')}}">
+                         <img class="block h-10 m-3 mt-1 w-auto"alt="Logo" src="{{$information->logo_name ? asset('/storage/' . $information->logo_name) : asset('/img/Logo.png')}}">
            
                         </a>
                     </div>
