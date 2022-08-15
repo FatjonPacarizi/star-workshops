@@ -39,19 +39,10 @@ class AboutController extends Controller
       
     if(request()->hasFile('image')) {
         $formFields['image'] = request()->file('image')->store('image','public');
-
-         //e ruajm old img para se me update
          $oldImg = $about->image;
     }
-
-
-   //update appinfo
     Abouts::find($id)->update($formFields);
-
-    
-    // delete old img only when db update is succesful
     if(request()->hasFile('image')) {
-        //delete old img
         Storage::delete('/public/' .$oldImg);
     }
      
@@ -89,7 +80,7 @@ class AboutController extends Controller
         }
       
         $about->update();
-        return redirect()->back()->with('status','about Image Updated Successfully');
+        return redirect()->back()->with('status','About Image Updated Successfully');
     }
 
    
