@@ -1910,6 +1910,12 @@ select {
 .p-4 {
   padding: 1rem;
 }
+.p-10 {
+  padding: 2.5rem;
+}
+.p-14 {
+  padding: 3.5rem;
+}
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -2913,6 +2919,10 @@ select {
 
   .lg\:justify-center {
     justify-content: center;
+  }
+
+  .lg\:p-20 {
+    padding: 5rem;
   }
 
   .lg\:px-8 {
