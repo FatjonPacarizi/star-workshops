@@ -4,11 +4,15 @@
 @section('content')
 
 
-<section class="body-font bg-white-600">
+<section class="body-font bg-white-600 ">
 
-<img src="{{ asset('img/2.png') }}" alt="">
+    @php
+        $about = App\Models\About::find(1);
+    @endphp
 
-  <div class="text-red-600 container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+    <img src="{{ asset('uploads/abouts/'.$about->image) }}" alt="">
+
+  <div class="text-red-600 container mx-auto flex px-5 py-24 md:flex-row flex-col items-center w-3/4">
     <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
     @php
                                $about = App\Models\About::find(1);
@@ -20,17 +24,48 @@
                         @php
                                $about = App\Models\About::find(1);
                         @endphp   <p>
-    
+
                         {{$about->paragraf}}  <div class="flex justify-center">
        <a href="{{url('https://www.starlabs.dev/')}}"> <button style="    margin-top: 20px;
     margin-left: -4px;"class="ml-4 inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg">Find out more</button>
       </a></div>
     </div>
-    <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-    @php
-                               $about = App\Models\About::find(1);
-                        @endphp
-<img src="{{ asset('uploads/abouts/'.$about->image) }}" alt="">  </div>
+    <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left">
+
+        <div class=" w-full pl-5">
+            <div class="justify-center items-center">
+                <div class="">
+                    <p class="row flex justify-center items-center text-3xl font-semibold text-black">Contact Us</p>
+                    <form action="{{ route('emailsend') }}" method="post">
+                        @csrf
+                        <div class="pb-4 pt-12">
+                            {{--                        <label for="">Name</label>--}}
+                            <input type="text" class="w-full rounded-md border-t-0 border-r-0 border-l-0 border-b-4 border-red-700 py-3" name="name" placeholder="Enter your name">
+                        </div>
+
+                        <div class="pb-4">
+                            {{--                        <label for="">Email</label>--}}
+                            <input type="text" class="w-full rounded-md border-t-0 border-r-0 border-l-0 border-b-4 border-red-700 py-3" name="email" placeholder="Enter your email">
+                        </div>
+
+                        <div class="pb-4">
+                            {{--                        <label for="">Subject</label>--}}
+                            <input type="text" class="w-full rounded-md border-t-0 border-r-0 border-l-0 border-b-4 border-red-700 py-3" name="subject" placeholder="Enter subject">
+                        </div>
+
+                        <div class="pb-4">
+                            <textarea name="message" cols="20" rows="4" class="w-full mt-3 rounded-md border-t-0 border-r-0 border-l-0 border-b-4 border-red-700" placeholder="Message here..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full rounded-lg px-12 py-2 bg-red-600 text-green-100 hover:bg-red-800 duration-300">Send Email</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
   </div>
 </section>
 
