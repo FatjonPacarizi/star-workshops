@@ -9,14 +9,12 @@
     </svg>
 </section>
 <section class="w-full pb-20 mb-8 flex justify-center  bg-gray-200  ">
-  <div class="w-full lg:w-5/6 ">
-    <div class="pl-24">
+  <div class="w-full lg:w-4/5  border border-red-900">
     <h1 class="mb-2 font-bold">EVENTS</h1>
     <h1 class="text-2xl ">UPCOMING EVENTS</h1>
-    </div>
-    <div class="w-3/4 mx-auto flex flex-wrap  sm:w-full pl-14 ">
+    <div class="w-full border border-red-300 flex flex-wrap   ">
       @foreach($upcomings as $upcoming)
-        <div class="w-full relative rounded shadow-lg my-10  bg-white  sm:w-2/5 sm:mx-auto  lg:mx-10  lg:w-1/4 ">
+        <div class="w-full relative rounded shadow-lg m-10  bg-white  sm:w-2/5 sm:mr-10  lg:w-3/12 ">
           <a  href = "{{route('single-workshop',$upcoming->id)}}">
             <div class="w-full h-3/4 bg-black absolute opacity-50"> </div>
             <img class = "w-full h-3/4 " src="{{$upcoming->img_workshop ? asset('/storage/' . $upcoming->img_workshop) : asset('/img/test.jpg')}}"/>           
@@ -36,9 +34,9 @@
 
     <h1 class = "w-full p-20 text-center text-4xl roundedTop -mt-40 bg-white">Past Events</h1>
     
-    <div class="w-full mx-auto flex flex-wrap  lg:w-5/6 lg:justify-center ">
+    <div class="w-full border border-red-900 mx-auto flex flex-wrap   lg:w-4/5 lg:justify-between">
       @foreach($pasts as $past)
-      <div class="w-full relative rounded shadow-lg my-10  bg-white  sm:w-2/5 sm:mx-auto  lg:mx-10  lg:w-1/4 ">
+      <div class="w-full relative rounded shadow-lg m-10  bg-white border sm:w-2/5  md:w-3/5    lg:w-1/4 ">
         <a  href = "{{route('single-workshop',$past->id)}}">
           <div class="w-full h-3/4 bg-black absolute opacity-50"> </div>
           <img class = "w-full h-3/4 " src="{{$past->img_workshop ? asset('/storage/' . $past->img_workshop) : asset('/img/test.jpg')}}"/>           

@@ -32,7 +32,7 @@
     </section>
     <section class=" w-full py-10 flex flex-col items-center ">
 
-        <h1 class = "w-full p-14 lg:p-20 text-center text-4xl roundedTop -mt-40 bg-white">StarWorkshops Members</h1>
+        <h1 class = "w-full p-20 text-center text-4xl roundedTop -mt-40 bg-white">StarWorkshops Members</h1>
  
        @foreach ($staffMembers as $staffMember)
             
