@@ -22,6 +22,18 @@ class Positions_Users_Seeder extends Seeder
 
 
         ]);
+        DB::table('positions_users')->insert([
+            'user_id' => 2,
+            'position_id'=> 1,
+
+
+        ]);
+        DB::table('positions_users')->insert([
+            'user_id' => 3,
+            'position_id'=> 2,
+
+
+        ]);
 
     }
 }

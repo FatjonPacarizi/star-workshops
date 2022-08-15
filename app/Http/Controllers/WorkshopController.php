@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\City;
 use App\Models\Type;
+use App\Models\User;
 use App\Models\Country;
 use App\Models\Category;
 use App\Models\Workshop;
@@ -12,6 +13,7 @@ use Illuminate\Queue\Worker;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
+use App\Models\Positions;
 
 class WorkshopController extends Controller
 {
@@ -24,6 +26,8 @@ class WorkshopController extends Controller
     {
         $currentTime = Carbon::now('Europe/Tirane');
         return view('workshops',['upcomings'=>Workshop::whereDate('time', '>=', $currentTime->toDateTimeString())->get(),'pasts'=>Workshop::whereDate('time', '<', $currentTime->toDateTimeString())->get()]);
+
+        $workshops = DB::table('workshops')->count();
     }
 
     /**
@@ -34,7 +38,18 @@ class WorkshopController extends Controller
 
     public function showMembers(){
 
-        return view('workshopMembers');
+
+        $staffMembers = User::Join("positions_users", function($join){
+            $join->on("users.id", "=", "positions_users.user_id");
+        })
+        ->Join("positions", function($join){
+            $join->on("positions_users.position_id", "=", "positions.id");
+        })
+        ->where('positions.position','staff')
+        ->select("users.name as name","users.description as description")
+        ->get();
+
+        return view('workshopMembers',['staffMembers' => $staffMembers]);
 
     }
     public function create()

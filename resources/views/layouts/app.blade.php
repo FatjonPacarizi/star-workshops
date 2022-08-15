@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class = "h-full">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,16 +21,17 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
 
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans h-full antialiased">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="h-full bg-gray-100">
             @livewire('navigation-menu')
             <!-- Page Content -->
-            <div class="w-full h-screen flex ">
+
+            <div class="w-full h-screen flex fixed">
                 <aside class=" bg-[#3c4b64]  w-80 ">
                     
-                    <div class="menu is-menu-main px-5">
+                    <div class="menu is-menu-main h-full px-5">
                         <a href="{{ route('dashboard') }}" class="flex items-center p-2 my-2  hover:bg-slate-600 rounded text-white {{Request::is('dashboard') ? 'bg-slate-500' : ''}}">
                             <span class="inline-flex items-center justify-center h-6 w-6"><i class="mdi mdi-speedometer inline-flex"></i></span>
                             <span class="grow">Dashboard</span>
@@ -75,9 +76,10 @@
                         @endcan
                     </div>
                 </aside>
-            <div class="w-full flex justify-center items-center">
-                @yield('content')
-            </div>
+                <div class="w-full flex justify-left items-left overflow-y-auto">
+                    @yield('content')
+           
+                </div>
             </div>
         </div>
 

@@ -9,6 +9,8 @@ use App\Http\Controllers\InformationController;
 use App\Http\Controllers\SuperAdmin\TestController;
 use App\Http\Controllers\SuperAdmin\UserManageController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\usersController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,8 @@ Route::get('/', function () {
 
 Route::get('/members',[WorkshopController::class, 'showMembers']);
 
+Route::get('/test',[usersController::class, 'getUsersByStaffPosition']);
+
 
 Route::get('contact',[ContactController::class, 'index']);
 Route::post('send',[ContactController::class, 'send'])->name('emailsend');
@@ -47,7 +51,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('layouts.app');
+        return view('dashboard');
     })->name('dashboard');
 });
 

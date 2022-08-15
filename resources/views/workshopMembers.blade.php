@@ -30,74 +30,24 @@
             </div>
         </div>
     </section>
-    <section class=" w-full pt-6 flex flex-col items-center  bg-white">
+    <section class=" w-full py-10 flex flex-col items-center ">
 
         <h1 class = "w-full p-20 text-center text-4xl roundedTop -mt-40 bg-white">StarWorkshops Members</h1>
-
-        <div class="w-full flex justify-center flex-wrap">
-
-            <div class=" m-4 w-full md:w-2/6  border border-red-200    bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img class="rounded-t-lg" src="{{ asset('img/shef.png') }} " alt="" />
-            </a>
-            <div class="p-5">
-                <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">William H. Tobey (Chair)</h5>
-                </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">William Tobey’s career encompasses extensive management experience in defense policy, arms control and counter-proliferation, as well as in investment banking and venture capital. He served on the National Security Council Staff in three US administrations and also managed the US government’s largest programme to prevent nuclear proliferation and terrorism by detecting, securing and disposing of dangerous nuclear material.</p>
-
-            </div>
-        </div>
-
-            <div class="m-4 w-full md:w-2/6  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg" src="{{ asset('img/shef.png') }} " alt="" />
-                </a>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">William H. Tobey (Chair)</h5>
-                    </a>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">William Tobey’s career encompasses extensive management experience in defense policy, arms control and counter-proliferation, as well as in investment banking and venture capital. He served on the National Security Council Staff in three US administrations and also managed the US government’s largest programme to prevent nuclear proliferation and terrorism by detecting, securing and disposing of dangerous nuclear material.</p>
-
-                </div>
-
-        </div>
-
-            <div class="m-4 w-full md:w-2/6   bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg" src="{{ asset('img/shef.png') }} " alt="" />
-                </a>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">William H. Tobey (Chair)</h5>
-                    </a>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">William Tobey’s career encompasses extensive management experience in defense policy, arms control and counter-proliferation, as well as in investment banking and venture capital. He served on the National Security Council Staff in three US administrations and also managed the US government’s largest programme to prevent nuclear proliferation and terrorism by detecting, securing and disposing of dangerous nuclear material.</p>
-
+ 
+       @foreach ($staffMembers as $staffMember)
+            
+            <div class=" my-10 w-9/12  flex flex-wrap">
+            
+                <img class=" w-7/8 lg:w-1/2 " src="{{ asset('img/shef.png') }} " alt=""  />
+            
+                <div class="w-full mt-5  flex flex-col justify-center  lg:pl-20 lg:w-1/2">
+                    <h5 class="mb-6 text-[#00517E] text-4xl font-bold tracking-tight dark:text-white">{{$staffMember->name}}</h5>
+                    <p class="text-gray-700  dark:text-gray-400">{{$staffMember->description}}</p>
                 </div>
 
             </div>
 
-            <div class="m-4 w-full md:w-2/6  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg" src="{{ asset('img/shef.png') }} " alt="" />
-                </a>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">William H. Tobey (Chair)</h5>
-                    </a>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">William Tobey’s career encompasses extensive management experience in defense policy, arms control and counter-proliferation, as well as in investment banking and venture capital. He served on the National Security Council Staff in three US administrations and also managed the US government’s largest programme to prevent nuclear proliferation and terrorism by detecting, securing and disposing of dangerous nuclear material.</p>
-
-                </div>
-
-            </div>
-
-
-
-
-
-
-        </div>
-
+        @endforeach
     </section>
 
 @endsection

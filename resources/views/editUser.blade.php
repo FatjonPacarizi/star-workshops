@@ -31,6 +31,31 @@
                   <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                   @enderror
                 </div>
+
+                <div class="mb-6  flex items-center h-36">
+                  <label  class="w-28 text-sm mx-5">Description</label>
+                  <textarea class="border border-gray-200 rounded p-1 w-full mx-5 h-full" name="description"
+                    placeholder="Null by default" >{{$user->description}}</textarea>
+          
+                  @error('description')
+                  <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                  @enderror
+                </div>
+                <div class="mb-6  flex items-center">
+                  <label class="w-28 text-sm mx-5 ">Position</label>
+                  <select class = "w-full mx-5 rounded border border-gray-200 p-1" name = 'position_id' >
+
+                      @foreach($positions as $position)
+                      <option @if($position->position == $userPosition->position) selected @endif  value = '{{$position->id}}'>{{$position->position}}</option>
+                      @endforeach
+                     
+                  </select>
+                 
+                  @error('user_status')
+                  <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                  @enderror
+                </div>
+
           
                 <div class="mb-6  flex items-center">
                   <label class="w-28 text-sm mx-5 ">User Status</label>
@@ -42,6 +67,7 @@
                   </select>
                   @else
                   <label class = "mx-2">Super Admin</label>
+                  <input type = "hidden" value = "superadmin" name = "user_status"/>
                   @endif
                   @error('user_status')
                   <p class="text-red-500 text-xs mt-1">{{$message}}</p>
