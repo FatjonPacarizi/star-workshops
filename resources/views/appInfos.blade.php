@@ -19,6 +19,48 @@
                   @error('app_name')
                   <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                   @enderror
+              
+
+                
+                <label class="inline-block text-lg mb-2">
+                  Facebook
+                </label>
+                  <input type="text" class="border border-gray-200 rounded p-2 w-full" name="facebook"
+                    value="{{$informations[0]->facebook}}" />
+
+                  @error('facebook')
+                  <p class="text-red-500 text-xs mt-1">{{$msesage}}</p>
+                  @enderror
+
+                  <label class="inline-block text-lg mb-2">
+                  Instagram
+                </label>
+                  <input type="text" class="border border-gray-200 rounded p-2 w-full" name="instagram"
+                    value="{{$informations[0]->instagram}}" />
+
+                  @error('instagram')
+                  <p class="text-red-500 text-xs mt-1">{{$msesage}}</p>
+                  @enderror
+
+                  <label class="inline-block text-lg mb-2">
+                  Twitter
+                </label>
+                  <input type="text" class="border border-gray-200 rounded p-2 w-full" name="twitter"
+                    value="{{$informations[0]->twitter}}" />
+
+                  @error('twitter')
+                  <p class="text-red-500 text-xs mt-1">{{$msesage}}</p>
+                  @enderror
+
+                  <label class="inline-block text-lg mb-2">
+                  Linkedin
+                </label>
+                  <input type="text" class="border border-gray-200 rounded p-2 w-full" name="linkedin"
+                    value="{{$informations[0]->linkedin}}" />
+
+                  @error('linkedin')
+                  <p class="text-red-500 text-xs mt-1">{{$msesage}}</p>
+                  @enderror
                 </div>
 
                 <label  class="inline-block text-lg mb-2">
