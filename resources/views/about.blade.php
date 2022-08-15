@@ -6,7 +6,10 @@
 
 <section class="body-font bg-white-600">
 <div class="relative flex items-center justify-center">
-        <p class="absolute text-7xl text-center text-white font-bold opacity-70">About <span class="text-red-700">Us</span></p>
+@php
+                               $about = App\Models\About::find(1);
+                        @endphp 
+        <p class="absolute text-7xl text-center text-white font-bold opacity-70">{{$about->title}} <span class="text-red-700"></span></p>
         <img src="{{ asset('img/2.png') }}" alt="">
     </div>
 
