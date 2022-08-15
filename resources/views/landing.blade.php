@@ -197,7 +197,7 @@
 
 
         <button id="to-top-button" onclick="goToTop()" title="Go To Top"
-        class="hidden fixed z-90 bottom-8 right-8 border-0 w-16 h-16 rounded-full drop-shadow-md bg-red-900 text-white text-3xl font-bold">&uarr;</button>  
+        class="hidden fixed z-90 bottom-8 right-8 border-0 w-16 h-16 rounded-full bg-red-600 ring-2 ring-white ring-inset text-white text-5xl font-bold">&uarr;</button>  
   
 
       <!-- Javascript code -->
