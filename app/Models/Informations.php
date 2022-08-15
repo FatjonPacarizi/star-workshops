@@ -12,5 +12,6 @@ class Informations extends Model
     protected $fillable = [
         'app_name',
         'logo_name',
+        'img_informations',
     ];
 }

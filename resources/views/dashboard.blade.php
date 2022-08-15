@@ -39,7 +39,7 @@
         </div>
     </aside>
 <div class="border border-black-200 w-full flex justify-center items-center">
-
+    
 </div>
 </div>
 </x-app-layout>

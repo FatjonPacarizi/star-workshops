@@ -13,6 +13,7 @@ class UserManageController extends Controller
      public function index(){
        
         return view('manageUsers',['users'=>User::all()]);
+        $users = DB::table('users')->count();
     }
 
     //Show edit form
