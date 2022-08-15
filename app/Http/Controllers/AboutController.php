@@ -9,15 +9,16 @@ use Illuminate\Support\Str;
 
 class AboutController extends Controller
 {   
-    function about () {
+    public function index () {
+        
         $about = About::all();
-        return view('about.index', compact('about'));
+        return view('about', ['about' => $about]);
     }
     
-    public function index()
+    public function abouts()
     {
         $about = About::all();
-        return view('about.index', compact('about'));
+        return view('about.index', ['about' => $about]);
     }
 
     public function create()

@@ -15,6 +15,10 @@ class InformationsFactory extends Factory
     {
         return [
             'app_name' => 'Star Workshop',
+            'facebook' => 'Star Workshop',
+            'instagram' => 'Star Workshop',
+            'twitter' => 'Star Workshop',
+            'linkedin' => 'Star Workshop',
         ];
     }
 }
