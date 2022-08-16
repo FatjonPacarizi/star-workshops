@@ -76,7 +76,7 @@
                         @endcan
                     </div>
                 </aside>
-                <div class="w-full flex justify-left items-left overflow-y-auto">
+                <div class="w-full flex justify-left items-left overflow-y-auto mb-10">
                     @yield('content')
            
                 </div>
