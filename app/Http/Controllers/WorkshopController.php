@@ -9,11 +9,12 @@ use App\Models\User;
 use App\Models\Country;
 use App\Models\Category;
 use App\Models\Workshop;
+use App\Models\Positions;
 use Illuminate\Queue\Worker;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
-use App\Models\Positions;
 
 class WorkshopController extends Controller
 {
@@ -26,8 +27,6 @@ class WorkshopController extends Controller
     {
         $currentTime = Carbon::now('Europe/Tirane');
         return view('workshops',['upcomings'=>Workshop::whereDate('time', '>=', $currentTime->toDateTimeString())->get(),'pasts'=>Workshop::whereDate('time', '<', $currentTime->toDateTimeString())->get()]);
-
-        $workshops = DB::table('workshops')->count();
     }
 
     /**
@@ -78,7 +77,8 @@ class WorkshopController extends Controller
             'category_id' => 'required',
             'time' => 'required',
         ]);
-        
+        $formFields['author'] = Auth::id();
+
         if(request()->hasFile('img_workshop')) {
          
             $formFields['img_workshop'] = request()->file('img_workshop')->store('workshopsImg','public');
@@ -113,7 +113,7 @@ class WorkshopController extends Controller
 
     public function showWorkshopManage()
     {
-        return view('manageWorkshops',['workshops'=>Workshop::all()]);
+        return view('manageWorkshops',['workshops'=>Workshop::where('author', Auth::id())->get()]);
     }
 
     /**
