@@ -51,9 +51,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+   
 });
 
 Route::group(['middleware' => 'auth'],function(){
@@ -98,7 +96,13 @@ Route::group(['middleware' => 'auth'],function(){
         ], function() {
          // Add routes here for admin and superadmin
 
+         //Show dashboard
+         Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
+
+         //Show app infos edit
          Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
+         
+         //Edit app Infos
          Route::put('/appInfos/{id}/edit', [InformationController::class, 'update']);
 
          //Show insert workshop page
