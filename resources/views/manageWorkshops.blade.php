@@ -7,11 +7,15 @@
       <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
 
         <h1 class = "p-3 text-slate-900">Workshop Managment</h1>
-        <a class = "mx-8" href="{{route('adminsuperadmin.showInsert')}}"> 
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-          </svg>
-        </a>
+
+          <div class="flex mx-4 ">
+            <h2>Create Workshop</h2>
+            <a class="mx-2" href="{{route('adminsuperadmin.showInsert')}}">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+              </svg>
+            </a>
+          </div>
         
       </div>
 
@@ -21,7 +25,7 @@
               <tr class="border-y border-gray-200 ">
                 <td class="font-bold p-3">Workshop Name</td>
                 <td class="font-bold">Workshop time</td>
-                <td class="font-bold pl-20 w-1/9">Actions</td>
+                <td class="font-bold text-center">Actions</td>
               </tr>
             @unless($workshops->isEmpty())
             @foreach($workshops as $workshop)
