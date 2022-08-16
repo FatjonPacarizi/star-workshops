@@ -15,10 +15,10 @@ class InformationsFactory extends Factory
     {
         return [
             'app_name' => 'Star Workshop',
-            'facebook' => 'Star Workshop',
-            'instagram' => 'Star Workshop',
-            'twitter' => 'Star Workshop',
-            'linkedin' => 'Star Workshop',
+            'facebook' => 'https://www.facebook.com/starlabs.dev',
+            'instagram' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'twitter' => 'https://twitter.com/infostarlabspr1?fbclid=IwAR0C78xaZbFxdiNnfgjiNOxGsxbC7rbfk5XlWI1B4VDUhDA2HQd4nJhuaYs',
+            'linkedin' => 'https://www.linkedin.com/company/starlabspro/',
         ];
     }
 }
