@@ -78,6 +78,13 @@ Route::group(['middleware' => 'auth'],function(){
             Route::post('add-landing', [LandingController::class, 'store']);
             Route::get('edit-landing/{id}', [LandingController::class, 'edit']);
             Route::put('update-landing/{id}', [LandingController::class, 'update']);
+
+
+              //Show app infos edit
+            Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
+            
+            //Edit app Infos
+            Route::put('/appInfos/{id}/edit', [InformationController::class, 'update']);
         });
 
 
@@ -103,12 +110,6 @@ Route::group(['middleware' => 'auth'],function(){
 
          //Show dashboard
          Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
-
-         //Show app infos edit
-         Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
-         
-         //Edit app Infos
-         Route::put('/appInfos/{id}/edit', [InformationController::class, 'update']);
 
          //Show insert workshop page
          Route::get('/workshopManage/insert',[WorkshopController::class,'create'])->name('showInsert');
