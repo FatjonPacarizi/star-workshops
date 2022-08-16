@@ -36,7 +36,7 @@
                         <a href="{{ route('landing' ) }}">
 
                             @php
-                            $information = App\Models\Informations::find(1);
+                            $information = App\Models\Informations::all()->last();
                               @endphp
                      
                          <img class="block h-10 m-3 mt-1 w-auto"alt="Logo" src="{{$information->logo_name ? asset('/storage/' . $information->logo_name) : asset('/img/Logo.png')}}">
