@@ -113,7 +113,12 @@ class WorkshopController extends Controller
 
     public function showWorkshopManage()
     {
-        return view('manageWorkshops',['workshops'=>Workshop::where('author', Auth::id())->get()]);
+        if(request()->user()->user_status == 'superadmin')
+            $workshops = Workshop::all();
+        else
+            $workshops = Workshop::where('author', Auth::id())->get();
+
+        return view('manageWorkshops',['workshops'=>$workshops]);
     }
 
     /**
