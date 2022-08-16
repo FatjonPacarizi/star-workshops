@@ -40,6 +40,7 @@ Route::get('contact',[ContactController::class, 'index']);
 Route::post('send',[ContactController::class, 'send'])->name('emailsend');
 
 Route::get('/',[LandingController::class,'index'])->name('landing');
+Route::get('landings', [LandingController::class, 'landing']);
 Route::get('/workshop/{id}',[WorkshopController::class,'show'])->name('single-workshop');
 
 Route::get('/workshops',[WorkshopController::class,'index'])->name('workshops');
@@ -74,7 +75,11 @@ Route::group(['middleware' => 'auth'],function(){
             Route::post('add-about', [AboutController::class, 'store']);
             Route::get('edit-about/{id}', [AboutController::class, 'edit']);
             Route::put('update-about/{id}', [AboutController::class, 'update']);
-
+            Route::get('landings', [LandingController::class, 'landing'])->name('showlandings');
+            Route::get('add-landing', [LandingController::class, 'create']);
+            Route::post('add-landing', [LandingController::class, 'store']);
+            Route::get('edit-landing/{id}', [LandingController::class, 'edit']);
+            Route::put('update-landing/{id}', [LandingController::class, 'update']);
         });
 
 

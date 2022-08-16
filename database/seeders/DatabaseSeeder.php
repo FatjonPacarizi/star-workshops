@@ -11,6 +11,7 @@ use App\Models\Country;
 use App\Models\Category;
 use App\Models\Feedback;
 use App\Models\Workshop;
+use App\Models\Landing;
 use Illuminate\Database\Seeder;
 use Database\Seeders\InformationSeeder;
 
@@ -35,7 +36,8 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             WorkshopSeeder::class,
             PositionsSeeder::class,
-            Positions_Users_Seeder::class
+            Positions_Users_Seeder::class,
+            LandingsSeeder::class
         ]);
 
     }
