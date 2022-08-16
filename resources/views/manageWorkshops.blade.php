@@ -31,7 +31,7 @@
                 <td class="font-bold p-3 ">Workshop Name</td>
                 <td class="font-bold">Upcoming</td>
                 <td class="font-bold">Workshop time</td>
-                <td class="font-bold text-center">Actions</td>
+                <td class="font-bold  ">Actions</td>
               </tr>
               
 
@@ -43,18 +43,18 @@
                  $upcoming = false;
                  if (strtotime($workshop->time) > strtotime($date->format("Y-m-d h:i:sa")))   $upcoming = true;
               @endphp
-              <td class = "w-32" ><div class="w-8  @if($upcoming) bg-green-500 @else bg-red-400 @endif flex justify-center items-center rounded text-white text-sm">@if($upcoming) yes @else no @endif</div></td>
+              <td class = "w-32" ><div class="w-8  @if($upcoming) bg-green-500 @else bg-red-500 @endif flex justify-center items-center rounded text-white text-sm">@if($upcoming) yes @else no @endif</div></td>
 
               <td ><a href="#" class = "text-blue-600"> {{$workshop->time}}</a></td>
-              <td class = "flex justify-center items-center" >
-                 <a href="/workshopManage/{{$workshop->id}}/edit" class="bg-sky-500 text-white px-4 py-1 text-sm rounded m-3">
-                  <i class="fa-solid fa-pen mr-1"></i>
+              <td class = "flex items-center " >
+                 <a href="/workshopManage/{{$workshop->id}}/edit" class="bg-sky-500 text-white p-2 text-sm rounded mr-3 my-2">
+                  <i class="fa-solid fa-pen "></i>
                       Edit
                   </a>
                 <form method="POST" action="/workshopManage/{{$workshop->id}}">
                   @csrf
                   @method('DELETE')
-                  <button class="bg-red-500 text-white px-4 py-1 text-sm rounded">
+                  <button class="bg-red-500 text-white p-2  text-sm rounded ">
                     <i class="fa-solid fa-trash-can  mr-1"></i>
                     Delete
                   </button>
