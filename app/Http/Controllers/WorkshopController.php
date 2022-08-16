@@ -129,12 +129,10 @@ class WorkshopController extends Controller
      */
     public function edit($id)
     {
-        if(request()->user()->user_status == 'superadmin')
-            $workshop = Workshop::find($id);
-        else{
-            $workshop = Workshop::find($id);
-            if( $workshop->author != Auth::id()) abort(403);
-        }
+        $workshop = Workshop::find($id);
+       
+        //Secure
+        if( $workshop->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
            
         return view('editWorkshop', ['workshop'=>$workshop,
                                     'countries'=>Country::all(),
@@ -164,6 +162,7 @@ class WorkshopController extends Controller
 
         $currentWorkshop = Workshop::find($id);
 
+        //Secure
         if( $currentWorkshop->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
 
         if(request()->hasFile('img_workshop')) {
