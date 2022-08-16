@@ -1,3 +1,7 @@
+@php
+$information = App\Models\Informations::all()->last();
+@endphp
+
 <footer class="text-white body-font ">
     <div class="bg-red-600">
         <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row ">
