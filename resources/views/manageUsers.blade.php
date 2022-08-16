@@ -21,16 +21,15 @@
               <td ><a href="#" class = "text-blue-600"> {{$user->email}}</a></td>
               <td class = "flex justify-center items-center" >
                  <a href="/usersManager/{{$user->id}}/edit" class="bg-sky-500 text-white px-4 py-1 text-sm rounded m-3">
-                  <span class="inline-flex items-center justify-center h-6 w-6"><i class="mdi mdi-pencil-outline inline-flex"></i></span>
-
+                  <i class="fa-solid fa-pen mr-1"></i>
                   Edit
                   </a>
                 <form method="POST" action="/usersManager/{{$user->id}}">
                   @csrf
                   @method('DELETE')
                   <button class="bg-red-500 text-white px-4 py-1 text-sm rounded">
-                  <span class="inline-flex items-center justify-center h-6 w-6"><i class="mdi mdi-delete-outline inline-flex"></i></span>
-                    Delete
+                    <i class="fa-solid fa-trash-can  mr-1"></i> 
+                                         Delete
                   </button>
                 </form>
               </td>
