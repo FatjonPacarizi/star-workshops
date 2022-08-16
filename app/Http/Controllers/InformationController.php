@@ -20,14 +20,6 @@ class InformationController extends Controller
         return view('AppInfos',['informations' => Informations::latest()->take(1)->get()]);
     }
 
-    public function showicons(){
-
-        $informaitons = Informations::latest()->take(1)->get();
-        
-        return view('layouts.partials.footer',['informaitons'=> $informaitons]);
-    }
-
-
    // Update informations
    public function update($id) {
     $formFields = request()->validate([
