@@ -11,6 +11,7 @@ class Workshop extends Model
 
     protected $fillable = [
         'name',
+        'author',
         'type_id',
         'country_id',
         'city_id',

@@ -30,10 +30,10 @@ class DatabaseSeeder extends Seeder
             FaqSeeder::class,
             FeedbackSeeder::class,
             TypeSeeder::class,
-            WorkshopSeeder::class,
             InformationsSeeder::class,
             AboutsSeeder::class,
             UsersSeeder::class,
+            WorkshopSeeder::class,
             PositionsSeeder::class,
             Positions_Users_Seeder::class
         ]);

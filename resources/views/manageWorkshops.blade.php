@@ -51,8 +51,9 @@
             @endforeach
             @else
             <tr>
-              <td >
-                <p class="text-center">No workshops Found</p>
+              <td ></td>
+              <td class = "p-5">
+                No workshops Found
               </td>
             </tr>
             @endunless
