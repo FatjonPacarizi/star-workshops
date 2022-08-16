@@ -17,6 +17,10 @@ class Informations extends Migration
             $table->id();
             $table->string('app_name');
             $table->string('logo_name')->nullable();
+            $table->string('facebook');
+            $table->string('instagram');
+            $table->string('twitter');
+            $table->string('linkedin');
             $table->timestamps();
         });
     }
