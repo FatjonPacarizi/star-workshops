@@ -32,6 +32,10 @@ class InformationController extends Controller
    public function update($id) {
     $formFields = request()->validate([
         'app_name' => 'required',
+        'facebook' => 'required',
+        'instagram' => 'required',
+        'twitter' => 'required',
+        'linkedin' => 'required',
     ]);
 
 

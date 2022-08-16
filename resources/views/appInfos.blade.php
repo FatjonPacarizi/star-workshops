@@ -7,6 +7,7 @@
               <h1 class = "p-3 text-slate-900">App Information</h1>
               <a href="/dashboard" class="p-3 text-gray-400"> Cancel</a>
             </div>
+
               <div class="w-full p-4">
             <form method="POST" action="/appInfos/{{$informations[0]->id}}/edit" enctype="multipart/form-data">
                 @csrf
@@ -61,8 +62,10 @@
                   @error('linkedin')
                   <p class="text-red-500 text-xs mt-1">{{$msesage}}</p>
                   @enderror
-                </div>
 
+
+                </div>
+                
                 <label  class="inline-block text-lg mb-2">
                     App Logo
                 </label>
