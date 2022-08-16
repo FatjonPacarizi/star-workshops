@@ -24,7 +24,8 @@ use App\Http\Controllers\usersController;
 */
 
 Route::get('abouts', [AboutController::class, 'contact']);
-Route::view('/about','about');
+Route::get('/about', [AboutController::class, 'index']);
+
 Route::view('/workshop','workshop');
 Route::get('/', function () {
     return view('welcome');
@@ -68,7 +69,7 @@ Route::group(['middleware' => 'auth'],function(){
             Route::get('usersManager/{id}/edit',[UserManageController::class,'edit']);
             Route::put('/usersManager/{id}',[UserManageController::class, 'update']);
             Route::delete('/usersManager/{user}', [UserManageController::class, 'destroy']);
-            Route::get('abouts', [AboutController::class, 'index'])->name('showabouts');
+            Route::get('abouts', [AboutController::class, 'abouts'])->name('showabouts');
             Route::get('add-about', [AboutController::class, 'create']);
             Route::post('add-about', [AboutController::class, 'store']);
             Route::get('edit-about/{id}', [AboutController::class, 'edit']);

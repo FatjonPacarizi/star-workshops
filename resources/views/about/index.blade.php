@@ -15,29 +15,29 @@
                 <td class="font-bold">Image</td>
                 <td class="font-bold text-center w-1/9">Action</td>
               </tr>
-                            @foreach ($about as $item)
+                          
                             <tr  class='bg-gray-100'>
 
                                 
-                                <td class="p-3">{{ $item->title }}</td>
+                                <td class="p-3">{{$about[0]->title}}</td>
                               
-                                <td>  {{ Illuminate\Support\Str::limit($item->heading, 20, $end='...') }}</td>
+                                <td>  {{ Illuminate\Support\Str::limit($about[0]->heading, 20, $end='...') }}</td>
                                
-                                <td> {{ Illuminate\Support\Str::limit($item->paragraf, 20, $end='...') }}</td>
-                                <td>{{ $item->button }}</td>
+                                <td> {{ Illuminate\Support\Str::limit($about[0]->paragraf, 20, $end='...') }}</td>
+                                <td>{{ $about[0]->button }}</td>
                                 <td>
-                                    <img src="{{ asset('uploads/abouts/'.$item->image) }}" width="70px" height="70px" alt="Image">
+                                    <img src="{{ asset('uploads/abouts/'.$about[0]->image) }}" width="70px" height="70px" alt="Image">
                                 </td>
                                
                                 <td class = "flex justify-center items-center" >
-                                    <a href="{{ url('edit-about/'.$item->id) }}" class="bg-sky-500 text-white px-4 py-1 text-sm rounded m-3">   <span class="inline-flex items-center justify-center h-6 w-6"><i class="mdi mdi-pencil-outline inline-flex"></i></span>
+                                    <a href="{{ url('edit-about/'.$about[0]->id) }}" class="bg-sky-500 text-white px-4 py-1 text-sm rounded m-3">   <span class="inline-flex items-center justify-center h-6 w-6"><i class="mdi mdi-pencil-outline inline-flex"></i></span>
 
 Edit
 </a>
                                 </td>
                                 
                             </tr>
-                            @endforeach
+                          
                      
                     </table>
 
