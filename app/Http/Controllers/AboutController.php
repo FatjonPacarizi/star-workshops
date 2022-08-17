@@ -31,6 +31,14 @@ class AboutController extends Controller
 
     public function store(Request $request)
     {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'heading' => 'required',
+            'paragraph' => 'required',
+            'image' => 'required',
+            'button' => 'required',
+            
+        ]);
         $about = new about;
         $about->title = $request->input('title');
         $about->heading = $request->input('heading');
@@ -58,6 +66,8 @@ class AboutController extends Controller
 
     public function update(Request $request, $id)
     {
+   
+
         $about = about::find($id);
        
         $about->title = $request->input('title');
@@ -75,7 +85,7 @@ class AboutController extends Controller
         
         
         //update About
-        $currentAbout->update($formFields);
+ 
         
         // delete old img only when db update is succesful
         if(request()->hasFile('image')) {
