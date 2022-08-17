@@ -26,8 +26,8 @@ class UpdateAboutRequest extends FormRequest
         return [
             'title' => 'required|max:255',
             'heading' => 'required|max:255',
-            'paragraph' => 'required',
-            'image' => 'required',
+            'paragraph' => 'required|between:30,600',
+            'image' => 'required|image',
             'button' => 'required|max:255',
         ];
     }

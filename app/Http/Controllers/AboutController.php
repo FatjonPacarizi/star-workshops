@@ -29,7 +29,7 @@ class AboutController extends Controller
         return view('about.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreAboutRequest $request)
     {
         $formFields = $request->validate([
             'title' => 'required',
@@ -64,9 +64,9 @@ class AboutController extends Controller
         return view('about.edit', compact('about'));
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateAboutRequest $request, $id)
     {
-   
+
 
         $about = about::find($id);
        
