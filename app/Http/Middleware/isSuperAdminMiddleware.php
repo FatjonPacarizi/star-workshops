@@ -17,7 +17,7 @@ class isSuperAdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         if( auth()->user()->user_status != 'superadmin' ){
-            abort(403);
+            return redirect()->route('landing');
         }
         return $next($request);
     }

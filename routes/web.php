@@ -27,9 +27,7 @@ Route::get('abouts', [AboutController::class, 'contact']);
 Route::get('/about', [AboutController::class, 'index']);
 
 Route::view('/workshop','workshop');
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', function () { return view('welcome');})->name('home');
 
 Route::get('/members',[WorkshopController::class, 'showMembers']);
 
