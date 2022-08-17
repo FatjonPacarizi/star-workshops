@@ -10,7 +10,12 @@ use Illuminate\Support\Str;
 class LandingController extends Controller
 {
     public function index(){
-        $latest_workshops = Workshop::limit(5)->orderBy('id','desc')->get();
+        $latest_workshops = Workshop::limit(5)
+        ->Join("users", function($join){
+            $join->on("workshops.author", "=", "users.id");
+        })
+        ->select("users.name as author","workshops.name as name","workshops.id as id", "workshops.time as time")        
+        ->orderBy('workshops.id','desc')->get();
 
         return view('landing', ['latest_workshops' => $latest_workshops]);
     }
