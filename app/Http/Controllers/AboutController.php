@@ -29,34 +29,43 @@ class AboutController extends Controller
         return view('about.create');
     }
 
-    public function store(StoreAboutRequest $request)
+    public function store(Request $request)
     {
-        $formFields = $request->validate([
+        $about = new about;
+        
+        $request->validate([
             'title' => 'required',
             'heading' => 'required',
             'paragraph' => 'required',
-            'image' => 'required',
             'button' => 'required',
-            
+            'image' => 'required',
         ]);
-        $about = new about;
-        $about->title = $request->input('title');
-        $about->heading = $request->input('heading');
-        $about->paragraph = $request->input('paragraph');
-        $about->button = $request->input('button');
-      
-    if(request()->hasFile('image')) {
-        $formFields['image'] = request()->file('image')->store('image','public');
-         $oldImg = $about->image;
-    }
-    Abouts::find($id)->update($formFields);
-    if(request()->hasFile('image')) {
-        Storage::delete('/public/' .$oldImg);
-    }
-     
-        $about->update();
-        return redirect()->back()->with('status','about Image Added Successfully');
-    }
+        
+        $title = $request->input('title');
+        $heading = $request->input('heading');
+        $paragraph = $request->input('paragraph');
+        $button = $request->input('button');
+        if ($request->hasfile('image')) {
+
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filetitle = time() . '.' . $extention;
+            $file->move('uploads/abouts/', $filetitle);
+            $image = $filetitle;
+        }
+        $fields = [
+            'title'=> $title,
+            'heading'=> $heading,
+            'paragraph'=> $paragraph,
+            'button'=> $button,
+            'image'=> $image,
+            
+        ];
+        $about::create($fields);
+
+        return redirect('/abouts')->with('status', 'about Created Successfully');
+        
+        }
 
     public function edit($id)
     {

@@ -1,11 +1,19 @@
 @extends('layouts.app')
   @section('content')
-  <div class="w-full h-full p-6  flex flex-col  items-center">
+  <div class="w-full flex justify-left items-left overflow-y-auto mb-10">
+  <div class="w-full h-full p-6  flex flex-col  items-center ">
 
     <div class="w-full bg-white border border-gray-200 rounded pb-4 mt-12">
 
-            <h1 class = "p-3 text-slate-900 border-b border-gray-200 mb-4 ">About Managment</h1>
-             <div class="w-full flex justify-center">
+      <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
+
+        <h1 class="p-3 text-slate-900">About Managment</h1>
+
+       
+
+      </div>
+
+            <div class="w-full flex justify-center">
             <table class="w-full mx-4">
               <tr class="border-y border-gray-200 ">
                 <td class="font-bold p-3">Page Title</td>
