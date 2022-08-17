@@ -26,7 +26,7 @@
                                 <td> {{ Illuminate\Support\Str::limit($about[0]->paragraph, 20, $end='...') }}</td>
                                 <td>{{ $about[0]->button }}</td>
                                 <td>
-                                    <img src="{{ asset('uploads/abouts/'.$about[0]->image) }}" width="70px" height="70px" alt="Image">
+                                    <img src="{{ asset('/storage/'.$about[0]->image) }}" width="70px" height="70px" alt="Image">
                                 </td>
                                
                                 <td class = "flex justify-center items-center" >

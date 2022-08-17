@@ -9,7 +9,7 @@
     <div class="relative flex items-center justify-center">
 
         <p class="absolute text-7xl text-center text-white font-bold opacity-70">{{$about[0]->title}} <span class="text-red-700"></span></p>
-        <img src="{{ asset('uploads/abouts/'.$about[0]->image) }}" alt="">
+        <img src="{{ asset('/storage/'.$about[0]->image) }}" alt="">
     </div>
 
     <div class="text-red-600 container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
