@@ -17,7 +17,7 @@ class isSuperAdminOrAdmin
     public function handle(Request $request, Closure $next)
     {
         if( auth()->user()->user_status != 'superadmin' && auth()->user()->user_status != 'admin'){
-            abort(403);
+            return redirect()->route('landing');
         }
         return $next($request);
     }

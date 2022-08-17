@@ -23,8 +23,14 @@
     <body class="antialiased">
     <div class="flex justify-end">
         @if (Route::has('login'))
-        <div class="hidden absolute top-0 right-0 px-6 py-5 sm:block">
+        <div class="hidden absolute top-0 right-0 px-6 py-5 sm:block flex">
             @auth
+            <!-- Authentication -->
+            <a class="p-2 rounded-full text-red-700 hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white" href="#">Profile</a>
+            <form class = "inline-block" method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button class="text-red-700 ">Logout </button>
+            </form>
             <a href="{{ url('/dashboard') }}" class="p-2 rounded-full text-red-700 hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">Dashboard</a>
             @else
             <a href="{{ route('login') }}" class="p-2 rounded-full text-red-700 hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">Log in</a>
