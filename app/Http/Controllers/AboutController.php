@@ -15,13 +15,13 @@ class AboutController extends Controller
     public function index () {
         
         $about = About::all();
-        return view('about', ['about' => $about]);
+        return view('about', ['about' => $about[0]]);
     }
     
     public function abouts()
     {
         $about = About::all();
-        return view('about.index', ['about' => $about]);
+        return view('about.index', ['about' => $about[0]]);
     }
 
     public function create()
