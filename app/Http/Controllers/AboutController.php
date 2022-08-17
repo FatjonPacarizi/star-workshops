@@ -64,7 +64,7 @@ class AboutController extends Controller
         return view('about.edit', compact('about'));
     }
 
-    public function update(UpdateAboutRequest $request, $id)
+    public function update(Request $request, $id)
     {
 
 
