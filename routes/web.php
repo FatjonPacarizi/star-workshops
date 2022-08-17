@@ -23,6 +23,8 @@ use App\Http\Controllers\usersController;
 |
 */
 
+
+Route::get('/users', 'App\Http\Controllers\UserController@index');
 Route::get('abouts', [AboutController::class, 'contact']);
 Route::get('/about', [AboutController::class, 'index']);
 
@@ -36,8 +38,6 @@ Route::get('/members',[WorkshopController::class, 'showMembers']);
 Route::get('/test',[usersController::class, 'getUsersByStaffPosition']);
 
 
-Route::get('contact',[ContactController::class, 'index']);
-Route::post('send',[ContactController::class, 'send'])->name('emailsend');
 
 Route::get('/',[LandingController::class,'index'])->name('landing');
 Route::get('landings', [LandingController::class, 'landing']);
@@ -45,7 +45,7 @@ Route::get('/workshop/{id}',[WorkshopController::class,'show'])->name('single-wo
 
 Route::get('/workshops',[WorkshopController::class,'index'])->name('workshops');
 
-
+Route::post('/send',[App\Http\Controllers\MailController::class, 'send'])->name('emailsend');
 
 Route::middleware([
     'auth:sanctum',
