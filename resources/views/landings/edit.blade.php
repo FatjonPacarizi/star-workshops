@@ -23,13 +23,13 @@
 
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Section Title</label>
-                <textarea type="text" name="heading" value="" class="border border-gray-200 rounded p-1 w-full mx-5">
-                {{$landing->heading}}</textarea>
+                <textarea type="text" name="heading" value="" class="border border-gray-200 rounded p-1 w-full mx-5"> {{$landing->heading}}</textarea>
+               
             </div>
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Description</label>
-                <textarea type="text" name="paragraf" value="" class="border border-gray-200 rounded p-1 w-full mx-5">
-                {{$landing->paragraf}}</textarea>
+                <textarea type="text" name="paragraf" value="" class="border border-gray-200 rounded p-1 w-full mx-5"> {{$landing->paragraf}}</textarea>
+               
             </div>
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Button Text</label>
