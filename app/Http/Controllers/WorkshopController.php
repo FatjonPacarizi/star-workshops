@@ -120,7 +120,10 @@ class WorkshopController extends Controller
         $workshop = Workshop::Join("countries", function($join){
                 $join->on("workshops.country_id", "=", "countries.id");
             })
-            ->select("workshops.name as name","workshops.time as time","workshops.img_workshop as img_workshop","countries.name AS country")
+            ->Join("users", function($join){
+                $join->on("workshops.author", "=", "users.id");
+            })
+            ->select("workshops.name as name","users.name as author","workshops.time as time","workshops.img_workshop as img_workshop","countries.name AS country")
             ->where('workshops.id',$id)
             ->get();     
             

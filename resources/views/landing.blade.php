@@ -160,10 +160,16 @@
           <div class="w-full h-3/4 bg-black absolute opacity-50"> </div>
           <img class="w-full h-3/4 " src="{{$workshop->img_workshop ? asset('/storage/' . $workshop->img_workshop) : asset('/img/test.jpg')}}" />
           <h1 class=" absolute top-0 left-0 text-white p-3 font-bold">{{$workshop->name}}</h1>
-          <div class="flex">
-            <span class="inline-flex items-center justify-center h-6 w-6 text-red-500"><i class="mdi mdi-CalendarRange text-red-500 inline-flex"></i></span>
-            <h1 class="my-5">{{$workshop->time}}</h1>
-          </div>
+          <div class="my-5"> 
+            <div class="flex items-center">
+                <i class="fa-solid fa-calendar-days text-gray-600 ml-5 mr-2 -mt-1"></i> 
+                <h1 >{{$workshop->time}}</h1>
+             </div>
+              <div class="flex items-center mt-2">
+                <i class="fa-solid fa-user text-gray-600 ml-5 mr-2 -mt-1"></i>
+                <h1 >{{$workshop->author}}</h1>
+             </div>
+            </div>
         </a>
       </div>
       @endforeach
