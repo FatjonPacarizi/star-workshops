@@ -29,17 +29,10 @@ class AboutController extends Controller
         return view('about.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreAboutRequest $request)
     {
         $about = new about;
         
-        $request->validate([
-            'title' => 'required',
-            'heading' => 'required',
-            'paragraph' => 'required',
-            'button' => 'required',
-            'image' => 'required',
-        ]);
         
         $title = $request->input('title');
         $heading = $request->input('heading');
