@@ -29,7 +29,7 @@ class AboutController extends Controller
         return view('about.create');
     }
 
-    public function store(StoreAboutRequest $request)
+    public function store(Request $request)
     {
         $about = new about;
         $about->title = $request->input('title');
@@ -56,7 +56,7 @@ class AboutController extends Controller
         return view('about.edit', compact('about'));
     }
 
-    public function update(StoreAboutRequest  $request, $id)
+    public function update(Request $request, $id)
     {
         $about = about::find($id);
        
