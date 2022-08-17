@@ -41,9 +41,9 @@
 
     <h1 class = "w-full p-20 text-center text-4xl roundedTop -mt-40 bg-white">Past Events</h1>
     
-    <div class="w-full  mx-auto flex flex-wrap  lg:w-11/12 lg:pl-10 lg:justify-between">
+    <div class="w-full  mx-auto flex flex-wrap  lg:justify-center">
       @foreach($pasts as $past)
-      <div class="w-full  relative rounded shadow-lg m-10  bg-white border sm:w-2/5 sm:mx-auto  lg:w-1/4 lg:m-7 ">
+      <div class="w-full  relative rounded shadow-lg m-10  bg-white border sm:w-2/5 sm:mx-auto  lg:w-1/5 lg:m-7 ">
         <a  href = "{{route('single-workshop',$past->id)}}">
           <div class="w-full h-3/4 bg-black absolute opacity-50"> </div>
           <img class = "w-full h-3/4 " src="{{$past->img_workshop ? asset('/storage/' . $past->img_workshop) : asset('/img/test.jpg')}}"/>           

@@ -2927,6 +2927,10 @@ select {
     width: 25%;
   }
 
+  .lg\:w-1\/5 {
+    width: 20%;
+  }
+
   .lg\:w-1\/2 {
     width: 50%;
   }
