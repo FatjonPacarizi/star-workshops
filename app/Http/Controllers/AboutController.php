@@ -69,35 +69,38 @@ class AboutController extends Controller
     public function update(Request $request, $id)
     {
 
-
-        $about = about::find($id);
-       
-        $about->title = $request->input('title');
-        $about->heading = $request->input('heading');
-        $about->paragraph = $request->input('paragraph');
-        $about->button = $request->input('button');
-        $currentAbout = About::find($id);
+        $formFields = request()->validate([
+            'title' => 'required',
+            'heading' => 'required',
+            'paragraph' => 'required',
+            'button' => 'required',
+            
+        ]);
+    
+    
+        $about =  about::find($id);
+    
+    
         if(request()->hasFile('image')) {
-         
             $formFields['image'] = request()->file('image')->store('AboutsImg','public');
-
-            //e ruajm old Aboutimg para se me update
-             $oldAboutImg = $currentAbout->image;
+    
+             //e ruajm old img para se me update
+             $oldImg = $about->image;
         }
-        
-        
-        //update About
- 
+    
+    
+       //update appinfo
+       about::find($id)->update($formFields);
+    
         
         // delete old img only when db update is succesful
         if(request()->hasFile('image')) {
-        //delete old img
-        Storage::delete('/public/' .$oldAboutImg);
+            //delete old img
+            Storage::delete('/public/' .$oldImg);
         }
-      
-        $about->update();
-        return redirect()->back()->with('status','About Image Updated Successfully');
+        
+        return back();
     }
-
-   
-}
+    }
+    
+    
