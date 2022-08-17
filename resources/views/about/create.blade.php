@@ -21,7 +21,7 @@
                         </div>
                         <div class="mb-6 flex items-center">
                             <label class="w-28 text-sm mx-5" for=""> Text</label>
-                            <input type="text" name="paragraf" class="border border-gray-200 rounded p-1 w-full mx-5">
+                            <input type="text" name="paragraph" class="border border-gray-200 rounded p-1 w-full mx-5">
                         </div>
                         <div class="mb-6 flex items-center">
                             <label class="w-28 text-sm mx-5" for="">About Button</label>

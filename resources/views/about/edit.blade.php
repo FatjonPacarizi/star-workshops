@@ -30,7 +30,7 @@
                             <textarea type="text" name="heading" value="" class="border border-gray-200 rounded p-1 w-full mx-5">{{$about->heading}}</textarea></div>
                         <div class="mb-6 flex items-center">
                             <label class="w-28 text-sm mx-5" for="">About Text</label>
-                            <textarea type="text" name="paragraf" value="" class="border border-gray-200 rounded p-1 w-full mx-5">{{$about->paragraf}}</textarea></div>
+                            <textarea type="text" name="paragraph" value="" class="border border-gray-200 rounded p-1 w-full mx-5">{{$about->paragraf}}</textarea></div>
                         <div class="mb-6 flex items-center">
                             <label class="w-28 text-sm mx-5" for="">About Button</label>
                             <input type="text" name="button" value="{{$about->button}}" class="border border-gray-200 rounded p-1 w-full mx-5">

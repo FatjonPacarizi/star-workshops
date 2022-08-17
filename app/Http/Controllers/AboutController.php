@@ -29,12 +29,12 @@ class AboutController extends Controller
         return view('about.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreAboutRequest $request)
     {
         $about = new about;
         $about->title = $request->input('title');
         $about->heading = $request->input('heading');
-        $about->paragraf = $request->input('paragraf');
+        $about->paragraph = $request->input('paragraph');
         $about->button = $request->input('button');
       
     if(request()->hasFile('image')) {
@@ -56,13 +56,13 @@ class AboutController extends Controller
         return view('about.edit', compact('about'));
     }
 
-    public function update(Request $request, $id)
+    public function update(StoreAboutRequest  $request, $id)
     {
         $about = about::find($id);
        
         $about->title = $request->input('title');
         $about->heading = $request->input('heading');
-        $about->paragraf = $request->input('paragraf');
+        $about->paragraph = $request->input('paragraph');
         $about->button = $request->input('button');
         if($request->hasfile('image'))
         {

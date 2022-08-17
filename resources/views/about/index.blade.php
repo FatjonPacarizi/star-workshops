@@ -23,7 +23,7 @@
                               
                                 <td>  {{ Illuminate\Support\Str::limit($about[0]->heading, 20, $end='...') }}</td>
                                
-                                <td> {{ Illuminate\Support\Str::limit($about[0]->paragraf, 20, $end='...') }}</td>
+                                <td> {{ Illuminate\Support\Str::limit($about[0]->paragraph, 20, $end='...') }}</td>
                                 <td>{{ $about[0]->button }}</td>
                                 <td>
                                     <img src="{{ asset('uploads/abouts/'.$about[0]->image) }}" width="70px" height="70px" alt="Image">
