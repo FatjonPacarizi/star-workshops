@@ -48,14 +48,14 @@
               <td ><a href="#" class = "text-blue-600"> {{$workshop->time}}</a></td>
               <td class = "flex items-center " >
                  <a href="/workshopManage/{{$workshop->id}}/edit" class="bg-sky-500 text-white px-2 py-1 text-sm rounded mr-3 my-2">
-                  <i class="fa-solid fa-pen my-1"></i>
+                  <i class="fa-solid fa-pen my-1 fa-sm"></i>
                       Edit
                   </a>
                 <form method="POST" action="/workshopManage/{{$workshop->id}}">
                   @csrf
                   @method('DELETE')
                   <button class="bg-red-500 text-white px-2 py-1 text-sm rounded ">
-                    <i class="fa-solid fa-trash-can  mr-1 my-1"></i>
+                    <i class="fa-solid fa-trash-can  mr-1 my-1 fa-sm"></i>
                     Delete
                   </button>
                 </form>
