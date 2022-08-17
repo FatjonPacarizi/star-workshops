@@ -17,7 +17,7 @@
             <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium">{{$about[0]->heading}}</h1>
             <p>
 
-            {{$about[0]->paragraf}}  <div class="flex justify-center">
+            {{$about[0]->paragraph}}  <div class="flex justify-center">
 
                 <a href="{{$about[0]->button}}"> <button style="margin-top: 20px;margin-left: -4px;"class="ml-4 inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg">Find out more</button>
                 </a></div>

@@ -28,8 +28,8 @@
             </div>
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Description</label>
-                <textarea type="text" name="paragraf" value="" class="border border-gray-200 rounded p-1 w-full mx-5">
-                {{$landing->paragraf}}</textarea>
+                <textarea type="text" name="paragraph" value="" class="border border-gray-200 rounded p-1 w-full mx-5">
+                {{$landing->paragraph}}</textarea>
             </div>
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Button Text</label>
