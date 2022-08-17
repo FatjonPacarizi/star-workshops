@@ -21,9 +21,15 @@
             <div class="w-full h-3/4 bg-black absolute opacity-50"> </div>
             <img class = "w-full h-3/4 " src="{{$upcoming->img_workshop ? asset('/storage/' . $upcoming->img_workshop) : asset('/img/test.jpg')}}"/>           
           <h1 class  = " absolute top-0 left-0 text-white p-3 font-bold">{{$upcoming->name}}</h1>
-          <div class="flex items-center my-5">
-            <i class="fa-solid fa-calendar-days text-gray-600 ml-5 mr-2 -mt-1"></i> 
-            <h1 >{{$upcoming->time}}</h1>
+          <div class="my-5"> 
+          <div class="flex items-center">
+              <i class="fa-solid fa-calendar-days text-gray-600 ml-5 mr-2 -mt-1"></i> 
+              <h1 >{{$upcoming->time}}</h1>
+           </div>
+            <div class="flex items-center mt-2">
+              <i class="fa-solid fa-user text-gray-600 ml-5 mr-2 -mt-1"></i>
+              <h1 >{{$upcoming->author}}</h1>
+           </div>
           </div>
           </a>
         </div>
@@ -42,9 +48,15 @@
           <div class="w-full h-3/4 bg-black absolute opacity-50"> </div>
           <img class = "w-full h-3/4 " src="{{$past->img_workshop ? asset('/storage/' . $past->img_workshop) : asset('/img/test.jpg')}}"/>           
         <h1 class  = " absolute top-0 left-0 text-white p-3 font-bold">{{$past->name}}</h1>
-        <div class="flex items-center my-5">
-          <i class="fa-solid fa-calendar-days text-gray-600 ml-5 mr-2 -mt-1"></i> 
-          <h1 >{{$past->time}}</h1>
+        <div class="my-5">
+          <div class="flex items-center">
+            <i class="fa-solid fa-calendar-days text-gray-600 ml-5 mr-2 -mt-1"></i> 
+            <h1 >{{$past->time}}</h1>
+         </div>
+          <div class="flex items-center mt-2">
+            <i class="fa-solid fa-user text-gray-600 ml-5 mr-2 -mt-1"></i>
+            <h1 >{{$past->author}}</h1>
+         </div>
         </div>
      
         </a>
