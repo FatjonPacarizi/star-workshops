@@ -13,6 +13,7 @@
                 <p class="mb-8 leading-relaxed"> {{$workshop->time}} </p>
                 <p class="mb-8 leading-relaxed"> {{$workshop->country}} </p>
 
+                <p class="mb-8 leading-relaxed">Author : {{$workshop->author}}</p>
                 <p class="mb-8 leading-relaxed">Applications for this event are closed</p>
             </div>
 
