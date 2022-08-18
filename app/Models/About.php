@@ -14,7 +14,7 @@ class About extends Model
 
         'title',
         'heading',
-        'paragraf',
+        'paragraph',
         'image',
         'button',
     ];

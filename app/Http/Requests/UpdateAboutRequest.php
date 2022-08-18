@@ -13,7 +13,7 @@ class UpdateAboutRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class UpdateAboutRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|max:255',
+            'heading' => 'required|max:255',
+            'paragraph' => 'required|between:30,600',
+            'image' => 'required|image',
+            'button' => 'required|max:255',
         ];
     }
 }

@@ -66,11 +66,15 @@ Route::group(['middleware' => 'auth'],function(){
             Route::get('usersManager/{id}/edit',[UserManageController::class,'edit']);
             Route::put('/usersManager/{id}',[UserManageController::class, 'update']);
             Route::delete('/usersManager/{user}', [UserManageController::class, 'destroy']);
+            //Show dashboard abouts
             Route::get('abouts', [AboutController::class, 'abouts'])->name('showabouts');
+            // Insert about
             Route::get('add-about', [AboutController::class, 'create']);
             Route::post('add-about', [AboutController::class, 'store']);
+            //Edit about
             Route::get('edit-about/{id}', [AboutController::class, 'edit']);
             Route::put('update-about/{id}', [AboutController::class, 'update']);
+            
             Route::get('landings', [LandingController::class, 'landing'])->name('showlandings');
             Route::get('add-landing', [LandingController::class, 'create']);
             Route::post('add-landing', [LandingController::class, 'store']);
