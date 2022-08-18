@@ -12,18 +12,18 @@ use Illuminate\Support\Str;
 
 class AboutController extends Controller
 {   
-    //return view in blade
+
     public function index () {
         $about = About::all();
         return view('about', ['about' =>About::all()->last()]);
     }
-     //return view in dashboard
+
     public function abouts()
     {
         $about = About::all();
         return view('about.index', ['about' => About::all()->last()]);
     }
- //return view in dashboard about create
+
     public function create()
     {
         return view('about.create');
