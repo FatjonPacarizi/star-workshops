@@ -49,7 +49,7 @@
                             <a href="{{route('workshops')}}" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium" aria-current="page">WORKSHOPS</a>
                             <a href="/about" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">ABOUT US</a>
                             <a href="/members" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">MEMBERS</a>
-
+                            <a href="/newspage" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">NEWS</a>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                 <a href="{{route('workshops')}}" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">Workshops</a>
                 <a href="/about" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">ABOUT US</a>
                 <a href="/members" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">MEMBERS</a>
-   
+                <a href="/newspage" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">NEWS</a>
 
             </div>
         </div>
