@@ -28,18 +28,15 @@ class AboutController extends Controller
     {
         return view('about.create');
     }
-
     public function store(StoreAboutRequest $request)
     {
         $about = new about;
-        
-        
+    
         $title = $request->input('title');
         $heading = $request->input('heading');
         $paragraph = $request->input('paragraph');
         $button = $request->input('button');
         if ($request->hasfile('image')) {
-
             $file = $request->file('image');
             $extention = $file->getClientOriginalExtension();
             $filetitle = time() . '.' . $extention;
@@ -51,13 +48,10 @@ class AboutController extends Controller
             'heading'=> $heading,
             'paragraph'=> $paragraph,
             'button'=> $button,
-            'image'=> $image,
-            
+            'image'=> $image,       
         ];
         $about::create($fields);
-
-        return redirect('/abouts')->with('status', 'about Created Successfully');
-        
+        return redirect('/abouts')->with('status', 'about Created Successfully');   
         }
 
     public function edit($id)
@@ -68,37 +62,26 @@ class AboutController extends Controller
 
     public function update(Request $request, $id)
     {
-
         $formFields = request()->validate([
             'title' => 'required',
             'heading' => 'required',
             'paragraph' => 'required',
-            'button' => 'required',
-            
+            'button' => 'required',    
         ]);
-    
-    
         $about =  about::find($id);
-    
-    
+
         if(request()->hasFile('image')) {
             $formFields['image'] = request()->file('image')->store('AboutsImg','public');
-    
-             //e ruajm old img para se me update
+             // Save old Image 
              $oldImg = $about->image;
         }
-    
-    
        //update appinfo
        about::find($id)->update($formFields);
-    
-        
         // delete old img only when db update is succesful
         if(request()->hasFile('image')) {
             //delete old img
             Storage::delete('/public/' .$oldImg);
-        }
-        
+        } 
         return back();
     }
     }
