@@ -9,9 +9,9 @@
     <div class="relative flex items-center justify-center">
 
         <p class="absolute text-7xl text-center text-white font-bold opacity-70">{{$about->title}} <span class="text-red-700"></span></p>
-        <img src="{{ asset('/storage/'.$about->image) }}" alt="">
+        <img src="{{$about->image ? asset('/storage/' . $about->image) : asset('/img/2.png')}}" alt="">
     </div>
-
+    
     <div class="text-red-600 container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
         <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center ">
             <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium">{{$about->heading}}</h1>
