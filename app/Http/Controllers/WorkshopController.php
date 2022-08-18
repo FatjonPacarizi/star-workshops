@@ -9,11 +9,12 @@ use App\Models\User;
 use App\Models\Country;
 use App\Models\Category;
 use App\Models\Workshop;
+use App\Models\Positions;
 use Illuminate\Queue\Worker;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
-use App\Models\Positions;
 
 class WorkshopController extends Controller
 {
@@ -25,9 +26,25 @@ class WorkshopController extends Controller
     public function index()
     {
         $currentTime = Carbon::now('Europe/Tirane');
-        return view('workshops',['upcomings'=>Workshop::whereDate('time', '>=', $currentTime->toDateTimeString())->get(),'pasts'=>Workshop::whereDate('time', '<', $currentTime->toDateTimeString())->get()]);
 
-        $workshops = DB::table('workshops')->count();
+        $upcomings = Workshop::Join("users", function($join){
+            $join->on("workshops.author", "=", "users.id");
+        })
+        ->where('workshops.time','>=',$currentTime)
+        ->select("users.name as author",'workshops.id',"workshops.name as name", "workshops.img_workshop as img_workshop","workshops.time as time")
+        ->get();
+
+        
+        $pasts = Workshop::Join("users", function($join){
+            $join->on("workshops.author", "=", "users.id");
+        })
+        ->where('workshops.time','<',$currentTime)
+        ->select("users.name as author",'workshops.id',"workshops.name as name", "workshops.img_workshop as img_workshop","workshops.time as time")
+        ->get();
+
+
+       
+        return view('workshops',['upcomings'=>$upcomings,'pasts'=>$pasts]);
     }
 
     /**
@@ -78,7 +95,8 @@ class WorkshopController extends Controller
             'category_id' => 'required',
             'time' => 'required',
         ]);
-        
+        $formFields['author'] = Auth::id();
+
         if(request()->hasFile('img_workshop')) {
          
             $formFields['img_workshop'] = request()->file('img_workshop')->store('workshopsImg','public');
@@ -102,7 +120,10 @@ class WorkshopController extends Controller
         $workshop = Workshop::Join("countries", function($join){
                 $join->on("workshops.country_id", "=", "countries.id");
             })
-            ->select("workshops.name as name","workshops.time as time","workshops.img_workshop as img_workshop","countries.name AS country")
+            ->Join("users", function($join){
+                $join->on("workshops.author", "=", "users.id");
+            })
+            ->select("workshops.name as name","users.name as author","workshops.time as time","workshops.img_workshop as img_workshop","countries.name AS country")
             ->where('workshops.id',$id)
             ->get();     
             
@@ -113,7 +134,12 @@ class WorkshopController extends Controller
 
     public function showWorkshopManage()
     {
-        return view('manageWorkshops',['workshops'=>Workshop::all()]);
+        if(request()->user()->user_status == 'superadmin')
+            $workshops = Workshop::all();
+        else
+            $workshops = Workshop::where('author', Auth::id())->get();
+
+        return view('manageWorkshops',['workshops'=>$workshops]);
     }
 
     /**
@@ -125,6 +151,10 @@ class WorkshopController extends Controller
     public function edit($id)
     {
         $workshop = Workshop::find($id);
+       
+        //Secure
+        if( $workshop->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
+           
         return view('editWorkshop', ['workshop'=>$workshop,
                                     'countries'=>Country::all(),
                                     'cities'=>City::all(),
@@ -152,7 +182,10 @@ class WorkshopController extends Controller
 
 
         $currentWorkshop = Workshop::find($id);
-        
+
+        //Secure
+        if( $currentWorkshop->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
+
         if(request()->hasFile('img_workshop')) {
          
             $formFields['img_workshop'] = request()->file('img_workshop')->store('workshopsImg','public');

@@ -21,11 +21,16 @@
             <div class="w-full h-3/4 bg-black absolute opacity-50"> </div>
             <img class = "w-full h-3/4 " src="{{$upcoming->img_workshop ? asset('/storage/' . $upcoming->img_workshop) : asset('/img/test.jpg')}}"/>           
           <h1 class  = " absolute top-0 left-0 text-white p-3 font-bold">{{$upcoming->name}}</h1>
-          <div class="flex">
-            <span class="inline-flex items-center justify-center h-6 w-6 text-red-500"><i class="mdi mdi-calendarRange  text-red-500 inline-flex"></i></span>
-            <h1 class  = "my-5">{{$upcoming->time}}</h1>
+          <div class="my-5"> 
+          <div class="flex items-center">
+              <i class="fa-solid fa-calendar-days text-gray-600 ml-5 mr-2 -mt-1"></i> 
+              <h1 >{{$upcoming->time}}</h1>
+           </div>
+            <div class="flex items-center mt-2">
+              <i class="fa-solid fa-user text-gray-600 ml-5 mr-2 -mt-1"></i>
+              <h1 >{{$upcoming->author}}</h1>
+           </div>
           </div>
-       
           </a>
         </div>
       @endforeach
@@ -36,16 +41,22 @@
 
     <h1 class = "w-full p-20 text-center text-4xl roundedTop -mt-40 bg-white">Past Events</h1>
     
-    <div class="w-full  mx-auto flex flex-wrap  lg:w-11/12 lg:pl-10 lg:justify-between">
+    <div class="w-full  mx-auto flex flex-wrap  lg:justify-center">
       @foreach($pasts as $past)
-      <div class="w-full  relative rounded shadow-lg m-10  bg-white border sm:w-2/5 sm:mx-auto  lg:w-1/4 lg:m-7 ">
+      <div class="w-full  relative rounded shadow-lg m-10  bg-white border sm:w-2/5 sm:mx-auto  lg:w-1/5 lg:m-7 ">
         <a  href = "{{route('single-workshop',$past->id)}}">
           <div class="w-full h-3/4 bg-black absolute opacity-50"> </div>
           <img class = "w-full h-3/4 " src="{{$past->img_workshop ? asset('/storage/' . $past->img_workshop) : asset('/img/test.jpg')}}"/>           
         <h1 class  = " absolute top-0 left-0 text-white p-3 font-bold">{{$past->name}}</h1>
-        <div class="flex">
-          <span class="inline-flex items-center justify-center h-6 w-6 text-red-500"><i class="mdi mdi-CalendarRange text-red-500 inline-flex"></i></span>
-          <h1 class  = "my-5">{{$past->time}}</h1>
+        <div class="my-5">
+          <div class="flex items-center">
+            <i class="fa-solid fa-calendar-days text-gray-600 ml-5 mr-2 -mt-1"></i> 
+            <h1 >{{$past->time}}</h1>
+         </div>
+          <div class="flex items-center mt-2">
+            <i class="fa-solid fa-user text-gray-600 ml-5 mr-2 -mt-1"></i>
+            <h1 >{{$past->author}}</h1>
+         </div>
         </div>
      
         </a>

@@ -11,7 +11,7 @@
     <section class="w-full pb-20 mb-8 flex justify-center  bg-red-700  ">
         <div class="w-full md:w-5/6 ">
             <div class="pl-10">
-                <h1 class=" text-xl mb-2  text-gray-600 ">Who are we</h1>
+                <h1 class=" text-xl mb-2  text-white ">Who are we</h1>
                 <h1 class="text-4xl text-white font-bold ">Meet the Team</h1>
             </div>
             <div class="w-full mx-auto flex flex-wrap  sm:w-full ">
@@ -33,13 +33,13 @@
     <section class=" w-full py-10 flex flex-col items-center ">
 
         <h1 class = "w-full p-20 text-center text-4xl roundedTop -mt-40 bg-white">StarWorkshops Members</h1>
- 
+
        @foreach ($staffMembers as $staffMember)
-            
+
             <div class=" my-10 w-9/12  flex flex-wrap">
-            
-                <img class=" w-7/8 lg:w-1/2 "  src="{{ asset('storage/'.$staffMember->profile_photo_path) }} " alt=" "  />
-            
+
+                <img class=" w-7/8 lg:w-1/2 "  src="{{ asset('storage/'.$staffMember->profile_photo_path)}}" alt=" "  />
+
                 <div class="w-full mt-5  flex flex-col justify-center  lg:pl-20 lg:w-1/2">
                     <h5 class="mb-6 text-[#00517E] text-4xl font-bold tracking-tight dark:text-white">{{$staffMember->name}}</h5>
                     <p class="text-gray-700  dark:text-gray-400">{{$staffMember->description}}</p>

@@ -17,6 +17,8 @@ class CreateWorkshopsTable extends Migration
         Schema::create('workshops', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->bigInteger('author')->unsigned();
+            $table->foreign('author')->references('id')->on('users');
             $table->bigInteger('type_id')->unsigned();
             $table->foreign('type_id')->references('id')->on('types');
             $table->bigInteger('country_id')->unsigned();

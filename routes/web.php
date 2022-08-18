@@ -23,37 +23,34 @@ use App\Http\Controllers\usersController;
 |
 */
 
+
+Route::get('/users', 'App\Http\Controllers\UserController@index');
 Route::get('abouts', [AboutController::class, 'contact']);
 Route::get('/about', [AboutController::class, 'index']);
 
 Route::view('/workshop','workshop');
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', function () { return view('welcome');})->name('home');
 
 Route::get('/members',[WorkshopController::class, 'showMembers']);
 
 Route::get('/test',[usersController::class, 'getUsersByStaffPosition']);
 
 
-Route::get('contact',[ContactController::class, 'index']);
-Route::post('send',[ContactController::class, 'send'])->name('emailsend');
 
 Route::get('/',[LandingController::class,'index'])->name('landing');
+Route::get('landings', [LandingController::class, 'landing']);
 Route::get('/workshop/{id}',[WorkshopController::class,'show'])->name('single-workshop');
 
 Route::get('/workshops',[WorkshopController::class,'index'])->name('workshops');
 
-
+Route::post('/send',[App\Http\Controllers\MailController::class, 'send'])->name('emailsend');
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+   
 });
 
 Route::group(['middleware' => 'auth'],function(){
@@ -74,7 +71,18 @@ Route::group(['middleware' => 'auth'],function(){
             Route::post('add-about', [AboutController::class, 'store']);
             Route::get('edit-about/{id}', [AboutController::class, 'edit']);
             Route::put('update-about/{id}', [AboutController::class, 'update']);
+            Route::get('landings', [LandingController::class, 'landing'])->name('showlandings');
+            Route::get('add-landing', [LandingController::class, 'create']);
+            Route::post('add-landing', [LandingController::class, 'store']);
+            Route::get('edit-landing/{id}', [LandingController::class, 'edit']);
+            Route::put('update-landing/{id}', [LandingController::class, 'update']);
 
+
+              //Show app infos edit
+            Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
+            
+            //Edit app Infos
+            Route::put('/appInfos/{id}/edit', [InformationController::class, 'update']);
         });
 
 
@@ -98,8 +106,8 @@ Route::group(['middleware' => 'auth'],function(){
         ], function() {
          // Add routes here for admin and superadmin
 
-         Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
-         Route::put('/appInfos/{id}/edit', [InformationController::class, 'update']);
+         //Show dashboard
+         Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
 
          //Show insert workshop page
          Route::get('/workshopManage/insert',[WorkshopController::class,'create'])->name('showInsert');

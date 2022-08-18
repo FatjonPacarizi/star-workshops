@@ -20,7 +20,7 @@
                             <input type="text" name="heading" class="border border-gray-200 rounded p-1 w-full mx-5">
                         </div>
                         <div class="mb-6 flex items-center">
-                            <label class="w-28 text-sm mx-5" for="">About Text</label>
+                            <label class="w-28 text-sm mx-5" for=""> Text</label>
                             <input type="text" name="paragraf" class="border border-gray-200 rounded p-1 w-full mx-5">
                         </div>
                         <div class="mb-6 flex items-center">
