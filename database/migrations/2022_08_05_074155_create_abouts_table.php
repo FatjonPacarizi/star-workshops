@@ -19,7 +19,7 @@ class CreateAboutsTable extends Migration
             $table->string('title');
             $table->string('heading');
             $table->text('paragraph');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('button');
             $table->timestamps();
         });

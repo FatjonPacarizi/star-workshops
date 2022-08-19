@@ -39,7 +39,7 @@
                         <div class="mb-6 flex items-center">
                             <label class="w-28 text-sm mx-5" for="">Image</label>
                             <input type="file" name="image" class="border border-gray-200 rounded p-1 w-full mx-5">
-                            <img src="{{ asset('/storage/' .$about->image) }}" width="70px" height="70px" alt="Image">
+                            <img src="{{$about->image ? asset('/storage/' . $about->image) : asset('img/defultaboutimage.png') }}" width="70px" height="70px" alt="Image">
                         </div>
                         <!-- Button input in edit dashboard  -->
                         <div class="w-full p-2 flex justify-end border-t border-gray-200">
