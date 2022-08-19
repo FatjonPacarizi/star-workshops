@@ -38,7 +38,16 @@
          <div class="flex flex-wrap lg:mx-4 pt-16 pb-16 justify-center w-4/5" >
 
        @foreach ($staffMembers as $staffMember)
+            
+            <div class=" my-10 w-9/12 flex">
+            
+                <img class="w-1/2 " src="{{ asset('img/shef.png') }} " alt=""  />
+            
+                <div class="w-1/2 flex flex-col justify-center  pl-20">
+                    <h5 class="mb-6 text-[#00517E] text-4xl font-bold tracking-tight">{{$staffMember->name}}</h5>
 
+
+<<<<<<< HEAD
             <div class="w-full justify-center items-center rounded-lg md:w-1/3 p-8">
                 <div class="bg-white drop-shadow-xl flex flex-col">
                     <img class="w-full object-cover rounded-tl-lg rounded-tr-lg p-5"  src="{{ asset('img/shef.png')}}" alt="" />
@@ -49,6 +58,16 @@
                             <a href="#"><i class="fa-brands fa-youtube fa-2xl mx-4" style="color:red"></i></a>
                             <a href="#"><i class="fa-brands fa-github fa-2xl" style="color:red"></i></a>
                         </div>
+=======
+            <div class=" my-10 w-9/12  flex flex-wrap">
+
+                <img class=" w-7/8 lg:w-1/2 "  src="{{ asset('storage/'.$staffMember->profile_photo_path)}}" alt=" "  />
+
+                <div class="w-full mt-5  flex flex-col justify-center  lg:pl-20 lg:w-1/2">
+                    <h5 class="mb-6 text-[#00517E] text-4xl font-bold tracking-tight dark:text-white">{{$staffMember->name}}</h5>
+                    
+                    <p class="text-gray-700  dark:text-gray-400">{{$staffMember->description}}</p>
+>>>>>>> 7d5acab167312f9c29d6c0ddf29ed5c029d357c9
                 </div>
             </div>
             

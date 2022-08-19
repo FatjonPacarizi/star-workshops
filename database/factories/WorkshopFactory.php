@@ -16,6 +16,7 @@ class WorkshopFactory extends Factory
         return [
             'name' => 'Bootcamps',
             'author' => '1',
+            'limited_participants'=> '20',
             'type_id' => '1',
             'country_id' => '1',
             'city_id' => '1',

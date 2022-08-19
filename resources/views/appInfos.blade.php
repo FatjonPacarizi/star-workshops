@@ -9,13 +9,13 @@
             </div>
 
               <div class="w-full p-4">
-            <form method="POST" action="/appInfos/{{$informations[0]->id}}/edit" enctype="multipart/form-data">
+            <form method="POST" action="/appInfos/{{$informations->id}}/edit" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="mb-6">
                   <label class="inline-block text-lg mb-2">App Name</label>
                   <input type="text" class="border border-gray-200 rounded p-2 w-full" name="app_name"
-                    value="{{$informations[0]->app_name}}" />
+                    value="{{$informations->app_name}}" />
 
                   @error('app_name')
                   <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -27,7 +27,7 @@
                   Facebook
                 </label>
                   <input type="text" class="border border-gray-200 rounded p-2 w-full" name="facebook"
-                    value="{{$informations[0]->facebook}}" />
+                    value="{{$informations->facebook}}" />
 
                   @error('facebook')
                   <p class="text-red-500 text-xs mt-1">{{$msesage}}</p>
@@ -37,7 +37,7 @@
                   Instagram
                 </label>
                   <input type="text" class="border border-gray-200 rounded p-2 w-full" name="instagram"
-                    value="{{$informations[0]->instagram}}" />
+                    value="{{$informations->instagram}}" />
 
                   @error('instagram')
                   <p class="text-red-500 text-xs mt-1">{{$msesage}}</p>
@@ -47,7 +47,7 @@
                   Twitter
                 </label>
                   <input type="text" class="border border-gray-200 rounded p-2 w-full" name="twitter"
-                    value="{{$informations[0]->twitter}}" />
+                    value="{{$informations->twitter}}" />
 
                   @error('twitter')
                   <p class="text-red-500 text-xs mt-1">{{$msesage}}</p>
@@ -57,7 +57,7 @@
                   Linkedin
                 </label>
                   <input type="text" class="border border-gray-200 rounded p-2 w-full" name="linkedin"
-                    value="{{$informations[0]->linkedin}}" />
+                    value="{{$informations->linkedin}}" />
 
                   @error('linkedin')
                   <p class="text-red-500 text-xs mt-1">{{$msesage}}</p>
@@ -71,7 +71,7 @@
                 </label>
                 <div class="mb-6 flex">
                   <input type="file" class="border border-gray-200 rounded p-2 w-full" name="logo_name" />
-                    <img class="object-cover rounded w-1/4" alt="hero" src="{{$informations[0]->logo_name ? asset('/storage/' . $informations[0]->logo_name) : asset('/img/Logo.png')}}" width="10%">
+                    <img class="object-cover rounded w-1/4" alt="hero" src="{{$informations->logo_name ? asset('/storage/' . $informations[0]->logo_name) : asset('/img/Logo.png')}}" width="10%">
 
                   @error('logo_name')
                   <p class="text-red-500 text-xs mt-1">{{$message}}</p>

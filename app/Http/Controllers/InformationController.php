@@ -17,7 +17,7 @@ class InformationController extends Controller
      */
     public function index()
     {
-        return view('AppInfos',['informations' => Informations::latest()->take(1)->get()]);
+        return view('AppInfos',['informations' => Informations::all()->last()]);
     }
 
    // Update informations

@@ -37,7 +37,8 @@ class DatabaseSeeder extends Seeder
             WorkshopSeeder::class,
             PositionsSeeder::class,
             Positions_Users_Seeder::class,
-            LandingsSeeder::class
+            LandingsSeeder::class,
+            WorkshopsUsersSeeder::class
         ]);
 
     }

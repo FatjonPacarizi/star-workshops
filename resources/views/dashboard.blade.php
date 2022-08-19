@@ -5,7 +5,7 @@
         <div class="txt items-center border-r border-indigo-100">
         <span class="inline-flex rounded-md">
             <div class="p-6 max-w-sm bg-white ">
-                <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ Auth::user()->name }}<h1>
+                <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{{ Auth::user()->name }}<h1>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ Auth::user()->email }}</p>
                 
             </div>
@@ -17,7 +17,7 @@
                     @php
                     $workshops = App\Models\Workshop::find(1);
              @endphp
-                <h1 class=" mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$workshops->count()}}</h1>
+                <h1 class=" mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{{$workshops->count()}}</h1>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Workshop</p>
                 
             </div>
@@ -28,7 +28,7 @@
                 @php
                    $users = App\Models\User::find(1);
             @endphp
-                <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$users->count()}} </h1>
+                <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{{$users->count()}} </h1>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Users</p>
             </div>
             
