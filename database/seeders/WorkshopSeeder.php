@@ -35,7 +35,7 @@ class WorkshopSeeder extends Seeder
 
         DB::table('workshops')->insert([
             'name' => '1 Hour JavaScript',
-            'author' => '1',
+            'author' => '2',
             'limited_participants'=> '30',
             'type_id' => '1',
             'country_id' => '1',

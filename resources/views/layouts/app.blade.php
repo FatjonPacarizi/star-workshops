@@ -76,9 +76,25 @@
                         @endcan
                         @can('is_admin_or_superadmin')
                         <li class="--set-active-tables-html my-2">
-                            <a href="{{ route('adminsuperadmin.showManageWorkshops') }}" class="flex p-2   rounded {{Request::is('workshopManage') ? 'bg-slate-500' : 'hover:bg-slate-600'}}">
+                            <a href="{{ route('adminsuperadmin.showManageWorkshops') }}" class="flex p-2 items-center justify-start  rounded {{Request::is('workshopManage') ? 'bg-slate-500' : 'hover:bg-slate-600'}}">
                                 <span class="inline-flex items-center justify-center h-6 w-6"><i class="mdi mdi-widgets inline-flex"></i></span>
-                                <span class="grow">Manage Workshops</span>
+                                <span class="mr-2">Manage Workshops</span>
+
+                                @php
+                                     if(request()->user()->user_status == 'superadmin')
+                                            $pending = App\Models\workshops_users::where('workshops_users.application_status','pending')->get();
+                                     else{
+                                        $pending = App\Models\workshops_users::Join("workshops", function($join){
+                                            $join->on("workshops_users.workshop_id", "=", "workshops.id");
+                                            })
+                                        ->where(['workshops.author'=> Auth::id(), 'workshops_users.application_status'=>'pending'])
+                                        ->select('workshops_users.id as id')
+                                        ->get();
+                                    }
+                                    @endphp
+                                    
+                                    <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-slate-400"> {{count($pending)}}</p>
+                        
                             </a>
                         </li>
                         @endcan
