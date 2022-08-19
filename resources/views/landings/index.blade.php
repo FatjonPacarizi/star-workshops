@@ -1,64 +1,58 @@
 @extends('layouts.app')
 @section('content')
-<div class="w-full flex justify-left items-left overflow-y-auto mb-10">
-  <div class="w-full h-full p-6  flex flex-col  items-center ">
+<div class="w-full h-full p-6 flex flex-col  items-center border">
 
-    <div class="w-full bg-white border border-gray-200 rounded pb-4 mt-12">
+    <div class="w-full bg-white border border-gray-200 rounded mt-12">
+        <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
 
-      <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
-
-        <h1 class="p-3 text-slate-900">Landing Managment</h1>
-
-        <div class="flex mx-4 ">
-
-          <a class="mx-2 flex items-center" href="http://127.0.0.1:8000/add-landing">
-            <h6 class="text-2xl mr-1 -mt-1 text-gray-400 ">+</h6>
-            <h2 class="text-gray-400 ">Create Landing</h2>
-
-          </a>
+            <h1 class="p-3 text-slate-900">Landing Page</h1>
+            <a href="/landings" class="p-3 text-gray-400"> Cancel </a>
         </div>
+        @if (session('status'))
+        <h6>{{ session('status') }}</h6>
+        @endif
 
-      </div>
+        <form action="{{ url('update-landing/'.$landing->id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+
+            <div class="mb-6 flex items-center">
+                <label class="w-28 text-sm mx-5" for="">Page Title</label>
+                <input type="text" name="title" value="{{$landing->title}}" class="border border-gray-200 rounded p-1 w-full mx-5">
+            </div>
+
+            <div class="mb-6 flex items-center">
+                <label class="w-28 text-sm mx-5" for="">Section Title</label>
+                <textarea type="text" name="heading" value="" class="border border-gray-200 rounded p-1 w-full mx-5">  {{$landing->heading}}</textarea>
+              
+            </div>
+            <div class="mb-6 flex items-center">
+                <label class="w-28 text-sm mx-5" for="">Description</label>
+                <textarea type="text" name="paragraf" value="" class="border border-gray-200 rounded p-1 w-full mx-5"> {{$landing->paragraf}}</textarea>
+               
+            </div>
+            <div class="mb-6 flex items-center">
+                <label class="w-28 text-sm mx-5" for="">Button Text</label>
+                <input type="text" name="button" value="{{$landing->button}}" class="border border-gray-200 rounded p-1 w-full mx-5">
+            </div>
+
+            <div class="mb-6  flex items-center">
+                <label class="w-28 text-sm mx-5">Image</label>
+                <input type="file" name="image" />
+
+                <img class="object-cover rounded" alt="Image" src="{{$landing->image ? asset('uploads/landings/'.$landing->image) : asset('/img/team1.png')}}" width="100">
+
+            </div>
+
+            <div class="w-full p-2 flex justify-end border-t border-gray-200">
+                <button type="submit" class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600">Update landing</button>
 
 
-      @if (session('status'))
-      <div class="w-full flex justify-center">{{ session('status') }}</div>
-      @endif
-      <div class="w-full flex justify-center">
-        <table class="w-full mx-4">
-          <tr class="border-y border-gray-200">
-            <td class="font-bold p-3">Page Title</td>
-            <td class="font-bold">Section Title</td>
-            <td class="font-bold">Description</td>
-            <td class="font-bold">Button Text</td>
-            <td class="font-bold">Image</td>
-            <td class="font-bold text-center w-1/9">Action</td>
-          </tr>
-          @foreach ($landing as $item)
-          <tr class='bg-white-100 border-y border-gray-200'>
+            </div>
 
-
-            <td class="p-3">{{ $item->title }}</td>
-
-            <td> {{ Illuminate\Support\Str::limit($item->heading, 20, $end='...') }}</td>
-
-            <td> {{ Illuminate\Support\Str::limit($item->paragraf, 20, $end='...') }}</td>
-            <td>{{ $item->button }}</td>
-            <td>
-              <img src="{{ asset('uploads/landings/'.$item->image) }}" width="70px" height="70px" alt="Image">
-            </td>
-
-            <td>
-              <a href="{{ url('edit-landing/'.$item->id) }}" class="bg-sky-500 text-white px-4 py-1 text-sm rounded m-3">Edit</a>
-            </td>
-
-          </tr>
-          @endforeach
-
-        </table>
-
-      </div>
-
+        </form>
     </div>
-  </div>
-  @endsection
+
+</div>
+
+@endsection
