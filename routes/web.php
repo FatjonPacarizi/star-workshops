@@ -42,6 +42,7 @@ Route::get('landings', [LandingController::class, 'landing']);
 Route::get('/workshop/{id}',[WorkshopController::class,'show'])->name('single-workshop');
 
 Route::get('/workshops',[WorkshopController::class,'index'])->name('workshops');
+Route::get('/workshops/{id}/join',[WorkshopController::class,'join'])->name('workshop-join');
 
 Route::post('/send',[App\Http\Controllers\MailController::class, 'send'])->name('emailsend');
 
@@ -130,6 +131,18 @@ Route::group(['middleware' => 'auth'],function(){
 
          //Delete a workshop
          Route::delete('/workshopManage/{workshop}', [WorkshopController::class, 'destroy']);
+
+        //Show workshop participants
+        Route::get('/participants/{workshopid}', [WorkshopController::class, 'showParticipants'])->name('showParticipants');
+        
+
+        //Approve participant
+        Route::put('/participants/{workshopid}/{participantID}/edit', [WorkshopController::class, 'approveParticipant'])->name('addParticipant');
+      
+        //Remove workshop participantapproveParticipant
+        Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('removeParticipant');
+
+         
       });
 
 
