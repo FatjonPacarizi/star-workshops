@@ -14,7 +14,38 @@
                 <p class="mb-8 leading-relaxed"> {{$workshop->country}} </p>
 
                 <p class="mb-8 leading-relaxed">Author : {{$workshop->author}}</p>
-                <p class="mb-8 leading-relaxed">Applications for this event are closed</p>
+                @php
+                    $upcoming = false;
+                    $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
+
+                    if (strtotime($workshop->time) > strtotime($date->format("Y-m-d h:i:sa"))) $upcoming = true;
+                @endphp
+                @if($upcoming) 
+                    @if($limitReached)
+                        <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">Limitaion for this event have been reached: {{$participants}} participants</p>
+                    @elseif($already_applied)
+                        <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">
+                            @switch($application_status[0]->application_status)
+                                    
+                                    @case('pending')
+                                        @if(session()->has('message')) {{session('message')}}
+                                        @else Your application is still pending @endif
+                                    @break
+                                    
+                                    @case('notapproved')
+                                        Your application is not approved
+                                        <a class = "text-sky-800 underline" href= '/about'>Contact Us</a>
+                                    @break
+                                    @default
+                                    This event will start: {{ $workshop->time}}
+                                @endswitch
+                        </p>
+                    @else
+                        <a class = "px-5 py-2 bg-white rounded-md text-black" href = {{route('workshop-join',$workshop->id)}}>Apply</a>
+                   @endif
+                @else
+                   <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">Applications for this event are closed</p>
+                @endif
             </div>
 
             <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">

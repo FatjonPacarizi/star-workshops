@@ -19,6 +19,7 @@ class CreateWorkshopsUsersTable extends Migration
             $table->foreign('workshop_id')->references('id')->on('workshops');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->string('application_status')->default('pending');
             $table->timestamps();
         });
     }
