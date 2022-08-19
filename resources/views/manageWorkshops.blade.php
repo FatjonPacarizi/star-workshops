@@ -54,11 +54,16 @@
                 <form method="POST" action="/workshopManage/{{$workshop->id}}">
                   @csrf
                   @method('DELETE')
-                  <button class="bg-red-500 text-white px-2 py-1 text-sm rounded ">
+                  <button class="bg-red-500 text-white px-2 py-1 text-sm rounded mr-3">
                     <i class="fa-solid fa-trash-can  mr-1 my-1 fa-sm"></i>
                     Delete
                   </button>
                 </form>
+                <a href={{ route('adminsuperadmin.showParticipants',$workshop->id)}} class="bg-sky-600 text-white px-2 py-1 text-sm rounded  my-2">
+                  <i class="fa-solid fa-user"></i>
+                  Participants 
+                  </a>
+                
               </td>
             </tr>
             @endforeach
