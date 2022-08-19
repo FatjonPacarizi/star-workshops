@@ -41,7 +41,7 @@
                 <img class="w-1/2 " src="{{ asset('img/shef.png') }} " alt=""  />
             
                 <div class="w-1/2 flex flex-col justify-center  pl-20">
-                    <h5 class="mb-6 text-[#00517E] text-4xl font-bold tracking-tight dark:text-white">{{$staffMember->name}}</h5>
+                    <h5 class="mb-6 text-[#00517E] text-4xl font-bold tracking-tight">{{$staffMember->name}}</h5>
                     <p class="text-gray-700  dark:text-gray-400">{{$staffMember->description}}</p>
                 </div>
 
