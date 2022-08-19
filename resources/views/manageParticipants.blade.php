@@ -17,8 +17,8 @@
       </div>
 
 
-             <div class="w-full flex justify-center items-start">
-            <table class="w-full mx-4  font-thin ">
+             <div class=" flex justify-center items-start">
+            <table class="w-1/2 mx-4  font-thin ">
               <th class = "text-left h-8">Pending</th>
               <tr class="border-y border-gray-200 ">
                 <td class="font-bold p-3 ">User Name</td>
@@ -59,8 +59,7 @@
             </tr>
             @endunless
     </table>
-    <div class="h-full border-r border-red-200"></div>
-    <table class="w-full mx-4  font-thin">
+    <table class="w-1/2 mx-4  font-thin">
       <th class = "text-left h-8">Approved</th>
       <tr class="border-y border-gray-200 h-8 ">
         <td class="font-bold p-3 ">User Name</td>
@@ -75,23 +74,33 @@
       <td class="p-3">{{$approvedParticipant->name}}</td>
      
       <td ><a href="#" class = "text-blue-600"> {{$approvedParticipant->time}}</a></td>
-      <td class = "flex items-center " >
-         <a href="/workshopManage/{{$approvedParticipant->id}}/edit" class="bg-sky-500 text-white px-2 py-1 text-sm rounded mr-3 my-2">
-          <i class="fa-solid fa-list"></i>
-              Info
-          </a>
-
-          <form method="POST" action={{route('adminsuperadmin.removeParticipant',[$approvedParticipant->workshopID,$approvedParticipant->user_id])}} ">
-            @csrf
-            @method('DELETE')
-            <button class="bg-red-400 text-white px-2 py-1 text-sm rounded mr-3">
-              <i class="fa-solid fa-user-xmark"></i>
-              Remove
-            </button>
-          </form>
-
-       
-        
+      <td >
+        <div class="relative h-10 flex items-center" >
+          
+          <button onClick = "showOptions()"  class="bg-sky-500 text-white px-2 text-sm  py-1 rounded" type="button">Options <i class="fa-solid fa-caret-down"></i></button>
+            <!-- Dropdown menu -->
+            <div id="dropdownDivider" class="hidden z-10 absolute bg-white rounded shadow -bottom-20">
+                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDividerButton">
+                  <li>
+                    <a href="/workshopManage/{{$approvedParticipant->id}}/edit" class="block py-2 px-4 hover:bg-gray-100 ">
+                      <i class="fa-solid fa-list mr-2"></i>
+                          Info
+                      </a>
+                  </li>
+                  <li>
+                    <form method="POST" action={{route('adminsuperadmin.removeParticipant',[$approvedParticipant->workshopID,$approvedParticipant->user_id])}} ">
+                      @csrf
+                      @method('DELETE')
+                      <button class="block py-2 px-4 text-sm text-red-400 hover:bg-gray-100 hover:text-red-600 ">
+                        <i class="fa-solid fa-user-xmark mr-2"></i>
+                        Remove
+                      </button>
+                    </form>
+                  </li>
+                </ul>
+              
+              </div>
+            </div>
       </td>
     </tr>
     @endforeach
@@ -104,7 +113,14 @@
     </tr>
     @endunless
 </table>
+
   </div>
         </div>
       </div>
-      @endsection
+<script>
+      function showOptions() {
+        var element = document.getElementById("dropdownDivider");
+        element.classList.toggle("hidden");
+      }
+</script>
+@endsection
