@@ -17,7 +17,7 @@
                     @php
                     $workshops = App\Models\Workshop::find(1);
              @endphp
-                <h1 class=" mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$workshops->count()}}</h1>
+                <h1 class=" mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{{$workshops->count()}}</h1>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Workshop</p>
                 
             </div>
@@ -28,7 +28,7 @@
                 @php
                    $users = App\Models\User::find(1);
             @endphp
-                <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$users->count()}} </h1>
+                <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{{$users->count()}} </h1>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Users</p>
             </div>
             
