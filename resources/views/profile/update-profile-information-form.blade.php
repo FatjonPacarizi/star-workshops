@@ -26,10 +26,14 @@
 
                 <x-jet-label for="photo" value="{{ __('Photo') }}" />
 
-                <!-- Current Profile Photo -->
-                <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
-                </div>
+                  <!-- Current Profile Photo -->
+            <div class="mt-2" x-show="! photoPreview">
+                    @if(Auth::user()->profile_photo_path)
+                     <img class="h-20 w-20 rounded-full object-cover" src="/storage/{{Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name}}" />
+                     @else
+                     <img class="h-20 w-20 rounded-full object-cover" src="{{Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name}}" />
+                     @endif
+            </div>
 
                 <!-- New Profile Photo Preview -->
                 <div class="mt-2" x-show="photoPreview" style="display: none;">
@@ -41,16 +45,9 @@
                 <x-jet-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
                     {{ __('Select A New Photo') }}
                 </x-jet-secondary-button>
-
-                @if ($this->user->profile_photo_path)
-                    <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
-                        {{ __('Remove Photo') }}
-                    </x-jet-secondary-button>
-                @endif
-
                 <x-jet-input-error for="photo" class="mt-2" />
             </div>
-        @endif
+            @endif
 
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
@@ -80,7 +77,17 @@
                     </p>
                 @endif
             @endif
+     </div>
+       
+           <!-- Description Members -->
+                                      
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="description" value="{{ __('Description') }}" />
+            <x-jet-input id="description" type="text" class="mt-1 block w-full" wire:model.defer="state.description" autocomplete="description" />
+            <x-jet-input-error for="description" class="mt-2" />
         </div>
+
+        
     </x-slot>
 
     <x-slot name="actions">

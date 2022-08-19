@@ -13,13 +13,12 @@ class UserManageController extends Controller
      public function index(){
        
         return view('manageUsers',['users'=>User::all()]);
-        $users = DB::table('users')->count();
     }
 
     //Show edit form
     public function edit($id){
 
-        $myPosition = User::Join("positions_users", function($join){
+        $userPosition = User::Join("positions_users", function($join){
             $join->on("users.id", "=", "positions_users.user_id");
         })
         ->Join("positions", function($join){
@@ -29,7 +28,7 @@ class UserManageController extends Controller
         ->select("positions.position as position")
         ->get();
         
-        return view('editUser',['user'=>User::find($id),'positions'=>Positions::all(),'myPosition'=>$myPosition[0]]);
+        return view('editUser',['user'=>User::find($id),'positions'=>Positions::all(),'userPosition'=>$userPosition[0]]);
     }
 
       //update user

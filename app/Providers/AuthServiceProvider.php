@@ -39,9 +39,10 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('is_admin_or_superadmin',function(User $user) {
             if($user->user_status == 'superadmin' || $user->user_status == 'admin')   return true;
-           
+
             return false;
         });
+
 
     }
 }

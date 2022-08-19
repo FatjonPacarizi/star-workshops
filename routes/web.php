@@ -8,7 +8,9 @@ use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\SuperAdmin\TestController;
 use App\Http\Controllers\SuperAdmin\UserManageController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\usersController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +23,13 @@ use App\Http\Controllers\usersController;
 |
 */
 
-Route::get('abouts', [AboutController::class, 'index']);
-Route::view('/about','about');
+
+Route::get('/users', 'App\Http\Controllers\UserController@index');
+Route::get('abouts', [AboutController::class, 'contact']);
+Route::get('/about', [AboutController::class, 'index']);
+
 Route::view('/workshop','workshop');
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', function () { return view('welcome');})->name('home');
 
 Route::get('/members',[WorkshopController::class, 'showMembers']);
 
@@ -35,20 +38,19 @@ Route::get('/test',[usersController::class, 'getUsersByStaffPosition']);
 
 
 Route::get('/',[LandingController::class,'index'])->name('landing');
+Route::get('landings', [LandingController::class, 'landing']);
 Route::get('/workshop/{id}',[WorkshopController::class,'show'])->name('single-workshop');
 
 Route::get('/workshops',[WorkshopController::class,'index'])->name('workshops');
 
-
+Route::post('/send',[App\Http\Controllers\MailController::class, 'send'])->name('emailsend');
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+   
 });
 
 Route::group(['middleware' => 'auth'],function(){
@@ -64,12 +66,27 @@ Route::group(['middleware' => 'auth'],function(){
             Route::get('usersManager/{id}/edit',[UserManageController::class,'edit']);
             Route::put('/usersManager/{id}',[UserManageController::class, 'update']);
             Route::delete('/usersManager/{user}', [UserManageController::class, 'destroy']);
-            Route::get('abouts', [AboutController::class, 'index'])->name('showabouts');
+            //Show dashboard abouts
+            Route::get('abouts', [AboutController::class, 'abouts'])->name('showabouts');
+            // Insert about
             Route::get('add-about', [AboutController::class, 'create']);
             Route::post('add-about', [AboutController::class, 'store']);
+            //Edit about
             Route::get('edit-about/{id}', [AboutController::class, 'edit']);
             Route::put('update-about/{id}', [AboutController::class, 'update']);
+            
+            Route::get('landings', [LandingController::class, 'landing'])->name('showlandings');
+            Route::get('add-landing', [LandingController::class, 'create']);
+            Route::post('add-landing', [LandingController::class, 'store']);
+            Route::get('edit-landing/{id}', [LandingController::class, 'edit']);
+            Route::put('update-landing/{id}', [LandingController::class, 'update']);
 
+
+              //Show app infos edit
+            Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
+            
+            //Edit app Infos
+            Route::put('/appInfos/{id}/edit', [InformationController::class, 'update']);
         });
 
 
@@ -93,18 +110,18 @@ Route::group(['middleware' => 'auth'],function(){
         ], function() {
          // Add routes here for admin and superadmin
 
-         Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
-         Route::put('/appInfos/{id}/edit', [InformationController::class, 'update']);
+         //Show dashboard
+         Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
 
          //Show insert workshop page
          Route::get('/workshopManage/insert',[WorkshopController::class,'create'])->name('showInsert');
 
-        //Insert workshop 
+        //Insert workshop
          Route::post('/workshopManage',[WorkshopController::class,'store'])->name('storeWorkshop');
 
          //Show workshops page
          Route::get('/workshopManage',[WorkshopController::class,'showWorkshopManage'])->name('showManageWorkshops');
-        
+
          //Show update workshop
          Route::get('workshopManage/{id}/edit',[WorkshopController::class,'edit']);
 

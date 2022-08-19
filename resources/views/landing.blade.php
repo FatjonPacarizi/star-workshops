@@ -61,7 +61,7 @@
       </h1>
       <p class="mb-8 leading-relaxed">The Star Workshops Academy is the world’s first certified professional development programme for individuals with responsibilities in nuclear or radioactive source security management.</p>
       <div class="flex justify-center">
-        <button class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg">Find out more</button>
+        <button class="inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg hover:bg-red-800 duration-300">Find out more</button>
       </div>
     </div>
   </div>
@@ -74,7 +74,7 @@
       </h1>
       <p class="mb-8 leading-relaxed">The Knowledge Centre gives Star Workshops Members access to a constantly expanding archive of information on nuclear security, both from Star Workshops and from external sources.</p>
       <div class="flex justify-center">
-        <button class="ml-4 mb-2 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg">Find out more</button>
+        <button class="ml-4 mb-2 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg ">Find out more</button>
       </div>
     </div>
     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
@@ -93,7 +93,7 @@
       </h1>
       <p class="mb-8 leading-relaxed">Star Workshops evaluation services help licensees assess the maturity of their security programme, measure the effectiveness of their security culture, and identify areas that are strong as well as those that could be improved.</p>
       <div class="flex justify-center">
-        <button class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg">Find out more</button>
+        <button class="inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg hover:bg-red-800 duration-300">Find out more</button>
       </div>
     </div>
   </div>
@@ -122,7 +122,7 @@
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-red-600">Popular Courses</h1>
       <p class="mb-8 leading-relaxed">Star Workshops Academy courses focus on the practitioner and provide best practice guidance that is hands-on, cross-functional and immediately useful. To read more click the button below:</p>
       <div class="flex justify-center">
-        <button class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg">View all courses</button>
+        <button class="inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg hover:bg-red-800 duration-300">View all courses</button>
       </div>
     </div>
   </div>
@@ -160,20 +160,26 @@
           <div class="w-full h-3/4 bg-black absolute opacity-50"> </div>
           <img class="w-full h-3/4 " src="{{$workshop->img_workshop ? asset('/storage/' . $workshop->img_workshop) : asset('/img/test.jpg')}}" />
           <h1 class=" absolute top-0 left-0 text-white p-3 font-bold">{{$workshop->name}}</h1>
-          <div class="flex">
-            <span class="inline-flex items-center justify-center h-6 w-6 text-red-500"><i class="mdi mdi-CalendarRange text-red-500 inline-flex"></i></span>
-            <h1 class="my-5">{{$workshop->time}}</h1>
-          </div>
+          <div class="my-5"> 
+            <div class="flex items-center">
+                <i class="fa-solid fa-calendar-days text-gray-600 ml-5 mr-2 -mt-1"></i> 
+                <h1 >{{$workshop->time}}</h1>
+             </div>
+              <div class="flex items-center mt-2">
+                <i class="fa-solid fa-user text-gray-600 ml-5 mr-2 -mt-1"></i>
+                <h1 >{{$workshop->author}}</h1>
+             </div>
+            </div>
         </a>
       </div>
       @endforeach
     </div>
-    <button class="flex mx-auto mt-16 text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded-full text-lg"><a href="http://127.0.0.1:8000/workshops">View all events</a></button>
+    <button class="flex mx-auto mt-16 text-white bg-red-600 border-0 py-2 px-8 focus:outline-none rounded-full text-lg hover:bg-red-800 duration-300"><a href="http://127.0.0.1:8000/workshops">View all events</a></button>
   </div>
 </section>
 
 
-<button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed z-90 bottom-8 right-8 border-0 w-16 h-16 rounded-full drop-shadow-md bg-red-900 text-white text-3xl font-bold">&uarr;</button>
+<button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed z-90 bottom-8 right-8 border-0 w-16 h-16 rounded-full bg-red-600 ring-2 ring-white text-white -rotate-90 text-5xl font-bold">&#10132;</button>
 
 
 <!-- Javascript code -->

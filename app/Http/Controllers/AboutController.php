@@ -3,53 +3,56 @@
 namespace App\Http\Controllers;
 use App\Models\About;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreAboutRequest;
+use App\Http\Requests\UpdateAboutRequest;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 
 class AboutController extends Controller
 {   
-    function about () {
+
+    public function index () {
         $about = About::all();
-        return view('about.index', compact('about'));
+        return view('about', ['about' =>About::all()->last()]);
     }
-    
-    public function index()
+
+    public function abouts()
     {
         $about = About::all();
-        return view('about.index', compact('about'));
+        return view('about.index', ['about' => About::all()->last()]);
     }
 
     public function create()
     {
         return view('about.create');
     }
-
-    public function store(Request $request)
+    public function store(StoreAboutRequest $request)
     {
         $about = new about;
-        $about->title = $request->input('title');
-        $about->heading = $request->input('heading');
-        $about->paragraf = $request->input('paragraf');
-        $about->button = $request->input('button');
-        if($request->hasfile('image'))
-        {   
-            $destination = 'uploads/abouts/'.$about->image;
-           
-            if (File::exists($destination))
-            {
-                File::delete($destination);
-            }
+    
+        $title = $request->input('title');
+        $heading = $request->input('heading');
+        $paragraph = $request->input('paragraph');
+        $button = $request->input('button');
+        if ($request->hasfile('image')) {
             $file = $request->file('image');
             $extention = $file->getClientOriginalExtension();
-            $filetitle = time().'.'.$extention;
+            $filetitle = time() . '.' . $extention;
             $file->move('uploads/abouts/', $filetitle);
-            $about->image = $filetitle;
+            $image = $filetitle;
         }
-     
-        $about->update();
-        return redirect()->back()->with('status','about Image Added Successfully');
-    }
+        $fields = [
+            'title'=> $title,
+            'heading'=> $heading,
+            'paragraph'=> $paragraph,
+            'button'=> $button,
+            'image'=> $image,       
+        ];
+        $about::create($fields);
+        return redirect('/abouts')->with('status', 'about Created Successfully');   
+        }
 
     public function edit($id)
     {
@@ -59,30 +62,28 @@ class AboutController extends Controller
 
     public function update(Request $request, $id)
     {
-        $about = about::find($id);
-       
-        $about->title = $request->input('title');
-        $about->heading = $request->input('heading');
-        $about->paragraf = $request->input('paragraf');
-        $about->button = $request->input('button');
-        if($request->hasfile('image'))
-        {
-            $destination = 'uploads/abouts/'.$about->image;
-           
-            if (File::exists($destination))
-            {
-                File::delete($destination);
-            }
-            $file = $request->file('image');
-            $extention = $file->getClientOriginalExtension();
-            $filetitle = time().'.'.$extention;
-            $file->move('uploads/abouts/', $filetitle);
-            $about->image = $filetitle;
-        }
-      
-        $about->update();
-        return redirect()->back()->with('status','about Image Updated Successfully');
-    }
+        $formFields = request()->validate([
+            'title' => 'required',
+            'heading' => 'required',
+            'paragraph' => 'required',
+            'button' => 'required',    
+        ]);
+        $about =  about::find($id);
 
-   
-}
+        if(request()->hasFile('image')) {
+            $formFields['image'] = request()->file('image')->store('AboutsImg','public');
+             // Save old Image 
+             $oldImg = $about->image;
+        }
+       //update appinfo
+       about::find($id)->update($formFields);
+        // delete old img only when db update is succesful
+        if(request()->hasFile('image')) {
+            //delete old img
+            Storage::delete('/public/' .$oldImg);
+        } 
+        return back();
+    }
+    }
+    
+    

@@ -13,5 +13,9 @@ class Informations extends Model
         'app_name',
         'logo_name',
         'img_informations',
+        'facebook',
+        'instagram',
+        'twitter',
+        'linkedin',
     ];
 }
