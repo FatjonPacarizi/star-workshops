@@ -6,7 +6,7 @@
         <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
 
             <h1 class="p-3 text-slate-900">News Page</h1>
-            <a href="/newspage" class="p-3 text-gray-400"> Cancel </a>
+            <a href="/newspages" class="p-3 text-gray-400"> Cancel </a>
         </div>
         @if (session('status'))
         <h6>{{ session('status') }}</h6>
@@ -35,7 +35,7 @@
                 <label class="w-28 text-sm mx-5">Image</label>
                 <input type="file" name="image" />
 
-                <img class="object-cover rounded" alt="Image" src="{{$newspage->image ? asset('uploads/newspage/'.$newspage->image) : asset('/img/team1.png')}}" width="100">
+                <img class="object-cover rounded" alt="Image" src="{{$newspage->image ? asset('uploads/newspages/'.$newspage->image) : asset('/img/team1.png')}}" width="100">
 
             </div>
 

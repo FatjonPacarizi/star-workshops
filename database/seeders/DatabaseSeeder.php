@@ -12,6 +12,7 @@ use App\Models\Category;
 use App\Models\Feedback;
 use App\Models\Workshop;
 use App\Models\Landing;
+use App\Models\NewsPage;
 use Illuminate\Database\Seeder;
 use Database\Seeders\InformationSeeder;
 
@@ -37,7 +38,8 @@ class DatabaseSeeder extends Seeder
             WorkshopSeeder::class,
             PositionsSeeder::class,
             Positions_Users_Seeder::class,
-            LandingsSeeder::class
+            LandingsSeeder::class,
+            NewsPageSeeder::class
         ]);
 
     }

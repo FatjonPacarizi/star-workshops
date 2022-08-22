@@ -5,7 +5,7 @@
     <div class="w-full bg-white border border-gray-200 rounded">
         <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
             <h1 class="p-3 text-slate-900">App News</h1>
-            <a href="http://127.0.0.1:8000/newspage" class="p-3 text-gray-400"> Cancel</a>
+            <a href="http://127.0.0.1:8000/newspages" class="p-3 text-gray-400"> Cancel</a>
         </div>
         @if ($errors->any())
         <div class="w-full flex justify-between items-center  border border-red-600 mb-4">

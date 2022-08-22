@@ -44,7 +44,7 @@ class NewsPageController extends Controller
         }
 
         $newspage->save();
-        return redirect('/newspages')->with('status', 'News Page image added successfully');
+        return redirect('/newspages')->with('status', 'News added successfully');
     }
 
     public function show(NewsPage $newsPage)
@@ -78,12 +78,17 @@ class NewsPageController extends Controller
         }
 
         $newspage->update();
-        return redirect()->back()->with('status', 'News image updated successfully');
+        return redirect('/newspages')->with('status', 'News updated successfully');
     }
 
     public function destroy($id)
     {
+        $newspage = Newspage::find($id);
+        $destination = 'uploads/newspage/'.$newspage->image;
+            if (File::exists($destination)) {
+                File::delete($destination);
+            }
         $newspage->delete();
-        return redirect()->back()->with('status', 'News Page image deleted successfully');
+        return redirect('/newspages')->with('status', 'News deleted successfully');
     }
 }

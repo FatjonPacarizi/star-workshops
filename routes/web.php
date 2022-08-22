@@ -79,7 +79,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('add-landing', [LandingController::class, 'store']);
             Route::get('edit-landing/{id}', [LandingController::class, 'edit']);
             Route::put('update-landing/{id}', [LandingController::class, 'update']);
-            Route::get('newspage', [NewsPageController::class, 'newspage'])->name('shownewspage');
+            Route::get('newspages', [NewsPageController::class, 'newspage'])->name('shownewspages');
             Route::get('add-newspage', [NewsPageController::class, 'create']);
             Route::post('add-newspage', [NewsPageController::class, 'store']);
             Route::get('edit-newspage/{id}', [NewsPageController::class, 'edit']);

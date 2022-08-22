@@ -43,12 +43,20 @@
 
             <td> {{ Illuminate\Support\Str::limit($item->description, 20, $end='...') }}</td>
             <td>
-              <img src="{{ asset('uploads/newspage/'.$item->image) }}" width="70px" height="70px" alt="Image">
+              <img src="{{ asset('uploads/newspages/'.$item->image) }}" width="70px" height="70px" alt="Image">
             </td>
+            
 
             <td>
-              <a href="{{ url('edit-newspage/'.$item->id) }}" class="bg-sky-500 text-white px-4 py-1 text-sm rounded m-3">Edit</a>
+              <a href="{{ url('edit-newspage/'.$item->id) }}" class="bg-sky-500 text-white px-4 py-1 text-sm rounded ">Edit</a>
             </td>
+            <td>
+                            <form action="{{ url('delete-newspage/'.$item->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger bg-red-600 text-white px-4 py-1 text-sm rounded btn-sm">Delete</button>
+                            </form>
+                        </td>
 
           </tr>
           @endforeach
