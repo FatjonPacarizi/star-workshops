@@ -41,8 +41,6 @@
                  
                 </div>
 
-
-
                 <div class="mb-6 flex justify-end">
                   <button class="bg-sky-500 text-white rounded py-2 px-4 hover:bg-sky-600">
                     Update
