@@ -295,7 +295,7 @@ class WorkshopController extends Controller
         ->Join("users", function($join){
             $join->on("workshops_users.user_id", "=", "users.id");
         })
-        ->select("workshops.id as workshopID","users.name as name","workshops.time as time","workshops_users.user_id as user_id")
+        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "pending"])
         ->get();
 
@@ -305,12 +305,22 @@ class WorkshopController extends Controller
         ->Join("users", function($join){
             $join->on("workshops_users.user_id", "=", "users.id");
         })
-        ->select("workshops.id as workshopID","users.name as name","workshops.time as time","workshops_users.user_id as user_id")
+        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "approved"])
         ->get();
 
+        $notapprovedParticipants = Workshop::Join("workshops_users", function($join){
+            $join->on("workshops.id", "=", "workshops_users.workshop_id");
+        })
+        ->Join("users", function($join){
+            $join->on("workshops_users.user_id", "=", "users.id");
+        })
+        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
+        ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "notapproved"])
+        ->get();
 
-        return view('manageParticipants',['pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants]);
+
+        return view('manageParticipants',['pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
     }
     public function approveParticipant($workshopid,$participantantID){
         $formFields = [
@@ -324,13 +334,21 @@ class WorkshopController extends Controller
 
     }
 
-    public function deleteParticipant($workshopid,$participantantID){
+    public function declineParticipant($workshopid,$participantantID){
         $formFields = [
             'application_status' => 'notapproved'
          ];
 
          $partiant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
          $partiant->update($formFields);
+
+         return redirect('/participants/'.$workshopid);
+
+    }
+    public function deleteParticipant($workshopid,$participantantID){
+       
+         $partiant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
+         $partiant->delete();
 
          return redirect('/participants/'.$workshopid);
 

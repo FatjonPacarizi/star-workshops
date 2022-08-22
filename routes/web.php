@@ -137,12 +137,15 @@ Route::group(['middleware' => 'auth'],function(){
         
 
         //Approve participant
-        Route::put('/participants/{workshopid}/{participantID}/edit', [WorkshopController::class, 'approveParticipant'])->name('addParticipant');
+        Route::put('/participants/{workshopid}/{participantID}/edit', [WorkshopController::class, 'approveParticipant'])->name('approveParticipant');
       
-        //Remove workshop participantapproveParticipant
-        Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('removeParticipant');
+        //Decline workshop Participant
+        Route::put('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'declineParticipant'])->name('declineParticipant');
 
          
+        //Delete workshop Participant
+        Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('deleteParticipant');
+
       });
 
 
