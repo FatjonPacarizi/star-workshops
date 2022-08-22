@@ -28,8 +28,15 @@ class WorkshopsUsersSeeder extends Seeder
         );
         Workshops_Users::create(
             [
+                'workshop_id' => '1',
+                'user_id' => '1',
+            ]
+        );
+
+        Workshops_Users::create(
+            [
                 'workshop_id' => '2',
-                'user_id' => '3',
+                'user_id' => '2',
             ]
         );
     }

@@ -92,8 +92,9 @@
                                         ->get();
                                     }
                                     @endphp
-                                    
-                                    <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-slate-400"> {{count($pending)}}</p>
+                                    @if(count($pending)>0) 
+                                      <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-slate-400">{{count($pending)}}</p>
+                                    @endif
                         
                             </a>
                         </li>

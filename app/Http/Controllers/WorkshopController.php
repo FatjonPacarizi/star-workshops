@@ -11,11 +11,12 @@ use App\Models\Category;
 use App\Models\Workshop;
 use App\Models\Positions;
 use Illuminate\Queue\Worker;
+use App\Models\workshops_users;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
-use App\Models\workshops_users;
 
 class WorkshopController extends Controller
 {
@@ -96,6 +97,7 @@ class WorkshopController extends Controller
             'category_id' => 'required',
             'time' => 'required',
         ]);
+        $formFields['limited_participants'] = request('limited_participants');
         $formFields['author'] = Auth::id();
 
         if(request()->hasFile('img_workshop')) {
@@ -105,7 +107,7 @@ class WorkshopController extends Controller
         
         Workshop::create($formFields);
         
-        return view('manageWorkshops',['workshops'=>Workshop::all()]);
+        return redirect()->route('adminsuperadmin.showManageWorkshops');
     }
 
     /**
@@ -148,7 +150,6 @@ class WorkshopController extends Controller
 
           //  dd(count($workshop_participants));
           //  dd($workshop_participants[0]->limited_participants);
-            
             $limitReached = false;
             if($workshop_participants[0]->limited_participants <= count($workshop_participants)) $limitReached = true; 
             
@@ -163,11 +164,25 @@ class WorkshopController extends Controller
 
     public function showWorkshopManage()
     {
-        if(request()->user()->user_status == 'superadmin')
-            $workshops = Workshop::all();
-        else
-            $workshops = Workshop::where('author', Auth::id())->get();
 
+
+        if(request()->user()->user_status == 'superadmin'){
+            $workshops = DB::select(DB::raw("SELECT workshops.id,workshops.name,workshops.limited_participants,workshops.time,
+            count(workshops_users.application_status) AS pendingParticipants
+            FROM workshops 
+            LEFT JOIN workshops_users ON workshops.id = workshops_users.workshop_id AND workshops_users.application_status = 'pending'
+            GROUP BY workshops.id,workshops.name,workshops.time,workshops.limited_participants"));
+        }
+        else{
+            $myID = Auth::id();
+            $workshops = DB::select(DB::raw("SELECT workshops.id,workshops.limited_participants,workshops.name,workshops.time,
+            count(workshops_users.application_status) AS pendingParticipants
+            FROM workshops 
+            LEFT JOIN workshops_users ON workshops.id = workshops_users.workshop_id AND workshops_users.application_status = 'pending'
+            WHERE workshops.author = $myID
+            GROUP BY workshops.id,workshops.name,workshops.time,workshops.limited_participants"));
+        }
+            
         return view('manageWorkshops',['workshops'=>$workshops]);
     }
 
@@ -177,7 +192,7 @@ class WorkshopController extends Controller
      * @param  \App\Models\Workshop  $workshop
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,$participants)
     {
         $workshop = Workshop::find($id);
        
@@ -185,6 +200,7 @@ class WorkshopController extends Controller
         if( $workshop->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
            
         return view('editWorkshop', ['workshop'=>$workshop,
+                                    'participants'=>$participants,
                                     'countries'=>Country::all(),
                                     'cities'=>City::all(),
                                     'types'=>Type::all(),
@@ -208,7 +224,7 @@ class WorkshopController extends Controller
             'category_id' => 'required',
             'time' => 'required',
         ]);
-
+        $formFields['limited_participants'] = request('limited_participants');
 
         $currentWorkshop = Workshop::find($id);
 
@@ -279,7 +295,7 @@ class WorkshopController extends Controller
         ->Join("users", function($join){
             $join->on("workshops_users.user_id", "=", "users.id");
         })
-        ->select("workshops.id as workshopID","users.name as name","workshops.time as time","workshops_users.user_id as user_id")
+        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "pending"])
         ->get();
 
@@ -289,12 +305,22 @@ class WorkshopController extends Controller
         ->Join("users", function($join){
             $join->on("workshops_users.user_id", "=", "users.id");
         })
-        ->select("workshops.id as workshopID","users.name as name","workshops.time as time","workshops_users.user_id as user_id")
+        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "approved"])
         ->get();
 
+        $notapprovedParticipants = Workshop::Join("workshops_users", function($join){
+            $join->on("workshops.id", "=", "workshops_users.workshop_id");
+        })
+        ->Join("users", function($join){
+            $join->on("workshops_users.user_id", "=", "users.id");
+        })
+        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
+        ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "notapproved"])
+        ->get();
 
-        return view('manageParticipants',['pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants]);
+
+        return view('manageParticipants',['pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
     }
     public function approveParticipant($workshopid,$participantantID){
         $formFields = [
@@ -304,11 +330,11 @@ class WorkshopController extends Controller
          $partiant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
          $partiant->update($formFields);
 
-        return redirect('/participants/1');
+        return redirect('/participants/'.$workshopid);
 
     }
 
-    public function deleteParticipant($workshopid,$participantantID){
+    public function declineParticipant($workshopid,$participantantID){
         $formFields = [
             'application_status' => 'notapproved'
          ];
@@ -316,7 +342,15 @@ class WorkshopController extends Controller
          $partiant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
          $partiant->update($formFields);
 
-        return redirect('/participants/1');
+         return redirect('/participants/'.$workshopid);
+
+    }
+    public function deleteParticipant($workshopid,$participantantID){
+       
+         $partiant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
+         $partiant->delete();
+
+         return redirect('/participants/'.$workshopid);
 
     }
 }

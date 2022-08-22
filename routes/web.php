@@ -124,7 +124,7 @@ Route::group(['middleware' => 'auth'],function(){
          Route::get('/workshopManage',[WorkshopController::class,'showWorkshopManage'])->name('showManageWorkshops');
 
          //Show update workshop
-         Route::get('workshopManage/{id}/edit',[WorkshopController::class,'edit']);
+         Route::get('workshopManage/{id}/{participants}/edit',[WorkshopController::class,'edit']);
 
          //Update a workshop
          Route::put('workshopManage/{id}',[WorkshopController::class,'update']);
@@ -137,12 +137,15 @@ Route::group(['middleware' => 'auth'],function(){
         
 
         //Approve participant
-        Route::put('/participants/{workshopid}/{participantID}/edit', [WorkshopController::class, 'approveParticipant'])->name('addParticipant');
+        Route::put('/participants/{workshopid}/{participantID}/edit', [WorkshopController::class, 'approveParticipant'])->name('approveParticipant');
       
-        //Remove workshop participantapproveParticipant
-        Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('removeParticipant');
+        //Decline workshop Participant
+        Route::put('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'declineParticipant'])->name('declineParticipant');
 
          
+        //Delete workshop Participant
+        Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('deleteParticipant');
+
       });
 
 

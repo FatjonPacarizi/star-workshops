@@ -35,7 +35,7 @@
               </tr>
               
 
-            @unless($workshops->isEmpty())
+            @unless(count($workshops) == 0)
             @foreach($workshops as $workshop)
             <tr class = 'border-b border-gray-200'>
               <td class="p-3 ">{{$workshop->name}}</td>
@@ -43,26 +43,30 @@
                  $upcoming = false;
                  if (strtotime($workshop->time) > strtotime($date->format("Y-m-d h:i:sa")))   $upcoming = true;
               @endphp
-              <td class = "w-32" ><div class="w-8  @if($upcoming) bg-green-500 @else bg-red-500 @endif flex justify-center items-center rounded text-white text-sm">@if($upcoming) yes @else no @endif</div></td>
+              <td class = "w-32" ><div class="w-6  flex justify-center items-start rounded text-white text-xs  @if($upcoming) bg-green-500 @else bg-red-500 @endif ">@if($upcoming) yes @else no @endif</div></td>
 
               <td ><a href="#" class = "text-blue-600"> {{$workshop->time}}</a></td>
               <td class = "flex items-center " >
-                 <a href="/workshopManage/{{$workshop->id}}/edit" class="bg-sky-500 text-white px-2 py-1 text-sm rounded mr-3 my-2">
-                  <i class="fa-solid fa-pen my-1 fa-sm"></i>
+                
+                 <a href="/workshopManage/{{$workshop->id}}/{{$workshop->limited_participants ? $workshop->limited_participants : 'null'}}/edit" class="bg-sky-500 text-white px-3 p-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
+                  <i class="fa-solid fa-pen fa-md"></i>
                       Edit
                   </a>
                 <form method="POST" action="/workshopManage/{{$workshop->id}}">
                   @csrf
                   @method('DELETE')
-                  <button class="bg-red-500 text-white px-2 py-1 text-sm rounded mr-3">
-                    <i class="fa-solid fa-trash-can  mr-1 my-1 fa-sm"></i>
+                  <button class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">
+                    <i class="fa-solid fa-trash-can  fa-md"></i>
                     Delete
                   </button>
                 </form>
-                <a href={{ route('adminsuperadmin.showParticipants',$workshop->id)}} class="bg-sky-600 text-white px-2 py-1 text-sm rounded  my-2">
-                  <i class="fa-solid fa-user"></i>
-                  Participants 
-                  </a>
+                <a href={{ route('adminsuperadmin.showParticipants',$workshop->id)}} class="w-28 bg-sky-600 text-white p-2 pr-0 text-xs rounded flex items-center  my-2 hover:bg-sky-700">
+                  <i class="fa-solid fa-user fa-md"></i>
+                  <p class = "mx-1">Participants</p> 
+                  @if($workshop->pendingParticipants > 0)
+                  <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-red-400">{{$workshop->pendingParticipants}}</p>
+                  @endif  
+                </a>
                 
               </td>
             </tr>
