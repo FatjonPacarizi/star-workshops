@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class CreateNewsPagesTable extends Migration
 {
@@ -16,9 +17,10 @@ class CreateNewsPagesTable extends Migration
         Schema::create('news_pages', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->bigInteger('author')->unsigned();
-            $table->foreign('author')->references('id')->on('users');
-            $table->string('description');
+            $table->string('author');
+        //    $table->bigInteger('author')->unsigned();
+        //    $table->foreign('author')->references('id')->on('users');
+            $table->text('description');
             $table->string('image')->nullable();
             $table->timestamps();
         });

@@ -8,26 +8,44 @@
     <path fill="url(#PSgrad_0)" d="M1.000,334.000 L0.000,205.000 C0.000,205.000 587.208,-196.779 1435.424,126.865 C2283.640,450.508 3075.779,281.603 3090.000,282.000 C3090.871,282.610 3091.000,338.000 3091.000,338.000 "></path>
   </svg>
 </section>
+
 <section class="text-black body-font">
-  <div class="container px-5 py-24 mx-auto flex flex-col">
-    <div class="lg:w-4/6 mx-auto">
-      <div class="rounded-lg h-64 overflow-hidden">
-        <img alt="" class="object-cover object-center h-full w-full" src="{{ asset('uploads/newspages/'.$newspage[0]->image) }}">
-      </div>
-      <div class="flex flex-col sm:flex-row mt-10">
-        <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
-          <div class="flex flex-col items-center text-center justify-center">
-            <h2 class="font-medium title-font mt-4 text-black text-lg">{{$newspage[0]->author}}</h2>
-          </div>
-        </div>
-        <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-          <h1 class="leading-relaxed font-bold text-lg mb-4">{{$newspage[0]->title}}</h1>
-          <p class="leading-relaxed text-lg mb-4">{{$newspage[0]->description}}</p>
-        </div>
-      </div>
+  <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+    <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+      <h1 class="title-font sm:text-3xl text-3xl mb-4 font-medium text-black">{{$newspage[0]->title}}</h1>
+      <p class="mb-8 leading-relaxed">{{$newspage[0]->description}}</p>
+      <h2 class="tracking-widest text-xl title-font font-medium text-gray-700 mb-1">{{$newspage[0]->author}}</h2>
+    </div>
+    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+      <img class="object-cover object-center rounded" alt="News" src="{{ asset('uploads/newspages/'.$newspage[0]->image) }}">
     </div>
   </div>
 </section>
 
+<section class="text-black body-font">
+  <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+    <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+      <h1 class="title-font sm:text-3xl text-3xl mb-4 font-medium text-black">{{$newspage[1]->title}}</h1>
+      <p class="mb-8 leading-relaxed">{{$newspage[1]->description}}</p>
+      <h2 class="tracking-widest text-xl title-font font-medium text-gray-700 mb-1">{{$newspage[1]->author}}</h2>
+    </div>
+    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+      <img class="object-cover object-center rounded" alt="News" src="{{ asset('uploads/newspages/'.$newspage[1]->image) }}">
+    </div>
+  </div>
+</section>
+
+<section class="text-black body-font">
+  <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+    <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+      <h1 class="title-font sm:text-3xl text-3xl mb-4 font-medium text-black">{{$newspage[2]->title}}</h1>
+      <p class="mb-8 leading-relaxed">{{$newspage[2]->description}}</p>
+      <h2 class="tracking-widest text-xl title-font font-medium text-gray-700 mb-1">{{$newspage[2]->author}}</h2>
+    </div>
+    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+      <img class="object-cover object-center rounded" alt="News" src="{{ asset('uploads/newspages/'.$newspage[2]->image) }}">
+    </div>
+  </div>
+</section>
 
 @endsection

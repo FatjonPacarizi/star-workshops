@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class NewsPage extends Model
 {
     use HasFactory;
-    protected $table = 'news_pages';
+
     protected $fillable = [
         'title',
         'author',
