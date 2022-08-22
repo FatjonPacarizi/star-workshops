@@ -34,14 +34,14 @@
              
               <td ><a href="#" class = "text-blue-600"> {{$pendingParticipant->time}}</a></td>
               <td class = "flex items-center " >
-                 <a href="/workshopManage/{{$pendingParticipant->id}}/edit" class="bg-sky-500 text-white px-2 py-1 text-sm rounded mr-3 my-2">
-                  <i class="fa-solid fa-list"></i>
+                 <a href="/workshopManage/{{$pendingParticipant->id}}/edit" class="bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
+                  <i class="fa-solid fa-list fa-md "></i>
                       Info
                   </a>
                   <form method="POST" action={{route('adminsuperadmin.addParticipant',[$pendingParticipant->workshopID,$pendingParticipant->user_id])}}>
                     @csrf
                     @method('PUT')
-                    <button class="bg-green-600  text-white px-2 py-1 text-sm rounded mr-3">
+                    <button class="bg-green-600  text-white px-3 py-2  text-xs rounded mr-3 hover:bg-green-700">
                       <i class="fa-solid fa-user-plus"></i>
                       Add 
                     </button>

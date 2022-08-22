@@ -124,7 +124,7 @@ Route::group(['middleware' => 'auth'],function(){
          Route::get('/workshopManage',[WorkshopController::class,'showWorkshopManage'])->name('showManageWorkshops');
 
          //Show update workshop
-         Route::get('workshopManage/{id}/edit',[WorkshopController::class,'edit']);
+         Route::get('workshopManage/{id}/{participants}/edit',[WorkshopController::class,'edit']);
 
          //Update a workshop
          Route::put('workshopManage/{id}',[WorkshopController::class,'update']);
