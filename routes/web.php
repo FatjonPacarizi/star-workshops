@@ -42,9 +42,6 @@ Route::get('/newspage', [NewsPageController::class, 'index']);
 Route::get('contact', [ContactController::class, 'index']);
 Route::post('send', [ContactController::class, 'send'])->name('emailsend');
 
-Route::get('contact',[ContactController::class, 'index']);
-Route::post('send',[ContactController::class, 'send'])->name('emailsend');
-
 Route::get('/',[LandingController::class,'index'])->name('landing');
 Route::get('landings', [LandingController::class, 'landing']);
 Route::get('/workshop/{id}',[WorkshopController::class,'show'])->name('single-workshop');
@@ -150,6 +147,10 @@ Route::group(['middleware' => 'auth'], function () {
 
          //Delete a workshop
          Route::delete('/workshopManage/{workshop}', [WorkshopController::class, 'destroy']);
+         Route::delete('/forcedelete/{id}',[WorkshopController::class,'forceDelete']);
+
+         //Restore a workshop
+         Route::post('/workshopManage/{id}/restore',[WorkshopController::class,'restore'])->name('workshop.restore');
 
         //Show workshop participants
         Route::get('/participants/{workshopid}', [WorkshopController::class, 'showParticipants'])->name('showParticipants');
