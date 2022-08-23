@@ -7,7 +7,7 @@
 
       <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
 
-        <h1 class="p-3 text-slate-900">News Managment</h1>
+        <h1 class="p-3 text-slate-900">News</h1>
 
         <div class="flex mx-4 ">
 

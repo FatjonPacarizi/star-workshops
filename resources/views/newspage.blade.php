@@ -18,11 +18,10 @@
       <h2 class="tracking-widest text-xl title-font font-medium text-gray-700 mb-1">{{ $newspage->author }}</h2>
     </div>
     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-      <img class="object-cover object-center rounded" alt="News" src="{{ asset('uploads/newspages/'.$newspage->image) }}">
+      <img class="object-cover object-center rounded" alt="" src="{{$newspage->image_news ? asset('uploads/newspages/'.$newspage->image) : asset('/img/Workshops.jpg')}}">
     </div>
   </div>
   @endforeach
 </section>
-
 
 @endsection
