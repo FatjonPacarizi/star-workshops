@@ -47,9 +47,9 @@
                         <div class="flex space-x-4">
                             <!-- Current: "bg-red-700 text-white", Default: "text-white hover:bg-red-700 hover:text-white" -->
                             <a href="{{route('workshops')}}" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium" aria-current="page">WORKSHOPS</a>
-                            <a href="/about" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">ABOUT US</a>
-                            <a href="/members" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">MEMBERS</a>
                             <a href="/newspage" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">NEWS</a>
+                            <a href="/members" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">MEMBERS</a>
+                            <a href="/about" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">ABOUT US</a>
                         </div>
                     </div>
                 </div>
@@ -61,9 +61,9 @@
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <!-- Current: "bg-red-500 text-white", Default: "text-white hover:bg-red-500 hover:text-white" -->
                 <a href="{{route('workshops')}}" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">Workshops</a>
-                <a href="/about" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">ABOUT US</a>
-                <a href="/members" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">MEMBERS</a>
                 <a href="/newspage" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium">NEWS</a>
+                <a href="/members" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">MEMBERS</a>
+                <a href="/about" class="text-red-700 hover:text-red-700 block px-3 py-2 rounded-md text-base font-medium">ABOUT US</a>
 
             </div>
         </div>

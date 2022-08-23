@@ -8,7 +8,7 @@
     <div class="w-full bg-white border border-gray-200 rounded mt-12">
         <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
 
-            <h1 class="p-3 text-slate-900">News Page</h1>
+            <h1 class="p-3 text-slate-900">News</h1>
             <a href="/newspages" class="p-3 text-gray-400"> Cancel </a>
         </div>
         @if (session('status'))
