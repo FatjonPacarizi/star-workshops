@@ -27,9 +27,9 @@
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1200px) {
     .card{
-        width:300px;
-        height:250px;
-        margin:10px;
+        width:290px;
+        height:240px;
+        margin:12px;
         margin-bottom:2%;
     }
     .div{
@@ -41,23 +41,73 @@
 
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-
+@media only screen and (max-width: 992px) {
+    .card{
+        width:385px;
+        height:345px;
+        margin:14px;
+        margin-bottom:2%;
+    }
+    .div{
+        width:830px;
+        border:1px solid red;
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-
+@media only screen and (max-width: 768px) {
+    .card{
+        width:600px;
+        height:550px;
+        margin:14px;
+        margin-bottom:2%;
+    }
+    .div{
+        width:600px;
+        border:1px solid red;
+    }
 }
 
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-
+@media only screen and (max-width: 600px) {
+    .card{
+        width:500px;
+        height:450px;
+        margin:14px;
+        margin-bottom:2%;
+    }
+    .div{
+        width:500px;
+        border:1px solid red;
+    }
 }
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 
+    .card{
+        width:400px;
+        height:350px;
+        margin:14px;
+        margin-bottom:2%;
+    }
+    .div{
+        width:400px;
+        border:1px solid red;
+    }
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 400px) {
 
+    .card{
+        width:380px;
+        height:320px;
+        margin:14px;
+        margin-bottom:2%;
+    }
+    .div{
+        width:380px;
+        border:1px solid red;
+    }
 }
