@@ -16,9 +16,9 @@ class CreateWorkshopsUsersTable extends Migration
         Schema::create('workshops_users', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('workshop_id')->unsigned();
-            $table->foreign('workshop_id')->references('id')->on('workshops');
+            $table->foreign('workshop_id')->references('id')->on('workshops')->onDelete('cascade');
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
             $table->string('application_status')->default('pending');
             $table->timestamps();
         });
