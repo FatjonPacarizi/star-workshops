@@ -98,6 +98,6 @@ class LandingController extends Controller
         }
 
         $landing->update();
-        return redirect()->back()->with('status', 'Landing Updated Successfully');
+        return redirect('/landings')->with('status', 'Landing Updated Successfully');
     }
 }
