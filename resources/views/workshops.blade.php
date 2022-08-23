@@ -14,7 +14,7 @@
     <h1 class="mb-2 font-bold text-gray-500">EVENTS</h1>
     <h1 class="text-3xl mb-10 text-[#00517E]">Upcoming Events</h1>
   </div>
-    <div class=" border border-green-500 flex flex-wrap">
+    <div class=" flex flex-wrap">
       @foreach($upcomings as $upcoming)
         <div class="card  relative rounded shadow-lg  bg-white cursor-pointer ">
           <a  href = "{{route('single-workshop',$upcoming->id)}}">
