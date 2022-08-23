@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
             PositionsSeeder::class,
             Positions_Users_Seeder::class,
             LandingsSeeder::class,
-            NewsPageSeeder::class
+            WorkshopsUsersSeeder::class
         ]);
 
     }

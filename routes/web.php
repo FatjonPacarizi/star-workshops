@@ -24,6 +24,8 @@ use App\Http\Controllers\usersController;
 |
 */
 
+
+Route::get('/users', 'App\Http\Controllers\UserController@index');
 Route::get('abouts', [AboutController::class, 'contact']);
 Route::get('/about', [AboutController::class, 'index']);
 
@@ -40,13 +42,16 @@ Route::get('/newspage', [NewsPageController::class, 'index']);
 Route::get('contact', [ContactController::class, 'index']);
 Route::post('send', [ContactController::class, 'send'])->name('emailsend');
 
-Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('contact',[ContactController::class, 'index']);
+Route::post('send',[ContactController::class, 'send'])->name('emailsend');
+
+Route::get('/',[LandingController::class,'index'])->name('landing');
 Route::get('landings', [LandingController::class, 'landing']);
-Route::get('/workshop/{id}', [WorkshopController::class, 'show'])->name('single-workshop');
+Route::get('/workshop/{id}',[WorkshopController::class,'show'])->name('single-workshop');
 
-Route::get('/workshops', [WorkshopController::class, 'index'])->name('workshops');
+Route::get('/workshops',[WorkshopController::class,'index'])->name('workshops');
 
-
+Route::post('/send',[App\Http\Controllers\MailController::class, 'send'])->name('emailsend');
 
 Route::middleware([
     'auth:sanctum',
@@ -69,11 +74,15 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('usersManager/{id}/edit', [UserManageController::class, 'edit']);
             Route::put('/usersManager/{id}', [UserManageController::class, 'update']);
             Route::delete('/usersManager/{user}', [UserManageController::class, 'destroy']);
+            //Show dashboard abouts
             Route::get('abouts', [AboutController::class, 'abouts'])->name('showabouts');
+            // Insert about
             Route::get('add-about', [AboutController::class, 'create']);
             Route::post('add-about', [AboutController::class, 'store']);
+            //Edit about
             Route::get('edit-about/{id}', [AboutController::class, 'edit']);
             Route::put('update-about/{id}', [AboutController::class, 'update']);
+            
             Route::get('landings', [LandingController::class, 'landing'])->name('showlandings');
             Route::get('add-landing', [LandingController::class, 'create']);
             Route::post('add-landing', [LandingController::class, 'store']);
@@ -133,27 +142,39 @@ Route::group(['middleware' => 'auth'], function () {
             //Show workshops page
             Route::get('/workshopManage', [WorkshopController::class, 'showWorkshopManage'])->name('showManageWorkshops');
 
-            //Show update workshop
-            Route::get('workshopManage/{id}/edit', [WorkshopController::class, 'edit']);
+         //Show update workshop
+         Route::get('workshopManage/{id}/edit',[WorkshopController::class,'edit']);
 
             //Update a workshop
             Route::put('workshopManage/{id}', [WorkshopController::class, 'update']);
 
-            //Delete a workshop
-            Route::delete('/workshopManage/{workshop}', [WorkshopController::class, 'destroy']);
-        }
-    );
+         //Delete a workshop
+         Route::delete('/workshopManage/{workshop}', [WorkshopController::class, 'destroy']);
+
+        //Show workshop participants
+        Route::get('/participants/{workshopid}', [WorkshopController::class, 'showParticipants'])->name('showParticipants');
+        
+
+        //Approve participant
+        Route::put('/participants/{workshopid}/{participantID}/edit', [WorkshopController::class, 'approveParticipant'])->name('approveParticipant');
+      
+        //Decline workshop Participant
+        Route::put('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'declineParticipant'])->name('declineParticipant');
+
+         
+        //Delete workshop Participant
+        Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('deleteParticipant');
+
+      });
 
 
 
     //Users group routes
     Route::group(
         [
-            'as' => 'user.',
-        ],
-        function () {
-            // Add routes here for users
-            Route::get('users', [Controller::class, 'index'])->name('users'); //this is a test route
-        }
-    );
+            'as'=>'user.',
+        ],function(){
+             // Add routes here for users
+            Route::get('users', [Controller::class,'index'])->name('users');//this is a test route
+     });
 });

@@ -9,7 +9,7 @@
 
     <x-slot name="form">
         <!-- Profile Photo -->
-     
+        @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
             <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
                 <!-- Profile Photo File Input -->
                 <input type="file" class="hidden"
@@ -28,7 +28,7 @@
 
                   <!-- Current Profile Photo -->
             <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{$this->user->profile_photo_ ? asset('/storage/' . $this->user->profile_photo_url) : asset('storage/'.$this->user->profile_photo_path)}}" alt="{{ $this->user->profile_photo_url }}" class="rounded-full h-20 w-20 object-cover">
+                     <img class="h-20 w-20 rounded-full object-cover" src="{{Auth::user()->profile_photo_path ? asset('/storage/' . Auth::user()->profile_photo_path) : asset('img/defaultuserphoto.png') }}" alt="{{ Auth::user()->name}}" />
             </div>
 
                 <!-- New Profile Photo Preview -->
@@ -43,7 +43,7 @@
                 </x-jet-secondary-button>
                 <x-jet-input-error for="photo" class="mt-2" />
             </div>
-
+            @endif
 
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">

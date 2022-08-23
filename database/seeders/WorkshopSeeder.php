@@ -25,6 +25,7 @@ class WorkshopSeeder extends Seeder
         DB::table('workshops')->insert([
             'name' => 'Become a Certified HTML, CSS, JavaScript Web Developer',
             'author' => '1',
+            'limited_participants'=> '20',
             'type_id' => '1',
             'country_id' => '1',
             'city_id' => '1',
@@ -34,7 +35,8 @@ class WorkshopSeeder extends Seeder
 
         DB::table('workshops')->insert([
             'name' => '1 Hour JavaScript',
-            'author' => '1',
+            'author' => '2',
+            'limited_participants'=> '30',
             'type_id' => '1',
             'country_id' => '1',
             'city_id' => '1',

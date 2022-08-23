@@ -24,7 +24,7 @@ class LandingController extends Controller
     public function landing()
     {
         $landing = Landing::all();
-        return view('landings.index', compact('landing'));
+        return view('landings.index', ['landing' => Landing::all()->last()]);
     }
 
     public function create()

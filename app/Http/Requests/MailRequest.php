@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\MailController;
 
-class UpdateAboutRequest extends FormRequest
+class MailRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +16,6 @@ class UpdateAboutRequest extends FormRequest
     {
         return true;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,11 +24,10 @@ class UpdateAboutRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:255',
-            'heading' => 'required|max:255',
-            'paragraph' => 'required|between:30,600',
-            'image' => 'required|image',
-            'button' => 'required|max:255',
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'subject' => 'required',
+            'message' => 'required|between:30,600',
         ];
     }
 }
