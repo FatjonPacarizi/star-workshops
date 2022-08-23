@@ -42,7 +42,7 @@
       </h1>
       <p class="mb-8 leading-relaxed">Our professionally facilitated workshops and training courses provide excellent learning and peer-to-peer networking opportunities with a cross-section of the nuclear industry—from licensees and regulators to security experts, academics, law enforcement and vendors.</p>
       <div class="flex justify-center">
-        <button class="ml-4 mb-2 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg">Find out more</button>
+        <button class="ml-4 mb-2 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg"><a href="{{route('workshops')}}">Find out more</a></button>
       </div>
     </div>
     <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
@@ -61,7 +61,7 @@
       </h1>
       <p class="mb-8 leading-relaxed">The Star Workshops Academy is the world’s first certified professional development programme for individuals with responsibilities in nuclear or radioactive source security management.</p>
       <div class="flex justify-center">
-        <button class="inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg hover:bg-red-800 duration-300">Find out more</button>
+        <button class="inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg hover:bg-red-800 duration-300"><a href="/members">Find out more<a></button>
       </div>
     </div>
   </div>
@@ -93,7 +93,7 @@
       </h1>
       <p class="mb-8 leading-relaxed">Star Workshops evaluation services help licensees assess the maturity of their security programme, measure the effectiveness of their security culture, and identify areas that are strong as well as those that could be improved.</p>
       <div class="flex justify-center">
-        <button class="inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg hover:bg-red-800 duration-300">Find out more</button>
+        <button class="inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg hover:bg-red-800 duration-300"><a href="/about">Find out more</a></button>
       </div>
     </div>
   </div>
@@ -122,7 +122,7 @@
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-red-600">Popular Courses</h1>
       <p class="mb-8 leading-relaxed">Star Workshops Academy courses focus on the practitioner and provide best practice guidance that is hands-on, cross-functional and immediately useful. To read more click the button below:</p>
       <div class="flex justify-center">
-        <button class="inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg hover:bg-red-800 duration-300">View all courses</button>
+        <button class="inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg hover:bg-red-800 duration-300"><a href="{{route('workshops')}}">View all courses</a></button>
       </div>
     </div>
   </div>
