@@ -169,21 +169,28 @@ class WorkshopController extends Controller
         if(request()->user()->user_status == 'superadmin'){
             $workshops = DB::select(DB::raw("SELECT workshops.id,workshops.name,workshops.limited_participants,workshops.time,
             count(workshops_users.application_status) AS pendingParticipants
-            FROM workshops 
+            FROM workshops
             LEFT JOIN workshops_users ON workshops.id = workshops_users.workshop_id AND workshops_users.application_status = 'pending'
-            GROUP BY workshops.id,workshops.name,workshops.time,workshops.limited_participants"));
+            WHERE workshops.deleted_at IS NUll
+            GROUP BY workshops.id,workshops.name,workshops.time,workshops.limited_participants
+          "));
         }
         else{
+            
             $myID = Auth::id();
             $workshops = DB::select(DB::raw("SELECT workshops.id,workshops.limited_participants,workshops.name,workshops.time,
             count(workshops_users.application_status) AS pendingParticipants
             FROM workshops 
-            LEFT JOIN workshops_users ON workshops.id = workshops_users.workshop_id AND workshops_users.application_status = 'pending'
-            WHERE workshops.author = $myID
-            GROUP BY workshops.id,workshops.name,workshops.time,workshops.limited_participants"));
+            LEFT JOIN workshops_users ON workshops.id = workshops_users.workshop_id AND workshops_users.application_status = 'pending' 
+            WHERE workshops.author = $myID AND  workshops.deleted_at IS NUll
+            GROUP BY workshops.id,workshops.name,workshops.time,workshops.limited_participants
+           
+            "));
         }
+
+       $workshops1 = Workshop::orderBy('deleted_at','asc')->onlyTrashed()->get();
             
-        return view('manageWorkshops',['workshops'=>$workshops]);
+        return view('manageWorkshops',['workshops'=>$workshops, 'workshops1'=>$workshops1]);
     }
 
     /**
@@ -352,5 +359,24 @@ class WorkshopController extends Controller
 
          return redirect('/participants/'.$workshopid);
 
+    }
+
+    public function restore($id){
+
+        $workshop = Workshop::onlyTrashed()->findOrFail($id);
+        $workshop->restore();
+
+        return redirect()->back();
+
+    }
+
+    public function forceDelete($id)
+{
+   
+        $workshop = Workshop::onlyTrashed()->findOrFail($id);
+        $workshop->forceDelete();
+
+        return redirect()->back();
+      
     }
 }
