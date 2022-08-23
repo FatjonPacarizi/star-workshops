@@ -1,5 +1,5 @@
 .card{
-    width:370px;
+    width:373px;
     height:300px;
     margin:13px;
     margin-bottom:2%;
@@ -28,13 +28,12 @@
 @media only screen and (max-width: 1200px) {
     .card{
         width:290px;
-        height:240px;
+        height:250px;
         margin:12px;
         margin-bottom:2%;
     }
     .div{
         width:950px;
-        border:1px solid red;
     }
     
 }
@@ -43,14 +42,13 @@
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) {
     .card{
-        width:385px;
-        height:345px;
+        width:365px;
+        height:325px;
         margin:14px;
         margin-bottom:2%;
     }
     .div{
-        width:830px;
-        border:1px solid red;
+        width:800px;
     }
 }
 
@@ -58,13 +56,12 @@
 @media only screen and (max-width: 768px) {
     .card{
         width:600px;
-        height:550px;
+        height:500px;
         margin:14px;
         margin-bottom:2%;
     }
     .div{
         width:600px;
-        border:1px solid red;
     }
 }
 
@@ -79,7 +76,6 @@
     }
     .div{
         width:500px;
-        border:1px solid red;
     }
 }
 
@@ -94,7 +90,6 @@
     }
     .div{
         width:400px;
-        border:1px solid red;
     }
 }
 /* Extra small devices (phones, 600px and down) */
@@ -108,6 +103,5 @@
     }
     .div{
         width:380px;
-        border:1px solid red;
     }
 }
