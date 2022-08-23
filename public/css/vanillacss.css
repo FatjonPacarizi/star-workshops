@@ -1,7 +1,7 @@
 .card{
-    width:31%;
+    width:370px;
     height:300px;
-    margin:1.1%;
+    margin:13px;
     margin-bottom:2%;
 }
 .img{
@@ -19,4 +19,7 @@
     position:absolute;
     border-top-left-radius:5px;
     border-top-right-radius:5px;
+}
+.div{
+    width:1200px;
 }
