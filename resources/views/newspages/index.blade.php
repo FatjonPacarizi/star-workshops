@@ -36,11 +36,11 @@
           <tr class='bg-white-100 border-y border-gray-200'>
 
 
-            <td class="p-3">{{ Illuminate\Support\Str::limit($item->title, 30, $end='...') }}</td>
+            <td class="p-3">{{ Illuminate\Support\Str::limit($item->title, 20, $end='...') }}</td>
 
             <td> {{ $item->author }}</td>
 
-            <td> {{ Illuminate\Support\Str::limit($item->description, 20, $end='...') }}</td>
+            <td> {!! Illuminate\Support\Str::limit($item->description, 50, $end='...') !!}</td>
             <td>
               <img src="{{ asset('uploads/newspages/'.$item->image) }}" width="70px" height="70px" alt="Image">
             </td>

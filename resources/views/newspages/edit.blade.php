@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+
+<script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
+
 <div class="w-full h-full p-6 flex flex-col  items-center border">
 
     <div class="w-full bg-white border border-gray-200 rounded mt-12">
@@ -23,14 +26,29 @@
 
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Author</label>
-                <textarea type="text" name="author" value="" class="border border-gray-200 rounded p-1 w-full mx-5">
-                {{$newspage->author}}</textarea>
+                <input type="text" name="author" value="{{$newspage->author}}" class="border border-gray-200 rounded p-1 w-full mx-5">                
             </div>
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Description</label>
                 <textarea type="text" name="description" value="" class="border border-gray-200 rounded p-1 w-full mx-5">
                 {{$newspage->description}}</textarea>
             </div>
+            <script>
+                tinymce.init({
+                    selector: 'textarea', // Replace this CSS selector to match the placeholder element for TinyMCE
+                    width: 1040,
+                    height: 300,
+                    plugins: [
+                        'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+                        'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media',
+                        'table', 'emoticons', 'template', 'help'
+                    ],
+                    toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                        'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+                        'forecolor backcolor emoticons | help',
+                    menubar: 'file edit view insert format tools table help'
+                });
+            </script>
             <div class="mb-6  flex items-center">
                 <label class="w-28 text-sm mx-5">Image</label>
                 <input type="file" name="image" />

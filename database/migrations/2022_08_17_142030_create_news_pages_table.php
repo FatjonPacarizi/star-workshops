@@ -18,8 +18,6 @@ class CreateNewsPagesTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('author');
-        //    $table->bigInteger('author')->unsigned();
-        //    $table->foreign('author')->references('id')->on('users');
             $table->text('description');
             $table->string('image')->nullable();
             $table->timestamps();
