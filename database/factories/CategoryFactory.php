@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Seeder;
 
 class CategoryFactory extends Factory
 {
@@ -13,8 +14,25 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-        return [
-            //
+        $category = [
+           [
+            'name' => 'Front-End Developer',
+           ],
+           [
+            'name' => 'Back-End Developer',
+           ],
+           [
+            'name' => 'Mobile Developer',
+           ],
+           [
+            'name' => 'Web Developer',
+           ],
+           [
+            'name' => 'Full Stack Developer',
+           ]
         ];
+        foreach ($category as $key =>$value){
+            Category::create($value);
+        }
     }
 }

@@ -17,21 +17,24 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::create([
-            'name' => 'Front-End Developer',
+        DB::table('categories')->insert([
+            [
+             'name' => 'Front-End Developer',
+            ],
+            [
+             'name' => 'Back-End Developer',
+            ],
+            [
+             'name' => 'Mobile Developer',
+            ],
+            [
+             'name' => 'Web Developer',
+            ],
+            [
+             'name' => 'Full Stack Developer',
+            ]
         ]);
-        Category::create([
-            'name' => 'Back-End Developer',
-        ]);
-        Category::create([
-            'name' => 'Mobile Developer',
-        ]);
-        Category::create([
-            'name' => 'Web Developer',
-        ]);
-        Category::create([
-            'name' => 'Full Stack Developer',
-        ]);  
 
     }
 }
+

@@ -17,13 +17,17 @@ class CitySeeder extends Seeder
      */
     public function run()
     {
-        City::create([
-            'name' => 'Gjilan',
-            'postalcode' => '61000',
+        DB::table('cities')->insert([
+            [
+                'name' => 'Gjilan',
+                'postalcode' => '61000',
+            ],
+            [
+                'name' => 'Prizren',
+                'postalcode' => '20000',
+            ]
         ]);
-        City::create([
-            'name' => 'Prizren',
-            'postalcode' => '20000',
-        ]);
+
     }
 }
+

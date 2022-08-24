@@ -22,7 +22,7 @@ class WorkshopSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('workshops')->insert([
+        DB::table('workshops')->insert([[
             'name' => 'Become a Certified HTML, CSS, JavaScript Web Developer',
             'author' => '1',
             'limited_participants'=> '20',
@@ -31,9 +31,7 @@ class WorkshopSeeder extends Seeder
             'city_id' => '1',
             'category_id' => '1',
             'time' => '2022-09-09 12:14:19',
-        ]);
-
-        DB::table('workshops')->insert([
+        ],[
             'name' => '1 Hour JavaScript',
             'author' => '2',
             'limited_participants'=> '30',
@@ -42,67 +40,69 @@ class WorkshopSeeder extends Seeder
             'city_id' => '1',
             'category_id' => '1',
             'time' => '2022-09-09 12:14:19',
-        ]);
-
-        DB::table('workshops')->insert([
+        ],[
             'name' => 'The Complete JavaScript Course 2022: From Zero to Expert!',
             'author' => '1',
+            'limited_participants'=> '20',
             'type_id' => '1',
             'country_id' => '1',
             'city_id' => '1',
             'category_id' => '1',
             'time' => '2022-08-09 12:14:19',
-        ]);
 
-        DB::table('workshops')->insert([
+        ],[
             'name' => 'Build Responsive Real-World Websites with HTML and CSS',
             'author' => '1',
+            'limited_participants'=> '20',
             'type_id' => '1',
             'country_id' => '1',
             'city_id' => '1',
             'category_id' => '1',
             'time' => '2022-08-09 12:14:19',
-        ]);
 
-        DB::table('workshops')->insert([
+        ],[
             'name' => 'Modern React with Redux',
             'author' => '1',
+            'limited_participants'=> '20',
             'type_id' => '1',
             'country_id' => '1',
             'city_id' => '1',
             'category_id' => '1',
             'time' => '2022-08-09 12:14:19',
-        ]);
 
-        DB::table('workshops')->insert([
+        ],[
             'name' => 'Python and Django Full Stack Web Developer Bootcamp',
             'author' => '1',
+            'limited_participants'=> '20',
             'type_id' => '1',
             'country_id' => '1',
             'city_id' => '1',
             'category_id' => '1',
             'time' => '2022-08-09 12:14:19',
-        ]);
-
-        DB::table('workshops')->insert([
+        ],[
             'name' => 'HTML and CSS for Beginners - Build a Website & Launch ONLINE',
             'author' => '2',
+            'limited_participants'=> '20',
             'type_id' => '1',
             'country_id' => '1',
             'city_id' => '1',
             'category_id' => '1',
             'time' => '2022-08-09 12:14:19',
-        ]);
 
-        DB::table('workshops')->insert([
+        ],[
             'name' => 'The Complete ASP.NET MVC 5 Course',
             'author' => '2',
+            'limited_participants'=> '20',
             'type_id' => '1',
             'country_id' => '1',
             'city_id' => '1',
             'category_id' => '1',
             'time' => '2022-08-09 12:14:19',
-        ]);
+
+        ],
+    ]);
+
+     
         
     }
 }
