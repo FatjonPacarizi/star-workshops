@@ -41,12 +41,10 @@ Route::get('/members', [WorkshopController::class, 'showMembers']);
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
 Route::get('/newspage', [NewsPageController::class, 'index']);
 
-<<<<<<< HEAD
-=======
+
 Route::get('contact', [ContactController::class, 'index']);
 Route::post('send', [ContactController::class, 'send'])->name('emailsend');
 
->>>>>>> 1aa88bd0060548651d3d9a420b4e4367ba01af57
 Route::get('/',[LandingController::class,'index'])->name('landing');
 Route::get('landings', [LandingController::class, 'landing']);
 Route::get('/workshop/{id}',[WorkshopController::class,'show'])->name('single-workshop');
