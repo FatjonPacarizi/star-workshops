@@ -14,14 +14,7 @@ class WorkshopFactory extends Factory
     public function definition()
     {
         return [
-            'name' => 'Bootcamps',
-            'author' => '1',
-            'limited_participants'=> '20',
-            'type_id' => '1',
-            'country_id' => '1',
-            'city_id' => '1',
-            'category_id' => '1',
-            'time' => '2022-08-09 13:53:08',
+        //
         ];
 
 
