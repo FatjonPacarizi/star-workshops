@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+
+<script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
+
     <div class="w-full h-full p-6 flex flex-col  items-center">
 
       <div class="w-full bg-white border border-gray-200 rounded mt-12">
