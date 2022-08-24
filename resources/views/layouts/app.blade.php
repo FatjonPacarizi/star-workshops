@@ -53,7 +53,7 @@
                         @can('is_super_admin')
                         <li class="--set-active-tables-html my-2">
                             <a href="{{ route('superadmin.showlandings') }}" class="flex p-2   rounded {{Request::is('landings') ? 'bg-slate-500' : 'hover:bg-slate-600'}}">
-                                <span class="inline-flex items-center justify-center h-6 w-6"><i class="mdi mdi-account-outline inline-flex"></i></span>
+                                <span class="inline-flex items-center justify-center h-6 w-6"><i class="fa-solid fa-house-chimney"></i></span>
                                 <span class="grow">Landing Page</span>
                             </a>
                         </li>
