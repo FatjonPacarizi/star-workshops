@@ -45,7 +45,7 @@
               @endphp
               <td class = "w-32" ><div class="w-6  flex justify-center items-start rounded text-white text-xs  @if($upcoming) bg-green-500 @else bg-red-500 @endif ">@if($upcoming) yes @else no @endif</div></td>
 
-              <td ><a href="#" class = "text-blue-600"> {{$workshop->time}}</a></td>
+              <td ><a href="#" class = "text-blue-600"> {{\Carbon\Carbon::parse($workshop->time)->format('d F Y h:m') }}</a></td>
               <td class = "flex items-center " >
                 
                  <a href="/workshopManage/{{$workshop->id}}/{{$workshop->limited_participants ? $workshop->limited_participants : 'null'}}/edit" class="bg-sky-500 text-white px-3 p-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
@@ -85,7 +85,7 @@
        
 
         @can('is_super_admin')
-         <div class="w-full bg-white border border-gray-200 rounded pb-4 mt-12">
+         <div class="w-full bg-white border border-gray-200 rounded pb-4 my-12">
       <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
         <h1 class = "p-3 text-slate-900">Workshop Deleted </h1>
       </div>
@@ -103,7 +103,7 @@
             @foreach($workshops1 as $workshop1)
             <tr class = 'border-b border-gray-200'>
               <td class="p-3 ">{{$workshop1->name}}</td>
-              <td class="text-blue-600">{{$workshop1->deleted_at}}</td>
+              <td class="text-blue-600">{{\Carbon\Carbon::parse($workshop1->deleted_at)->format('d F Y h:m') }}</td>
               <td class="text-blue-600">{{$workshop1->author}}</td>
               <td class = "flex items-center " >
                 <form method="POST" action="/workshopManage/{{$workshop1->id}}/restore">
