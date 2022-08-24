@@ -84,11 +84,11 @@
 </section>
 
 <section class="text-black body-font">
-  <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-    <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-      <img class="object-cover object-center rounded" alt="Evaluation" src="{{ asset('img/Evaluation.jpg') }}">
+<div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+        <img class="object-cover object-center rounded" alt="Evaluation" src="{{ asset('img/Evaluation.jpg') }}">
     </div>
-    <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+    <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-red-600">Evaluation
       </h1>
       <p class="mb-8 leading-relaxed">Star Workshops evaluation services help licensees assess the maturity of their security programme, measure the effectiveness of their security culture, and identify areas that are strong as well as those that could be improved.</p>
