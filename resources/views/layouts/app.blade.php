@@ -99,6 +99,14 @@
                             </a>
                         </li>
                         @endcan
+                        @can('is_super_admin')
+                        <li class="--set-active-tables-html my-2">
+                            <a href="{{ route('superadmin.faq') }}" class="flex p-2   rounded {{Request::is('faq') ? 'bg-slate-500' : 'hover:bg-slate-600'}}">
+                                <span class="inline-flex items-center justify-center h-6 w-6"><i class="fa-solid fa-question"></i></span>
+                                <span class="grow">Faq</span>
+                            </a>
+                        </li>
+                        @endcan
                     </div>
                 </aside>
                 <div class="w-full flex justify-left items-left overflow-y-auto mb-24">

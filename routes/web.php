@@ -10,6 +10,8 @@ use App\Http\Controllers\SuperAdmin\TestController;
 use App\Http\Controllers\SuperAdmin\UserManageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\usersController;
+use App\Http\Controllers\FaqController;
+
 
 
 /*
@@ -34,7 +36,6 @@ Route::get('/', function () { return view('welcome');})->name('home');
 Route::get('/members',[WorkshopController::class, 'showMembers']);
 
 Route::get('/test',[usersController::class, 'getUsersByStaffPosition']);
-
 
 Route::get('/',[LandingController::class,'index'])->name('landing');
 Route::get('landings', [LandingController::class, 'landing']);
@@ -81,6 +82,18 @@ Route::group(['middleware' => 'auth'],function(){
             Route::get('edit-landing/{id}', [LandingController::class, 'edit']);
             Route::put('update-landing/{id}', [LandingController::class, 'update']);
 
+           
+            Route::get('faq',[FaqController::class,'index'])->name('faq');
+
+            Route::get('/faq/create',[FaqController::class,'create']);
+            //Store FAQ
+            Route::post('/add-faq',[FaqController::class,'store']);
+            //Edit FAQ
+            Route::get('faq/{id}/edit',[FaqController::class,'edit'])->name('editfaq');
+            //Update FAQ
+            Route::put('/update/{id}',[FaqController::class,'update']);
+            //Delete FAQ
+            Route::delete('faq/{faq}',[FaqController::class,'destroy']);
 
               //Show app infos edit
             Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
@@ -148,6 +161,11 @@ Route::group(['middleware' => 'auth'],function(){
          
         //Delete workshop Participant
         Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('deleteParticipant');
+
+        
+        
+        
+     
 
       });
 
