@@ -175,7 +175,7 @@
         </div>
       @endforeach
     </div>
-    <button class="flex mx-auto mt-16 text-white bg-red-600 border-0 py-2 px-8 focus:outline-none rounded-full text-lg hover:bg-red-800 duration-300"><a href="http://127.0.0.1:8000/workshops%22%3E">View all events</a></button>
+    <button class="flex mx-auto mt-16 text-white bg-red-600 border-0 py-2 px-8 focus:outline-none rounded-full text-lg hover:bg-red-800 duration-300"><a href="http://127.0.0.1:8000/workshops" >View all events</a></button>
   </div>
 </section>
 
