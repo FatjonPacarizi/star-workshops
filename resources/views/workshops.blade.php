@@ -9,12 +9,12 @@
     </svg>
 </section>
 <section class="w-full pb-20 mb-8 flex justify-center  bg-gray-200  ">
-  <div class="w-full lg:w-5/6 px-5  border">
-    <div class="mx-10 lg:mx-7 ">
+  <div class="div">
+    <div class="mx-2 ">
     <h1 class="mb-2 font-bold text-gray-500">EVENTS</h1>
     <h1 class="text-3xl mb-10 text-[#00517E]">Upcoming Events</h1>
   </div>
-    <div class="w-full flex flex-wrap">
+    <div class=" flex flex-wrap">
       @foreach($upcomings as $upcoming)
         <div class="card  relative rounded shadow-lg  bg-white cursor-pointer ">
           <a  href = "{{route('single-workshop',$upcoming->id)}}">
@@ -40,8 +40,8 @@
 </section>
 <section class="w-full pt-6 flex flex-col items-center mb-10 bg-white">
     <h1 class = "w-full pt-20 pb-10 text-center text-4xl roundedTop -mt-40 bg-white">Past Events</h1>
-    
-    <div class="w-full lg:w-5/6 px-5 mx-auto flex flex-wrap ">
+    <div class="div">
+    <div class=" flex flex-wrap ">
       @foreach($pasts as $past)
       <div class="card  relative rounded shadow-lg  bg-white cursor-pointer ">
         <a  href = "{{route('single-workshop',$past->id)}}">
@@ -51,7 +51,7 @@
         <div class="my-5"> 
         <div class="flex items-center">
             <i class="fa-solid fa-calendar-days text-gray-500 ml-5 mr-2 -mt-1"></i> 
-            <h1 class = "uppercase  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">{{\Carbon\Carbon::parse($upcoming->time)->format('d-F-Y') }}</h1>
+            <h1 class = "uppercase  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">{{\Carbon\Carbon::parse($past->time)->format('d-F-Y') }}</h1>
          </div>
           <div class="flex items-center mt-2">
             <i class="fa-solid fa-user text-gray-500 ml-5 mr-2 -mt-1"></i>
@@ -62,5 +62,6 @@
       </div>
         @endforeach
     </div>
+  </div>
 </section>
 @endsection
