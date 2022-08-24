@@ -69,29 +69,16 @@
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) {
     .card{
-        width:500px;
-        height:450px;
+        width:450px;
+        height:400px;
         margin:14px;
         margin-bottom:2%;
     }
     .div{
-        width:500px;
+        width:450px;
     }
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-
-    .card{
-        width:400px;
-        height:350px;
-        margin:14px;
-        margin-bottom:2%;
-    }
-    .div{
-        width:400px;
-    }
-}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 400px) {
 
