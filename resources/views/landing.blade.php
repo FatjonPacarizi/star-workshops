@@ -147,13 +147,13 @@
   </div>
 </section>
 
-<section class="w-full body-font ">
-  <div class="container px-5 py-24 mx-auto border border-red-400">
-    <div class="flex flex-col text-center w-full mb-20 border border-green-400">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-red-600">Latest Events</h1>
+<section class="w-full pb-20 mb-8 flex justify-center body-font">
+  <div class="div">
+    <div class="flex flex-col text-center w-full mb-20 mt-16">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-red-600 font-bold">Latest Events</h1>
       <p>Star workshops, training courses, roundtables and webinars are innovative, thought-provoking and collaborative. We invite you to join us at an upcoming event.</p>
      </div>
-    <div class=" flex flex-wrap">
+    <div class=" flex flex-wrap ">
       @foreach($latest_workshops as $workshop)
         <div class="card  relative rounded shadow-lg  bg-white cursor-pointer ">
           <a  href = "{{route('single-workshop',$workshop->id)}}">
@@ -175,9 +175,7 @@
         </div>
       @endforeach
     </div>
-
-    <button class="flex mx-auto mt-4 text-white bg-red-600 border-0 py-2 px-8 focus:outline-none rounded-full text-lg hover:bg-red-800 duration-300"><a href="http://127.0.0.1:8000/workshops" >View all events</a></button>
-
+    <button class="flex mx-auto mt-16 text-white bg-red-600 border-0 py-2 px-8 focus:outline-none rounded-full text-lg hover:bg-red-800 duration-300"><a href="http://127.0.0.1:8000/workshops" >View all events</a></button>
   </div>
 </section>
 
