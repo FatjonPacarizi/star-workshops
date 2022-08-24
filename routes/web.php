@@ -11,6 +11,8 @@ use App\Http\Controllers\SuperAdmin\UserManageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsPageController;
 use App\Http\Controllers\usersController;
+use App\Http\Controllers\FaqController;
+
 
 
 /*
@@ -39,9 +41,12 @@ Route::get('/members', [WorkshopController::class, 'showMembers']);
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
 Route::get('/newspage', [NewsPageController::class, 'index']);
 
+<<<<<<< HEAD
+=======
 Route::get('contact', [ContactController::class, 'index']);
 Route::post('send', [ContactController::class, 'send'])->name('emailsend');
 
+>>>>>>> 1aa88bd0060548651d3d9a420b4e4367ba01af57
 Route::get('/',[LandingController::class,'index'])->name('landing');
 Route::get('landings', [LandingController::class, 'landing']);
 Route::get('/workshop/{id}',[WorkshopController::class,'show'])->name('single-workshop');
@@ -92,6 +97,18 @@ Route::group(['middleware' => 'auth'], function () {
             Route::put('update-newspage/{id}', [NewsPageController::class, 'update']);
             Route::delete('delete-newspage/{id}', [NewsPageController::class, 'destroy']);
 
+           
+            Route::get('faq',[FaqController::class,'index'])->name('faq');
+
+            Route::get('/faq/create',[FaqController::class,'create']);
+            //Store FAQ
+            Route::post('/add-faq',[FaqController::class,'store']);
+            //Edit FAQ
+            Route::get('faq/{id}/edit',[FaqController::class,'edit'])->name('editfaq');
+            //Update FAQ
+            Route::put('/update/{id}',[FaqController::class,'update']);
+            //Delete FAQ
+            Route::delete('faq/{faq}',[FaqController::class,'destroy']);
 
             //Show app infos edit
             Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
@@ -165,6 +182,11 @@ Route::group(['middleware' => 'auth'], function () {
             
             //Delete workshop Participant
             Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('deleteParticipant');
+
+        
+        
+        
+     
 
       });
 
