@@ -16,28 +16,34 @@ class CountrySeeder extends Seeder
      */
     public function run()
     {
-        Country::create([
-            'name'      => 'Albania',
-            'language'     => 'Shqip',
-            'region'  => 'Eastern Europe',
-        ]);
-        Country::create([
-            'name'      => 'Kosova',
-            'language'     => 'Shqip',
-            'region'  => 'Eastern Europe',
-        ]);
-
-        Country::create([
-            'name'      => 'England',
-            'language'     => 'English',
-            'region'  => 'Eastern Europe',
-        ]);
-
-        Country::create([
-            'name'      => 'Germany',
-            'language'     => 'German',
-            'region'  => 'Eastern Europe',
+        DB::table('countries')->insert([
+            [
+                'name'      => 'Albania',
+                'language'     => 'Shqip',
+                'region'  => 'Eastern Europe',
+            ],
+            [
+                'name' => 'Prizren',
+                'language'     => 'Shqip',
+                'region'  => 'Eastern Europe',
+            ],
+            [
+                'name'      => 'Kosova',
+                'language'     => 'Shqip',
+                'region'  => 'Eastern Europe',
+            ],[
+                'name'      => 'England',
+                'language'     => 'English',
+                'region'  => 'Eastern Europe',
+            ],
+            [
+                'name'      => 'Germany',
+                'language'     => 'German',
+                'region'  => 'Eastern Europe',
+            
+            ]
         ]);
 
     }
 }
+

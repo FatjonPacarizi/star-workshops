@@ -4,7 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Workshops_Users;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 class WorkshopsUsersSeeder extends Seeder
 {
     /**
@@ -14,30 +15,23 @@ class WorkshopsUsersSeeder extends Seeder
      */
     public function run()
     {
-        Workshops_Users::create(
+        DB::table('workshops_users')->insert([
             [
                 'workshop_id' => '1',
                 'user_id' => '3',
-            ]
-        );
-        Workshops_Users::create(
+            ],
             [
                 'workshop_id' => '1',
                 'user_id' => '2',
-            ]
-        );
-        Workshops_Users::create(
+            ],
             [
                 'workshop_id' => '1',
                 'user_id' => '1',
-            ]
-        );
-
-        Workshops_Users::create(
+            ],
             [
                 'workshop_id' => '2',
                 'user_id' => '2',
-            ]
-        );
+            ],
+            ]);
     }
 }

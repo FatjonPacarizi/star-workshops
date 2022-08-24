@@ -2,9 +2,15 @@
 
 namespace Database\Seeders;
 
-use App\Models\Country;
-use App\Models\Type;
+use App\Models\Feedback;
+use App\Models\User;
+use App\Models\Workshop;
 use Illuminate\Database\Seeder;
+use App\Models\Country;
+use App\Models\City;
+use App\Models\Type;
+use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class TypeSeeder extends Seeder
@@ -16,12 +22,15 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        Type::create([
-            'name'      => 'live/online',
-        ]);
-        Type::create([
-            'name'      => 'onside/online',
-        ]);
+        DB::table('types')->insert([
+            [
+            'name'=>'live/online',
+        ],[
+            'name'=>'onside/online',
+        ],
+        ]
+    );
+        
         
     }
 }

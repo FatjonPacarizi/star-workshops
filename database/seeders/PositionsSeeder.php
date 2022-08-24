@@ -16,17 +16,12 @@ class PositionsSeeder extends Seeder
     {
         //
 
-        DB::table('positions')->insert([
+        DB::table('positions')->insert([[
             'position' => 'user',
-
-
-        ]);
-
-        DB::table('positions')->insert([
+        ],[
             'position' => 'staff',
-
-
-        ]);
+        ],
+    ]);
 
     }
 }
