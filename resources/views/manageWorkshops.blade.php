@@ -163,7 +163,7 @@
                 <td class="font-bold p-3 ">Workshop Name</td>
                 <td class="font-bold">Workshop deleted</td>
                 <td class="font-bold">Author</td>
-                <td class="font-bold  ">Actions</td>
+                <td class="font-bold w-72 ">Actions</td>
               </tr>
             
             @foreach($workshops1 as $workshop1)
@@ -192,7 +192,9 @@
             </tr>
             @endforeach
     </table>
-  </div>
+  </div><div class="flex justfy-center p-3"
+                            {{ $workshops1->links() }}
+                  </div>
         </div>
         
       </div>
