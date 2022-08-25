@@ -12,15 +12,28 @@
         </h1>
         </div>
        @foreach ($staffMembers as $staffMember)
+<<<<<<< HEAD
             <div class="w-full md:w-2/5 lg:w-1/4 p-6 bg-white md:ml-16 rounded-3xl mt-10">
             <img class="w-full object-cover rounded-tl-lg rounded-tr-lg p-5"  src="{{$staffMember->profile_photo_path ? asset('/storage/' . $staffMember->profile_photo_path) : asset('img/defaultuserphoto.png') }}" alt="" />
                     <h5 class="py-1 text-3xl font-extrabold my-4 text-red-700">{{$staffMember->name}}</h5>
                     <p class="py-1 font-semibold leading-6 text-base text-gray-600 ">{{$staffMember->description}}</p>
                         <div class="flex h-10 mt-5 ">
+=======
+
+
+            <div class="w-full justify-center items-center rounded-lg md:w-1/3 p-8">
+                <div class="bg-white drop-shadow-xl flex flex-col">
+                    <img class="w-full object-cover rounded-tl-lg rounded-tr-lg p-5"  src="{{$staffMember->profile_photo_path ? asset('/storage/' . $staffMember->profile_photo_path) : asset('img/defaultuserphoto.png') }}" alt="" />
+                    <h5 class="px-5 py-1 text-center text-2xl font-extrabold">{{$staffMember->name}}</h5>
+                    <p class="px-5 py-1 text-center text-sm font-semibold">{{$staffMember->description}}</p>
+                        <div class="flex justify-center h-10 mt-5 ">
+
+>>>>>>> a8e97ab68683b43728ed5e7fb74df53d52198906
                             <a href="#"><i class="fa-brands fa-instagram fa-2xl" style="color:red"></i></a>
                             <a href="#"><i class="fa-brands fa-youtube fa-2xl mx-4" style="color:red"></i></a>
                             <a href="#"><i class="fa-brands fa-github fa-2xl" style="color:red"></i></a>
                         </div>
+                </div>
                 </div>
         @endforeach
     </div>
