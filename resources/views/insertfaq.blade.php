@@ -5,7 +5,7 @@
     <div class="w-full bg-white border border-gray-200 rounded mt-12">
             <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
 
-            <h1 class = "p-3 text-slate-900">Workshop Managment</h1>
+            <h1 class = "p-3 text-slate-900">FAQ</h1>
             
           </div>
             
@@ -25,6 +25,15 @@
                   <input type="text" class="border border-gray-200 rounded p-1 w-full mx-5" placeholder="Answer" name="answer" />
           
                   @error('answer')
+                  <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                  @enderror
+                </div>
+
+                <div class="mb-6 flex items-center">
+                  <label  class="w-28 text-sm mx-5">Status</label>
+                  <input type="text" class="border border-gray-200 rounded p-1 w-full mx-5" placeholder="Active or Deactive" name="status" />
+          
+                  @error('status')
                   <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                   @enderror
                 </div>

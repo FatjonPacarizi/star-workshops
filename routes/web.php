@@ -107,6 +107,8 @@ Route::group(['middleware' => 'auth'], function () {
             Route::put('/update/{id}',[FaqController::class,'update']);
             //Delete FAQ
             Route::delete('faq/{faq}',[FaqController::class,'destroy']);
+            //Status changed Deactive or Active
+            Route::get('change-status/{id}',[FaqController::class,'changeStatus'])->name('change');
 
             //Show app infos edit
             Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');

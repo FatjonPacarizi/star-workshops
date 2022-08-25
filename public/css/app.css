@@ -1299,6 +1299,10 @@ select {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
+.-mx-2 {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
 .mx-1 {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
@@ -1306,10 +1310,6 @@ select {
 .my-12 {
   margin-top: 3rem;
   margin-bottom: 3rem;
-}
-.-mx-2 {
-  margin-left: -0.5rem;
-  margin-right: -0.5rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -1773,6 +1773,12 @@ select {
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
+.rounded-tl-lg {
+  border-top-left-radius: 0.5rem;
+}
+.rounded-tr-lg {
+  border-top-right-radius: 0.5rem;
+}
 .border {
   border-width: 1px;
 }
@@ -2210,11 +2216,11 @@ select {
 .font-extrabold {
   font-weight: 800;
 }
-.font-normal {
-  font-weight: 400;
-}
 .font-thin {
   font-weight: 100;
+}
+.font-normal {
+  font-weight: 400;
 }
 .uppercase {
   text-transform: uppercase;
@@ -2537,6 +2543,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
+.hover\:bg-green-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 163 74 / var(--tw-bg-opacity));
+}
 .hover\:text-gray-500:hover {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -2763,12 +2773,12 @@ select {
     margin-left: 1.5rem;
   }
 
-  .sm\:ml-auto {
-    margin-left: auto;
-  }
-
   .sm\:mb-2 {
     margin-bottom: 0.5rem;
+  }
+
+  .sm\:ml-auto {
+    margin-left: auto;
   }
 
   .sm\:block {

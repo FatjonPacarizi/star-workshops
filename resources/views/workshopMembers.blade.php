@@ -13,7 +13,7 @@
         </div>
        @foreach ($staffMembers as $staffMember)
             <div class="w-full md:w-2/5 lg:w-1/4 p-6 bg-white md:ml-16 rounded-3xl mt-10">
-                    <img class="w-full object-cover rounded-3xl"  src="{{ asset('img/shef.png')}}" alt="" />
+            <img class="w-full object-cover rounded-tl-lg rounded-tr-lg p-5"  src="{{$staffMember->profile_photo_path ? asset('/storage/' . $staffMember->profile_photo_path) : asset('img/defaultuserphoto.png') }}" alt="" />
                     <h5 class="py-1 text-3xl font-extrabold my-4 text-red-700">{{$staffMember->name}}</h5>
                     <p class="py-1 font-semibold leading-6 text-base text-gray-600 ">{{$staffMember->description}}</p>
                         <div class="flex h-10 mt-5 ">
@@ -27,3 +27,4 @@
     </section>
 
 @endsection
+
