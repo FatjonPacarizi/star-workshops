@@ -79,7 +79,7 @@
                                       
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="description" value="{{ __('Description') }}" />
-            <x-jet-input id="description" type="text" class="mt-1 block w-full" wire:model.defer="state.description" autocomplete="description" />
+            <textarea id="description" type="text" class="mt-1 block w-full" wire:model.defer="state.description" autocomplete="description" /></textarea>
             <x-jet-input-error for="description" class="mt-2" />
         </div>
 

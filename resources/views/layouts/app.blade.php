@@ -32,6 +32,7 @@
                 <aside class=" bg-[#3c4b64]  w-80 ">
                     
                     <div class="menu is-menu-main h-full px-5">
+                        
                         <a href="{{ route('adminsuperadmin.dashboard') }}" class="flex items-center p-2 my-2  hover:bg-slate-600 rounded text-white {{Request::is('dashboard') ? 'bg-slate-500' : ''}}">
                             <span class="inline-flex items-center justify-center h-6 w-6"><i class="mdi mdi-speedometer inline-flex"></i></span>
                             <span class="grow">Dashboard</span>

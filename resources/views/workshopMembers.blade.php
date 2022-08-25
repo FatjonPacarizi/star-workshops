@@ -42,7 +42,7 @@
 
             <div class="w-full justify-center items-center rounded-lg md:w-1/3 p-8">
                 <div class="bg-white drop-shadow-xl flex flex-col">
-                    <img class="w-full object-cover rounded-tl-lg rounded-tr-lg p-5"  src="{{ asset('img/shef.png')}}" alt="" />
+                    <img class="w-full object-cover rounded-tl-lg rounded-tr-lg p-5"  src="{{$staffMember->profile_photo_path ? asset('/storage/' . $staffMember->profile_photo_path) : asset('img/defaultuserphoto.png') }}" alt="" />
                     <h5 class="px-5 py-1 text-center text-2xl font-extrabold">{{$staffMember->name}}</h5>
                     <p class="px-5 py-1 text-center text-sm font-semibold">{{$staffMember->description}}</p>
                         <div class="flex justify-center h-10 mt-5 ">
