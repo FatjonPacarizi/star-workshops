@@ -15,7 +15,8 @@ class FaqController extends Controller
      */
     public function index()
     {
-        //
+        $faq = Faq::all()->take(8);
+        return view('faq',['faq'=>$faq]);
     }
 
     /**
@@ -25,7 +26,7 @@ class FaqController extends Controller
      */
     public function create()
     {
-        //
+        return view('insertfaq');
     }
 
     /**
@@ -36,7 +37,13 @@ class FaqController extends Controller
      */
     public function store(StoreFaqRequest $request)
     {
-        //
+        $formFields = $request->validate([
+            'question' => 'required',
+            'answer' => 'required',
+        ]);  
+        Faq::create($formFields);
+        
+        return redirect()->route('superadmin.faq');
     }
 
     /**
@@ -47,7 +54,7 @@ class FaqController extends Controller
      */
     public function show(Faq $faq)
     {
-        //
+
     }
 
     /**
@@ -56,9 +63,11 @@ class FaqController extends Controller
      * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function edit(Faq $faq)
+    public function edit($id)
     {
-        //
+        $faq = Faq::find($id);
+
+        return view('editfaq',['faq' => $faq]);
     }
 
     /**
@@ -68,9 +77,17 @@ class FaqController extends Controller
      * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateFaqRequest $request, Faq $faq)
+    public function update(UpdateFaqRequest $request, $id)
     {
-        //
+        $formFields = request()->validate([
+            'question' => 'required',
+            'answer' => 'required',
+        ]);
+    
+       //update appinfo
+        Faq::find($id)->update($formFields);
+        
+        return back();
     }
 
     /**
@@ -81,6 +98,8 @@ class FaqController extends Controller
      */
     public function destroy(Faq $faq)
     {
-        //
+        $faq->delete();
+
+        return back();
     }
 }
