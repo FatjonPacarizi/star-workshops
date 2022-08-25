@@ -62,6 +62,8 @@
         </table>
 
       </div>
+      <div class="flex justfy-center p-3"
+{{ $newspage->links() }}</div>
 
     </div>
   </div>

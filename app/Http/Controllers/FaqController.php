@@ -15,7 +15,7 @@ class FaqController extends Controller
      */
     public function index()
     {
-        $faq = Faq::all()->sortDesc();
+        $faq = Faq::paginate(5);
         return view('faq',['faq'=>$faq]);
     }
 

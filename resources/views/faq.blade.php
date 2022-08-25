@@ -57,10 +57,14 @@
               </button>
             </form>         
           </td>
-
+          
         </tr>
         @endforeach
-</div>
+</table>
+
+</div> <div class="flex justfy-center p-3"
+{{ $faq->links() }}</div>
     </div>
+   
 
 @endsection

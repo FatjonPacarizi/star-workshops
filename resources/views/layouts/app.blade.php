@@ -112,7 +112,7 @@
                                     }
                                     @endphp
                                     @if(count($pending)>0) 
-                                      <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-slate-400">{{count($pending)}}</p>
+                                    <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-slate-400">{{count($pending)}}</p>
                                     @endif
                         
                             </a>
@@ -123,6 +123,11 @@
                             <a href="{{ route('superadmin.faq') }}" class="flex p-2   rounded {{Request::is('faq') ? 'bg-slate-500' : 'hover:bg-slate-600'}}">
                                 <span class="inline-flex items-center justify-center h-6 w-6"><i class="fa-solid fa-question"></i></span>
                                 <span class="grow">Faq</span>
+                                @php
+                                $faqs = App\Models\Faq::find(1);
+            @endphp 
+            <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-slate-400">{{$faqs->count()}}</p>
+                                   
                             </a>
                         </li>
                         @endcan
