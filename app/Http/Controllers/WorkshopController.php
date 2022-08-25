@@ -91,6 +91,7 @@ class WorkshopController extends Controller
 
         $formFields = $request->validate([
             'name' => 'required',
+            'description' => 'required',
             'country_id' => 'required',
             'type_id' => 'required',
             'city_id' => 'required',
@@ -125,7 +126,7 @@ class WorkshopController extends Controller
             ->Join("users", function($join){
                 $join->on("workshops.author", "=", "users.id");
             })
-            ->select("workshops.id as id","workshops.name as name","users.name as author","workshops.time as time","workshops.img_workshop as img_workshop","countries.name AS country")
+            ->select("workshops.id as id","workshops.name as name","workshops.description as description","users.name as author","workshops.time as time","workshops.img_workshop as img_workshop","countries.name AS country")
             ->where('workshops.id',$id)
             ->get();     
 
@@ -225,6 +226,7 @@ class WorkshopController extends Controller
     {   
         $formFields = request()->validate([
             'name' => 'required',
+            'description' => 'required',
             'country_id' => 'required',
             'city_id' => 'required',
             'type_id' => 'required',
