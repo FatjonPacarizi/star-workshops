@@ -27,6 +27,7 @@
           <tr class="border-y border-gray-200 ">
             <td class="font-bold p-3 ">#</td>
             <td class="font-bold">Question</td>
+            <td class="font-bold">Status</td>
             <td class="font-bold w-1/5 ">Actions</td>
           </tr>
 
@@ -34,7 +35,14 @@
         @foreach($faq as $f)
         <tr class = 'border-b border-gray-200'>
           <td class="p-3 ">{{$i++}}</td>
-          <td >  {{$f->question}}</td>
+          <td>  {{$f->question}}</td>
+          <td>
+            @if($f->status == 'active')
+            <a href="{{ url('change-status/'.$f->id)}}" class="bg-green-500 text-white p-2 text-xs rounded mr-3 hover:bg-green-600">Active</a>
+            @else
+            <a href="{{ url('change-status/'.$f->id)}}" class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">Deactive</a>
+            @endif
+          </td>
           <td class = "flex items-center " >    
              <a href="faq/{{$f->id}}/edit" class="bg-sky-500 text-white px-3 p-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
               <i class="fa-solid fa-pen fa-md"></i>

@@ -100,7 +100,7 @@
 </section>
 @php
    
-      $faq = App\Models\Faq::all()->take(10)->shuffle();
+      $faq = App\Models\Faq::all()->take(10)->where('status', '==', 'active');
 
 @endphp
 <div>
