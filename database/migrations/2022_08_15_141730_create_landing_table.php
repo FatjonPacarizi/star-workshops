@@ -20,7 +20,7 @@ class CreateLandingTable extends Migration
             $table->string('title');
             $table->string('heading');
             $table->text('paragraf');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('button');
             $table->timestamps();
         });

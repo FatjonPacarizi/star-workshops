@@ -11,6 +11,8 @@ use App\Http\Controllers\SuperAdmin\UserManageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsPageController;
 use App\Http\Controllers\usersController;
+use App\Http\Controllers\FaqController;
+
 
 
 /*
@@ -38,6 +40,7 @@ Route::get('/members', [WorkshopController::class, 'showMembers']);
 
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
 Route::get('/newspage', [NewsPageController::class, 'index']);
+
 
 Route::get('contact', [ContactController::class, 'index']);
 Route::post('send', [ContactController::class, 'send'])->name('emailsend');
@@ -92,6 +95,20 @@ Route::group(['middleware' => 'auth'], function () {
             Route::put('update-newspage/{id}', [NewsPageController::class, 'update']);
             Route::delete('delete-newspage/{id}', [NewsPageController::class, 'destroy']);
 
+           
+            Route::get('faq',[FaqController::class,'index'])->name('faq');
+
+            Route::get('/faq/create',[FaqController::class,'create']);
+            //Store FAQ
+            Route::post('/add-faq',[FaqController::class,'store']);
+            //Edit FAQ
+            Route::get('faq/{id}/edit',[FaqController::class,'edit'])->name('editfaq');
+            //Update FAQ
+            Route::put('/update/{id}',[FaqController::class,'update']);
+            //Delete FAQ
+            Route::delete('faq/{faq}',[FaqController::class,'destroy']);
+            //Status changed Deactive or Active
+            Route::get('change-status/{id}',[FaqController::class,'changeStatus'])->name('change');
 
             //Show app infos edit
             Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
@@ -140,7 +157,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/workshopManage', [WorkshopController::class, 'showWorkshopManage'])->name('showManageWorkshops');
 
             //Show update workshop
-            Route::get('workshopManage/{id}/edit',[WorkshopController::class,'edit']);
+            Route::get('workshopManage/{id}/{participants}/edit',[WorkshopController::class,'edit']);
 
             //Update a workshop
             Route::put('workshopManage/{id}', [WorkshopController::class, 'update']);
@@ -165,6 +182,11 @@ Route::group(['middleware' => 'auth'], function () {
             
             //Delete workshop Participant
             Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('deleteParticipant');
+
+        
+        
+        
+     
 
       });
 
