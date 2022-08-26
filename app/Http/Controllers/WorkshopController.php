@@ -91,6 +91,7 @@ class WorkshopController extends Controller
 
         $formFields = $request->validate([
             'name' => 'required',
+            'description' => 'required',
             'country_id' => 'required',
             'type_id' => 'required',
             'city_id' => 'required',
@@ -125,7 +126,7 @@ class WorkshopController extends Controller
             ->Join("users", function($join){
                 $join->on("workshops.author", "=", "users.id");
             })
-            ->select("workshops.id as id","workshops.name as name","users.name as author","workshops.time as time","workshops.img_workshop as img_workshop","countries.name AS country")
+            ->select("workshops.id as id","workshops.name as name","workshops.description as description","users.name as author","workshops.time as time","workshops.img_workshop as img_workshop","countries.name AS country")
             ->where('workshops.id',$id)
             ->get();     
 
@@ -164,33 +165,66 @@ class WorkshopController extends Controller
 
     public function showWorkshopManage()
     {
-
+        $currentTime = Carbon::now('Europe/Tirane');
 
         if(request()->user()->user_status == 'superadmin'){
-            $workshops = DB::select(DB::raw("SELECT workshops.id,workshops.name,workshops.limited_participants,workshops.time,
-            count(workshops_users.application_status) AS pendingParticipants
-            FROM workshops
-            LEFT JOIN workshops_users ON workshops.id = workshops_users.workshop_id AND workshops_users.application_status = 'pending'
-            WHERE workshops.deleted_at IS NUll
-            GROUP BY workshops.id,workshops.name,workshops.time,workshops.limited_participants
-          "));
+            $upcomingWorkshops = Workshop::leftJoin("workshops_users", function($join){
+                $join->on("workshops.id", "=", "workshops_users.workshop_id")
+                ->where("workshops_users.application_status", "=", 'pending');
+            })
+            ->select("workshops.id", "workshops.name", "workshops.limited_participants", "workshops.time")
+            ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
+            ->whereNull("workshops.deleted_at")
+            ->where('workshops.time','>', $currentTime)
+            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
+            ->paginate(8,['*'], 'upcomingWorkshopsPage');
+
+
+            $pastsWorkshops = Workshop::leftJoin("workshops_users", function($join){
+                $join->on("workshops.id", "=", "workshops_users.workshop_id")
+                ->where("workshops_users.application_status", "=", 'pending');
+            })
+            ->select("workshops.id", "workshops.name", "workshops.limited_participants", "workshops.time")
+            ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
+            ->whereNull("workshops.deleted_at")
+            ->where('workshops.time','<=', $currentTime)
+            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
+            ->paginate(8,['*'], 'pastsWorkshopsPage');
         }
         else{
             
             $myID = Auth::id();
-            $workshops = DB::select(DB::raw("SELECT workshops.id,workshops.limited_participants,workshops.name,workshops.time,
-            count(workshops_users.application_status) AS pendingParticipants
-            FROM workshops 
-            LEFT JOIN workshops_users ON workshops.id = workshops_users.workshop_id AND workshops_users.application_status = 'pending' 
-            WHERE workshops.author = $myID AND  workshops.deleted_at IS NUll
-            GROUP BY workshops.id,workshops.name,workshops.time,workshops.limited_participants
-           
-            "));
+
+            $upcomingWorkshops = Workshop::leftJoin("workshops_users", function($join){
+
+                $join->on("workshops.id", "=", "workshops_users.workshop_id")
+                ->where("workshops_users.application_status", "=", "pending");
+            })
+            ->select("workshops.id", "workshops.limited_participants", "workshops.name", "workshops.time")
+            ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
+            ->where("workshops.author", "=", $myID)
+            ->where('workshops.time','>', $currentTime)
+            ->whereNull("workshops.deleted_at")
+            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
+            ->paginate(8,['*'], 'upcomingWorkshops');
+
+
+            $pastsWorkshops = Workshop::leftJoin("workshops_users", function($join){
+                $join->on("workshops.id", "=", "workshops_users.workshop_id")
+                ->where("workshops_users.application_status", "=", "pending");
+            })
+            ->select("workshops.id", "workshops.limited_participants", "workshops.name", "workshops.time")
+            ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
+            ->where("workshops.author", "=", $myID)
+            ->where('workshops.time','<=', $currentTime)
+            ->whereNull("workshops.deleted_at")
+            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
+            ->paginate(8,['*'], 'pastsWorkshopsPage');
         }
 
-       $workshops1 = Workshop::orderBy('deleted_at','asc')->onlyTrashed()->paginate(1);
+       $workshops1 = Workshop::orderBy('deleted_at','asc')->onlyTrashed()->paginate(8,['*'], 'deletedWorkshopsPage');
             
-        return view('manageWorkshops',['workshops'=>$workshops, 'workshops1'=>$workshops1]);
+        return view('manageWorkshops',['upcomingWorkshops'=>$upcomingWorkshops,'pastsWorkshops'=>$pastsWorkshops, 'workshops1'=>$workshops1]);
     }
 
     /**
@@ -225,6 +259,7 @@ class WorkshopController extends Controller
     {   
         $formFields = request()->validate([
             'name' => 'required',
+            'description' => 'required',
             'country_id' => 'required',
             'city_id' => 'required',
             'type_id' => 'required',
@@ -269,7 +304,7 @@ class WorkshopController extends Controller
     {
         $workshop->delete();
 
-        return back();
+        return back()->with("tab",request('tab'));
     }
 
 
@@ -304,7 +339,7 @@ class WorkshopController extends Controller
         })
         ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "pending"])
-        ->get();
+        ->paginate(8,['*'], 'pendingParticipantsPage');
 
         $approvedParticipants = Workshop::Join("workshops_users", function($join){
             $join->on("workshops.id", "=", "workshops_users.workshop_id");
@@ -314,7 +349,7 @@ class WorkshopController extends Controller
         })
         ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "approved"])
-        ->get();
+        ->paginate(8,['*'], 'approvedParticipantsPage');
 
         $notapprovedParticipants = Workshop::Join("workshops_users", function($join){
             $join->on("workshops.id", "=", "workshops_users.workshop_id");
@@ -324,7 +359,7 @@ class WorkshopController extends Controller
         })
         ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "notapproved"])
-        ->get();
+        ->paginate(8,['*'], 'notapprovedParticipantsPage');
 
 
         return view('manageParticipants',['pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
@@ -337,7 +372,7 @@ class WorkshopController extends Controller
          $partiant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
          $partiant->update($formFields);
 
-        return redirect('/participants/'.$workshopid);
+        return redirect()->back()->with("tab",request('tab'));
 
     }
 
@@ -349,7 +384,7 @@ class WorkshopController extends Controller
          $partiant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
          $partiant->update($formFields);
 
-         return redirect('/participants/'.$workshopid);
+         return redirect()->back()->with("tab",request('tab'));
 
     }
     public function deleteParticipant($workshopid,$participantantID){
@@ -357,7 +392,7 @@ class WorkshopController extends Controller
          $partiant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
          $partiant->delete();
 
-         return redirect('/participants/'.$workshopid);
+         return redirect()->back()->with("tab",request('tab'));
 
     }
 

@@ -20,6 +20,7 @@ class CreateWorkshopsTable extends Migration
             $table->bigInteger('author')->unsigned();
             $table->foreign('author')->references('id')->on('users');
             $table->Integer('limited_participants')->nullable();
+            $table->text('description');
             $table->bigInteger('type_id')->unsigned();
             $table->foreign('type_id')->references('id')->on('types');
             $table->bigInteger('country_id')->unsigned();

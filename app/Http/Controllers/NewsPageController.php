@@ -20,7 +20,7 @@ class NewsPageController extends Controller
 
     public function newspage()
     {
-        $newspage = Newspage::paginate(2);
+        $newspage = Newspage::paginate(8);
         return view('newspages.index', compact('newspage'));
     }
 

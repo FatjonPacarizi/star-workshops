@@ -32,16 +32,6 @@
                   @enderror
                 </div>
 
-                
-                <div class="mb-6  flex items-center">
-                  <label  class="w-28 text-sm mx-5">Status</label>
-                  <input type="text" class="border border-gray-200 rounded p-1 w-full mx-5" name="status"
-                    placeholder="Active or Deactive" value="{{$faq->status}}" />
-          
-                  @error('status')
-                  <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                  @enderror
-                </div>
               
           
                 <div class="w-full p-2 flex justify-end border-t border-gray-200">

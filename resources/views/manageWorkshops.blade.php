@@ -6,9 +6,18 @@
 @extends('layouts.app')
   @section('content')
   <div class="w-full h-full p-6  flex flex-col  items-center ">
+    {{-- {{dd(request()->has('pastsWorkshopsPage'))}} --}}
+    @php  
+      $tab = 0;
+      if(session()->has('tab')) $tab = session('tab');
+      else{
+         if(request()->has('pastsWorkshopsPage')) $tab = 1;
+      }
+    @endphp
+
 
     <div class="w-full bg-white border border-gray-200 rounded pb-4 mt-12" x-data="{
-      tab:0,
+      tab:{{$tab}},
       active : 'bg-gray-200  border-t border-l border-r rounded-t text-gray-900',
       inactive: 'text-gray-400 hover:text-gray-600 border-t  border-l border-r rounded-t'
      }">
@@ -19,8 +28,16 @@
 
           <div class="flex mx-4 self-end">
             <div class="flex mr-10 ">
-              <button :class = "tab === 0 ? active: inactive" class = "px-5 h-8 flex items-center" @click="tab = 0">Upcoming</button>
-              <button :class = "tab === 1 ? active: inactive" class = "px-5 h-8" @click="tab = 1">Pasts</button>
+              @php  
+              $upcomingtab = 1;
+              $pasttab = 1;
+
+              if(request()->has('upcomingWorkshopsPage')) $upcomingtab = request('upcomingWorkshopsPage');
+              if(request()->has('pastsWorkshopsPage')) $pasttab = request('pastsWorkshopsPage');
+
+            @endphp
+              <button  onClick = "changeURL('?upcomingWorkshopsPage={{$upcomingtab}}')" :class = "tab === 0 ? active: inactive" class = "px-5 h-8 flex items-center" @click="tab = 0">Upcoming</button>
+              <button  onClick = "changeURL('?pastsWorkshopsPage={{$pasttab}}')"  :class = "tab === 1 ? active: inactive" class = "px-5 h-8" @click="tab = 1 ">Pasts</button>
             </div>
             <a class="mx-2 flex items-center" href="{{route('adminsuperadmin.showInsert')}}">
               <h6 class = "text-2xl mr-1 -mt-1 text-gray-400 ">+</h6>
@@ -32,8 +49,11 @@
       </div>
 
 
-             <div class="w-full flex justify-center"  x-show="tab === 0">
-            <table class="w-full mx-4  font-thin">
+             <div class="w-full"  x-show="tab === 0">
+
+            
+
+            <table class="w-full mx-auto  font-thin">
               <tr class="border-y border-gray-200 ">
                 <td class="font-bold p-3">Workshop Name</td>
                 <td class="font-bold text-sm">Limited Participants</td>
@@ -41,43 +61,42 @@
                 <td class="font-bold w-72 ">Actions</td>
               </tr>
               
-            @unless(count($workshops) == 0)
-            @foreach($workshops as $workshop)
-            @if (strtotime($workshop->time) > strtotime($date->format("Y-m-d h:i:sa")))
+            @unless(count($upcomingWorkshops) == 0)
+            @foreach($upcomingWorkshops as $upcomingWorkshop)
             <tr class = 'border-b border-gray-200'>
-              <td class="p-3 ">{{$workshop->name}}</td>
+              <td class="p-3 ">{{$upcomingWorkshop->name}}</td>
               @php 
                  $limited_participants = true;
-                 if (!$workshop->limited_participants)   $limited_participants = false;
+                 if (!$upcomingWorkshop->limited_participants)   $limited_participants = false;
               @endphp
-              <td class = "w-32" ><div class="w-6  flex justify-center items-start rounded text-white text-xs  @if($limited_participants) bg-orange-500 @else bg-green-500 @endif ">@if($limited_participants) {{$workshop->limited_participants}} @else no @endif</div></td>
+              <td class = "w-32" ><div class="w-6  flex justify-center items-start rounded text-white text-xs  @if($limited_participants) bg-orange-500 @else bg-green-500 @endif ">@if($limited_participants) {{$upcomingWorkshop->limited_participants}} @else no @endif</div></td>
 
-              <td ><a href="#" class = "text-blue-600"> {{\Carbon\Carbon::parse($workshop->time)->format('d F Y h:m') }}</a></td>
+              <td ><a href="#" class = "text-blue-600"> {{\Carbon\Carbon::parse($upcomingWorkshop->time)->format('d F Y h:m') }}</a></td>
               <td class = "flex items-center " >
                 
-                 <a href="/workshopManage/{{$workshop->id}}/{{$workshop->limited_participants ? $workshop->limited_participants : 'null'}}/edit" class="bg-sky-500 text-white px-3 p-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
+                 <a href="/workshopManage/{{$upcomingWorkshop->id}}/{{$upcomingWorkshop->limited_participants ? $upcomingWorkshop->limited_participants : 'null'}}/edit" class="bg-sky-500 text-white px-3 p-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
                   <i class="fa-solid fa-pen fa-md"></i>
                       Edit
                   </a>
-                <form method="POST" action="/workshopManage/{{$workshop->id}}">
+                <form method="POST" action="/workshopManage/{{$upcomingWorkshop->id}}">
                   @csrf
                   @method('DELETE')
+                  <input type = "hidden" name = "tab" value = "0"/>
                   <button class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">
                     <i class="fa-solid fa-trash-can  fa-md"></i>
                     Delete
                   </button>
                 </form>
-                <a href={{ route('adminsuperadmin.showParticipants',$workshop->id)}} class="w-28 bg-sky-600 text-white p-2 pr-0 text-xs rounded flex items-center  my-2 hover:bg-sky-700">
+                <a href={{ route('adminsuperadmin.showParticipants',$upcomingWorkshop->id)}} class="w-28 bg-sky-600 text-white p-2 pr-0 text-xs rounded flex items-center  my-2 hover:bg-sky-700">
                   <i class="fa-solid fa-user fa-md"></i>
                   <p class = "mx-1">Participants</p> 
-                  @if($workshop->pendingParticipants > 0)
-                  <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-red-400">{{$workshop->pendingParticipants}}</p>
+                  @if($upcomingWorkshop->pendingParticipants > 0)
+                  <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-red-400">{{$upcomingWorkshop->pendingParticipants}}</p>
                   @endif  
                 </a>
                 
               </td>
             </tr>
-            @endif
             @endforeach
             @else
             <tr>
@@ -88,10 +107,12 @@
             </tr>
             @endunless
     </table>
+    <div class=" p-3">{{ $upcomingWorkshops->links() }}</div>
+
   </div>
 
-  <div class="w-full flex justify-center"  x-show="tab === 1">
-    <table class="w-full mx-4  font-thin">
+  <div class="w-full"  x-show="tab === 1">
+    <table class="w-full mx-auto  font-thin">
       <tr class="border-y border-gray-200 ">
         <td class="font-bold p-3 ">Workshop Name pasts</td>
         <td class="font-bold text-sm">Limited Participants</td>
@@ -100,42 +121,41 @@
       </tr>
       
 
-    @unless(count($workshops) == 0)
-    @foreach($workshops as $workshop)
-    @if (strtotime($workshop->time) <= strtotime($date->format("Y-m-d h:i:sa")))
+    @unless(count($pastsWorkshops) == 0)
+    @foreach($pastsWorkshops as $pastWorkshop)
     <tr class = 'border-b border-gray-200'>
-      <td class="p-3 ">{{$workshop->name}}</td>
+      <td class="p-3 ">{{$pastWorkshop->name}}</td>
       @php 
       $limited_participants = true;
-      if (!$workshop->limited_participants)   $limited_participants = false;
+      if (!$pastWorkshop->limited_participants)   $limited_participants = false;
       @endphp
-      <td class = "w-32" ><div class="w-6  flex justify-center items-start rounded text-white text-xs  @if($limited_participants) bg-orange-500 @else bg-green-500 @endif ">@if($limited_participants) {{$workshop->limited_participants}} @else no @endif</div></td>
-      <td ><a href="#" class = "text-blue-600"> {{\Carbon\Carbon::parse($workshop->time)->format('d F Y h:m') }}</a></td>
+      <td class = "w-32" ><div class="w-6  flex justify-center items-start rounded text-white text-xs  @if($limited_participants) bg-orange-500 @else bg-green-500 @endif ">@if($limited_participants) {{$pastWorkshop->limited_participants}} @else no @endif</div></td>
+      <td ><a href="#" class = "text-blue-600"> {{\Carbon\Carbon::parse($pastWorkshop->time)->format('d F Y h:m') }}</a></td>
       <td class = "flex items-center " >
         
-         <a href="/workshopManage/{{$workshop->id}}/{{$workshop->limited_participants ? $workshop->limited_participants : 'null'}}/edit" class="bg-sky-500 text-white px-3 p-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
+         <a href="/workshopManage/{{$pastWorkshop->id}}/{{$pastWorkshop->limited_participants ? $pastWorkshop->limited_participants : 'null'}}/edit" class="bg-sky-500 text-white px-3 p-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
           <i class="fa-solid fa-pen fa-md"></i>
               Edit
           </a>
-        <form method="POST" action="/workshopManage/{{$workshop->id}}">
+        <form method="POST" action="/workshopManage/{{$pastWorkshop->id}}">
           @csrf
           @method('DELETE')
           <button class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">
+            <input type = "hidden" name = "tab" value = "1"/>
             <i class="fa-solid fa-trash-can  fa-md"></i>
             Delete
           </button>
         </form>
-        <a href={{ route('adminsuperadmin.showParticipants',$workshop->id)}} class="w-28 bg-sky-600 text-white p-2 pr-0 text-xs rounded flex items-center  my-2 hover:bg-sky-700">
+        <a href={{ route('adminsuperadmin.showParticipants',$pastWorkshop->id)}} class="w-28 bg-sky-600 text-white p-2 pr-0 text-xs rounded flex items-center  my-2 hover:bg-sky-700">
           <i class="fa-solid fa-user fa-md"></i>
           <p class = "mx-1">Participants</p> 
-          @if($workshop->pendingParticipants > 0)
-          <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-red-400">{{$workshop->pendingParticipants}}</p>
+          @if($pastWorkshop->pendingParticipants > 0)
+          <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-red-400">{{$pastWorkshop->pendingParticipants}}</p>
           @endif  
         </a>
         
       </td>
     </tr>
-    @endif
     @endforeach
     @else
     <tr>
@@ -146,8 +166,10 @@
     </tr>
     @endunless
 </table>
+
+<div class=" p-3">{{ $pastsWorkshops->links() }}</div>
 </div>
-        </div>
+</div>
        
 
         @can('is_super_admin')
@@ -174,6 +196,8 @@
               <td class = "flex items-center " >
                 <form method="POST" action="/workshopManage/{{$workshop1->id}}/restore">
                 @csrf
+                
+                 
               <button class="bg-sky-500 text-white px-3 p-2  text-xs rounded mr-3 my-2 hover:bg-blue-500 opacity-1">
               <i class="fa-solid fa-trash-can-arrow-up"></i>
                       Restore
@@ -200,4 +224,12 @@
       </div>
       @endcan
 </div>
+<script>
+ function changeURL($param){
+ if (history.pushState) {
+      var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + $param;
+      window.history.pushState({path:newurl},'',newurl);
+  }
+}
+  </script>
       @endsection
