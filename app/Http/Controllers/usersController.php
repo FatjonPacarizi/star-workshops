@@ -9,7 +9,7 @@ class usersController extends Controller
 {
     public function getUsersByStaffPosition(){
         
-      
+        $user = User::paginate(8);
         
     }
 }
