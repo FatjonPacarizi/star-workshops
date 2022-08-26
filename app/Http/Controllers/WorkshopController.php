@@ -168,11 +168,7 @@ class WorkshopController extends Controller
         $currentTime = Carbon::now('Europe/Tirane');
 
         if(request()->user()->user_status == 'superadmin'){
-<<<<<<< HEAD
             $upcomingWorkshops = Workshop::leftJoin("workshops_users", function($join){
-=======
-            $upcomingWorkshops = DB::table("workshops")->leftJoin("workshops_users", function($join){
->>>>>>> 2ae06a3adb5983c68308044d01002ba916de5fee
                 $join->on("workshops.id", "=", "workshops_users.workshop_id")
                 ->where("workshops_users.application_status", "=", 'pending');
             })
@@ -183,11 +179,8 @@ class WorkshopController extends Controller
             ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
             ->paginate(1,['*'], 'upcomingWorkshopsPage');
 
-<<<<<<< HEAD
+
             $pastsWorkshops = Workshop::leftJoin("workshops_users", function($join){
-=======
-            $pastsWorkshops = DB::table("workshops")->leftJoin("workshops_users", function($join){
->>>>>>> 2ae06a3adb5983c68308044d01002ba916de5fee
                 $join->on("workshops.id", "=", "workshops_users.workshop_id")
                 ->where("workshops_users.application_status", "=", 'pending');
             })
@@ -201,12 +194,9 @@ class WorkshopController extends Controller
         else{
             
             $myID = Auth::id();
-<<<<<<< HEAD
+
             $upcomingWorkshops = Workshop::leftJoin("workshops_users", function($join){
-=======
-            $upcomingWorkshops = DB::table("workshops")
-            ->leftJoin("workshops_users", function($join){
->>>>>>> 2ae06a3adb5983c68308044d01002ba916de5fee
+
                 $join->on("workshops.id", "=", "workshops_users.workshop_id")
                 ->where("workshops_users.application_status", "=", "pending");
             })
@@ -218,12 +208,8 @@ class WorkshopController extends Controller
             ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
             ->paginate(8,['*'], 'upcomingWorkshops');
 
-<<<<<<< HEAD
+
             $pastsWorkshops = Workshop::leftJoin("workshops_users", function($join){
-=======
-            $pastsWorkshops = DB::table("workshops")
-            ->leftJoin("workshops_users", function($join){
->>>>>>> 2ae06a3adb5983c68308044d01002ba916de5fee
                 $join->on("workshops.id", "=", "workshops_users.workshop_id")
                 ->where("workshops_users.application_status", "=", "pending");
             })
