@@ -30,7 +30,7 @@ use App\Http\Controllers\FaqController;
 Route::get('/users', 'App\Http\Controllers\UserController@index');
 Route::get('abouts', [AboutController::class, 'contact']);
 Route::get('/about', [AboutController::class, 'index']);
-
+Route::view('/userprofile', 'userprofile');
 Route::view('/workshop', 'workshop');
 Route::get('/', function () {
     return view('welcome');
