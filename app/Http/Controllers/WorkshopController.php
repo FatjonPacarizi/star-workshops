@@ -168,7 +168,7 @@ class WorkshopController extends Controller
         $currentTime = Carbon::now('Europe/Tirane');
 
         if(request()->user()->user_status == 'superadmin'){
-            $upcomingWorkshops = DB::table("workshops")->leftJoin("workshops_users", function($join){
+            $upcomingWorkshops = Workshop::leftJoin("workshops_users", function($join){
                 $join->on("workshops.id", "=", "workshops_users.workshop_id")
                 ->where("workshops_users.application_status", "=", 'pending');
             })
@@ -179,7 +179,7 @@ class WorkshopController extends Controller
             ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
             ->paginate(1,['*'], 'upcomingWorkshopsPage');
 
-            $pastsWorkshops = DB::table("workshops")->leftJoin("workshops_users", function($join){
+            $pastsWorkshops = Workshop::leftJoin("workshops_users", function($join){
                 $join->on("workshops.id", "=", "workshops_users.workshop_id")
                 ->where("workshops_users.application_status", "=", 'pending');
             })
@@ -193,8 +193,7 @@ class WorkshopController extends Controller
         else{
             
             $myID = Auth::id();
-            $upcomingWorkshops = DB::table("workshops")
-            ->leftJoin("workshops_users", function($join){
+            $upcomingWorkshops = Workshop::leftJoin("workshops_users", function($join){
                 $join->on("workshops.id", "=", "workshops_users.workshop_id")
                 ->where("workshops_users.application_status", "=", "pending");
             })
@@ -206,8 +205,7 @@ class WorkshopController extends Controller
             ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
             ->paginate(8,['*'], 'upcomingWorkshops');
 
-            $pastsWorkshops = DB::table("workshops")
-            ->leftJoin("workshops_users", function($join){
+            $pastsWorkshops = Workshop::leftJoin("workshops_users", function($join){
                 $join->on("workshops.id", "=", "workshops_users.workshop_id")
                 ->where("workshops_users.application_status", "=", "pending");
             })
@@ -337,7 +335,7 @@ class WorkshopController extends Controller
         })
         ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "pending"])
-        ->get();
+        ->paginate(2,['*'], 'pendingParticipantsPage');
 
         $approvedParticipants = Workshop::Join("workshops_users", function($join){
             $join->on("workshops.id", "=", "workshops_users.workshop_id");
@@ -347,7 +345,7 @@ class WorkshopController extends Controller
         })
         ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "approved"])
-        ->get();
+        ->paginate(1,['*'], 'approvedParticipantsPage');
 
         $notapprovedParticipants = Workshop::Join("workshops_users", function($join){
             $join->on("workshops.id", "=", "workshops_users.workshop_id");
@@ -357,7 +355,7 @@ class WorkshopController extends Controller
         })
         ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "notapproved"])
-        ->get();
+        ->paginate(2,['*'], 'notapprovedParticipantsPage');
 
 
         return view('manageParticipants',['pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
@@ -370,7 +368,7 @@ class WorkshopController extends Controller
          $partiant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
          $partiant->update($formFields);
 
-        return redirect('/participants/'.$workshopid);
+        return redirect()->back()->with("tab",request('tab'));
 
     }
 
@@ -382,7 +380,7 @@ class WorkshopController extends Controller
          $partiant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
          $partiant->update($formFields);
 
-         return redirect('/participants/'.$workshopid);
+         return redirect()->back()->with("tab",request('tab'));
 
     }
     public function deleteParticipant($workshopid,$participantantID){
@@ -390,7 +388,7 @@ class WorkshopController extends Controller
          $partiant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
          $partiant->delete();
 
-         return redirect('/participants/'.$workshopid);
+         return redirect()->back()->with("tab",request('tab'));
 
     }
 
