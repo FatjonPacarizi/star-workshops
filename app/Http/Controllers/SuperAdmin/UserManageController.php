@@ -12,7 +12,7 @@ class UserManageController extends Controller
 {
      public function index(){
        
-        return view('manageUsers',['users'=>User::paginate(2)]);
+        return view('manageUsers',['users'=>User::paginate(8)]);
     }
 
     //Show edit form

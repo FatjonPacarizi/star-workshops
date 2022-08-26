@@ -15,7 +15,8 @@ class FaqController extends Controller
      */
     public function index()
     {
-        $faq = Faq::paginate(5);
+        $faq = Faq::paginate(8);
+ 
         return view('faq',['faq'=>$faq]);
     }
 
@@ -83,7 +84,7 @@ class FaqController extends Controller
         $formFields = request()->validate([
             'question' => 'required',
             'answer' => 'required',
-            'status' => 'required',
+            
         ]);
     
        //update appinfo
@@ -108,10 +109,10 @@ class FaqController extends Controller
     public function changeStatus($id){
 
        $getStatus = Faq::select('status')->where('id',$id)->first();
-       if($getStatus->status == 'active' ){
-        $status = 'deactive';
+       if($getStatus->status == 'Active' ){
+        $status = 'Deactive';
        }else{
-        $status = 'active';
+        $status = 'Active';
        }
        Faq::where('id',$id)->update(['status'=>$status]);
        return redirect()->back();

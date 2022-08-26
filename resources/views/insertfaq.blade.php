@@ -31,14 +31,16 @@
 
                 <div class="mb-6 flex items-center">
                   <label  class="w-28 text-sm mx-5">Status</label>
-                  <input type="text" class="border border-gray-200 rounded p-1 w-full mx-5" placeholder="Active or Deactive" name="status" />
-          
+                  <select class="w-full mx-5 rounded border border-gray-200 p-1" name='status'>
+                  <option >Active</option>
+                  <option >Deactive</option>
+                </select>          
                   @error('status')
                   <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                   @enderror
                 </div>
-               
 
+            
           
                 <div class="w-full p-2 flex justify-end border-t border-gray-200">
                   <a href="/faq" class="p-3 text-gray-400 mx-10"> Cancel </a>

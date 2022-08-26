@@ -26,7 +26,7 @@ class UpdateFaqRequest extends FormRequest
         return [
             'question'=>'required',
             'answer' => 'required',
-            'status' => 'required'
+            
         ];
     }
 }
