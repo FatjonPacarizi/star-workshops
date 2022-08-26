@@ -165,33 +165,64 @@ class WorkshopController extends Controller
 
     public function showWorkshopManage()
     {
-
+        $currentTime = Carbon::now('Europe/Tirane');
 
         if(request()->user()->user_status == 'superadmin'){
-            $workshops = DB::select(DB::raw("SELECT workshops.id,workshops.name,workshops.limited_participants,workshops.time,
-            count(workshops_users.application_status) AS pendingParticipants
-            FROM workshops
-            LEFT JOIN workshops_users ON workshops.id = workshops_users.workshop_id AND workshops_users.application_status = 'pending'
-            WHERE workshops.deleted_at IS NUll
-            GROUP BY workshops.id,workshops.name,workshops.time,workshops.limited_participants
-          "));
+            $upcomingWorkshops = DB::table("workshops")->leftJoin("workshops_users", function($join){
+                $join->on("workshops.id", "=", "workshops_users.workshop_id")
+                ->where("workshops_users.application_status", "=", 'pending');
+            })
+            ->select("workshops.id", "workshops.name", "workshops.limited_participants", "workshops.time")
+            ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
+            ->whereNull("workshops.deleted_at")
+            ->where('workshops.time','>', $currentTime)
+            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
+            ->paginate(1,['*'], 'upcomingWorkshopsPage');
+
+            $pastsWorkshops = DB::table("workshops")->leftJoin("workshops_users", function($join){
+                $join->on("workshops.id", "=", "workshops_users.workshop_id")
+                ->where("workshops_users.application_status", "=", 'pending');
+            })
+            ->select("workshops.id", "workshops.name", "workshops.limited_participants", "workshops.time")
+            ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
+            ->whereNull("workshops.deleted_at")
+            ->where('workshops.time','<=', $currentTime)
+            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
+            ->paginate(2,['*'], 'pastsWorkshopsPage');
         }
         else{
             
             $myID = Auth::id();
-            $workshops = DB::select(DB::raw("SELECT workshops.id,workshops.limited_participants,workshops.name,workshops.time,
-            count(workshops_users.application_status) AS pendingParticipants
-            FROM workshops 
-            LEFT JOIN workshops_users ON workshops.id = workshops_users.workshop_id AND workshops_users.application_status = 'pending' 
-            WHERE workshops.author = $myID AND  workshops.deleted_at IS NUll
-            GROUP BY workshops.id,workshops.name,workshops.time,workshops.limited_participants
-           
-            "));
+            $upcomingWorkshops = DB::table("workshops")
+            ->leftJoin("workshops_users", function($join){
+                $join->on("workshops.id", "=", "workshops_users.workshop_id")
+                ->where("workshops_users.application_status", "=", "pending");
+            })
+            ->select("workshops.id", "workshops.limited_participants", "workshops.name", "workshops.time")
+            ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
+            ->where("workshops.author", "=", $myID)
+            ->where('workshops.time','>', $currentTime)
+            ->whereNull("workshops.deleted_at")
+            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
+            ->paginate(8,['*'], 'upcomingWorkshops');
+
+            $pastsWorkshops = DB::table("workshops")
+            ->leftJoin("workshops_users", function($join){
+                $join->on("workshops.id", "=", "workshops_users.workshop_id")
+                ->where("workshops_users.application_status", "=", "pending");
+            })
+            ->select("workshops.id", "workshops.limited_participants", "workshops.name", "workshops.time")
+            ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
+            ->where("workshops.author", "=", $myID)
+            ->where('workshops.time','<=', $currentTime)
+            ->whereNull("workshops.deleted_at")
+            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
+            ->paginate(8,['*'], 'pastsWorkshopsPage');
         }
 
-       $workshops1 = Workshop::orderBy('deleted_at','asc')->onlyTrashed()->paginate(1);
+       $workshops1 = Workshop::orderBy('deleted_at','asc')->onlyTrashed()->paginate(8,['*'], 'deletedWorkshopsPage');
             
-        return view('manageWorkshops',['workshops'=>$workshops, 'workshops1'=>$workshops1]);
+        return view('manageWorkshops',['upcomingWorkshops'=>$upcomingWorkshops,'pastsWorkshops'=>$pastsWorkshops, 'workshops1'=>$workshops1]);
     }
 
     /**
@@ -271,7 +302,7 @@ class WorkshopController extends Controller
     {
         $workshop->delete();
 
-        return back();
+        return back()->with("tab",request('tab'));
     }
 
 
