@@ -177,7 +177,7 @@ class WorkshopController extends Controller
             ->whereNull("workshops.deleted_at")
             ->where('workshops.time','>', $currentTime)
             ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
-            ->paginate(1,['*'], 'upcomingWorkshopsPage');
+            ->paginate(8,['*'], 'upcomingWorkshopsPage');
 
 
             $pastsWorkshops = Workshop::leftJoin("workshops_users", function($join){
@@ -189,7 +189,7 @@ class WorkshopController extends Controller
             ->whereNull("workshops.deleted_at")
             ->where('workshops.time','<=', $currentTime)
             ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
-            ->paginate(2,['*'], 'pastsWorkshopsPage');
+            ->paginate(8,['*'], 'pastsWorkshopsPage');
         }
         else{
             
@@ -339,7 +339,7 @@ class WorkshopController extends Controller
         })
         ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "pending"])
-        ->paginate(2,['*'], 'pendingParticipantsPage');
+        ->paginate(8,['*'], 'pendingParticipantsPage');
 
         $approvedParticipants = Workshop::Join("workshops_users", function($join){
             $join->on("workshops.id", "=", "workshops_users.workshop_id");
@@ -349,7 +349,7 @@ class WorkshopController extends Controller
         })
         ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "approved"])
-        ->paginate(1,['*'], 'approvedParticipantsPage');
+        ->paginate(8,['*'], 'approvedParticipantsPage');
 
         $notapprovedParticipants = Workshop::Join("workshops_users", function($join){
             $join->on("workshops.id", "=", "workshops_users.workshop_id");
@@ -359,7 +359,7 @@ class WorkshopController extends Controller
         })
         ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "notapproved"])
-        ->paginate(2,['*'], 'notapprovedParticipantsPage');
+        ->paginate(8,['*'], 'notapprovedParticipantsPage');
 
 
         return view('manageParticipants',['pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
