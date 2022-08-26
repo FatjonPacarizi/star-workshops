@@ -47,6 +47,7 @@ Route::post('send', [ContactController::class, 'send'])->name('emailsend');
 
 Route::get('/',[LandingController::class,'index'])->name('landing');
 Route::get('landings', [LandingController::class, 'landing']);
+Route::get('/workshops/{id}/join',[WorkshopController::class,'join'])->name('workshop-join');
 Route::get('/workshop/{id}',[WorkshopController::class,'show'])->name('single-workshop');
 
 Route::get('/workshops',[WorkshopController::class,'index'])->name('workshops');
