@@ -37,7 +37,7 @@
           <td class="p-3 ">{{$i++}}</td>
           <td>  {{$f->question}}</td>
           <td>
-            @if($f->status == 'active')
+            @if($f->status == 'Active')
             <a href="{{ url('change-status/'.$f->id)}}" class="bg-green-500 text-white p-2 text-xs rounded mr-3 hover:bg-green-600">Active</a>
             @else
             <a href="{{ url('change-status/'.$f->id)}}" class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">Deactive</a>
