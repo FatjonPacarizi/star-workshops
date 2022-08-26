@@ -189,7 +189,7 @@ class WorkshopController extends Controller
             "));
         }
 
-       $workshops1 = Workshop::orderBy('deleted_at','asc')->onlyTrashed()->get();
+       $workshops1 = Workshop::orderBy('deleted_at','asc')->onlyTrashed()->paginate(1);
             
         return view('manageWorkshops',['workshops'=>$workshops, 'workshops1'=>$workshops1]);
     }

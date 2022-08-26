@@ -45,7 +45,8 @@
             </tr>
             @endunless
     </table>
-  </div>
+  </div><div class="flex justfy-center p-3"
+{{ $users->links() }}</div>
         </div>
       </div>
       @endsection
