@@ -22,6 +22,9 @@ return new class extends Migration
             $table->rememberToken();
             $table->string('user_status')->default('user');
             $table->text('description')->nullable();
+            $table->text('facebook')->nullable();
+            $table->text('instagram')->nullable();
+            $table->text('github')->nullable();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();

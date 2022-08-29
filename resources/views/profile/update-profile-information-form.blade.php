@@ -46,14 +46,14 @@
             @endif
 
         <!-- Name -->
-        <div class="col-span-6 sm:col-span-4">
+        <div class="col-span-6 ">
             <x-jet-label for="name" value="{{ __('Name') }}" />
             <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
             <x-jet-input-error for="name" class="mt-2" />
         </div>
 
         <!-- Email -->
-        <div class="col-span-6 sm:col-span-4">
+        <div class="col-span-6 ">
             <x-jet-label for="email" value="{{ __('Email') }}" />
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
@@ -77,13 +77,26 @@
        
            <!-- Description Members -->
                                       
-        <div class="col-span-6 sm:col-span-4">
+        <div class="col-span-6 ">
             <x-jet-label for="description" value="{{ __('Description') }}" />
-            <textarea id="description" type="text" class="mt-1 block w-full" wire:model.defer="state.description" autocomplete="description" /></textarea>
+            <textarea id="description" type="text" class="col-span-6 mt-1 block w-full  rounded-md border-gray-300" wire:model.defer="state.description" autocomplete="description" /></textarea>
             <x-jet-input-error for="description" class="mt-2" />
         </div>
-
-        
+        <div class="col-span-6 ">
+        <x-jet-label for="facebook" value="{{ __('Facebook') }}" />
+            <x-jet-input id="facebook" type="text" class="mt-1 block w-full" wire:model.defer="state.facebook" />
+            <x-jet-input-error for="facebook" class="mt-2" />
+        </div>
+        <div class="col-span-6 ">
+        <x-jet-label for="instagram" value="{{ __('Instagram') }}" />
+            <x-jet-input id="instagram" type="text" class="mt-1 block w-full" wire:model.defer="state.instagram" />
+            <x-jet-input-error for="instagram" class="mt-2" />
+        </div>
+        <div class="col-span-6 w-full">
+        <x-jet-label for="github" value="{{ __('Github') }}" />
+            <x-jet-input id="github" type="text" class="mt-1 block w-full" wire:model.defer="state.github" />
+            <x-jet-input-error for="github" class="mt-2" />
+        </div>
     </x-slot>
 
     <x-slot name="actions">

@@ -32,7 +32,10 @@ class UsersSeeder extends Seeder
             'remember_token' => Str::random(10),
             'user_status' => 'admin',
             'description' => 'William Tobey’s career encompasses extensive management experience in defense policy, arms control and counter-proliferation, as well as in investment banking and venture capital. He served on the National Security Council Staff in three US administrations and also managed the US government’s largest programme to prevent nuclear proliferation and terrorism by detecting, securing and disposing of dangerous nuclear material.',
-           
+            'facebook' => 'https://www.facebook.com/starlabs.dev',
+            'instagram' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'github' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+        
         ],[
             'name' => 'user2',
             'email' => 'user2@user2.com',
@@ -41,6 +44,10 @@ class UsersSeeder extends Seeder
             'remember_token' => Str::random(10),
             'user_status' => 'user',
             'description' => 'William Tobey’s career encompasses extensive management experience in defense policy, arms control and counter-proliferation, as well as in investment banking and venture capital. He served on the National Security Council Staff in three US administrations and also managed the US government’s largest programme to prevent nuclear proliferation and terrorism by detecting, securing and disposing of dangerous nuclear material.',
+            'facebook' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'instagram' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'github' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+       
         ],
         [
             'name' => 'test',
@@ -50,6 +57,9 @@ class UsersSeeder extends Seeder
             'remember_token' => Str::random(10),
             'user_status' => 'user',
             'description' => 'William Tobey’s career encompasses extensive management experience in defense policy, arms control and counter-proliferation, as well as in investment banking and venture capital. He served on the National Security Council Staff in three US administrations and also managed the US government’s largest programme to prevent nuclear proliferation and terrorism by detecting, securing and disposing of dangerous nuclear material.',
+            'facebook' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'instagram' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'github' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
         ],
         [
             'name' => 'Albina Ahmeti',
@@ -59,6 +69,9 @@ class UsersSeeder extends Seeder
             'remember_token' => Str::random(10),
             'user_status' => 'user',
             'description' => 'William Tobey’s career encompasses extensive management experience in defense policy, arms control and counter-proliferation, as well as in investment banking and venture capital. He served on the National Security Council Staff in three US administrations and also managed the US government’s largest programme to prevent nuclear proliferation and terrorism by detecting, securing and disposing of dangerous nuclear material.',
+            'facebook' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'instagram' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'github' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
         ],
         [
             'name' => 'Almir Pinduk',
@@ -68,6 +81,9 @@ class UsersSeeder extends Seeder
             'remember_token' => Str::random(10),
             'user_status' => 'user',
             'description' => 'William Tobey’s career encompasses extensive management experience in defense policy, arms control and counter-proliferation, as well as in investment banking and venture capital. He served on the National Security Council Staff in three US administrations and also managed the US government’s largest programme to prevent nuclear proliferation and terrorism by detecting, securing and disposing of dangerous nuclear material.',
+            'facebook' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'instagram' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'github' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
         ],
         [
             'name' => 'Ardit Shaqiri',
@@ -77,6 +93,9 @@ class UsersSeeder extends Seeder
             'remember_token' => Str::random(10),
             'user_status' => 'user',
             'description' => 'William Tobey’s career encompasses extensive management experience in defense policy, arms control and counter-proliferation, as well as in investment banking and venture capital. He served on the National Security Council Staff in three US administrations and also managed the US government’s largest programme to prevent nuclear proliferation and terrorism by detecting, securing and disposing of dangerous nuclear material.',
+            'facebook' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'instagram' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'github' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
         ],
         [
             'name' => 'Blendar Hasani',
@@ -86,7 +105,10 @@ class UsersSeeder extends Seeder
             'remember_token' => Str::random(10),
             'user_status' => 'user',
             'description' => 'William Tobey’s career encompasses extensive management experience in defense policy, arms control and counter-proliferation, as well as in investment banking and venture capital. He served on the National Security Council Staff in three US administrations and also managed the US government’s largest programme to prevent nuclear proliferation and terrorism by detecting, securing and disposing of dangerous nuclear material.',
-       ],
+            'facebook' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'instagram' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'github' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+        ],
         [
             'name' => 'Gramos Shala',
             'email' => 'gramos@star-workshop.com',
@@ -95,6 +117,9 @@ class UsersSeeder extends Seeder
             'remember_token' => Str::random(10),
             'user_status' => 'user',
             'description' => 'William Tobey’s career encompasses extensive management experience in defense policy, arms control and counter-proliferation, as well as in investment banking and venture capital. He served on the National Security Council Staff in three US administrations and also managed the US government’s largest programme to prevent nuclear proliferation and terrorism by detecting, securing and disposing of dangerous nuclear material.',
+            'facebook' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'instagram' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'github' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
         ],
         [
             'name' => 'Granit Salihu',
@@ -104,7 +129,10 @@ class UsersSeeder extends Seeder
             'remember_token' => Str::random(10),
             'user_status' => 'user',
             'description' => 'I am Granit Salihu, a MA degree student of Computer Sciences, at Public University in Gjilan. I am a methodical but technical person, I like to problem solve and figure things out and that is why I enjoy writing and developing new software as it requires a great deal of thought and logical like solving a puzzle. I am also a very organized and dedicated person to my work. My time management is good and I am a honest person.',
-        ]
+            'facebook' => 'https://www.facebook.com/uqk.smir',
+            'instagram' => 'https://www.instagram.com/granits.ss/',
+            'github' => 'https://github.com/granitsalihu1',
+        ],
     ]);
     
         
