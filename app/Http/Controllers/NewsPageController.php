@@ -14,7 +14,7 @@ class NewsPageController extends Controller
 
     public function index()
     {
-        $newspage = Newspage::all();
+        $newspage = Newspage::orderBy('id', 'DESC')->get();
         return view('newspage', compact('newspage'));
     }
 
@@ -47,9 +47,10 @@ class NewsPageController extends Controller
         return redirect('/newspages')->with('status', 'News added successfully');
     }
 
-    public function show(NewsPage $newsPage)
+    public function show($id)
     {
-        //
+        $newspage = Newspage::find($id);
+        return view('newsp',['newspage'=>$newspage]);
     }
 
     public function edit($id)
