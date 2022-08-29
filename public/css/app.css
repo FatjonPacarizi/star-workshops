@@ -1432,9 +1432,6 @@ select {
 .-mt-40 {
   margin-top: -10rem;
 }
-.ml-auto {
-  margin-left: auto;
-}
 .block {
   display: block;
 }
@@ -1505,6 +1502,30 @@ select {
 }
 .h-36 {
   height: 9rem;
+}
+.h-48 {
+  height: 12rem;
+}
+.h-44 {
+  height: 11rem;
+}
+.h-40 {
+  height: 10rem;
+}
+.h-24 {
+  height: 6rem;
+}
+.h-72 {
+  height: 18rem;
+}
+.h-auto {
+  height: auto;
+}
+.h-64 {
+  height: 16rem;
+}
+.h-2 {
+  height: 0.5rem;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -1581,6 +1602,9 @@ select {
 .w-80 {
   width: 20rem;
 }
+.w-1\/3 {
+  width: 33.333333%;
+}
 .min-w-0 {
   min-width: 0px;
 }
@@ -1598,6 +1622,12 @@ select {
 }
 .max-w-sm {
   max-width: 24rem;
+}
+.max-w-lg {
+  max-width: 32rem;
+}
+.max-w-md {
+  max-width: 28rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1786,6 +1816,12 @@ select {
 .rounded-tr-lg {
   border-top-right-radius: 0.5rem;
 }
+.rounded-tr-xl {
+  border-top-right-radius: 0.75rem;
+}
+.rounded-bl-xl {
+  border-bottom-left-radius: 0.75rem;
+}
 .border {
   border-width: 1px;
 }
@@ -1829,8 +1865,8 @@ select {
 .border-r {
   border-right-width: 1px;
 }
-.border-r-2 {
-  border-right-width: 2px;
+.border-none {
+  border-style: none;
 }
 .border-gray-300 {
   --tw-border-opacity: 1;
@@ -1969,6 +2005,10 @@ select {
 .bg-green-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(22 163 74 / var(--tw-bg-opacity));
+}
+.bg-\[\#F2F2F2\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 242 242 / var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
@@ -2161,8 +2201,11 @@ select {
 .pr-16 {
   padding-right: 4rem;
 }
-.pr-3 {
-  padding-right: 0.75rem;
+.pt-3 {
+  padding-top: 0.75rem;
+}
+.pb-6 {
+  padding-bottom: 1.5rem;
 }
 .text-left {
   text-align: left;
@@ -2172,6 +2215,9 @@ select {
 }
 .text-right {
   text-align: right;
+}
+.text-justify {
+  text-align: justify;
 }
 .font-sans {
   font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -2264,9 +2310,6 @@ select {
 }
 .leading-6 {
   line-height: 1.5rem;
-}
-.leading-none {
-  line-height: 1;
 }
 .tracking-widest {
   letter-spacing: 0.1em;
@@ -2600,6 +2643,10 @@ select {
 .hover\:text-gray-600:hover {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+.hover\:grayscale-0:hover {
+  --tw-grayscale: grayscale(0);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .focus\:z-10:focus {
   z-index: 10;
@@ -3036,10 +3083,6 @@ select {
     margin-bottom: 0.5rem;
   }
 
-  .md\:ml-0 {
-    margin-left: 0px;
-  }
-
   .md\:grid {
     display: grid;
   }
@@ -3074,6 +3117,14 @@ select {
 
   .md\:w-1\/3 {
     width: 33.333333%;
+  }
+
+  .md\:w-2\/3 {
+    width: 66.666667%;
+  }
+
+  .md\:w-5\/6 {
+    width: 83.333333%;
   }
 
   .md\:grid-cols-3 {
@@ -3112,6 +3163,10 @@ select {
     padding-right: 4rem;
   }
 
+  .md\:pt-0 {
+    padding-top: 0px;
+  }
+
   .md\:text-left {
     text-align: left;
   }
@@ -3129,10 +3184,6 @@ select {
 
   .lg\:mb-0 {
     margin-bottom: 0px;
-  }
-
-  .lg\:ml-auto {
-    margin-left: auto;
   }
 
   .lg\:h-48 {
@@ -3167,6 +3218,26 @@ select {
     width: 33.333333%;
   }
 
+  .lg\:w-1\/6 {
+    width: 16.666667%;
+  }
+
+  .lg\:w-5 {
+    width: 1.25rem;
+  }
+
+  .lg\:w-1 {
+    width: 0.25rem;
+  }
+
+  .lg\:w-2\/5 {
+    width: 40%;
+  }
+
+  .lg\:w-5\/6 {
+    width: 83.333333%;
+  }
+
   .lg\:max-w-lg {
     max-width: 32rem;
   }
@@ -3189,6 +3260,50 @@ select {
   }
 }
 @media (min-width: 1280px) {
+
+  .xl\:container {
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+
+    .xl\:container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+
+    .xl\:container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+
+    .xl\:container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+
+    .xl\:container {
+      max-width: 1280px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+
+    .xl\:container {
+      max-width: 1536px;
+    }
+  }
+
+  .xl\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   .xl\:w-1\/2 {
     width: 50%;
