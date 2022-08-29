@@ -8,18 +8,21 @@ use App\Http\Requests\UpdateNewsPageRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class NewsPageController extends Controller
 {
 
     public function index()
     {
+        $date = Carbon::now();
         $newspage = Newspage::orderBy('id', 'DESC')->get();
         return view('newspage', compact('newspage'));
     }
 
     public function newspage()
     {
+        $date = Carbon::now();
         $newspage = Newspage::paginate(8);
         return view('newspages.index', compact('newspage'));
     }
@@ -35,6 +38,7 @@ class NewsPageController extends Controller
         $newspage->title = $request->input('title');
         $newspage->author = $request->input('author');
         $newspage->description = $request->input('description');
+        $newspage->time = $request->input('time');
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $extention = $file->getClientOriginalExtension();
@@ -65,6 +69,7 @@ class NewsPageController extends Controller
         $newspage->title = $request->input('title');
         $newspage->author = $request->input('author');
         $newspage->description = $request->input('description');
+        $newspage->time = $request->input('time');
         if ($request->hasFile('image')) {
 
             $destination = 'uploads/newspages/' . $newspage->image;
