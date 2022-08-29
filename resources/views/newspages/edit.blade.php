@@ -26,7 +26,7 @@
 
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Author</label>
-                <input type="text" name="author" value="{{$newspage->author}}" class="border border-gray-200 rounded p-1 w-full mx-5">                
+                <input type="text" name="author" value="{{$newspage->author}}" class="border border-gray-200 rounded p-1 w-full mx-5">
             </div>
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Description</label>
@@ -49,6 +49,10 @@
                     menubar: 'file edit view insert format tools table help'
                 });
             </script>
+            <div class="mb-6  flex items-center">
+                <label class="w-28 text-sm mx-5">Date</label>
+                <input type="datetime-local" name="time" value="{{$newspage->time}}" />
+            </div>
             <div class="mb-6  flex items-center">
                 <label class="w-28 text-sm mx-5">Image</label>
                 <input type="file" name="image" />

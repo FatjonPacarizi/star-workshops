@@ -29,6 +29,7 @@
             <td class="font-bold p-3">News Title</td>
             <td class="font-bold">Author</td>
             <td class="font-bold">Description</td>
+            <td class="fint-bold">Date</td>
             <td class="font-bold">Image</td>
             <td class="font-bold text-center w-1/9">Action</td>
           </tr>
@@ -40,7 +41,10 @@
 
             <td> {{ $item->author }}</td>
 
-            <td> {!! Illuminate\Support\Str::limit($item->description, 50, $end='...') !!}</td>
+            <td> {!! Illuminate\Support\Str::limit($item->description, 30, $end='...') !!}</td>
+
+            <td> {{ $item->time }}</td>
+
             <td>
               <img src="{{ asset('uploads/newspages/'.$item->image) }}" width="70px" height="70px" alt="Image">
             </td>

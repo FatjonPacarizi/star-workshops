@@ -19,6 +19,7 @@ class CreateNewsPagesTable extends Migration
             $table->string('title');
             $table->string('author');
             $table->text('description');
+            $table->date('time');
             $table->string('image')->nullable();
             $table->timestamps();
         });
