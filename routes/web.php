@@ -40,7 +40,7 @@ Route::get('/members', [WorkshopController::class, 'showMembers']);
 
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
 Route::get('/newspage', [NewsPageController::class, 'index']);
-
+Route::get('/newspage/{id}',[NewsPageController::class,'show'])->name('single-news');
 
 Route::get('contact', [ContactController::class, 'index']);
 Route::post('send', [ContactController::class, 'send'])->name('emailsend');
