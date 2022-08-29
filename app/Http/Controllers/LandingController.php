@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Landing;
 use App\Models\Workshop;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\UpdateLandingRequest;
 
 class LandingController extends Controller
 {
@@ -76,28 +79,28 @@ class LandingController extends Controller
         return view('landings.edit', compact('landing'));
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateLandingRequest $request, $id)
     {
         $landing = landing::find($id);
 
-        $landing->title = $request->input('title');
-        $landing->heading = $request->input('heading');
-        $landing->paragraf = $request->input('paragraf');
-        $landing->button = $request->input('button');
-        if ($request->hasfile('image')) {
-            $destination = 'uploads/landings/' . $landing->image;
+        $validated = $request->validated();
 
-            if (File::exists($destination)) {
-                File::delete($destination);
-            }
-            $file = $request->file('image');
-            $extention = $file->getClientOriginalExtension();
-            $filetitle = time() . '.' . $extention;
-            $file->move('uploads/landings/', $filetitle);
-            $landing->image = $filetitle;
+        if(request()->hasFile('image')) {
+         
+            $validated['image'] = request()->file('image')->store('landingImgs','public');
+
+            //e ruajm old workshopimg para se me update
+             $oldLandingImg = $landing->image;
+        }
+        //update workshop
+        $landing->update($validated);
+        
+        // delete old img only when db update is succesful
+        if(request()->hasFile('image')) {
+        //delete old img
+        Storage::delete('/public/' .$oldLandingImg);
         }
 
-        $landing->update();
         return redirect('/landings')->with('status', 'Landing Updated Successfully');
     }
 }

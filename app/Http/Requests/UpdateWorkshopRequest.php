@@ -13,7 +13,7 @@ class UpdateWorkshopRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class UpdateWorkshopRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'description' => 'required',
+            'limited_participants' => 'nullable|numeric|gt:0',
+            'country_id' => 'required',
+            'type_id' => 'required',
+            'city_id' => 'required',
+            'category_id' => 'required',
+            'time' => 'required',
         ];
     }
 }

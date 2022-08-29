@@ -11,7 +11,7 @@
 
 <section class="text-black body-font">
   <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-    <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="" src="{{$newspage->image_news ? asset('uploads/newspages/'.$newspage->image) : asset('/img/Workshops.jpg')}}">
+    <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="" src="{{$newspage->image ? asset('/storage/' . $newspage->image) : asset('/img/defaultNewsImg.jpg')}}">
     <div class="text-center lg:w-2/3 w-full">
       <h2 class="tracking-widest text-xl title-font font-medium text-gray-700 mb-1">{{ $newspage->author }}</h2>
       <h1 class="title-font sm:text-3xl text-3xl mb-4 font-medium text-black">{{ $newspage->title }}</h1>

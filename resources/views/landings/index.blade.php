@@ -53,7 +53,7 @@
         </label>
         <div class="mb-6 flex">
           <input type="file" class="border border-gray-200 rounded p-2 w-full" name="image" />
-          <img class="object-cover rounded w-1/4" alt="hero" src="{{$landing->image ? asset('/storage/'.$landing->image) : asset('/img/team1.png')}}" width="50%" height="50px">
+          <img class="object-cover rounded w-1/4" alt="hero" src="{{$landing->image ? asset('/storage/' . $landing->image) : asset('/img/defaultLandingImg.png')}}" width="50%" height="50px">
         </div>
 
 

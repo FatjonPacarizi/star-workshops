@@ -42,7 +42,7 @@
 
             <td> {!! Illuminate\Support\Str::limit($item->description, 50, $end='...') !!}</td>
             <td>
-              <img src="{{ asset('uploads/newspages/'.$item->image) }}" width="70px" height="70px" alt="Image">
+              <img src="{{$item->image ? asset('/storage/' . $item->image) : asset('/img/defaultNewsImg.jpg')}}"  width="70px" height="70px" alt="Image">
             </td>
 
             <td>

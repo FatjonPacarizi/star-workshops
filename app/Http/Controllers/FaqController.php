@@ -38,13 +38,8 @@ class FaqController extends Controller
      */
     public function store(StoreFaqRequest $request)
     {
-        $formFields = $request->validate([
-            'question' => 'required',
-            'answer' => 'required',
-            'status' => 'required',
-        ]);  
-        Faq::create($formFields);
-        
+        $validated = $request->validated();  
+        Faq::create($validated);
         return redirect()->route('superadmin.faq');
     }
 
@@ -81,15 +76,9 @@ class FaqController extends Controller
      */
     public function update(UpdateFaqRequest $request, $id)
     {
-        $formFields = request()->validate([
-            'question' => 'required',
-            'answer' => 'required',
-            
-        ]);
-    
+        $validated = request()->validated();
        //update appinfo
-        Faq::find($id)->update($formFields);
-        
+        Faq::find($id)->update($validated);
         return back();
     }
 
