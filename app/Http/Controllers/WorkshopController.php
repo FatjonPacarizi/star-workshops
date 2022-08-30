@@ -65,7 +65,7 @@ class WorkshopController extends Controller
             $join->on("positions_users.position_id", "=", "positions.id");
         })
         ->where('positions.position','staff')
-        ->select("users.name as name","users.description as description", "users.profile_photo_path as profile_photo_path")
+        ->select("users.name as name","users.description as description", "users.facebook as facebook","users.instagram as instagram","users.github as github","users.profile_photo_path as profile_photo_path")
         ->get();
 
         return view('workshopMembers',['staffMembers' => $staffMembers]);
@@ -88,25 +88,15 @@ class WorkshopController extends Controller
      */
     public function store(StoreWorkshopRequest $request)
     {
-
-        $formFields = $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'country_id' => 'required',
-            'type_id' => 'required',
-            'city_id' => 'required',
-            'category_id' => 'required',
-            'time' => 'required',
-        ]);
-        $formFields['limited_participants'] = request('limited_participants');
-        $formFields['author'] = Auth::id();
+        $validated = $request->validated();
+        $validated['author'] = Auth::id();
 
         if(request()->hasFile('img_workshop')) {
          
-            $formFields['img_workshop'] = request()->file('img_workshop')->store('workshopsImg','public');
+            $validated['img_workshop'] = request()->file('img_workshop')->store('workshopsImg','public');
         }
         
-        Workshop::create($formFields);
+        Workshop::create($validated);
         
         return redirect()->route('adminsuperadmin.showManageWorkshops');
     }
@@ -255,18 +245,9 @@ class WorkshopController extends Controller
      * @param  \App\Models\Workshop  $workshop
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(UpdateWorkshopRequest $request,$id)
     {   
-        $formFields = request()->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'country_id' => 'required',
-            'city_id' => 'required',
-            'type_id' => 'required',
-            'category_id' => 'required',
-            'time' => 'required',
-        ]);
-        $formFields['limited_participants'] = request('limited_participants');
+        $validated = $request->validated();
 
         $currentWorkshop = Workshop::find($id);
 
@@ -275,7 +256,7 @@ class WorkshopController extends Controller
 
         if(request()->hasFile('img_workshop')) {
          
-            $formFields['img_workshop'] = request()->file('img_workshop')->store('workshopsImg','public');
+            $validated['img_workshop'] = request()->file('img_workshop')->store('workshopsImg','public');
 
             //e ruajm old workshopimg para se me update
              $oldWorkshopImg = $currentWorkshop->img_workshop;
@@ -283,7 +264,7 @@ class WorkshopController extends Controller
         
         
         //update workshop
-        $currentWorkshop->update($formFields);
+        $currentWorkshop->update($validated);
         
         // delete old img only when db update is succesful
         if(request()->hasFile('img_workshop')) {

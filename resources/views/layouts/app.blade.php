@@ -136,7 +136,7 @@
                         @endcan
                     </div>
                 </aside>
-                <div class="w-full  flex justify-center items-start overflow-y-scroll mb-10">
+                <div class="w-full  flex justify-center items-start overflow-y-scroll mb-10 pb-20">
                     @yield('content')
            
                 </div>

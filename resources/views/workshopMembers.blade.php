@@ -17,9 +17,9 @@
                     <h5 class="py-1 text-3xl font-extrabold my-4 text-red-700">{{$staffMember->name}}</h5>
                     <p class="py-1 font-semibold leading-6 text-base text-gray-600 ">{{$staffMember->description}}</p>
                         <div class="flex h-10 mt-5 ">
-                            <a href="#"><i class="fa-brands fa-instagram fa-2xl" style="color:red"></i></a>
-                            <a href="#"><i class="fa-brands fa-youtube fa-2xl mx-4" style="color:red"></i></a>
-                            <a href="#"><i class="fa-brands fa-github fa-2xl" style="color:red"></i></a>
+                            <a href="{{$staffMember->instagram}}"><i class="fa-brands fa-instagram fa-2xl" style="color:red"></i></a>
+                            <a href="{{$staffMember->facebook}}"><i class="fa-brands fa-facebook fa-2xl mx-4" style="color:red"></i></a>
+                            <a href="{{$staffMember->github}}"><i class="fa-brands fa-github fa-2xl" style="color:red"></i></a>
                         </div>
                 </div>
         @endforeach

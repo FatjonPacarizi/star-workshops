@@ -4,7 +4,7 @@
 @section('content')
 
 
-<section class="body-font bg-white-600 ">
+<section class="body-font bg-white ">
 
     <div class="relative flex items-center justify-center">
 
@@ -24,17 +24,18 @@
                 </a></div>
         </div>
 
-        <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left">
+        <div class="w-full pt-6 md:w-1/2 md:pt-0 md:pl-16 flex flex-col md:items-start ">
 
-            <div class=" w-full pl-5">
-                <div class="justify-center items-center">
+            <div class=" w-full pl-5 ">
+                <div class="bg-[#F2F2F2] ">
                     <div class="">
-                        <p class="row flex justify-center items-center text-3xl font-semibold text-black">Contact Us</p>
+                        <p class="text-3xl font-semibold text-red-700 p-6 px-6 pt-3">Send a message</p>
                         <form action="{{ route('emailsend') }}" method="post">
                             @csrf
-                            <div class="pb-4 pt-12">
-                                {{--                        <label for="">Name</label>--}}
-                                <input type="text" class="w-full rounded-md border-t-0 border-r-0 border-l-0 border-b-4 border-red-700 py-3" name="name" placeholder="Enter your name">
+                            <div class="px-6 ">
+                                {{--<label for="">Name</label>--}}
+                                <input type="text" class="w-full border-none rounded-md py-3" name="name" placeholder="Enter your name">
+
                                 @if ($errors->has('name'))
                                     <div class="bg-red-100 rounded-lg py-5 px-6 mb-3 text-base text-red-700 inline-flex items-center w-full" role="alert">
                                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" class="w-4 h-4 mr-2 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -43,14 +44,15 @@
                                         {{ $errors->first('name') }}
                                     </div>
                                 @endif
+
                             </div>
 
-                            <div class="pb-4">
+                            <div class="px-6 pt-3">
                                 {{--                        <label for="">Email</label>--}}
-                                <input type="text" class="w-full rounded-md border-t-0 border-r-0 border-l-0 border-b-4 border-red-700 py-3" name="email" placeholder="Enter your email">
+                                <input type="text" class="w-full border-none rounded-md py-3" name="email" placeholder="Enter your email">
 
                                 @if ($errors->has('email'))
-                                    <div class="bg-red-100 rounded-lg py-5 px-6 mb-3 text-base text-red-700 inline-flex items-center w-full" role="alert">
+                                    <div class="bg-red-100 rounded-lg mb-3 text-base text-red-700 inline-flex items-center w-full" role="alert">
                                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" class="w-4 h-4 mr-2 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                             <path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"></path>
                                         </svg>
@@ -59,9 +61,9 @@
                                 @endif
                             </div>
 
-                            <div class="pb-4">
+                            <div class="px-6 pt-3">
                                 {{--                        <label for="">Subject</label>--}}
-                                <input type="text" class="w-full rounded-md border-t-0 border-r-0 border-l-0 border-b-4 border-red-700 py-3" name="subject" placeholder="Enter subject">
+                                <input type="text" class="w-full border-none rounded-md py-3" name="subject" placeholder="Enter subject">
                                 @if ($errors->has('subject'))
                                     <div class="bg-red-100 rounded-lg py-5 px-6 mb-3 text-base text-red-700 inline-flex items-center w-full" role="alert">
                                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" class="w-4 h-4 mr-2 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -72,8 +74,8 @@
                                 @endif
                             </div>
 
-                            <div class="pb-4">
-                                <textarea name="message" cols="20" rows="4" class="w-full mt-3 rounded-md border-t-0 border-r-0 border-l-0 border-b-4 border-red-700" placeholder="Message here..."></textarea>
+                            <div class="px-6 pt-3">
+                                <textarea name="message" cols="20" rows="4" class="w-full border-none rounded-md py-3" placeholder="Message here..."></textarea>
                                 @if ($errors->has('message'))
                                     <div class="bg-red-100 rounded-lg py-5 px-6 mb-3 text-base text-red-700 inline-flex items-center w-full" role="alert">
                                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" class="w-4 h-4 mr-2 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -84,7 +86,10 @@
                                 @endif
                             </div>
 
-                            <button type="submit" class="w-full rounded-lg px-12 py-2 bg-red-600 text-green-100 hover:bg-red-800 duration-300">Send Email</button>
+                            <div class=" px-6 pt-3 pb-6">
+                            <button type="submit" class="w-1/3 rounded-tr-xl rounded-bl-xl px-12 py-2 bg-red-600 text-green-100 hover:bg-red-800 duration-300">Send Email</button>
+                            </div>
+
                         </form>
 
 

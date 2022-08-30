@@ -3,7 +3,7 @@
 
 <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
 
-<div class="w-full h-full p-6 flex flex-col  items-center border">
+<div class="w-full h-full p-6 flex flex-col mb-20 items-center border">
 
   <div class="w-full bg-white border border-gray-200 rounded mt-12">
     <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
@@ -16,19 +16,21 @@
       @csrf
       <div class="mb-6 flex items-center">
         <label class="w-28 text-sm mx-5">Name</label>
-        <input type="text" class="border border-gray-200 rounded p-1 w-full mx-5" placeholder="Name" name="name" />
-
-        @error('name')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-        @enderror
+        <div class = "w-full mx-5">
+          <input type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Name" name="name"  value="{{old('name')}}"/>
+          @error('name')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+        </div>
       </div>
       <div class="mb-6 flex items-center">
         <label class="w-28 text-sm mx-5">Participants Limit</label>
-        <input type="text" class="border border-gray-200 rounded p-1 w-full mx-5" placeholder="Limit participants" name="limited_participants" />
-
-        @error('name')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-        @enderror
+        <div class = "w-full mx-5">
+          <input type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Limit participants" name="limited_participants" value="{{old('limited_participants')}}" />
+          @error('limited_participants')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+        </div>
       </div>
 
       <div class="mb-6 flex items-center">
@@ -54,83 +56,81 @@
 
       <div class="mb-6  flex items-center">
         <label class="w-28 text-sm mx-5 ">Country</label>
+        <div class = "w-full mx-5">
+          <select class="w-full rounded border border-gray-200 p-1" name='country_id'>
+            @foreach($countries as $country)
+            <option @if(old('country_id') == $country->id) selected @endif value='{{$country->id}}' >{{$country->name}}</option>
+            @endforeach
 
-        <select class="w-full mx-5 rounded border border-gray-200 p-1" name='country_id'>
+          </select>
 
-          @foreach($countries as $country)
-          <option value='{{$country->id}}'>{{$country->name}}</option>
-          @endforeach
-
-        </select>
-
-        @error('user_status')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-        @enderror
+          @error('country_id')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+        </div>
       </div>
 
 
       <div class="mb-6  flex items-center">
         <label class="w-28 text-sm mx-5 ">City</label>
-
-        <select class="w-full mx-5 rounded border border-gray-200 p-1" name='city_id'>
-
-          @foreach($cities as $city)
-          <option value='{{$city->id}}'>{{$city->name}}</option>
-          @endforeach
-
-        </select>
-
-        @error('user_status')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-        @enderror
+        <div class = "w-full mx-5">
+          <select class="w-full  rounded border border-gray-200 p-1" name='city_id'>
+            @foreach($cities as $city)
+            <option @if(old('city_id') == $city->id) selected @endif value='{{$city->id}}'>{{$city->name}}</option>
+            @endforeach
+          </select>
+          @error('city_id')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+        </div>
       </div>
-
 
       <div class="mb-6  flex items-center">
         <label class="w-28 text-sm mx-5 ">Type</label>
-
-        <select class="w-full mx-5 rounded border border-gray-200 p-1" name='type_id'>
-
-          @foreach($types as $type)
-          <option value='{{$type->id}}'>{{$type->name}}</option>
-          @endforeach
-
-        </select>
-
-        @error('user_status')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-        @enderror
+        <div class = "w-full mx-5">
+          <select class="w-full rounded border border-gray-200 p-1" name='type_id'>
+            @foreach($types as $type)
+            <option @if(old('type_id') == $type->id) selected @endif value='{{$type->id}}'>{{$type->name}}</option>
+            @endforeach
+          </select>
+          @error('type_id')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+        </div>
       </div>
-
-
 
       <div class="mb-6  flex items-center">
         <label class="w-28 text-sm mx-5 ">Categories</label>
-
-        <select class="w-full mx-5 rounded border border-gray-200 p-1" name='category_id'>
-
-          @foreach($categories as $category)
-          <option value='{{$category->id}}'>{{$category->name}}</option>
-          @endforeach
-
-        </select>
-
-        @error('user_status')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-        @enderror
+        <div class = "w-full mx-5">
+          <select class="w-full rounded border border-gray-200 p-1" name='category_id'>
+            @foreach($categories as $category)
+            <option @if(old('category_id') == $category->id) selected @endif value='{{$category->id}}'>{{$category->name}}</option>
+            @endforeach
+          </select>
+          @error('category_id')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+        </div>
       </div>
-
-
 
       <div class="mb-6  flex items-center">
         <label class="w-28 text-sm mx-5">Time</label>
-        <input type="datetime-local" name="time" />
-
+        <div>
+          <input @if(old('country_id') == $country->id) selected @endif type="datetime-local" name="time" />
+          @error('time')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+        </div>
       </div>
 
       <div class="mb-6  flex items-center">
         <label class="w-28 text-sm mx-5">Image</label>
-        <input type="file" name="img_workshop" />
+        <div>
+          <input type="file" name="img_workshop" />
+          @error('img_workshop')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+        </div>
       </div>
 
 
