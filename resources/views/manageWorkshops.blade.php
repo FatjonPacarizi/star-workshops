@@ -55,7 +55,7 @@
 
             <table class="w-full mx-auto  font-thin">
               <tr class="border-y border-gray-200 ">
-                <td class="font-bold p-3">Workshop Name</td>
+                <td class="font-bold p-3 w-2/5">Workshop Name</td>
                 <td class="font-bold text-sm">Limited Participants</td>
                 <td class="font-bold">Workshop time</td>
                 <td class="font-bold w-72 ">Actions</td>
@@ -64,7 +64,7 @@
             @unless(count($upcomingWorkshops) == 0)
             @foreach($upcomingWorkshops as $upcomingWorkshop)
             <tr class = 'border-b border-gray-200'>
-              <td class="p-3 ">{{$upcomingWorkshop->name}}</td>
+              <td class="p-3 ">{{ \Illuminate\Support\Str::limit($upcomingWorkshop->name, 60, $end='...') }}</td>
               @php 
                  $limited_participants = true;
                  if (!$upcomingWorkshop->limited_participants)   $limited_participants = false;
@@ -114,7 +114,7 @@
   <div class="w-full"  x-show="tab === 1">
     <table class="w-full mx-auto  font-thin">
       <tr class="border-y border-gray-200 ">
-        <td class="font-bold p-3 ">Workshop Name pasts</td>
+        <td class="font-bold p-3 w-2/5">Workshop Name pasts</td>
         <td class="font-bold text-sm">Limited Participants</td>
         <td class="font-bold">Workshop time</td>
         <td class="font-bold w-72 ">Actions</td>
@@ -124,7 +124,7 @@
     @unless(count($pastsWorkshops) == 0)
     @foreach($pastsWorkshops as $pastWorkshop)
     <tr class = 'border-b border-gray-200'>
-      <td class="p-3 ">{{$pastWorkshop->name}}</td>
+      <td class="p-3 ">{{ \Illuminate\Support\Str::limit($pastWorkshop->name, 50, $end='...') }}</td>
       @php 
       $limited_participants = true;
       if (!$pastWorkshop->limited_participants)   $limited_participants = false;
