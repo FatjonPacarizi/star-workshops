@@ -4,7 +4,7 @@
 @section('content')
 
 
-<section class="body-font bg-white ">
+<section class=" body-font bg-white ">
 
     <div class="relative flex items-center justify-center">
 
@@ -13,9 +13,13 @@
         <img  src="{{$about->image ? asset('/storage/' . $about->image) : asset('img/defultaboutimage.png') }}" alt="">
     </div>
 
-    <div class="text-red-600 container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-        <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center ">
-            <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium  ">{{$about->heading}}</h1>
+    <div class="w-full text-red-600   flex px-5 py-24 justify-center flex-wrap items-center">
+        <div class="w-full  lg:w-2/5  md:p-2 flex flex-col  md:text-left items-center ">
+            <div class="md:container md:mx-auto px-5 xl:px-0">
+                <h1 class="pb-8 xl:pb-16  text-3xl xl:text-4xl md:w-full text-center"> <span>
+                    <p><strong><span style="color: #ff0000;">{{$about->heading}}</span></strong></p>
+                  </span> </h1>
+            </div>
             <p>
 
             {{$about->paragraph}}  <div class="flex justify-center">
@@ -24,7 +28,7 @@
                 </a></div>
         </div>
 
-        <div class="w-full pt-6 md:w-1/2 md:pt-0 md:pl-16 flex flex-col md:items-start ">
+        <div class=" w-full mt-10 lg:w-2/5 md:mt-0  md:p-2 flex flex-col md:items-start ">
 
             <div class=" w-full pl-5 ">
                 <div class="bg-[#F2F2F2] ">
@@ -87,7 +91,7 @@
                             </div>
 
                             <div class=" px-6 pt-3 pb-6">
-                            <button type="submit" class="w-1/3 rounded-tr-xl rounded-bl-xl px-12 py-2 bg-red-600 text-green-100 hover:bg-red-800 duration-300">Send Email</button>
+                            <button type="submit" class=" rounded-tr-xl rounded-bl-xl px-12 py-2 bg-red-600 text-green-100 hover:bg-red-800 duration-300">Send Email</button>
                             </div>
 
                         </form>
