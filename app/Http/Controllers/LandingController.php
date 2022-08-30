@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Landing;
 use App\Models\Workshop;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UpdateLandingRequest;
 
@@ -23,60 +20,9 @@ class LandingController extends Controller
         return view('landing', ['latest_workshops' => $latest_workshops]);
     }
 
-    
     public function landing()
     {
-        $landing = Landing::all();
-        return view('landings.index', ['landing' => Landing::all()->last()]);
-    }
-
-    public function create()
-    {
-        return view('landings.create');
-    }
-
-    public function store(Request $request)
-    {
-        $landing = new Landing;
-        
-        $request->validate([
-            'title' => 'required',
-            'heading' => 'required',
-            'paragraf' => 'required',
-            'button' => 'required',
-            'image' => 'required',
-        ]);
-        
-        $title = $request->input('title');
-        $heading = $request->input('heading');
-        $paragraf = $request->input('paragraf');
-        $button = $request->input('button');
-        if ($request->hasfile('image')) {
-
-            $file = $request->file('image');
-            $extention = $file->getClientOriginalExtension();
-            $filetitle = time() . '.' . $extention;
-            $file->move('uploads/landings/', $filetitle);
-            $image = $filetitle;
-        }
-        $fields = [
-            'title'=> $title,
-            'heading'=> $heading,
-            'paragraf'=> $paragraf,
-            'button'=> $button,
-            'image'=> $image,
-            
-        ];
-        $landing::create($fields);
-
-        return redirect('/landings')->with('status', 'Landing Created Successfully');
-        
-        }
-
-    public function edit($id)
-    {
-        $landing = landing::find($id);
-        return view('landings.edit', compact('landing'));
+        return view('landings.edit', ['landing' => Landing::all()->last()]);
     }
 
     public function update(UpdateLandingRequest $request, $id)
