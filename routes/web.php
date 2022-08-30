@@ -82,7 +82,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('add-about', [AboutController::class, 'store']);
             //Edit about
             Route::get('edit-about/{id}', [AboutController::class, 'edit']);
-            Route::put('/update/{id}', [AboutController::class, 'update'])->name('aboutUpdate');
+            Route::put('update-about/{id}', [AboutController::class, 'update'])->name('aboutUpdate');
             
             Route::get('landings', [LandingController::class, 'landing'])->name('showlandings');
             Route::get('add-landing', [LandingController::class, 'create']);
