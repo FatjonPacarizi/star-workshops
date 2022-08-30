@@ -13,23 +13,21 @@
         <img  src="{{$about->image ? asset('/storage/' . $about->image) : asset('img/defultaboutimage.png') }}" alt="">
     </div>
 
-    <div class="w-full text-red-600   flex px-5 py-24 justify-center flex-wrap items-center">
+    <div class="w-full flex px-5 py-24 justify-center flex-wrap items-center">
         <div class="w-full  lg:w-2/5 lg:mr-20 md:p-2 flex flex-col  md:text-left items-center ">
             <div class="md:container md:mx-auto px-5 xl:px-0">
                 <h1 class="pb-8 xl:pb-12  text-3xl xl:text-4xl md:w-full text-center"> <span>
-                    <p><strong><span class = "text-red-600">{{$about->heading}}</span></strong></p>
+                    <p><strong><span>{{$about->heading}}</span></strong></p>
                   </span> </h1>
             </div>
-            <p>
-
-            {{$about->paragraph}}  <div class="flex justify-center">
-
+            <p>{{$about->paragraph}}</p>  
+            <div class="flex justify-center">
                 <a href="{{$about->button}}"> <button style="margin-top: 20px;margin-left: -4px;"class="ml-4 inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg">Find out more</button>
-                </a></div>
+                </a>
+            </div>
         </div>
 
         <div class=" w-full mt-10 lg:w-2/5 md:mt-0  md:p-2 flex flex-col md:items-start ">
-
             <div class=" w-full pl-5 ">
                 <div class="bg-[#F2F2F2] ">
                     <div class="">
