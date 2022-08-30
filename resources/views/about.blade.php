@@ -14,10 +14,10 @@
     </div>
 
     <div class="w-full text-red-600   flex px-5 py-24 justify-center flex-wrap items-center">
-        <div class="w-full  lg:w-2/5  md:p-2 flex flex-col  md:text-left items-center ">
+        <div class="w-full  lg:w-2/5 lg:mr-20 md:p-2 flex flex-col  md:text-left items-center ">
             <div class="md:container md:mx-auto px-5 xl:px-0">
-                <h1 class="pb-8 xl:pb-16  text-3xl xl:text-4xl md:w-full text-center"> <span>
-                    <p><strong><span style="color: #ff0000;">{{$about->heading}}</span></strong></p>
+                <h1 class="pb-8 xl:pb-12  text-3xl xl:text-4xl md:w-full text-center"> <span>
+                    <p><strong><span class = "text-red-600">{{$about->heading}}</span></strong></p>
                   </span> </h1>
             </div>
             <p>
