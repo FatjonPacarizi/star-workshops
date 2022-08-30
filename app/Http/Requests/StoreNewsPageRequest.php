@@ -26,7 +26,8 @@ class StoreNewsPageRequest extends FormRequest
         return [
             'title' => 'required',
             'author' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'time' => 'required'
         ];
     }
 }
