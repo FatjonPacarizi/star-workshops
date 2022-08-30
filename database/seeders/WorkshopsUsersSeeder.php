@@ -17,15 +17,15 @@ class WorkshopsUsersSeeder extends Seeder
     {
         DB::table('workshops_users')->insert([
             [
-                'workshop_id' => '1',
+                'workshop_id' => '3',
                 'user_id' => '3',
             ],
             [
-                'workshop_id' => '1',
+                'workshop_id' => '3',
                 'user_id' => '2',
             ],
             [
-                'workshop_id' => '1',
+                'workshop_id' => '3',
                 'user_id' => '1',
             ],
             [

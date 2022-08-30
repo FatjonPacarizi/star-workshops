@@ -49,7 +49,7 @@
       </div>
 
 
-             <div class="w-full"  x-show="tab === 0">
+             <div class="w-full px-5"  x-show="tab === 0">
 
             
 
@@ -111,7 +111,7 @@
 
   </div>
 
-  <div class="w-full"  x-show="tab === 1">
+  <div class="w-full px-5"  x-show="tab === 1">
     <table class="w-full mx-auto  font-thin">
       <tr class="border-y border-gray-200 ">
         <td class="font-bold p-3 w-2/5">Workshop Name pasts</td>
@@ -182,7 +182,7 @@
              <div class="w-full flex justify-center">
             <table class="w-full mx-4  font-thin">
               <tr class="border-y border-gray-200 ">
-                <td class="font-bold p-3 ">Workshop Name</td>
+                <td class="font-bold p-3 w-1/2">Workshop Name</td>
                 <td class="font-bold">Workshop deleted</td>
                 <td class="font-bold">Author</td>
                 <td class="font-bold w-72 ">Actions</td>
@@ -190,7 +190,7 @@
             
             @foreach($workshops1 as $workshop1)
             <tr class = 'border-b border-gray-200'>
-              <td class="p-3 ">{{$workshop1->name}}</td>
+              <td class="p-3 ">{{ \Illuminate\Support\Str::limit($workshop1->name, 50, $end='...') }}</td>
               <td class="text-blue-600">{{\Carbon\Carbon::parse($workshop1->deleted_at)->format('d F Y h:m') }}</td>
               <td class="text-blue-600">{{$workshop1->author}}</td>
               <td class = "flex items-center " >
