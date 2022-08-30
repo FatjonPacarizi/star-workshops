@@ -27,7 +27,7 @@ class UserManageController extends Controller
         ->where('positions_users.user_id',$id)
         ->select("positions.position as position")
         ->get();
-        
+     
         return view('editUser',['user'=>User::find($id),'positions'=>Positions::all(),'userPosition'=>$userPosition[0]]);
     }
 
@@ -46,6 +46,9 @@ class UserManageController extends Controller
               'email' => request('email'),
               'user_status' => request('user_status'),
               'description' => request('description'),
+              'facebook' => ('facebook'),
+              'instagram' => ('instagram'),
+              'github' => ('github'),
           ]);
 
          positions_users::where('user_id',$user->id)->update([

@@ -13,6 +13,7 @@ class NewsPage extends Model
         'title',
         'author',
         'description',
+        'time',
         'image',
     ];
 }

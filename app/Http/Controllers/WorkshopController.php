@@ -65,7 +65,7 @@ class WorkshopController extends Controller
             $join->on("positions_users.position_id", "=", "positions.id");
         })
         ->where('positions.position','staff')
-        ->select("users.name as name","users.description as description", "users.profile_photo_path as profile_photo_path")
+        ->select("users.name as name","users.description as description", "users.facebook as facebook","users.instagram as instagram","users.github as github","users.profile_photo_path as profile_photo_path")
         ->get();
 
         return view('workshopMembers',['staffMembers' => $staffMembers]);

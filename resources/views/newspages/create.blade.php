@@ -57,6 +57,10 @@
                     menubar: 'file edit view insert format tools table help'
                 });
             </script>
+            <div class="mb-6  flex items-center">
+                <label class="w-28 text-sm mx-5">Date</label>
+                <input type="datetime-local" name="time" />
+            </div>
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Image</label>
                 <div class="w-full mx-5">
