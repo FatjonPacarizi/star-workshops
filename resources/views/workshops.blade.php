@@ -36,7 +36,7 @@
       </div>
       @endforeach
     </div>
-    <div class="flex justfy-center p-3" {{ $upcomings->links() }} </div>
+    <div class="justfy-center pt-6 flex flex-col items-center mb-10"> {{ $upcomings->links() }} </div>
     </div>
 
 </section>
@@ -65,7 +65,7 @@
       </div>
       @endforeach
     </div>
-    <div class="flex justfy-center p-3" {{ $pasts->links() }} </div>
+    <div class="justfy-center pt-6 flex flex-col items-center mb-10"> {{ $pasts->links() }} </div>
     </div>
 
 </section>
