@@ -65,11 +65,11 @@ class NewsPageController extends Controller
         if(request()->hasFile('image')) {
          
             $validated['image'] = request()->file('image')->store('newsImgs','public');
-            //e ruajm old workshopimg para se me update
+            //e ruajm old news image para se me update
              $oldNewsImg = $newspage->image;
         }
         
-        //update workshop
+        //update news
         $newspage->update($validated);
         
         // delete old img only when db update is succesful
