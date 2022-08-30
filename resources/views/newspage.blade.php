@@ -36,7 +36,7 @@
     </div>
    
   </div>
-  <div class="flex justfy-center p-3 "
+  <div class="justfy-center pt-6 flex flex-col items-center mb-10">
                             {{ $newspages->links() }}
                   </div>
 </section>
