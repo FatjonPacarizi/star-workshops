@@ -17,25 +17,26 @@
       @method('PUT')
       <div class="mb-6 flex items-center">
         <label class="w-28 text-sm mx-5">Name</label>
-        <input type="text" class="border border-gray-200 rounded p-1 w-full mx-5" placeholder="Name" name="name" value="{{$workshop->name}}" />
-
-        @error('name')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-        @enderror
+        <div class = "w-full mx-5">
+          <input type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Name" name="name" value="{{$workshop->name}}" />
+          @error('name')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+        </div>
       </div>
       <div class="mb-6 flex items-center">
         <label class="w-28 text-sm mx-5">Participants Limit</label>
-
-        <input type="text" class="border border-gray-200 rounded p-1 w-full mx-5" placeholder="Limit participants" name="limited_participants" value="{{$workshop->limited_participants}}" />
-
-        @error('name')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-        @enderror
+        <div class = "w-full mx-5">
+          <input type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Limit participants" name="limited_participants" value="{{$workshop->limited_participants}}" />
+          @error('limited_participants')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+        </div>
       </div>
 
       <div class="mb-6 flex items-center">
         <label class="w-28 text-sm mx-5" for="">Description</label>
-        <textarea type="text" name="description" value="" class="border border-gray-200 rounded p-1 w-full mx-5">
+        <textarea type="text" name="description" value="" class="border border-gray-200 rounded p-1 w-full ">
         {{$workshop->description}}</textarea>
       </div>
       <script>
@@ -57,78 +58,74 @@
 
       <div class="mb-6  flex items-center">
         <label class="w-28 text-sm mx-5 ">Country</label>
-
-        <select class="w-full mx-5 rounded border border-gray-200 p-1" name='country_id'>
-
-          @foreach($countries as $country)
-          <option @if($workshop->country_id == $country->id) selected @endif value = '{{$country->id}}'>{{$country->name}}</option>
-          @endforeach
-
-        </select>
-
-        @error('user_status')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-        @enderror
+        <div class = "w-full mx-5">
+          <select class="w-full rounded border border-gray-200 p-1" name='country_id'>
+            @foreach($countries as $country)
+            <option @if($workshop->country_id == $country->id) selected @endif value = '{{$country->id}}'>{{$country->name}}</option>
+            @endforeach
+          </select>
+          @error('country_id')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+        </div>
       </div>
 
 
       <div class="mb-6  flex items-center">
         <label class="w-28 text-sm mx-5 ">City</label>
-
-        <select class="w-full mx-5 rounded border border-gray-200 p-1" name='city_id'>
-
-          @foreach($cities as $city)
-          <option @if($workshop->city_id == $city->id) selected @endif value = '{{$city->id}}'>{{$city->name}}</option>
-          @endforeach
-
-        </select>
-
-        @error('user_status')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-        @enderror
+        <div class = "w-full mx-5">
+          <select class="w-full rounded border border-gray-200 p-1" name='city_id'>
+            @foreach($cities as $city)
+            <option @if($workshop->city_id == $city->id) selected @endif value = '{{$city->id}}'>{{$city->name}}</option>
+            @endforeach
+          </select>
+          @error('city_id')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+        </div>
       </div>
 
 
       <div class="mb-6  flex items-center">
         <label class="w-28 text-sm mx-5 ">Type</label>
-
-        <select class="w-full mx-5 rounded border border-gray-200 p-1" name='type_id'>
-
-          @foreach($types as $type)
-          <option @if($workshop->type_id == $type->id) selected @endif value = '{{$type->id}}'>{{$type->name}}</option>
-          @endforeach
-
-        </select>
-
-        @error('user_status')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-        @enderror
+        <div class = "w-full mx-5">
+          <select class="w-full  rounded border border-gray-200 p-1" name='type_id'>
+            @foreach($types as $type)
+            <option @if($workshop->type_id == $type->id) selected @endif value = '{{$type->id}}'>{{$type->name}}</option>
+            @endforeach
+          </select>
+          @error('type_id')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+          </div>
       </div>
 
 
 
       <div class="mb-6  flex items-center">
         <label class="w-28 text-sm mx-5 ">Categories</label>
-
-        <select class="w-full mx-5 rounded border border-gray-200 p-1" name='category_id'>
-
-          @foreach($categories as $category)
-          <option @if($workshop->category_id == $category->id) selected @endif value = '{{$category->id}}'>{{$category->name}}</option>
-          @endforeach
-
-        </select>
-
-        @error('user_status')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-        @enderror
+        <div class = "w-full mx-5">
+          <select class="w-full rounded border border-gray-200 p-1" name='category_id'>
+            @foreach($categories as $category)
+            <option @if($workshop->category_id == $category->id) selected @endif value = '{{$category->id}}'>{{$category->name}}</option>
+            @endforeach
+          </select>
+          @error('category_id')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+        </div>
       </div>
 
 
 
       <div class="mb-6  flex items-center">
         <label class="w-28 text-sm mx-5">Time</label>
-        <input type="datetime-local" name="time" value="{{$workshop->time}}" />
-
+        <div class = "w-full mx-5">
+          <input type="datetime-local" name="time" value="{{$workshop->time}}" />
+          @error('time')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+      </div>
       </div>
 
       <div class="mb-6  flex items-center">
@@ -142,10 +139,7 @@
 
       <div class="w-full p-2 flex justify-end border-t border-gray-200">
         <a href="/workshopManage" class="p-3 text-gray-400 mx-10"> Cancel </a>
-        <a href="/workshopManage" class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600">Update Workshop</a>
-
-
-
+        <button class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600" type = "submit">Update Workshop</button>
       </div>
     </form>
   </div>

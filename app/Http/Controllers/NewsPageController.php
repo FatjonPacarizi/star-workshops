@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\NewsPage;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreNewsPageRequest;
 use App\Http\Requests\UpdateNewsPageRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 use Carbon\Carbon;
 
 class NewsPageController extends Controller
@@ -34,20 +33,14 @@ class NewsPageController extends Controller
 
     public function store(StoreNewsPageRequest $request)
     {
-        $newspage = new Newspage();
-        $newspage->title = $request->input('title');
-        $newspage->author = $request->input('author');
-        $newspage->description = $request->input('description');
-        $newspage->time = $request->input('time');
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $extention = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extention;
-            $file->move('uploads/newspages/', $filename);
-            $newspage->image = $filename;
+        $validated = $request->validated();
+      
+        if(request()->hasFile('image')) {
+            $validated['image'] = request()->file('image')->store('newsImgs','public');
         }
+        
+        newspage::create($validated);
 
-        $newspage->save();
         return redirect('/newspages')->with('status', 'News added successfully');
     }
 
@@ -65,25 +58,24 @@ class NewsPageController extends Controller
 
     public function update(UpdateNewsPageRequest $request, $id)
     {
+        $validated = $request->validated();
+      
         $newspage = Newspage::find($id);
-        $newspage->title = $request->input('title');
-        $newspage->author = $request->input('author');
-        $newspage->description = $request->input('description');
-        $newspage->time = $request->input('time');
-        if ($request->hasFile('image')) {
-
-            $destination = 'uploads/newspages/' . $newspage->image;
-            if (File::exists($destination)) {
-                File::delete($destination);
-            }
-            $file = $request->file('image');
-            $extention = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extention;
-            $file->move('uploads/newspages/', $filename);
-            $newspage->image = $filename;
+        if(request()->hasFile('image')) {
+         
+            $validated['image'] = request()->file('image')->store('newsImgs','public');
+            //e ruajm old workshopimg para se me update
+             $oldNewsImg = $newspage->image;
         }
-
-        $newspage->update();
+        
+        //update workshop
+        $newspage->update($validated);
+        
+        // delete old img only when db update is succesful
+        if(request()->hasFile('image')) {
+        //delete old img
+        Storage::delete('/public/' .$oldNewsImg);
+        }
         return redirect('/newspages')->with('status', 'News updated successfully');
     }
 

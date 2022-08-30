@@ -15,7 +15,7 @@ class About extends Model
         'title',
         'heading',
         'paragraph',
-        'image',
         'button',
+        'image',
     ];
 }
