@@ -3,21 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Models\Landing;
+use Carbon\Carbon;
 use App\Models\Workshop;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UpdateLandingRequest;
+use App\Models\NewsPage;
 
 class LandingController extends Controller
 {
     public function index(){
-        $latest_workshops = Workshop::limit(5)
-        ->Join("users", function($join){
+
+        $currentTime = Carbon::now('Europe/Tirane');
+
+        $newspage = NewsPage::limit(3)->orderBy('id', 'DESC')->get();
+
+        $upcomings = Workshop::limit(6)->Join("users", function($join){
             $join->on("workshops.author", "=", "users.id");
         })
-        ->select("users.name as author","workshops.name as name","workshops.id as id", "workshops.time as time")        
+        ->where('workshops.time','>=',$currentTime)
+        ->select("users.name as author",'workshops.id',"workshops.name as name", "workshops.img_workshop as img_workshop","workshops.time as time")   
         ->orderBy('workshops.id','desc')->get();
 
-        return view('landing', ['latest_workshops' => $latest_workshops]);
+        return view('landing', ['upcomings' => $upcomings, 'newspage' => $newspage]);
     }
 
     public function landing()
