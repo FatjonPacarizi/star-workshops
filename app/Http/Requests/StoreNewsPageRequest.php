@@ -24,7 +24,9 @@ class StoreNewsPageRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required',
+            'author' => 'required',
+            'description' => 'required'
         ];
     }
 }

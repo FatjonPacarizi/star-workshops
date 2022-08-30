@@ -21,17 +21,36 @@
 
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">News Title</label>
-                <input type="text" name="title" value="{{$newspage->title}}" class="border border-gray-200 rounded p-1 w-full mx-5">
+                <div class="w-full mx-5">
+                    <input type="text" name="title" value="{{$newspage->title}}" class="border border-gray-200 rounded p-1 w-full "/>
+                    @error('title')
+                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    @enderror
+                </div>
             </div>
 
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Author</label>
+<<<<<<< HEAD
+                <div class="w-full mx-5">
+                    <input type="text" name="author" value="{{$newspage->author}}" class="border border-gray-200 rounded p-1 w-full ">                
+                    @error('author')
+                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    @enderror
+                </div>
+=======
                 <input type="text" name="author" value="{{$newspage->author}}" class="border border-gray-200 rounded p-1 w-full mx-5">
+>>>>>>> 54eb3f6626ba716c5bfce27195dbaaab6bf6ef60
             </div>
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Description</label>
-                <textarea type="text" name="description" value="" class="border border-gray-200 rounded p-1 w-full mx-5">
-                {{$newspage->description}}</textarea>
+                <div class="w-full mx-5">
+                    <textarea type="text" name="description" value="" class="border border-gray-200 rounded p-1 w-full mx-5">
+                    {{$newspage->description}}</textarea>
+                    @error('description')
+                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    @enderror
+                </div>
             </div>
             <script>
                 tinymce.init({
@@ -55,9 +74,13 @@
             </div>
             <div class="mb-6  flex items-center">
                 <label class="w-28 text-sm mx-5">Image</label>
-                <input type="file" name="image" />
-
-                <img class="object-cover rounded" alt="Image" src="{{$newspage->image ? asset('uploads/newspages/'.$newspage->image) : asset('/img/team1.png')}}" width="100">
+                <div class="w-full mx-5">
+                    <input type="file" name="image" />
+                    @error('image')
+                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    @enderror
+                 </div>
+                <img class="object-cover rounded" alt="Image" src="{{$newspage->image ? asset('/storage/' . $newspage->image) : asset('/img/defaultNewsImg.jpg')}}" width="100">
 
             </div>
 

@@ -21,29 +21,19 @@ class InformationController extends Controller
     }
 
    // Update informations
-   public function update($id) {
-    $formFields = request()->validate([
-        'app_name' => 'required',
-        'facebook' => 'required',
-        'instagram' => 'required',
-        'twitter' => 'required',
-        'linkedin' => 'required',
-    ]);
-
+   public function update(UpdateInformationRequest $request, $id) {
+    $validated = $request->validated();
 
     $appInfo =  Informations::find($id);
 
-
     if(request()->hasFile('logo_name')) {
-        $formFields['logo_name'] = request()->file('logo_name')->store('logos','public');
-
+        $validated['logo_name'] = request()->file('logo_name')->store('logos','public');
          //e ruajm old img para se me update
          $oldImg = $appInfo->logo_name;
     }
 
-
    //update appinfo
-    Informations::find($id)->update($formFields);
+    Informations::find($id)->update($validated);
 
     
     // delete old img only when db update is succesful
