@@ -12,7 +12,6 @@
 
         <img  src="{{$about->image ? asset('/storage/' . $about->image) : asset('img/defultaboutimage.png') }}" alt="">
     </div>
-
     <div class="w-full flex px-5 py-24 justify-center flex-wrap items-center">
         <div class="w-full  lg:w-2/5 lg:mr-20 md:p-2 flex flex-col  md:text-left items-center ">
             <div class="md:container md:mx-auto px-5 xl:px-0">
