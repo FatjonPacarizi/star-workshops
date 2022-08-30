@@ -12,7 +12,7 @@
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-wrap -m-4">
-      @foreach($newspage as $newspage)
+      @foreach($newspages as $newspage)
       <div class="p-4 md:w-1/3">
         <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
           <img class="lg:h-48 md:h-36 w-full object-cover object-center" alt="" src="{{$newspage->image_news ? asset('uploads/newspages/'.$newspage->image) : asset('/img/Workshops.jpg')}}">
@@ -31,9 +31,14 @@
           </div>
         </div>
       </div>
+      
       @endforeach
     </div>
+   
   </div>
+  <div class="flex justfy-center p-3 "
+                            {{ $newspages->links() }}
+                  </div>
 </section>
 
 @endsection

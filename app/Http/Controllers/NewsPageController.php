@@ -16,8 +16,9 @@ class NewsPageController extends Controller
     public function index()
     {
         $date = Carbon::now();
-        $newspage = Newspage::orderBy('id', 'DESC')->get();
-        return view('newspage', compact('newspage'));
+    
+        $newspages= Newspage::paginate(5);
+        return view('newspage',['newspages' =>$newspages]);
     }
 
     public function newspage()

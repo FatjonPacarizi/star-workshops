@@ -34,7 +34,7 @@ class WorkshopController extends Controller
         })
         ->where('workshops.time','>=',$currentTime)
         ->select("users.name as author",'workshops.id',"workshops.name as name", "workshops.img_workshop as img_workshop","workshops.time as time")
-        ->get();
+        ->paginate(6,['*'], 'upcomingWorkshopsPage');
 
         
         $pasts = Workshop::Join("users", function($join){
@@ -42,7 +42,8 @@ class WorkshopController extends Controller
         })
         ->where('workshops.time','<',$currentTime)
         ->select("users.name as author",'workshops.id',"workshops.name as name", "workshops.img_workshop as img_workshop","workshops.time as time")
-        ->get();
+        ->paginate(6,['*'], 'pastsWorkshopsPage');
+
 
 
        
@@ -66,7 +67,7 @@ class WorkshopController extends Controller
         })
         ->where('positions.position','staff')
         ->select("users.name as name","users.description as description", "users.facebook as facebook","users.instagram as instagram","users.github as github","users.profile_photo_path as profile_photo_path")
-        ->get();
+        ->paginate(6,['*'], 'positions_users');
 
         return view('workshopMembers',['staffMembers' => $staffMembers]);
 

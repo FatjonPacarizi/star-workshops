@@ -36,8 +36,13 @@
         </div>
       @endforeach
     </div>
+    <div class="flex justfy-center p-3"
+                            {{ $upcomings->links() }}
+                  </div>  
   </div>
+
 </section>
+
 <section class="w-full pt-6 flex flex-col items-center mb-10 bg-white">
     <h1 class = "w-full pt-20 pb-10 text-center text-4xl roundedTop -mt-40 bg-white">Past Events</h1>
     <div class="div">
@@ -62,6 +67,10 @@
       </div>
         @endforeach
     </div>
+    <div class="flex justfy-center p-3"
+                            {{ $pasts->links() }}
+                  </div>
   </div>
+ 
 </section>
 @endsection
