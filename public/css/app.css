@@ -1580,8 +1580,11 @@ select {
 .w-80 {
   width: 20rem;
 }
-.w-2\/5 {
-  width: 40%;
+.w-1\/3 {
+  width: 33.333333%;
+}
+.w-24 {
+  width: 6rem;
 }
 .w-72 {
   width: 18rem;
@@ -1783,6 +1786,10 @@ select {
 .rounded-b-none {
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
+}
+.rounded-l-lg {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 .rounded-t {
   border-top-left-radius: 0.25rem;
