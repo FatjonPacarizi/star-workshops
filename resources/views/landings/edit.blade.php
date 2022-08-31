@@ -5,7 +5,7 @@
 
 <div class="w-full h-full p-6 flex flex-col  items-center">
 
-  <div class="w-full bg-white border border-gray-200 rounded mt-12">
+  <div class="w-full bg-white rounded ">
     <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
       <h1 class="p-3 text-slate-900">App landing</h1>
       <a href="/dashboard" class="p-3 text-gray-400"> Cancel</a>

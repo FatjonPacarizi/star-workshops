@@ -21,10 +21,10 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
 
     </head>
-    <body class="font-sans h-full antialiased">
+    <body class="font-sans h-full antialiased ">
         <x-jet-banner />
 
-        <div class="h-full bg-gray-100">
+        <div class="h-full bg-[#3c4b64] ">
             @livewire('navigation-menu')
             <!-- Page Content -->
 
@@ -133,7 +133,7 @@
                         @endcan
                     </div>
                 </aside>
-                <div class="w-full  flex justify-center items-start overflow-y-scroll mb-16">
+                <div class="w-full  flex justify-center items-start overflow-y-scroll mb-16 bg-gray-200 rounded-l-lg ">
                     @yield('content')
            
                 </div>
