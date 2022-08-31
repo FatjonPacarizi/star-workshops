@@ -69,7 +69,6 @@
         </div>
       </div>
 
-
       <div class="mb-6  flex items-center">
         <label class="w-28 text-sm mx-5 ">City</label>
         <div class = "w-full mx-5">
