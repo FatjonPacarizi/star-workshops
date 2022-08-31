@@ -4,9 +4,9 @@
 <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
 
 
-<div class="p-6 flex flex-col w-full mt-12 items-center">
+<div class="p-6 flex flex-col w-full  items-center">
 
-    <div class="w-full bg-white border border-gray-200 rounded">
+    <div class="w-full bg-white  rounded">
         <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
             <h1 class="p-3 text-slate-900">App News</h1>
             <a href="http://127.0.0.1:8000/newspages" class="p-3 text-gray-400"> Cancel</a>
