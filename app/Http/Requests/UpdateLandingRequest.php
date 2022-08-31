@@ -24,7 +24,6 @@ class UpdateLandingRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required',
             'heading'=>'required',
             'paragraf'=>'required',
             'button'=>'required'
