@@ -67,19 +67,34 @@
   </div>
 </section>
 
-<section class="text-white body-font bg-red-600">
-  <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-    <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">Knowledge Centre
-      </h1>
-      <p class="mb-8 leading-relaxed">The Knowledge Centre gives Star Workshops Members access to a constantly expanding archive of information on nuclear security, both from Star Workshops and from external sources.</p>
-      <div class="flex justify-center">
-        <button class="ml-4 mb-2 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg ">Find out more</button>
+<section class="text-white bg-red-600 body-font">
+  <div class="container px-5 py-10 mx-auto">
+    <div class="flex flex-col text-center w-full mb-4 mt-4">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white font-bold">Latest News</h1>
+    </div>
+    <div class="flex flex-wrap -m-4">
+      @foreach($newspage as $newspage)
+      <div class="p-4 md:w-1/3">
+        <div class="h-full border-2 bg-white border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+          <img class="lg:h-48 md:h-36 w-full object-cover object-center" alt="" src="{{$newspage->image ? asset('/storage/' . $newspage->image) : asset('/img/defaultNewsImg.jpg')}}">
+          <div class="p-6 ">
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{ $newspage->title }}</h1>
+            <p class="leading-relaxed text-gray-700 mb-3">{!! Illuminate\Support\Str::limit($newspage->description, 50, $end='...') !!}</p>
+            <h2 class="tracking-widest text-3xs title-font font-medium text-gray-500 mb-1">{{ $newspage->time }} - {{ $newspage->author }}</h2>
+            <div class="flex items-center flex-wrap ">
+              <a class="text-red-600 inline-flex items-center md:mb-2 lg:mb-0" href="{{route('single-news',$newspage->id)}}">Read More
+                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
+      @endforeach
     </div>
-    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-      <img class="object-cover object-center rounded" alt="Knowledge Centre" src="{{ asset('img/book.png') }}">
-    </div>
+    <button class="flex mx-auto mt-16 text-red-600 bg-white border-0 py-2 px-8 focus:outline-none rounded-full text-lg "><a href="http://127.0.0.1:8000/newspage">View all news</a></button>
   </div>
 </section>
 
@@ -154,7 +169,7 @@
       <p>Star workshops, training courses, roundtables and webinars are innovative, thought-provoking and collaborative. We invite you to join us at an upcoming event.</p>
      </div>
     <div class=" flex flex-wrap ">
-      @foreach($latest_workshops as $workshop)
+      @foreach($upcomings as $workshop)
         <div class="card  relative rounded shadow-lg  bg-white cursor-pointer ">
           <a  href = "{{route('single-workshop',$workshop->id)}}">
             <div class="opacity"></div>

@@ -49,13 +49,13 @@
       </div>
 
 
-             <div class="w-full"  x-show="tab === 0">
+             <div class="w-full px-5"  x-show="tab === 0">
 
             
 
-            <table class="w-full mx-auto  font-thin">
+            <table class="w-full mx-auto  ">
               <tr class="border-y border-gray-200 ">
-                <td class="font-bold p-3">Workshop Name</td>
+                <td class="font-bold p-3 w-2/5">Workshop Name</td>
                 <td class="font-bold text-sm">Limited Participants</td>
                 <td class="font-bold">Workshop time</td>
                 <td class="font-bold w-72 ">Actions</td>
@@ -64,7 +64,7 @@
             @unless(count($upcomingWorkshops) == 0)
             @foreach($upcomingWorkshops as $upcomingWorkshop)
             <tr class = 'border-b border-gray-200'>
-              <td class="p-3 ">{{$upcomingWorkshop->name}}</td>
+              <td class="p-3 ">{{ \Illuminate\Support\Str::limit($upcomingWorkshop->name, 60, $end='...') }}</td>
               @php 
                  $limited_participants = true;
                  if (!$upcomingWorkshop->limited_participants)   $limited_participants = false;
@@ -82,7 +82,7 @@
                   @csrf
                   @method('DELETE')
                   <input type = "hidden" name = "tab" value = "0"/>
-                  <button class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">
+                  <button @if(count($upcomingWorkshops)==1)  onClick = "changeURL('?upcomingWorkshopsPage=1')"  @endif class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">
                     <i class="fa-solid fa-trash-can  fa-md"></i>
                     Delete
                   </button>
@@ -111,10 +111,10 @@
 
   </div>
 
-  <div class="w-full"  x-show="tab === 1">
-    <table class="w-full mx-auto  font-thin">
+  <div class="w-full px-5"  x-show="tab === 1">
+    <table class="w-full mx-auto ">
       <tr class="border-y border-gray-200 ">
-        <td class="font-bold p-3 ">Workshop Name pasts</td>
+        <td class="font-bold p-3 w-2/5">Workshop Name pasts</td>
         <td class="font-bold text-sm">Limited Participants</td>
         <td class="font-bold">Workshop time</td>
         <td class="font-bold w-72 ">Actions</td>
@@ -124,7 +124,7 @@
     @unless(count($pastsWorkshops) == 0)
     @foreach($pastsWorkshops as $pastWorkshop)
     <tr class = 'border-b border-gray-200'>
-      <td class="p-3 ">{{$pastWorkshop->name}}</td>
+      <td class="p-3 ">{{ \Illuminate\Support\Str::limit($pastWorkshop->name, 50, $end='...') }}</td>
       @php 
       $limited_participants = true;
       if (!$pastWorkshop->limited_participants)   $limited_participants = false;
@@ -140,8 +140,8 @@
         <form method="POST" action="/workshopManage/{{$pastWorkshop->id}}">
           @csrf
           @method('DELETE')
-          <button class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">
-            <input type = "hidden" name = "tab" value = "1"/>
+          <input type = "hidden" name = "tab" value = "1"/>
+          <button @if(count($pastsWorkshops)==1)  onClick = "changeURL('?pastsWorkshopsPage=1')"  @endif class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">
             <i class="fa-solid fa-trash-can  fa-md"></i>
             Delete
           </button>
@@ -182,7 +182,7 @@
              <div class="w-full flex justify-center">
             <table class="w-full mx-4  font-thin">
               <tr class="border-y border-gray-200 ">
-                <td class="font-bold p-3 ">Workshop Name</td>
+                <td class="font-bold p-3 w-1/2">Workshop Name</td>
                 <td class="font-bold">Workshop deleted</td>
                 <td class="font-bold">Author</td>
                 <td class="font-bold w-72 ">Actions</td>
@@ -190,7 +190,7 @@
             
             @foreach($workshops1 as $workshop1)
             <tr class = 'border-b border-gray-200'>
-              <td class="p-3 ">{{$workshop1->name}}</td>
+              <td class="p-3 ">{{ \Illuminate\Support\Str::limit($workshop1->name, 50, $end='...') }}</td>
               <td class="text-blue-600">{{\Carbon\Carbon::parse($workshop1->deleted_at)->format('d F Y h:m') }}</td>
               <td class="text-blue-600">{{$workshop1->author}}</td>
               <td class = "flex items-center " >
