@@ -42,13 +42,13 @@
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) {
     .card{
-        width:365px;
-        height:325px;
-        margin:14px;
+        width:355px;
+        height:315px;
+        margin:15px;
         margin-bottom:2%;
     }
     .div{
-        width:800px;
+        width:785px;
     }
 }
 

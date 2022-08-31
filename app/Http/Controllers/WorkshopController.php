@@ -285,7 +285,7 @@ class WorkshopController extends Controller
     public function destroy(Workshop $workshop)
     {
         $workshop->delete();
-
+        
         return back()->with("tab",request('tab'));
     }
 

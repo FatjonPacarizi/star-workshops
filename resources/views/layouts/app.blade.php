@@ -10,7 +10,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+      
         <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- Styles -->
@@ -101,15 +101,12 @@
                                 <span class="grow">Manage Workshops</span>
 
                                 @php
+                                 $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
                                      if(request()->user()->user_status == 'superadmin')
-                                            $pending = App\Models\workshops_users::where('workshops_users.application_status','pending')->get();
+                                            $pending = App\Models\workshop::where('workshops.time','>',$date->format("Y-m-d h:i:sa"))->get();
                                      else{
-                                        $pending = App\Models\workshops_users::Join("workshops", function($join){
-                                            $join->on("workshops_users.workshop_id", "=", "workshops.id");
-                                            })
-                                        ->where(['workshops.author'=> Auth::id(), 'workshops_users.application_status'=>'pending'])
-                                        ->select('workshops_users.id as id')
-                                        ->get();
+                                       
+                                        $pending = App\Models\workshop::where(['workshops.author'=> Auth::id()])->where('workshops.time','>',$date->format("Y-m-d h:i:sa"))->get();
                                     }
                                     @endphp
                                     @if(count($pending)>0) 
@@ -136,7 +133,7 @@
                         @endcan
                     </div>
                 </aside>
-                <div class="w-full  flex justify-center items-start overflow-y-scroll mb-10 pb-20">
+                <div class="w-full  flex justify-center items-start overflow-y-scroll mb-16">
                     @yield('content')
            
                 </div>

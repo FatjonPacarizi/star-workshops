@@ -61,8 +61,9 @@
         </tr>
         @endforeach
 </table>
-
-</div> <div class="flex justfy-center p-3"
+</div> 
+@if(count($faq) == 0) <p class = "w-full text-center mt-5">No faq found</p> @endif
+<div class="flex justfy-center p-3"
 {{ $faq->links() }}</div>
     </div>
    
