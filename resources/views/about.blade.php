@@ -26,7 +26,7 @@
         </div>
 
         <div class=" w-full mt-10 lg:w-2/5 md:mt-0  md:p-2 flex flex-col md:items-start ">
-            <div class=" w-full pl-5 ">
+            <div class=" w-full ">
                 <div class="bg-[#F2F2F2] ">
                     <div class="">
                         <p class="text-3xl font-semibold text-red-700 p-6 px-6 pt-3">Send a message</p>

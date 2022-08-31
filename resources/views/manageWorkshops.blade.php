@@ -53,7 +53,7 @@
 
             
 
-            <table class="w-full mx-auto  font-thin">
+            <table class="w-full mx-auto  ">
               <tr class="border-y border-gray-200 ">
                 <td class="font-bold p-3 w-2/5">Workshop Name</td>
                 <td class="font-bold text-sm">Limited Participants</td>
@@ -82,7 +82,7 @@
                   @csrf
                   @method('DELETE')
                   <input type = "hidden" name = "tab" value = "0"/>
-                  <button class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">
+                  <button @if(count($upcomingWorkshops)==1)  onClick = "changeURL('?upcomingWorkshopsPage=1')"  @endif class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">
                     <i class="fa-solid fa-trash-can  fa-md"></i>
                     Delete
                   </button>
@@ -112,7 +112,7 @@
   </div>
 
   <div class="w-full px-5"  x-show="tab === 1">
-    <table class="w-full mx-auto  font-thin">
+    <table class="w-full mx-auto ">
       <tr class="border-y border-gray-200 ">
         <td class="font-bold p-3 w-2/5">Workshop Name pasts</td>
         <td class="font-bold text-sm">Limited Participants</td>
@@ -140,8 +140,8 @@
         <form method="POST" action="/workshopManage/{{$pastWorkshop->id}}">
           @csrf
           @method('DELETE')
-          <button class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">
-            <input type = "hidden" name = "tab" value = "1"/>
+          <input type = "hidden" name = "tab" value = "1"/>
+          <button @if(count($pastsWorkshops)==1)  onClick = "changeURL('?pastsWorkshopsPage=1')"  @endif class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">
             <i class="fa-solid fa-trash-can  fa-md"></i>
             Delete
           </button>

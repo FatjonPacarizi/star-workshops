@@ -1,14 +1,12 @@
 @extends('layouts.landinglayouts')
 
 @section('content')
-<section class="text-white body-font bg-red-700 clippath ">
-    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col  ">
+<section class="text-white body-font bg-red-700 ">
+    <div class="mx-auto flex px-5 py-24 md:flex-row flex-col  items-center">
         <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left ">
-            <div class="flex ">
-                <a href="{{route('workshops')}}" class="inline-flex border-0 text-black rounded text-sm hover:text-white">
+            <a href="{{route('workshops')}}" class="inline-flex border-0 text-black  text-sm hover:text-white">
                     < BACK TO EVENTS</a>
-            </div>
-            <h1 class="title-font sm:text-4xl mb-4 font-medium text-white text-5xl ">
+            <h1 class="title-font sm:text-4xl my-4 font-medium text-white text-5xl ">
                 {{$workshop->name}}
             </h1>
             <p class="mb-8 leading-relaxed"> {{$workshop->time}} </p>
@@ -59,7 +57,7 @@
 
 <section class=" body-font bg-white">
     <div class="container mx-auto px-5 py-24  ">
-        <div class="lg:flex-grow lg:pl-24 md:pl-16 md:items-start md:text-left ">
+        <div class="lg:flex-grow lg:px-24 md:px-4 md:items-start md:text-left ">
             {!! $workshop->description !!}
         </div>
     </div>

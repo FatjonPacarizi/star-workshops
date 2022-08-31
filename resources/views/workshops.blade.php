@@ -10,7 +10,7 @@
 </section>
 <section class="w-full pb-20 mb-8 flex justify-center  bg-gray-200  ">
   <div class="div">
-    <div class="mx-2 ">
+    <div class="mx-2 mt-4 md:mt-0">
       <h1 class="mb-2 font-bold text-gray-500">EVENTS</h1>
       <h1 class="text-3xl mb-10 text-[#00517E]">Upcoming Events</h1>
     </div>
