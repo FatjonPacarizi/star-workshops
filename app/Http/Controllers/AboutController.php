@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use Illuminate\Http\Request;
+use App\Models\Faq;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreAboutRequest;
 use App\Http\Requests\UpdateAboutRequest;
@@ -11,7 +12,7 @@ use App\Http\Requests\UpdateAboutRequest;
 class aboutController extends Controller
 {
     public function index () {
-        return view('about', ['about' =>About::all()->last()]);
+        return view('about', ['about' =>About::all()->last(), 'faq' => Faq::all()->sortDesc()->take(10)->where('status', '==', 'Active')]);
     }
 
     public function abouts()
