@@ -116,7 +116,7 @@
                 </p>
             </div>
             <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-            @foreach($faq->chunk(5) as $chunk)
+            @foreach($faq->chunk(4) as $chunk)
                 <div class="w-full lg:w-1/2 px-4 py-2 " > 
             @foreach($chunk as $f)
                     <details class="mb-4 text-gray-700">
