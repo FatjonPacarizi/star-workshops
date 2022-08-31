@@ -103,10 +103,6 @@
         </div>
     </div>
 </section>
-@php
-$faq = App\Models\Faq::all()->take(10)->where('status', '==', 'Active');
-
-@endphp
 <div>
     <section class="text-gray-700">
         <div class="container px-5 py-24 mx-auto">
@@ -120,8 +116,9 @@ $faq = App\Models\Faq::all()->take(10)->where('status', '==', 'Active');
                 </p>
             </div>
             <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-                @foreach($faq as $f)
-                <div class="w-full lg:w-1/2 px-4 py-2">
+            @foreach($faq->chunk(5) as $chunk)
+                <div class="w-full lg:w-1/2 px-4 py-2 " > 
+            @foreach($chunk as $f)
                     <details class="mb-4 text-gray-700">
                         <summary class="font-semibold cursor-pointer bg-gray-200 rounded-md py-2 px-4">
                             {{$f->question}}
@@ -129,11 +126,8 @@ $faq = App\Models\Faq::all()->take(10)->where('status', '==', 'Active');
                         <p class="bg-gray-100 rounded-md py-2 px-4">
                             {{$f->answer}}
                         </p>
-
-                    </details>
-                </div>
-                @endforeach
-
+                    </details>@endforeach    
+                </div> @endforeach
             </div>
         </div>
     </section>
