@@ -16,7 +16,7 @@ class NewsPageController extends Controller
     {
         $date = Carbon::now();
     
-        $newspages= Newspage::orderBy('id', 'DESC')->paginate(5);
+        $newspages= Newspage::orderBy('id', 'DESC')->paginate(6);
         return view('newspage',['newspages' =>$newspages]);
     }
 
