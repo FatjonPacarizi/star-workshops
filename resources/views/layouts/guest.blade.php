@@ -4,7 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>Star Workshop</title>
+        @php
+        $information = App\Models\Informations::all()->last();
+    @endphp
+        <title>{{$information->app_name}}</title>
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->

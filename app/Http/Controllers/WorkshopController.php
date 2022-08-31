@@ -34,6 +34,7 @@ class WorkshopController extends Controller
         })
         ->where('workshops.time','>=',$currentTime)
         ->select("users.name as author",'workshops.id',"workshops.name as name", "workshops.img_workshop as img_workshop","workshops.time as time")
+        ->orderBy('id', 'DESC')
         ->paginate(6,['*'], 'upcomingWorkshopsPage');
 
         
@@ -41,6 +42,7 @@ class WorkshopController extends Controller
             $join->on("workshops.author", "=", "users.id");
         })
         ->where('workshops.time','<',$currentTime)
+        ->orderBy('id', 'DESC')
         ->select("users.name as author",'workshops.id',"workshops.name as name", "workshops.img_workshop as img_workshop","workshops.time as time")
         ->paginate(6,['*'], 'pastsWorkshopsPage');
 
@@ -163,11 +165,12 @@ class WorkshopController extends Controller
                 $join->on("workshops.id", "=", "workshops_users.workshop_id")
                 ->where("workshops_users.application_status", "=", 'pending');
             })
-            ->select("workshops.id", "workshops.name", "workshops.limited_participants", "workshops.time")
+            ->select("workshops.id", "workshops.name","workshops.img_workshop", "workshops.limited_participants", "workshops.time")
             ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
             ->whereNull("workshops.deleted_at")
+            ->orderBy('id', 'DESC')
             ->where('workshops.time','>', $currentTime)
-            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
+            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop")
             ->paginate(8,['*'], 'upcomingWorkshopsPage');
 
 
@@ -175,11 +178,12 @@ class WorkshopController extends Controller
                 $join->on("workshops.id", "=", "workshops_users.workshop_id")
                 ->where("workshops_users.application_status", "=", 'pending');
             })
-            ->select("workshops.id", "workshops.name", "workshops.limited_participants", "workshops.time")
+            ->select("workshops.id", "workshops.name","workshops.img_workshop", "workshops.limited_participants", "workshops.time")
             ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
             ->whereNull("workshops.deleted_at")
+            ->orderBy('id', 'DESC')
             ->where('workshops.time','<=', $currentTime)
-            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
+            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop")
             ->paginate(8,['*'], 'pastsWorkshopsPage');
         }
         else{
@@ -191,12 +195,13 @@ class WorkshopController extends Controller
                 $join->on("workshops.id", "=", "workshops_users.workshop_id")
                 ->where("workshops_users.application_status", "=", "pending");
             })
-            ->select("workshops.id", "workshops.limited_participants", "workshops.name", "workshops.time")
+            ->select("workshops.id", "workshops.limited_participants","workshops.img_workshop", "workshops.name", "workshops.time")
             ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
             ->where("workshops.author", "=", $myID)
             ->where('workshops.time','>', $currentTime)
+            ->orderBy('id', 'DESC')
             ->whereNull("workshops.deleted_at")
-            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
+            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop")
             ->paginate(8,['*'], 'upcomingWorkshops');
 
 
@@ -204,12 +209,13 @@ class WorkshopController extends Controller
                 $join->on("workshops.id", "=", "workshops_users.workshop_id")
                 ->where("workshops_users.application_status", "=", "pending");
             })
-            ->select("workshops.id", "workshops.limited_participants", "workshops.name", "workshops.time")
+            ->select("workshops.id", "workshops.limited_participants","workshops.img_workshop", "workshops.name", "workshops.time")
             ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
             ->where("workshops.author", "=", $myID)
+            ->orderBy('id', 'DESC')
             ->where('workshops.time','<=', $currentTime)
             ->whereNull("workshops.deleted_at")
-            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants")
+            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop")
             ->paginate(8,['*'], 'pastsWorkshopsPage');
         }
 

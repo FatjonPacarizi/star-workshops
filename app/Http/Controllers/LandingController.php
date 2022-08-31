@@ -24,7 +24,9 @@ class LandingController extends Controller
         ->select("users.name as author",'workshops.id',"workshops.name as name", "workshops.img_workshop as img_workshop","workshops.time as time")   
         ->orderBy('workshops.id','desc')->get();
 
-        return view('landing', ['upcomings' => $upcomings, 'newspage' => $newspage]);
+        
+
+        return view('landing', ['upcomings' => $upcomings, 'newspage' => $newspage,'landing'=>Landing::all()->last()]);
 
     }
 
@@ -39,21 +41,8 @@ class LandingController extends Controller
 
         $validated = $request->validated();
 
-        if(request()->hasFile('image')) {
-         
-            $validated['image'] = request()->file('image')->store('landingImgs','public');
-
-            //e ruajm old workshopimg para se me update
-             $oldLandingImg = $landing->image;
-        }
-        //update workshop
         $landing->update($validated);
         
-        // delete old img only when db update is succesful
-        if(request()->hasFile('image')) {
-        //delete old img
-        Storage::delete('/public/' .$oldLandingImg);
-        }
 
         return redirect('/landings')->with('status', 'Landing Updated Successfully');
     }

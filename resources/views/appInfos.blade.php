@@ -30,7 +30,7 @@
                     value="{{$informations->facebook}}" />
 
                   @error('facebook')
-                  <p class="text-red-500 text-xs mt-1">{{$msesage}}</p>
+                  <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                   @enderror
 
                   <label class="inline-block text-lg mb-2">
@@ -40,7 +40,7 @@
                     value="{{$informations->instagram}}" />
 
                   @error('instagram')
-                  <p class="text-red-500 text-xs mt-1">{{$msesage}}</p>
+                  <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                   @enderror
 
                   <label class="inline-block text-lg mb-2">
@@ -50,7 +50,7 @@
                     value="{{$informations->twitter}}" />
 
                   @error('twitter')
-                  <p class="text-red-500 text-xs mt-1">{{$msesage}}</p>
+                  <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                   @enderror
 
                   <label class="inline-block text-lg mb-2">
@@ -60,7 +60,7 @@
                     value="{{$informations->linkedin}}" />
 
                   @error('linkedin')
-                  <p class="text-red-500 text-xs mt-1">{{$msesage}}</p>
+                  <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                   @enderror
 
 

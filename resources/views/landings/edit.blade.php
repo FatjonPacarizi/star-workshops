@@ -16,11 +16,6 @@
         @csrf
         @method('PUT')
         <div class="mb-6">
-          <label class="inline-block text-lg mb-2">Page Title</label>
-          <input type="text" class="border border-gray-200 rounded p-2 w-full" name="title" value="{{$landing->title}}" />
-          @error('title')
-          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-          @enderror
           <label class="inline-block text-lg mb-2">
             Section Title
           </label>
@@ -59,20 +54,6 @@
                     menubar: 'file edit view insert format tools table help'
                 });
             </script>
-
-        <label class="inline-block text-lg mb-2">
-          Section Image
-        </label>
-        <div class="mb-6 flex">
-          <input type="file" class="border border-gray-200 rounded p-2 w-full" name="image" />
-          @error('image')
-          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-          @enderror
-          <img class="object-cover rounded w-1/4" alt="hero" src="{{$landing->image ? asset('/storage/' . $landing->image) : asset('/img/defaultLandingImg.png')}}" width="50%" height="50px">
-        </div>
-
-
-
         <div class="mb-6 flex justify-end">
           <button class="bg-sky-500 text-white rounded py-2 px-4 hover:bg-sky-600">
             Update

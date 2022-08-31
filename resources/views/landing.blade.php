@@ -5,10 +5,10 @@
 <section class="text-white body-font bg-red-600 bg-red-600">
   <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
     <div class="text-center lg:w-2/3 w-full">
-      <h1 class="title-font sm:text-1xl text-1xl mb-4 font-medium text-white">A STAR WORKSHOPS SPECIAL MESSAGE</h1>
-      <p class="mb-8 leading-relaxed text-white text-3xl">Star Workshops condemns any military attacks on Ukraine’s nuclear infrastructure and expresses its support for those working hard to protect and secure these sites.</p>
+      <h1 class="title-font sm:text-1xl text-1xl mb-4 font-medium text-white">{{$landing->heading}}</h1>
+      <div class="mb-8 leading-relaxed text-white">{!! $landing->paragraf !!}</div>
       <div class="flex justify-center">
-        <button class="ml-4 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-100 rounded-full text-lg">Read the full statement</button>
+        <a href = "{{$landing->button}}" class="ml-4 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-100 rounded-full text-lg">Read the full statement</a>
       </div>
     </div>
   </div>
@@ -125,7 +125,9 @@
       <span class="inline-block h-1 w-10 rounded bg-red-500 mt-8 mb-6"></span>
       <h2 class="text-white font-medium title-font tracking-wider text-sm">Ramadan Gashi, Web developer</h2>
       <div class="flex justify-center">
+        @if(!Auth::check())
         <button class="my-4 ml-4 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg"><a href="http://127.0.0.1:8000/register">Become a member</a></button>
+        @endif
       </div>
     </div>
   </div>
