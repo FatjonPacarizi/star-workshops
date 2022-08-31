@@ -42,7 +42,6 @@
       <script>
         tinymce.init({
           selector: 'textarea', // Replace this CSS selector to match the placeholder element for TinyMCE
-          width: 1040,
           height: 300,
           plugins: [
             'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',

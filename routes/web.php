@@ -40,19 +40,19 @@ Route::get('/members', [WorkshopController::class, 'showMembers']);
 
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
 Route::get('/newspage', [NewsPageController::class, 'index']);
-Route::get('/newspage/{id}',[NewsPageController::class,'show'])->name('single-news');
+Route::get('/newspage/{id}', [NewsPageController::class, 'show'])->name('single-news');
 
 Route::get('contact', [ContactController::class, 'index']);
 Route::post('send', [ContactController::class, 'send'])->name('emailsend');
 
-Route::get('/',[LandingController::class,'index'])->name('landing');
+Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::get('landings', [LandingController::class, 'landing']);
-Route::get('/workshops/{id}/join',[WorkshopController::class,'join'])->name('workshop-join');
-Route::get('/workshop/{id}',[WorkshopController::class,'show'])->name('single-workshop');
+Route::get('/workshops/{id}/join', [WorkshopController::class, 'join'])->name('workshop-join');
+Route::get('/workshop/{id}', [WorkshopController::class, 'show'])->name('single-workshop');
 
-Route::get('/workshops',[WorkshopController::class,'index'])->name('workshops');
+Route::get('/workshops', [WorkshopController::class, 'index'])->name('workshops');
 
-Route::post('/send',[App\Http\Controllers\MailController::class, 'send'])->name('emailsend');
+Route::post('/send', [App\Http\Controllers\MailController::class, 'send'])->name('emailsend');
 
 Route::middleware([
     'auth:sanctum',
@@ -83,33 +83,27 @@ Route::group(['middleware' => 'auth'], function () {
             //Edit about
             Route::get('edit-about/{id}', [AboutController::class, 'edit']);
             Route::put('update-about/{id}', [AboutController::class, 'update'])->name('aboutUpdate');
-            
+
             Route::get('landings', [LandingController::class, 'landing'])->name('showlandings');
             Route::get('add-landing', [LandingController::class, 'create']);
             Route::post('add-landing', [LandingController::class, 'store']);
             Route::get('edit-landing/{id}', [LandingController::class, 'edit']);
             Route::put('update-landing/{id}', [LandingController::class, 'update']);
-            Route::get('newspages', [NewsPageController::class, 'newspage'])->name('shownewspages');
-            Route::get('add-newspage', [NewsPageController::class, 'create']);
-            Route::post('add-newspage', [NewsPageController::class, 'store']);
-            Route::get('edit-newspage/{id}', [NewsPageController::class, 'edit']);
-            Route::put('update-newspage/{id}', [NewsPageController::class, 'update']);
-            Route::delete('delete-newspage/{id}', [NewsPageController::class, 'destroy']);
 
-           
-            Route::get('faq',[FaqController::class,'index'])->name('faq');
 
-            Route::get('/faq/create',[FaqController::class,'create']);
+            Route::get('faq', [FaqController::class, 'index'])->name('faq');
+
+            Route::get('/faq/create', [FaqController::class, 'create']);
             //Store FAQ
-            Route::post('/add-faq',[FaqController::class,'store']);
+            Route::post('/add-faq', [FaqController::class, 'store']);
             //Edit FAQ
-            Route::get('faq/{id}/edit',[FaqController::class,'edit'])->name('editfaq');
+            Route::get('faq/{id}/edit', [FaqController::class, 'edit'])->name('editfaq');
             //Update FAQ
-            Route::put('/update/{id}',[FaqController::class,'update']);
+            Route::put('/update/{id}', [FaqController::class, 'update']);
             //Delete FAQ
-            Route::delete('faq/{faq}',[FaqController::class,'destroy']);
+            Route::delete('faq/{faq}', [FaqController::class, 'destroy']);
             //Status changed Deactive or Active
-            Route::get('change-status/{id}',[FaqController::class,'changeStatus'])->name('change');
+            Route::get('change-status/{id}', [FaqController::class, 'changeStatus'])->name('change');
 
             //Show app infos edit
             Route::get('/appInfos', [InformationController::class, 'index'])->name('ShowAppInfos');
@@ -158,47 +152,51 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/workshopManage', [WorkshopController::class, 'showWorkshopManage'])->name('showManageWorkshops');
 
             //Show update workshop
-            Route::get('workshopManage/{id}/{participants}/edit',[WorkshopController::class,'edit']);
+            Route::get('workshopManage/{id}/{participants}/edit', [WorkshopController::class, 'edit']);
 
             //Update a workshop
             Route::put('workshopManage/{id}', [WorkshopController::class, 'update']);
 
             //Delete a workshop
             Route::delete('/workshopManage/{workshop}', [WorkshopController::class, 'destroy']);
-            Route::delete('/forcedelete/{id}',[WorkshopController::class,'forceDelete']);
+            Route::delete('/forcedelete/{id}', [WorkshopController::class, 'forceDelete']);
 
             //Restore a workshop
-            Route::post('/workshopManage/{id}/restore',[WorkshopController::class,'restore'])->name('workshop.restore');
+            Route::post('/workshopManage/{id}/restore', [WorkshopController::class, 'restore'])->name('workshop.restore');
 
             //Show workshop participants
             Route::get('/participants/{workshopid}', [WorkshopController::class, 'showParticipants'])->name('showParticipants');
-            
+
 
             //Approve participant
             Route::put('/participants/{workshopid}/{participantID}/edit', [WorkshopController::class, 'approveParticipant'])->name('approveParticipant');
-        
+
             //Decline workshop Participant
             Route::put('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'declineParticipant'])->name('declineParticipant');
 
-            
+
             //Delete workshop Participant
             Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('deleteParticipant');
 
-        
-        
-        
-     
-
-      });
+            Route::get('newspages', [NewsPageController::class, 'newspage'])->name('shownewspages');
+            Route::get('add-newspage', [NewsPageController::class, 'create']);
+            Route::post('add-newspage', [NewsPageController::class, 'store']);
+            Route::get('edit-newspage/{id}', [NewsPageController::class, 'edit']);
+            Route::put('update-newspage/{id}', [NewsPageController::class, 'update']);
+            Route::delete('delete-newspage/{id}', [NewsPageController::class, 'destroy']);
+        }
+    );
 
 
 
     //Users group routes
     Route::group(
         [
-            'as'=>'user.',
-        ],function(){
-             // Add routes here for users
-            Route::get('users', [Controller::class,'index'])->name('users');//this is a test route
-     });
+            'as' => 'user.',
+        ],
+        function () {
+            // Add routes here for users
+            Route::get('users', [Controller::class, 'index'])->name('users'); //this is a test route
+        }
+    );
 });
