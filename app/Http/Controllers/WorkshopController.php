@@ -67,7 +67,7 @@ class WorkshopController extends Controller
         })
         ->where('positions.position','staff')
         ->select("users.name as name","users.description as description", "users.facebook as facebook","users.instagram as instagram","users.github as github","users.profile_photo_path as profile_photo_path")
-        ->paginate(6,['*'], 'positions_users');
+        ->get();
 
         return view('workshopMembers',['staffMembers' => $staffMembers]);
 
