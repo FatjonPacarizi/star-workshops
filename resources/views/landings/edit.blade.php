@@ -11,11 +11,11 @@
       <a href="/dashboard" class="p-3 text-gray-400"> Cancel</a>
     </div>
 
-    <div class="w-full p-4">
+    <div class="w-full">
       <form action="{{ url('update-landing/'.$landing->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        <div class="mb-6">
+        <div class="m-4">
           <label class="inline-block text-lg mb-2">
             Section Title
           </label>
@@ -31,14 +31,12 @@
           <p class="text-red-500 text-xs mt-1">{{$message}}</p>
           @enderror
           <label class="inline-block text-lg mb-2">
-            Button Text
+            Button link
           </label>
           <input type="text" class="border border-gray-200 rounded p-2 w-full" name="button" value="{{$landing->button}}" />
           @error('button')
           <p class="text-red-500 text-xs mt-1">{{$message}}</p>
           @enderror
-        </div>
-
         <script>
                 tinymce.init({
                     selector: 'textarea#descriptionparagraph', // Replace this CSS selector to match the placeholder element for TinyMCE
@@ -54,12 +52,11 @@
                     menubar: 'file edit view insert format tools table help'
                 });
             </script>
-        <div class="mb-6 flex justify-end">
-          <button class="bg-sky-500 text-white rounded py-2 px-4 hover:bg-sky-600">
+              </div>
+         <div class="w-full  border-t flex justify-end">
+          <button class="bg-sky-500 m-4 text-white rounded py-2 px-4 hover:bg-sky-600">
             Update
           </button>
-
-
         </div>
       </form>
     </div>

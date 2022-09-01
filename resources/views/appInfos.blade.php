@@ -5,14 +5,14 @@
       <div class="w-full bg-white border  rounded ">
               <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
               <h1 class = "p-3 text-slate-900">App Information</h1>
-              <a href="/dashboard" class="p-3 text-gray-400"> Cancel</a>
+              <a href="/dashboard" class="p-3  text-gray-400"> Cancel</a>
             </div>
 
-              <div class="w-full p-4">
+              <div class="w-full">
             <form method="POST" action="/appInfos/{{$informations->id}}/edit" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <div class="mb-6">
+                <div class="m-4">
                   <label class="inline-block text-lg mb-2">App Name</label>
                   <input type="text" class="border border-gray-200 rounded p-2 w-full" name="app_name"
                     value="{{$informations->app_name}}" />
@@ -62,11 +62,7 @@
                   @error('linkedin')
                   <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                   @enderror
-
-
-                </div>
-                
-                <label  class="inline-block text-lg mb-2">
+                  <label  class="inline-block text-lg mb-2">
                     App Logo
                 </label>
                 <div class="mb-6 flex">
@@ -78,14 +74,11 @@
                   @enderror
                 </div>
 
-
-
-                <div class="mb-6 flex justify-end">
-                  <button class="bg-sky-500 text-white rounded py-2 px-4 hover:bg-sky-600">
+                </div>
+                <div class="w-full  border-t flex justify-end">
+                  <button class="bg-sky-500 m-4 text-white rounded py-2 px-4 hover:bg-sky-600">
                     Update
                   </button>
-
-
                 </div>
               </form>
             </div>
