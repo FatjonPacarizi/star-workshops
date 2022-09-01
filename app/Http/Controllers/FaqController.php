@@ -15,7 +15,7 @@ class FaqController extends Controller
      */
     public function index()
     {
-        $faq = Faq::paginate(8);
+        $faq = Faq::orderBy('id', 'DESC')->paginate(8);
  
         return view('faq',['faq'=>$faq]);
     }
@@ -76,7 +76,7 @@ class FaqController extends Controller
      */
     public function update(UpdateFaqRequest $request, $id)
     {
-        $validated = request()->validated();
+        $validated = $request->validated();
        //update appinfo
         Faq::find($id)->update($validated);
         return back();
