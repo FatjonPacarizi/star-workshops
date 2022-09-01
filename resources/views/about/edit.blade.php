@@ -41,7 +41,7 @@
                     @enderror
                 </div>
             </div>
-        <div class="m-4">
+ 
         <script>
                 tinymce.init({
                     selector: 'textarea', // Replace this CSS selector to match the placeholder element for TinyMCE
