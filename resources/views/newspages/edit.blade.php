@@ -2,23 +2,18 @@
 @section('content')
 
 <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
-
 <div class="w-full h-full p-6 flex flex-col  items-center border">
-
     <div class="w-full bg-white  rounded ">
         <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
-
             <h1 class="p-3 text-slate-900">News</h1>
             <a href="/newspages" class="p-3 text-gray-400"> Cancel </a>
         </div>
         @if (session('status'))
         <h6>{{ session('status') }}</h6>
         @endif
-
         <form action="{{ url('update-newspage/'.$newspage->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">News Title</label>
                 <div class="w-full mx-5">
@@ -28,7 +23,6 @@
                     @enderror
                 </div>
             </div>
-
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Author</label>
                 <div class="w-full mx-5">
@@ -76,16 +70,11 @@
                     @enderror
                  </div>
                 <img class="object-cover mx-5 rounded" alt="Image" src="{{$newspage->image ? asset('/storage/' . $newspage->image) : asset('/img/defaultNewsImg.jpg')}}" width="100">
-
             </div>
-
-            <div class="w-full p-4 flex justify-end border-t border-gray-200">
+            <div class="w-full p-2 flex justify-end border-t border-gray-200">
                 <button type="submit" class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600">Update news</button>
             </div>
-
         </form>
     </div>
-
 </div>
-
 @endsection
