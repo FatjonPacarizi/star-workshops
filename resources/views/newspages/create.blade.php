@@ -44,7 +44,6 @@
             <script>
                 tinymce.init({
                     selector: 'textarea', // Replace this CSS selector to match the placeholder element for TinyMCE
-                    width: 1040,
                     height: 300,
                     plugins: [
                         'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
@@ -59,7 +58,7 @@
             </script>
             <div class="mb-6  flex items-center">
                 <label class="w-28 text-sm mx-5">Date</label>
-                <input type="datetime-local" name="time" />
+                <input type="datetime-local" name="time" class="border border-gray-300 rounded p-1 mx-1"/>
             </div>
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Image</label>
@@ -70,8 +69,8 @@
                 @enderror
              </div>
             </div>
-            <div class="w-full p-2 flex justify-end border-t border-gray-200">
-                <button type="submit" class="rounded py-2 px-5 bg-blue-800 text-white hover:bg-blue-900">Add news</button>
+            <div class="w-full p-4 flex justify-end border-t border-gray-200">
+                <button type="submit" class="rounded py-2 px-5 bg-sky-500 text-white hover:bg-sky-900">Add news</button>
             </div>
         </form>
 

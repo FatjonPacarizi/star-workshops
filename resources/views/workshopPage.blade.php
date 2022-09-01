@@ -40,7 +40,7 @@
                 @endswitch
             </p>
             @else
-            <a class="px-5 py-2 bg-white rounded-md text-black" href={{route('workshop-join',$workshop->id)}}>Apply</a>
+            <a class="mb-8 px-5 py-2 bg-white rounded-md text-black" href={{route('workshop-join',$workshop->id)}}>Apply</a>
             @endif
             @else
             <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">Applications for this event are closed</p>

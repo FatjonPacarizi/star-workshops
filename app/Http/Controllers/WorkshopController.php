@@ -69,7 +69,7 @@ class WorkshopController extends Controller
         })
         ->where('positions.position','staff')
         ->select("users.name as name","users.description as description", "users.facebook as facebook","users.instagram as instagram","users.github as github","users.profile_photo_path as profile_photo_path")
-        ->paginate(6,['*'], 'positions_users');
+        ->get();
 
         return view('workshopMembers',['staffMembers' => $staffMembers]);
 
@@ -145,7 +145,7 @@ class WorkshopController extends Controller
           //  dd(count($workshop_participants));
           //  dd($workshop_participants[0]->limited_participants);
             $limitReached = false;
-            if($workshop_participants[0]->limited_participants <= count($workshop_participants)) $limitReached = true; 
+            if($workshop_participants[0]->limited_participants != null && $workshop_participants[0]->limited_participants <= count($workshop_participants)) $limitReached = true; 
             
            
         return view('workshopPage',['workshop'=>$workshop[0],
@@ -325,7 +325,7 @@ class WorkshopController extends Controller
         ->Join("users", function($join){
             $join->on("workshops_users.user_id", "=", "users.id");
         })
-        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
+        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id","workshops_users.created_at as appliedOn")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "pending"])
         ->paginate(8,['*'], 'pendingParticipantsPage');
 
@@ -335,7 +335,7 @@ class WorkshopController extends Controller
         ->Join("users", function($join){
             $join->on("workshops_users.user_id", "=", "users.id");
         })
-        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
+        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id","workshops_users.created_at as appliedOn")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "approved"])
         ->paginate(8,['*'], 'approvedParticipantsPage');
 
@@ -345,7 +345,7 @@ class WorkshopController extends Controller
         ->Join("users", function($join){
             $join->on("workshops_users.user_id", "=", "users.id");
         })
-        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
+        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id","workshops_users.created_at as appliedOn")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "notapproved"])
         ->paginate(8,['*'], 'notapprovedParticipantsPage');
 

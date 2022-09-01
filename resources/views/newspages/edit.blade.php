@@ -51,7 +51,6 @@
             <script>
                 tinymce.init({
                     selector: 'textarea', // Replace this CSS selector to match the placeholder element for TinyMCE
-                    width: 1040,
                     height: 300,
                     plugins: [
                         'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
@@ -66,24 +65,22 @@
             </script>
             <div class="mb-6  flex items-center">
                 <label class="w-28 text-sm mx-5">Date</label>
-                <input type="datetime-local" name="time" value="{{$newspage->time}}" />
+                <input type="datetime-local" name="time" value="{{$newspage->time}}" class="border border-gray-300 rounded p-1 mx-1"/>
             </div>
             <div class="mb-6  flex items-center">
                 <label class="w-28 text-sm mx-5">Image</label>
-                <div class="w-full mx-5">
+                <div class="w-full mx-9">
                     <input type="file" name="image" />
                     @error('image')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
                  </div>
-                <img class="object-cover rounded" alt="Image" src="{{$newspage->image ? asset('/storage/' . $newspage->image) : asset('/img/defaultNewsImg.jpg')}}" width="100">
+                <img class="object-cover mx-5 rounded" alt="Image" src="{{$newspage->image ? asset('/storage/' . $newspage->image) : asset('/img/defaultNewsImg.jpg')}}" width="100">
 
             </div>
 
-            <div class="w-full p-2 flex justify-end border-t border-gray-200">
+            <div class="w-full p-4 flex justify-end border-t border-gray-200">
                 <button type="submit" class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600">Update news</button>
-
-
             </div>
 
         </form>
