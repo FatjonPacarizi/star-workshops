@@ -20,7 +20,7 @@
 
              <div  x-data="{
               tab:{{$tab}},
-              active : 'bg-gray-200  border-t border-l border-r rounded-t text-gray-900',
+              active : 'bg-gray-100  rounded-t text-gray-900 border-b-2 border-sky-700',
               inactive: 'text-gray-400 hover:text-gray-600 border-t  border-l border-r rounded-t'
              }">
               <div class="w-full flex justify-between border-b">
@@ -64,7 +64,7 @@
                   <td class="p-3 ">{{$pendingParticipant->name}}</td>
                   <td class="p-3 ">{{$pendingParticipant->email}}</td>
                  
-                  <td ><a href="#" class = "text-blue-600"> {{$pendingParticipant->time}}</a></td>
+                  <td ><a href="#" class = "text-blue-600"> {{$pendingParticipant->appliedOn}}</a></td>
                   <td class = "flex items-center " >
                      <a href="/workshopManage/{{$pendingParticipant->id}}/edit" class="bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
                       <i class="fa-solid fa-list fa-md "></i>
@@ -113,7 +113,7 @@
                 <tr class = 'border-b border-gray-200 '>
                   <td class="p-3">{{$approvedParticipant->name}}</td>
                   <td class="p-3 ">{{$approvedParticipant->email}}</td>
-                  <td ><a href="#" class = "text-blue-600"> {{$approvedParticipant->time}}</a></td>
+                  <td ><a href="#" class = "text-blue-600"> {{$approvedParticipant->appliedOn}}</a></td>
                   <td class = "flex items-center">
                     <a href="/workshopManage/{{$approvedParticipant->id}}/edit" class="bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
                       <i class="fa-solid fa-list fa-md "></i>
@@ -155,7 +155,7 @@
                   <td class="p-3 ">{{$notapprovedParticipant->email}}</td>
 
                  
-                  <td ><a href="#" class = "text-blue-600"> {{$notapprovedParticipant->time}}</a></td>
+                  <td ><a href="#" class = "text-blue-600"> {{$notapprovedParticipant->appliedOn}}</a></td>
                   <td class = "flex items-center">
                     <a href="/workshopManage/{{$notapprovedParticipant->id}}/edit" class="bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
                       <i class="fa-solid fa-list fa-md "></i>

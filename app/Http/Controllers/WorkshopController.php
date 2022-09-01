@@ -34,6 +34,7 @@ class WorkshopController extends Controller
         })
         ->where('workshops.time','>=',$currentTime)
         ->select("users.name as author",'workshops.id',"workshops.name as name", "workshops.img_workshop as img_workshop","workshops.time as time")
+        ->orderBy('id', 'DESC')
         ->paginate(6,['*'], 'upcomingWorkshopsPage');
 
         
@@ -41,6 +42,7 @@ class WorkshopController extends Controller
             $join->on("workshops.author", "=", "users.id");
         })
         ->where('workshops.time','<',$currentTime)
+        ->orderBy('id', 'DESC')
         ->select("users.name as author",'workshops.id',"workshops.name as name", "workshops.img_workshop as img_workshop","workshops.time as time")
         ->paginate(6,['*'], 'pastsWorkshopsPage');
 
@@ -67,7 +69,7 @@ class WorkshopController extends Controller
         })
         ->where('positions.position','staff')
         ->select("users.name as name","users.description as description", "users.facebook as facebook","users.instagram as instagram","users.github as github","users.profile_photo_path as profile_photo_path")
-        ->paginate(6,['*'], 'positions_users');
+        ->get();
 
         return view('workshopMembers',['staffMembers' => $staffMembers]);
 
@@ -143,7 +145,7 @@ class WorkshopController extends Controller
           //  dd(count($workshop_participants));
           //  dd($workshop_participants[0]->limited_participants);
             $limitReached = false;
-            if($workshop_participants[0]->limited_participants <= count($workshop_participants)) $limitReached = true; 
+            if($workshop_participants[0]->limited_participants != null && $workshop_participants[0]->limited_participants <= count($workshop_participants)) $limitReached = true; 
             
            
         return view('workshopPage',['workshop'=>$workshop[0],
@@ -166,6 +168,7 @@ class WorkshopController extends Controller
             ->select("workshops.id", "workshops.name","workshops.img_workshop", "workshops.limited_participants", "workshops.time")
             ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
             ->whereNull("workshops.deleted_at")
+            ->orderBy('id', 'DESC')
             ->where('workshops.time','>', $currentTime)
             ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop")
             ->paginate(8,['*'], 'upcomingWorkshopsPage');
@@ -178,6 +181,7 @@ class WorkshopController extends Controller
             ->select("workshops.id", "workshops.name","workshops.img_workshop", "workshops.limited_participants", "workshops.time")
             ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
             ->whereNull("workshops.deleted_at")
+            ->orderBy('id', 'DESC')
             ->where('workshops.time','<=', $currentTime)
             ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop")
             ->paginate(8,['*'], 'pastsWorkshopsPage');
@@ -195,6 +199,7 @@ class WorkshopController extends Controller
             ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
             ->where("workshops.author", "=", $myID)
             ->where('workshops.time','>', $currentTime)
+            ->orderBy('id', 'DESC')
             ->whereNull("workshops.deleted_at")
             ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop")
             ->paginate(8,['*'], 'upcomingWorkshops');
@@ -207,6 +212,7 @@ class WorkshopController extends Controller
             ->select("workshops.id", "workshops.limited_participants","workshops.img_workshop", "workshops.name", "workshops.time")
             ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
             ->where("workshops.author", "=", $myID)
+            ->orderBy('id', 'DESC')
             ->where('workshops.time','<=', $currentTime)
             ->whereNull("workshops.deleted_at")
             ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop")
@@ -319,7 +325,7 @@ class WorkshopController extends Controller
         ->Join("users", function($join){
             $join->on("workshops_users.user_id", "=", "users.id");
         })
-        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
+        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id","workshops_users.created_at as appliedOn")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "pending"])
         ->paginate(8,['*'], 'pendingParticipantsPage');
 
@@ -329,7 +335,7 @@ class WorkshopController extends Controller
         ->Join("users", function($join){
             $join->on("workshops_users.user_id", "=", "users.id");
         })
-        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
+        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id","workshops_users.created_at as appliedOn")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "approved"])
         ->paginate(8,['*'], 'approvedParticipantsPage');
 
@@ -339,7 +345,7 @@ class WorkshopController extends Controller
         ->Join("users", function($join){
             $join->on("workshops_users.user_id", "=", "users.id");
         })
-        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id")
+        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id","workshops_users.created_at as appliedOn")
         ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "notapproved"])
         ->paginate(8,['*'], 'notapprovedParticipantsPage');
 

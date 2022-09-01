@@ -10,6 +10,7 @@
       <h2 class="tracking-widest text-xl title-font font-medium text-gray-500 mb-1"><b>{{ $newspage->time }}</b> - <b>{{ $newspage->author }}</b></h2>
       <p class="mb-8 py-5 text-xl text-gray-700">{!! $newspage->description !!}</p>
     </div>
+    <a href="/newspage" class="tracking-widest text-xl title-font font-medium text-gray-500 mb-1">Back to News </a>
   </div>
 </section>
 

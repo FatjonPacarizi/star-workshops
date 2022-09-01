@@ -16,14 +16,15 @@ class NewsPageController extends Controller
     {
         $date = Carbon::now();
     
-        $newspages= Newspage::paginate(5);
+
+        $newspages= Newspage::orderBy('id', 'DESC')->paginate(6);
         return view('newspage',['newspages' =>$newspages]);
     }
 
     public function newspage()
     {
         $date = Carbon::now();
-        $newspage = Newspage::paginate(8);
+        $newspage = Newspage::orderBy('id', 'DESC')->paginate(8);
         return view('newspages.index', compact('newspage'));
     }
 

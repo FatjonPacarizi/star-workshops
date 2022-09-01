@@ -18,7 +18,7 @@
 
     <div class="w-full bg-white rounded pb-4 " x-data="{
       tab:{{$tab}},
-      active : 'bg-gray-200  border-t border-l border-r rounded-t text-gray-900',
+      active : 'bg-gray-100  rounded-t text-gray-900 border-b-2 border-sky-700',
       inactive: 'text-gray-400 hover:text-gray-600 border-t  border-l border-r rounded-t'
      }">
 

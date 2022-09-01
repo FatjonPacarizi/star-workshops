@@ -18,7 +18,7 @@ class CreateWorkshopsUsersTable extends Migration
             $table->bigInteger('workshop_id')->unsigned();
             $table->foreign('workshop_id')->references('id')->on('workshops')->onDelete('cascade');
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('application_status')->default('pending');
             $table->timestamps();
         });

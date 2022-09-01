@@ -23,7 +23,6 @@
             </div>
         </div>
         @endforeach
-        <div class="justfy-center pt-6 flex flex-col items-center mb-10"> {{ $staffMembers->links() }} </div>
         </div>
 
 </section>
