@@ -1454,6 +1454,9 @@ select {
 .mr-10 {
   margin-right: 2.5rem;
 }
+.mt-20 {
+  margin-top: 5rem;
+}
 .block {
   display: block;
 }
@@ -1524,6 +1527,9 @@ select {
 }
 .h-36 {
   height: 9rem;
+}
+.h-1\/4 {
+  height: 25%;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -3227,6 +3233,10 @@ select {
 
   .lg\:flex-grow {
     flex-grow: 1;
+  }
+
+  .lg\:flex-col {
+    flex-direction: column;
   }
 
   .lg\:px-8 {
