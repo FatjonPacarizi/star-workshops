@@ -10,6 +10,7 @@ use App\Models\Country;
 use App\Models\Category;
 use App\Models\Workshop;
 use App\Models\Positions;
+use Illuminate\Http\Request;
 use Illuminate\Queue\Worker;
 use App\Models\workshops_users;
 use Illuminate\Support\Facades\DB;
@@ -156,8 +157,14 @@ class WorkshopController extends Controller
     }
 
 
-    public function showWorkshopManage()
+    public function showWorkshopManage(Request $request)
     {
+        //dd($request->input('tab'));
+        $upcomingSearch = "";
+        $pastSearch = "";
+        if($request->input('search') != null && $request->input('tabb') == 0) $upcomingSearch = $request->input('search');
+        if($request->input('search') != null && $request->input('tabb') == 1) $pastSearch = $request->input('search');
+
         $currentTime = Carbon::now('Europe/Tirane');
 
         if(request()->user()->user_status == 'superadmin'){
@@ -168,6 +175,7 @@ class WorkshopController extends Controller
             ->select("workshops.id", "workshops.name","workshops.img_workshop", "workshops.limited_participants", "workshops.time")
             ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
             ->whereNull("workshops.deleted_at")
+            ->where("workshops.name", 'LIKE', "%{$upcomingSearch}%")
             ->orderBy('id', 'DESC')
             ->where('workshops.time','>', $currentTime)
             ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop")
@@ -181,6 +189,7 @@ class WorkshopController extends Controller
             ->select("workshops.id", "workshops.name","workshops.img_workshop", "workshops.limited_participants", "workshops.time")
             ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
             ->whereNull("workshops.deleted_at")
+            ->where("workshops.name", 'LIKE', "%{$pastSearch}%")
             ->orderBy('id', 'DESC')
             ->where('workshops.time','<=', $currentTime)
             ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop")
@@ -221,7 +230,7 @@ class WorkshopController extends Controller
 
        $workshops1 = Workshop::orderBy('deleted_at','asc')->onlyTrashed()->paginate(8,['*'], 'deletedWorkshopsPage');
             
-        return view('manageWorkshops',['upcomingWorkshops'=>$upcomingWorkshops,'pastsWorkshops'=>$pastsWorkshops, 'workshops1'=>$workshops1]);
+        return view('manageWorkshops',['upcomingWorkshops'=>$upcomingWorkshops,'pastsWorkshops'=>$pastsWorkshops, 'workshops1'=>$workshops1,'searchTab'=>$request->input('tabb')]);
     }
 
     /**
