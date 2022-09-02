@@ -1,10 +1,18 @@
 @extends('layouts.app')
   @section('content')
   <div class="w-full h-full p-6  flex flex-col  items-center">
-
+ 
     <div class="w-full bg-white  rounded pb-4 ">
 
-            <h1 class = "p-3 text-slate-900 border-b border-gray-200 mb-4 ">User Managment</h1>
+            <h1 class = "p-3 text-slate-900 border-b border-gray-200 mb-4 ">User Managment
+            <form method="POST" action="{{route('superadmin.showManageUsers')}}">
+          @csrf
+          @method('GET')
+          <input type="text" name="search"  placeholder = "search" class = "border border-gray-300 text-black rounded h-8 ml-5 my-2"/>
+     
+        </form>
+            </h1>
+            
              <div class="w-full flex justify-center">
             <table class="w-full mx-4">
               <tr class="border-y border-gray-200 ">

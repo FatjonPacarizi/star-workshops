@@ -10,9 +10,11 @@ use Illuminate\Http\Request;
 
 class UserManageController extends Controller
 {
-     public function index(){
-       
-        return view('manageUsers',['users'=>User::paginate(8)]);
+     public function index( Request $request){
+        $search = "";
+        if($request->input('search')) $search=$request->input('search');
+        $users = User::where("users.name", 'LIKE', "%{$search}%")->paginate(8);
+        return view('manageUsers',['users'=>$users]);
     }
 
     //Show edit form
