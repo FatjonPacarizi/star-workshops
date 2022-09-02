@@ -196,7 +196,7 @@ class WorkshopController extends Controller
             ->paginate(8,['*'], 'pastsWorkshopsPage');
         }
         else{
-            
+           
             $myID = Auth::id();
 
             $upcomingWorkshops = Workshop::leftJoin("workshops_users", function($join){
@@ -206,6 +206,7 @@ class WorkshopController extends Controller
             })
             ->select("workshops.id", "workshops.limited_participants","workshops.img_workshop", "workshops.name", "workshops.time")
             ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
+            ->where("workshops.name", 'LIKE', "%{$upcomingSearch}%")
             ->where("workshops.author", "=", $myID)
             ->where('workshops.time','>', $currentTime)
             ->orderBy('id', 'DESC')
@@ -220,6 +221,7 @@ class WorkshopController extends Controller
             })
             ->select("workshops.id", "workshops.limited_participants","workshops.img_workshop", "workshops.name", "workshops.time")
             ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
+            ->where("workshops.name", 'LIKE', "%{$pastSearch}%")
             ->where("workshops.author", "=", $myID)
             ->orderBy('id', 'DESC')
             ->where('workshops.time','<=', $currentTime)
