@@ -8,13 +8,7 @@
       <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
 
         <h1 class="p-3 text-slate-900">News
-        <form method="POST" action="{{route('adminsuperadmin.shownewspages')}}">
-          @csrf
-          @method('GET')
-
-          <input type = "text" name = "search"  placeholder = "search" class = "border border-gray-300 text-black rounded h-8 ml-5 my-2"/>
-        
-        </form>
+          <livewire:filter-news/>
         </h1>
        
         <div class="flex mx-4 ">
@@ -32,52 +26,8 @@
       @if (session('status'))
       <div class="w-full flex justify-center">{{ session('status') }}</div>
       @endif
-      <div class="w-full flex justify-center">
-        <table class="w-full mx-4">
-          <tr class="border-y border-gray-200">
-            <td class="font-bold p-3">News Title</td>
-            <td class="font-bold">Author</td>
-            <td class="font-bold">Description</td>
-            <td class="fint-bold">Date</td>
-            <td class="font-bold">Image</td>
-            <td class="font-bold text-center w-1/9">Action</td>
-          </tr>
-          @foreach ($newspage as $item)
-          <tr class='bg-white-100 border-y border-gray-200'>
-
-
-            <td class="p-3">{{ Illuminate\Support\Str::limit($item->title, 20, $end='...') }}</td>
-
-            <td> {{ $item->author }}</td>
-
-            <td> {!! Illuminate\Support\Str::limit($item->description, 30, $end='...') !!}</td>
-
-            <td> {{ $item->time }}</td>
-
-            <td>
-              <img src="{{$item->image ? asset('/storage/' . $item->image) : asset('/img/defaultNewsImg.jpg')}}"  width="70px" height="70px" alt="Image">
-            </td>
-
-            <td>
-              <a href="{{ url('edit-newspage/'.$item->id) }}" class="bg-sky-500 text-white px-4 py-1 text-sm rounded ">Edit</a>
-            </td>
-            <td>
-                            <form action="{{ url('delete-newspage/'.$item->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger bg-red-600 text-white px-4 py-1 text-sm rounded btn-sm">Delete</button>
-                            </form>
-                        </td>
-
-          </tr>
-          @endforeach
-
-        </table>
-
-      </div>
-      <div class="flex justfy-center p-3"
-{{ $newspage->links() }}</div>
-
+      
+      <livewire:show-news/>
     </div>
   </div>
   @endsection
