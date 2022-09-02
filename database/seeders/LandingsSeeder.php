@@ -19,7 +19,7 @@ class LandingsSeeder extends Seeder
         DB::table('landings')->insert([
             [
                 'heading' => 'A STAR WORKSHOPS SPECIAL MESSAGE',
-                'paragraf' =>'Star Workshops condemns any military attacks on Ukraine’s nuclear infrastructure and expresses its support for those working hard to protect and secure these sites.',
+                'paragraf' =>'<p><span style="font-size: 18pt;">Star Workshops condemns any military attacks on Ukraine&rsquo;s nuclear infrastructure and expresses its support for those working hard to protect and secure these sites.</span></p>',
                 'button' =>'/about',
             ],
         ]);
