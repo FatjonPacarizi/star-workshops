@@ -98,8 +98,8 @@ class UsersSeeder extends Seeder
             'github' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
         ],
         [
-            'name' => 'Blendar Hasani',
-            'email' => 'blendar@star-workshop.com',
+            'name' => 'Blenard Hasani',
+            'email' => 'blenard@star-workshop.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$Mce3xViPlXMwIxAooHi.k.8RTC1m0xz/CGgpAQVFrj8h6bV9Ilwgq', // password
             'remember_token' => Str::random(10),

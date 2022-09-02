@@ -9,10 +9,11 @@
     {{-- {{dd(request()->has('pastsWorkshopsPage'))}} --}}
     @php  
       $tab = 0;
-      if(session()->has('tab')) $tab = session('tab');
+      if(session()->has('tab')) {$tab = session('tab'); }
       else{
          if(request()->has('pastsWorkshopsPage')) $tab = 1;
       }
+      if($searchTab != null) $tab = $searchTab;
     @endphp
 
 
@@ -21,10 +22,29 @@
       active : 'bg-gray-100  rounded-t text-gray-900 border-b-2 border-sky-700',
       inactive: 'text-gray-400 hover:text-gray-600 border-t  border-l border-r rounded-t'
      }">
+     <div class="w-full flex justify-between">
+      <h1 class = "p-3 text-slate-900">Workshop Managment</h1>
+      <a class="mx-5 flex items-center" href="{{route('adminsuperadmin.showInsert')}}">
+        <h6 class = "text-2xl mr-1 -mt-1 text-gray-400 ">+</h6>
+        <h2 class = "text-gray-400 ">Create Workshop</h2>
+        
+      </a>
+     </div>
 
-      <div class="w-full flex justify-between items-stretch border-b border-gray-200 mb-4">
+      <div class="w-full  flex justify-between items-stretch border-b border-gray-200 mb-4">
+        <form method="POST" action="{{route('adminsuperadmin.showManageWorkshops')}}">
+          @csrf
+          @method('GET')
 
-        <h1 class = "p-3 text-slate-900">Workshop Managment</h1>
+          @php
+          $tabb = 0;
+          if(request()->has('pastsWorkshopsPage')){  $tabb = 1;}
+        @endphp
+        <input type = "hidden" id = "tabb" name = "tabb" value = "{{$tabb}}" />
+
+          <input type = "text" name = "search"  placeholder = "search" class = "border border-gray-300 text-black rounded h-8 ml-5 my-2"/>
+        
+        </form>
 
           <div class="flex mx-4 self-end">
             <div class="flex mr-10 ">
@@ -39,11 +59,7 @@
               <button  onClick = "changeURL('?upcomingWorkshopsPage={{$upcomingtab}}')" :class = "tab === 0 ? active: inactive" class = "px-5 h-8 flex items-center" @click="tab = 0">Upcoming</button>
               <button  onClick = "changeURL('?pastsWorkshopsPage={{$pasttab}}')"  :class = "tab === 1 ? active: inactive" class = "px-5 h-8" @click="tab = 1 ">Pasts</button>
             </div>
-            <a class="mx-2 flex items-center" href="{{route('adminsuperadmin.showInsert')}}">
-              <h6 class = "text-2xl mr-1 -mt-1 text-gray-400 ">+</h6>
-              <h2 class = "text-gray-400 ">Create Workshop</h2>
-              
-            </a>
+            
           </div>
         
       </div>
@@ -232,6 +248,14 @@
  if (history.pushState) {
       var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + $param;
       window.history.pushState({path:newurl},'',newurl);
+  }
+
+  var url = window.location.href;
+  if (window.location.href.indexOf("pastsWorkshopsPage") > -1){
+    document.getElementById("tabb").value = 1;
+  }
+  else{
+    document.getElementById("tabb").value = 0;
   }
 }
   </script>

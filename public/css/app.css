@@ -1273,11 +1273,11 @@ select {
 .m-3 {
   margin: 0.75rem;
 }
-.m-4 {
-  margin: 1rem;
-}
 .m-2 {
   margin: 0.5rem;
+}
+.m-4 {
+  margin: 1rem;
 }
 .m-5 {
   margin: 1.25rem;
@@ -1302,6 +1302,10 @@ select {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
 }
+.mx-9 {
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
+}
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -1309,10 +1313,6 @@ select {
 .mx-1 {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
-}
-.mx-9 {
-  margin-left: 2.25rem;
-  margin-right: 2.25rem;
 }
 .my-2 {
   margin-top: 0.5rem;
@@ -1329,6 +1329,10 @@ select {
 .my-12 {
   margin-top: 3rem;
   margin-bottom: 3rem;
+}
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -1575,9 +1579,6 @@ select {
 .w-28 {
   width: 7rem;
 }
-.w-1\/4 {
-  width: 25%;
-}
 .w-4\/5 {
   width: 80%;
 }
@@ -1586,6 +1587,9 @@ select {
 }
 .w-1\/6 {
   width: 16.666667%;
+}
+.w-1\/4 {
+  width: 25%;
 }
 .w-80 {
   width: 20rem;
@@ -1601,6 +1605,9 @@ select {
 }
 .w-32 {
   width: 8rem;
+}
+.w-11\/12 {
+  width: 91.666667%;
 }
 .min-w-0 {
   min-width: 0px;
@@ -1826,6 +1833,9 @@ select {
 .border-0 {
   border-width: 0px;
 }
+.border-4 {
+  border-width: 4px;
+}
 .border-y {
   border-top-width: 1px;
   border-bottom-width: 1px;
@@ -1881,6 +1891,10 @@ select {
 .border-sky-700 {
   --tw-border-opacity: 1;
   border-color: rgb(3 105 161 / var(--tw-border-opacity));
+}
+.border-red-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 .border-gray-400 {
   --tw-border-opacity: 1;
@@ -3087,6 +3101,10 @@ select {
     width: 100%;
   }
 
+  .md\:w-2\/3 {
+    width: 66.666667%;
+  }
+
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -3155,8 +3173,20 @@ select {
     margin-right: 5rem;
   }
 
+  .lg\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .lg\:-ml-10 {
+    margin-left: -2.5rem;
+  }
+
   .lg\:h-48 {
     height: 12rem;
+  }
+
+  .lg\:h-1\/4 {
+    height: 25%;
   }
 
   .lg\:w-2\/3 {
@@ -3211,6 +3241,10 @@ select {
 
   .lg\:pr-24 {
     padding-right: 6rem;
+  }
+
+  .lg\:pr-10 {
+    padding-right: 2.5rem;
   }
 }
 @media (min-width: 1280px) {
