@@ -24,12 +24,7 @@ class NewsPageController extends Controller
 
     public function  newspage(Request $request)
     {
-        $search = "";
-        if($request->input('search')) $search=$request->input('search');
-        
-        $date = Carbon::now();
-        $newspage = Newspage::where("news_pages.title", 'LIKE', "%{$search}%")-> orderBy('id', 'DESC')->paginate(8);
-        return view('newspages.index', compact('newspage'));
+        return view('newspages.index');
     }
 
     public function create()
