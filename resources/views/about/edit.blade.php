@@ -15,7 +15,7 @@
         @csrf
         @method('PUT')
         <div class="mb-6 flex items-center">
-                <label class="w-28 text-sm mx-5" for="">Section Title</label>
+                <label class="w-28 text-sm mx-5" for="">Page Title</label>
                 <div class="w-full mx-5">
                     <input type="text" name="title" value="{{$about->title}}" class="border border-gray-200 rounded p-1 w-full "/>
                     @error('title')
