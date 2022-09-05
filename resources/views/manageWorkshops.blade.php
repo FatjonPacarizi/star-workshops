@@ -13,7 +13,7 @@
       else{
          if(request()->has('pastsWorkshopsPage')) $tab = 1;
       }
-      if($searchTab != null) $tab = $searchTab;
+      
     @endphp
 
 
@@ -32,19 +32,10 @@
      </div>
 
       <div class="w-full  flex justify-between items-stretch border-b border-gray-200 mb-4">
-        <form method="POST" action="{{route('adminsuperadmin.showManageWorkshops')}}">
-          @csrf
-          @method('GET')
+        <div class="mx-5">
+        <livewire:filter-workshops/>
 
-          @php
-          $tabb = 0;
-          if(request()->has('pastsWorkshopsPage')){  $tabb = 1;}
-        @endphp
-        <input type = "hidden" id = "tabb" name = "tabb" value = "{{$tabb}}" />
-
-          <input type = "text" name = "search"  placeholder = "search" class = "border border-gray-300 text-black rounded h-8 ml-5 my-2"/>
-        
-        </form>
+        </div>
 
           <div class="flex mx-4 self-end">
             <div class="flex mr-10 ">
@@ -65,72 +56,14 @@
       </div>
 
 
-             <div class="w-full px-5"  x-show="tab === 0">
+      <div class="w-full px-5"  x-show="tab === 0">
 
-            
+            <livewire:show-workshops/>
 
-            <table class="w-full mx-auto  ">
-              <tr class="border-y border-gray-200 font-bold">
-                <td class=" p-3 w-1/3">Workshop Name</td>
-                <td class=" text-sm">Limited Participants</td>
-                <td>Workshop time</td>
-                <td class = " w-24 text-sm">Workshop Image</td>
-                <td class=" w-72 ">Actions</td>
-              </tr>
-              
-            @unless(count($upcomingWorkshops) == 0)
-            @foreach($upcomingWorkshops as $upcomingWorkshop)
-            <tr class = 'border-b border-gray-200'>
-              <td class="p-3 ">{{ \Illuminate\Support\Str::limit($upcomingWorkshop->name, 45, $end='...') }}</td>
-              @php 
-                 $limited_participants = true;
-                 if (!$upcomingWorkshop->limited_participants)   $limited_participants = false;
-              @endphp
-              <td class = "w-32" ><div class="w-6  flex justify-center items-start rounded text-white text-xs  @if($limited_participants) bg-orange-500 @else bg-green-500 @endif ">@if($limited_participants) {{$upcomingWorkshop->limited_participants}} @else no @endif</div></td>
-
-              <td ><a href="#" class = "text-blue-600"> {{\Carbon\Carbon::parse($upcomingWorkshop->time)->format('d F Y h:m') }}</a></td>
-              <td><img class="object-cover rounded" alt="hero" src="{{$upcomingWorkshop->img_workshop ? asset('/storage/' . $upcomingWorkshop->img_workshop) : asset('/img/test.jpg')}}" width="50"></td>
-              <td class = "flex items-center " >
-                
-                 <a href="/workshopManage/{{$upcomingWorkshop->id}}/{{$upcomingWorkshop->limited_participants ? $upcomingWorkshop->limited_participants : 'null'}}/edit" class="bg-sky-500 text-white px-3 p-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
-                  <i class="fa-solid fa-pen fa-md"></i>
-                      Edit
-                  </a>
-                <form method="POST" action="/workshopManage/{{$upcomingWorkshop->id}}">
-                  @csrf
-                  @method('DELETE')
-                  <input type = "hidden" name = "tab" value = "0"/>
-                  <button @if(count($upcomingWorkshops)==1)  onClick = "changeURL('?upcomingWorkshopsPage=1')"  @endif class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">
-                    <i class="fa-solid fa-trash-can  fa-md"></i>
-                    Delete
-                  </button>
-                </form>
-                <a href={{ route('adminsuperadmin.showParticipants',$upcomingWorkshop->id)}} class="w-28 bg-sky-600 text-white p-2 pr-0 text-xs rounded flex items-center  my-2 hover:bg-sky-700">
-                  <i class="fa-solid fa-user fa-md"></i>
-                  <p class = "mx-1">Participants</p> 
-                  @if($upcomingWorkshop->pendingParticipants > 0)
-                  <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-red-400">{{$upcomingWorkshop->pendingParticipants}}</p>
-                  @endif  
-                </a>
-                
-              </td>
-            </tr>
-            @endforeach
-            @else
-            <tr>
-              <td ></td>
-              <td class = "p-5">
-                No workshops Found
-              </td>
-            </tr>
-            @endunless
-    </table>
-    <div class=" p-3">{{ $upcomingWorkshops->links() }}</div>
-
-  </div>
+      </div>
 
   <div class="w-full px-5"  x-show="tab === 1">
-    <table class="w-full mx-auto ">
+    {{-- <table class="w-full mx-auto ">
       <tr class="border-y border-gray-200 font-bold">
           <td class=" p-3 w-1/3">Workshop Name</td>
           <td class=" text-sm">Limited Participants</td>
@@ -186,12 +119,12 @@
     @endunless
 </table>
 
-<div class=" p-3">{{ $pastsWorkshops->links() }}</div>
+<div class=" p-3">{{ $pastsWorkshops->links() }}</div> --}}
 </div>
 </div>
        
 
-        @can('is_super_admin')
+        {{-- @can('is_super_admin')
          <div class="w-full bg-white border border-gray-200 rounded pb-4 my-12">
       <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
         <h1 class = "p-3 text-slate-900">Workshop Deleted </h1>
@@ -241,21 +174,13 @@
         </div>
         
       </div>
-      @endcan
+      @endcan --}}
 </div>
 <script>
  function changeURL($param){
  if (history.pushState) {
       var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + $param;
       window.history.pushState({path:newurl},'',newurl);
-  }
-
-  var url = window.location.href;
-  if (window.location.href.indexOf("pastsWorkshopsPage") > -1){
-    document.getElementById("tabb").value = 1;
-  }
-  else{
-    document.getElementById("tabb").value = 0;
   }
 }
   </script>

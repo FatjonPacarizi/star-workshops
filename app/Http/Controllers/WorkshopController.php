@@ -157,82 +157,10 @@ class WorkshopController extends Controller
     }
 
 
-    public function showWorkshopManage(Request $request)
+    public function showWorkshopManage()
     {
-        //dd($request->input('tab'));
-        $upcomingSearch = "";
-        $pastSearch = "";
-        if($request->input('search') != null && $request->input('tabb') == 0) $upcomingSearch = $request->input('search');
-        if($request->input('search') != null && $request->input('tabb') == 1) $pastSearch = $request->input('search');
-
-        $currentTime = Carbon::now('Europe/Tirane');
-
-        if(request()->user()->user_status == 'superadmin'){
-            $upcomingWorkshops = Workshop::leftJoin("workshops_users", function($join){
-                $join->on("workshops.id", "=", "workshops_users.workshop_id")
-                ->where("workshops_users.application_status", "=", 'pending');
-            })
-            ->select("workshops.id", "workshops.name","workshops.img_workshop", "workshops.limited_participants", "workshops.time")
-            ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
-            ->whereNull("workshops.deleted_at")
-            ->where("workshops.name", 'LIKE', "%{$upcomingSearch}%")
-            ->orderBy('id', 'DESC')
-            ->where('workshops.time','>', $currentTime)
-            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop")
-            ->paginate(8,['*'], 'upcomingWorkshopsPage');
-
-
-            $pastsWorkshops = Workshop::leftJoin("workshops_users", function($join){
-                $join->on("workshops.id", "=", "workshops_users.workshop_id")
-                ->where("workshops_users.application_status", "=", 'pending');
-            })
-            ->select("workshops.id", "workshops.name","workshops.img_workshop", "workshops.limited_participants", "workshops.time")
-            ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
-            ->whereNull("workshops.deleted_at")
-            ->where("workshops.name", 'LIKE', "%{$pastSearch}%")
-            ->orderBy('id', 'DESC')
-            ->where('workshops.time','<=', $currentTime)
-            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop")
-            ->paginate(8,['*'], 'pastsWorkshopsPage');
-        }
-        else{
-           
-            $myID = Auth::id();
-
-            $upcomingWorkshops = Workshop::leftJoin("workshops_users", function($join){
-
-                $join->on("workshops.id", "=", "workshops_users.workshop_id")
-                ->where("workshops_users.application_status", "=", "pending");
-            })
-            ->select("workshops.id", "workshops.limited_participants","workshops.img_workshop", "workshops.name", "workshops.time")
-            ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
-            ->where("workshops.name", 'LIKE', "%{$upcomingSearch}%")
-            ->where("workshops.author", "=", $myID)
-            ->where('workshops.time','>', $currentTime)
-            ->orderBy('id', 'DESC')
-            ->whereNull("workshops.deleted_at")
-            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop")
-            ->paginate(8,['*'], 'upcomingWorkshops');
-
-
-            $pastsWorkshops = Workshop::leftJoin("workshops_users", function($join){
-                $join->on("workshops.id", "=", "workshops_users.workshop_id")
-                ->where("workshops_users.application_status", "=", "pending");
-            })
-            ->select("workshops.id", "workshops.limited_participants","workshops.img_workshop", "workshops.name", "workshops.time")
-            ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
-            ->where("workshops.name", 'LIKE', "%{$pastSearch}%")
-            ->where("workshops.author", "=", $myID)
-            ->orderBy('id', 'DESC')
-            ->where('workshops.time','<=', $currentTime)
-            ->whereNull("workshops.deleted_at")
-            ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop")
-            ->paginate(8,['*'], 'pastsWorkshopsPage');
-        }
-
-       $workshops1 = Workshop::orderBy('deleted_at','asc')->onlyTrashed()->paginate(8,['*'], 'deletedWorkshopsPage');
-            
-        return view('manageWorkshops',['upcomingWorkshops'=>$upcomingWorkshops,'pastsWorkshops'=>$pastsWorkshops, 'workshops1'=>$workshops1,'searchTab'=>$request->input('tabb')]);
+      
+        return view('manageWorkshops');
     }
 
     /**
