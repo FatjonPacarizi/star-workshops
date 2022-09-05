@@ -25,14 +25,13 @@ class ShowFaq extends Component
 
         $sort = "ASC";
         if($this->sortby != null) $sort =  $this->sortby;
+    
 
-        $status = "Deactive";
-        if($this->sortbystatus != null) $status = $this->sortbystatus;
-       
-        $faq = Faq::where('question','like','%'.$this->search.'%')->orderBy('id',$sort,'AND','status',$status)->paginate($page);
+        $faq = Faq::where('question','like','%'.$this->search.'%')
+        ->orderBy('id',$sort)
+        ->paginate($page);
 
         return view('livewire.show-faq',['faq'=>$faq]);
-
     }
 
     public function reloadFaq($search,$perpage,$sortbystatus,$sortby){
