@@ -12,7 +12,6 @@ class ShowFaq extends Component
     use WithPagination;
     protected $listeners = ['reloadFaq'];
     public $search;
-    public $sortbystatus;
     public $perpage;
     public $sortby;
 
@@ -34,11 +33,10 @@ class ShowFaq extends Component
         return view('livewire.show-faq',['faq'=>$faq]);
     }
 
-    public function reloadFaq($search,$perpage,$sortbystatus,$sortby){
+    public function reloadFaq($search,$perpage,$sortby){
 
         $this->search = $search;
         $this->prepage = $perpage;
-        $this->sortbystatus = $sortbystatus;
         $this->sortby = $sortby;
     }
 }

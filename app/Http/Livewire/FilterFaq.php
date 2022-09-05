@@ -8,7 +8,6 @@ class FilterFaq extends Component
 {
 
     public $search;
-    public $sortbystatus;
     public $perpage;
     public $sortby;
 
@@ -19,6 +18,6 @@ class FilterFaq extends Component
 
     public function filter(){
 
-        $this->emitTo('show-faq','reloadFaq',$this->search,$this->sortbystatus,$this->perpage,$this->sortby);
+        $this->emitTo('show-faq','reloadFaq',$this->search,$this->perpage,$this->sortby);
     }
 }
