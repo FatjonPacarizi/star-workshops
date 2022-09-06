@@ -23,6 +23,7 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
+     @livewireStyles
 </head>
 
 <body class="antialiased">
@@ -31,6 +32,7 @@
     @yield('content')
     @include('layouts.partials.footer')
 
+    @livewireScripts
 </body>
 
 </html>

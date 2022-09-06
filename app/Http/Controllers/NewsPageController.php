@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\NewsPage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreNewsPageRequest;
 use App\Http\Requests\UpdateNewsPageRequest;
 use Carbon\Carbon;
@@ -15,14 +14,10 @@ class NewsPageController extends Controller
 
     public function index()
     {
-        $date = Carbon::now();
-    
-
-        $newspages= Newspage::orderBy('id', 'DESC')->paginate(6);
-        return view('newspage',['newspages' =>$newspages]);
+        return view('newspage');
     }
 
-    public function  newspage(Request $request)
+    public function  newspage()
     {
         return view('newspages.index');
     }

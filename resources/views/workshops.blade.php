@@ -14,29 +14,7 @@
       <h1 class="mb-2 font-bold text-gray-500">EVENTS</h1>
       <h1 class="text-3xl mb-10 text-[#00517E]">Upcoming Events</h1>
     </div>
-    <div class=" flex flex-wrap">
-      @foreach($upcomings as $upcoming)
-      <div class="card  relative rounded shadow-lg  bg-white cursor-pointer ">
-        <a href="{{route('single-workshop',$upcoming->id)}}">
-          <div class="opacity"></div>
-          <img class="img" src="{{$upcoming->img_workshop ? asset('/storage/' . $upcoming->img_workshop) : asset('/img/test.jpg')}}" />
-          <h1 class=" absolute top-0 left-0 text-white p-5 font-bold text-lg">{{$upcoming->name}}</h1>
-          <div class="my-5">
-            <div class="flex items-center">
-              <i class="fa-solid fa-calendar-days text-gray-500 ml-5 mr-2 -mt-1 "></i>
-              <h1 class="uppercase  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">{{ \Carbon\Carbon::parse($upcoming->time)->format('d-F-Y') }}
-              </h1>
-            </div>
-            <div class="flex items-center mt-2">
-              <i class="fa-solid fa-user text-gray-500 ml-5 mr-2 -mt-1"></i>
-              <h1 class="uppercase  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">{{$upcoming->author}}</h1>
-            </div>
-          </div>
-        </a>
-      </div>
-      @endforeach
-    </div>
-    <div class="justfy-center pt-6 flex flex-col items-center mb-10"> {{ $upcomings->links() }} </div>
+    <livewire:show-upcoming-workshops-page>
     </div>
 
 </section>
@@ -44,28 +22,7 @@
 <section class="w-full pt-6 flex flex-col items-center mb-10 bg-white">
   <h1 class="w-full pt-20 pb-10 text-center text-4xl roundedTop -mt-40 bg-white">Past Events</h1>
   <div class="div">
-    <div class=" flex flex-wrap ">
-      @foreach($pasts as $past)
-      <div class="card  relative rounded shadow-lg  bg-white cursor-pointer ">
-        <a href="{{route('single-workshop',$past->id)}}">
-          <div class="opacity"></div>
-          <img class="img grayscale  " src="{{$past->img_workshop ? asset('/storage/' . $past->img_workshop) : asset('/img/test.jpg')}}" />
-          <h1 class=" absolute top-0 left-0 text-white p-5 font-bold text-lg">{{$past->name}}</h1>
-          <div class="my-5">
-            <div class="flex items-center">
-              <i class="fa-solid fa-calendar-days text-gray-500 ml-5 mr-2 -mt-1"></i>
-              <h1 class="uppercase  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">{{\Carbon\Carbon::parse($past->time)->format('d-F-Y') }}</h1>
-            </div>
-            <div class="flex items-center mt-2">
-              <i class="fa-solid fa-user text-gray-500 ml-5 mr-2 -mt-1"></i>
-              <h1 class="uppercase  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">{{$past->author}}</h1>
-            </div>
-          </div>
-        </a>
-      </div>
-      @endforeach
-    </div>
-    <div class="justfy-center pt-6 flex flex-col items-center mb-10"> {{ $pasts->links() }} </div>
+    <livewire:show-pasts-workshops-page>
     </div>
 
 </section>
