@@ -8,10 +8,13 @@
       <h1 class="title-font sm:text-1xl text-1xl mb-4 font-medium text-white">{{$landing->heading}}</h1>
       <div class="mb-8 leading-relaxed text-white">{!! $landing->paragraf !!}</div>
       <div class="flex justify-center">
-        <a href = "{{$landing->button}}" class="ml-4 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-100 rounded-full text-lg">Read the full statement</a>
+        <a href="{{$landing->button}}" class="ml-4 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-100 rounded-full text-lg">Read the full statement</a>
       </div>
     </div>
   </div>
+  <svg class="swirl w-full h-6 md:h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path fill="white" d="M0,100 Q50,1 100,100"></path>
+  </svg>
 </section>
 
 <section class="text-black body-font">
@@ -33,6 +36,10 @@
       </div>
     </div>
   </div>
+  <svg class="swirl w-full h-6 md:h-20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2880 235" preserveAspectRatio="none">
+    <path fill-rule="evenodd" fill="#dc2626" d="M2880.000,235.000 L2880.000,7.000 C2880.001,7.110 1931.895,-43.199 1417.644,136.038 C911.386,283.052 300.817,178.121 -0.000,37.000 C-0.000,203.528 -0.000,235.000 -0.000,235.000 "></path>
+    <path fill="url(#PSgrad_0)" d="M2880.000,235.000 L2880.000,7.000 C2880.001,7.110 1931.895,-43.199 1417.644,136.038 C911.386,283.052 300.817,178.121 -0.000,37.000 C-0.000,203.528 -0.000,235.000 -0.000,235.000 "></path>
+  </svg>
 </section>
 
 <section class="text-white body-font bg-red-600">
@@ -49,6 +56,9 @@
       <img class="object-cover object-center rounded" alt="Workshops and Training" src="{{ asset('img/Workshops.jpg') }}">
     </div>
   </div>
+  <svg class="swirl w-full h-6 md:h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path fill="white" d="M0,100 Q50,1 100,100"></path>
+  </svg>
 </section>
 
 <section class="text-black body-font">
@@ -65,6 +75,10 @@
       </div>
     </div>
   </div>
+  <svg class="swirl w-full h-6 md:h-20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3091 330" preserveAspectRatio="none">
+    <path fill-rule="evenodd" fill-opacity="red" fill="#dc2626" d="M1.000,334.000 L0.000,205.000 C0.000,205.000 587.208,-196.779 1435.424,126.865 C2283.640,450.508 3075.779,281.603 3090.000,282.000 C3090.871,282.610 3091.000,338.000 3091.000,338.000 "></path>
+    <path fill="url(#PSgrad_0)" d="M1.000,334.000 L0.000,205.000 C0.000,205.000 587.208,-196.779 1435.424,126.865 C2283.640,450.508 3075.779,281.603 3090.000,282.000 C3090.871,282.610 3091.000,338.000 3091.000,338.000 "></path>
+  </svg>
 </section>
 
 <section class="text-white bg-red-600 body-font">
@@ -96,12 +110,15 @@
     </div>
     <button class="flex mx-auto mt-16 text-red-600 bg-white border-0 py-2 px-8 focus:outline-none rounded-full text-lg "><a href="http://127.0.0.1:8000/newspage">View all news</a></button>
   </div>
+  <svg class="swirl w-full h-6 md:h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path fill="white" d="M0,100 Q50,1 100,100"></path>
+  </svg>
 </section>
 
 <section class="text-black body-font">
-<div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+  <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-        <img class="object-cover object-center rounded" alt="Evaluation" src="{{ asset('img/Evaluation.jpg') }}">
+      <img class="object-cover object-center rounded" alt="Evaluation" src="{{ asset('img/Evaluation.jpg') }}">
     </div>
     <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-red-600">Evaluation
@@ -112,6 +129,10 @@
       </div>
     </div>
   </div>
+  <svg class="swirl w-full h-6 md:h-20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2880 235" preserveAspectRatio="none">
+    <path fill-rule="evenodd" fill-opacity="red" fill="#dc2626" d="M2880.000,235.000 L2880.000,7.000 C2880.001,7.110 1931.895,-43.199 1417.644,136.038 C911.386,283.052 300.817,178.121 -0.000,37.000 C-0.000,203.528 -0.000,235.000 -0.000,235.000 "></path>
+    <path fill="url(#PSgrad_0)" d="M2880.000,235.000 L2880.000,7.000 C2880.001,7.110 1931.895,-43.199 1417.644,136.038 C911.386,283.052 300.817,178.121 -0.000,37.000 C-0.000,203.528 -0.000,235.000 -0.000,235.000 "></path>
+  </svg>
 </section>
 
 <section class="text-white body-font bg-red-600">
@@ -131,6 +152,9 @@
       </div>
     </div>
   </div>
+  <svg class="swirl w-full h-6 md:h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path fill="white" d="M0,100 Q50,1 100,100"></path>
+  </svg>
 </section>
 
 <section class="text-black body-font">
@@ -143,6 +167,10 @@
       </div>
     </div>
   </div>
+  <svg class="swirl w-full h-6 md:h-20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3091 330" preserveAspectRatio="none">
+    <path fill-rule="evenodd" fill-opacity="red" fill="#dc2626" d="M1.000,334.000 L0.000,205.000 C0.000,205.000 587.208,-196.779 1435.424,126.865 C2283.640,450.508 3075.779,281.603 3090.000,282.000 C3090.871,282.610 3091.000,338.000 3091.000,338.000 "></path>
+    <path fill="url(#PSgrad_0)" d="M1.000,334.000 L0.000,205.000 C0.000,205.000 587.208,-196.779 1435.424,126.865 C2283.640,450.508 3075.779,281.603 3090.000,282.000 C3090.871,282.610 3091.000,338.000 3091.000,338.000 "></path>
+  </svg>
 </section>
 
 <section class="text-white body-font bg-red-600">
@@ -162,6 +190,9 @@
       <img class="object-cover object-center rounded" alt="Star Workshops Scholarships" src="{{ asset('img/team2.png') }}">
     </div>
   </div>
+  <svg class="swirl w-full h-6 md:h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path fill="white" d="M0,100 Q50,1 100,100"></path>
+  </svg>
 </section>
 
 <section class="w-full pb-20 mb-8 flex justify-center body-font">
@@ -169,30 +200,30 @@
     <div class="flex flex-col text-center w-full mb-20 mt-16">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-red-600 font-bold">Latest Events</h1>
       <p>Star workshops, training courses, roundtables and webinars are innovative, thought-provoking and collaborative. We invite you to join us at an upcoming event.</p>
-     </div>
+    </div>
     <div class=" flex flex-wrap ">
       @foreach($upcomings as $workshop)
-        <div class="card  relative rounded shadow-lg  bg-white cursor-pointer ">
-          <a  href = "{{route('single-workshop',$workshop->id)}}">
-            <div class="opacity"></div>
-            <img class = "img" src="{{$workshop->img_workshop ? asset('/storage/' . $workshop->img_workshop) : asset('/img/test.jpg')}}"/>           
-          <h1 class  = " absolute top-0 left-0 text-white p-5 font-bold text-lg">{{$workshop->name}}</h1>
-          <div class="my-5"> 
-          <div class="flex items-center">
-              <i class="fa-solid fa-calendar-days text-gray-500 ml-5 mr-2 -mt-1 "></i> 
+      <div class="card  relative rounded shadow-lg  bg-white cursor-pointer ">
+        <a href="{{route('single-workshop',$workshop->id)}}">
+          <div class="opacity"></div>
+          <img class="img" src="{{$workshop->img_workshop ? asset('/storage/' . $workshop->img_workshop) : asset('/img/test.jpg')}}" />
+          <h1 class=" absolute top-0 left-0 text-white p-5 font-bold text-lg">{{$workshop->name}}</h1>
+          <div class="my-5">
+            <div class="flex items-center">
+              <i class="fa-solid fa-calendar-days text-gray-500 ml-5 mr-2 -mt-1 "></i>
               <h1 class="uppercase  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">{{ \Carbon\Carbon::parse($workshop->time)->format('d-F-Y') }}
               </h1>
-           </div>
+            </div>
             <div class="flex items-center mt-2">
               <i class="fa-solid fa-user text-gray-500 ml-5 mr-2 -mt-1"></i>
-              <h1 class = "uppercase  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">{{$workshop->author}}</h1>
-           </div>
+              <h1 class="uppercase  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">{{$workshop->author}}</h1>
+            </div>
           </div>
-          </a>
-        </div>
+        </a>
+      </div>
       @endforeach
     </div>
-    <button class="flex mx-auto mt-16 text-white bg-red-600 border-0 py-2 px-8 focus:outline-none rounded-full text-lg hover:bg-red-800 duration-300"><a href="http://127.0.0.1:8000/workshops" >View all events</a></button>
+    <button class="flex mx-auto mt-16 text-white bg-red-600 border-0 py-2 px-8 focus:outline-none rounded-full text-lg hover:bg-red-800 duration-300"><a href="http://127.0.0.1:8000/workshops">View all events</a></button>
   </div>
 </section>
 
