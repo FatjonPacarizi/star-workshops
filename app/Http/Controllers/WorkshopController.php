@@ -159,8 +159,10 @@ class WorkshopController extends Controller
 
     public function showWorkshopManage()
     {
-      
-        return view('manageWorkshops');
+        $workshops1 = Workshop::orderBy('deleted_at','asc')->onlyTrashed()->paginate(8,['*'], 'deletedWorkshopsPage');
+            
+        return view('manageWorkshops',['workshops1'=>$workshops1]);
+
     }
 
     /**
