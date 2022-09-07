@@ -30,16 +30,12 @@ class Workshop extends Model
     
     public function workshopsItems(){
 
-        //customer_id is a foreign key in customer_items table
-    
         return $this->hasOne(Country::class, 'category_id');
+    }
     
-        // A customer will has many items thats why hasMany relation is used here
-         }
-
-
-         public function user(){
-           return $this->belongsTo(User::class,'id');
-         }
+    public function user(){
+        
+        return $this->belongsTo(User::class,'author'); 
+    }
 
 }
