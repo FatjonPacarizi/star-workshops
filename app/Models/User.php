@@ -64,4 +64,9 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+
+    public function workshop(){
+       return  $this->hasMany(Workshop::class);
+    }
+
 }

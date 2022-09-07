@@ -37,4 +37,9 @@ class Workshop extends Model
         // A customer will has many items thats why hasMany relation is used here
          }
 
+
+         public function user(){
+           return $this->belongsTo(User::class,'id');
+         }
+
 }
