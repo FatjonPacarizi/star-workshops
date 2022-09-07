@@ -21,7 +21,7 @@ class MailController extends Controller
 
             if ($this->isonline()) {
                 $mail_data = [
-                    'recipient' => 'startworkshop@gmail.com',
+                    'recipient' => 'gs46387@ubt-uni.net',
                     'fromEmail' => $request->email,
                     'fromName' => $request->name,
                     'subject' => $request->subject,

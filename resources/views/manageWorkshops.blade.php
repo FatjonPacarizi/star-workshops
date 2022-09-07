@@ -82,7 +82,7 @@
             <tr class = 'border-b border-gray-200'>
               <td class="p-3 ">{{ \Illuminate\Support\Str::limit($workshop1->name, 50, $end='...') }}</td>
               <td class="text-blue-600">{{\Carbon\Carbon::parse($workshop1->deleted_at)->format('d F Y h:m') }}</td>
-              <td class="text-blue-600">{{$workshop1->author}}</td>
+              <td class="text-blue-600">{{$workshop1->user->name}}</td>
               <td class = "flex items-center " >
                 <form method="POST" action="/workshopManage/{{$workshop1->id}}/restore">
                 @csrf
