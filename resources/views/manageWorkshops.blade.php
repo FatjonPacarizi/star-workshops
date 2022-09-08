@@ -52,49 +52,14 @@
    @can('is_super_admin')
    <div class="w-full bg-white border border-gray-200 rounded pb-4 my-12">
       <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
-        <h1 class = "p-3 text-slate-900">Workshop Deleted </h1>
+        <h1 class = "p-3 text-slate-900">Workshop Deleted 
+          <livewire:filtersafeworkshops/>
+        </h1>
       </div>
-             <div class="w-full flex justify-center">
-            <table class="w-full mx-4  font-thin">
-              <tr class="border-y border-gray-200 ">
-                <td class="font-bold p-3 w-1/2">Workshop Name</td>
-                <td class="font-bold">Workshop deleted</td>
-                <td class="font-bold">Author</td>
-                <td class="font-bold w-72 ">Actions</td>
-              </tr>
-            @foreach($workshops1 as $workshop1)
-            <tr class = 'border-b border-gray-200'>
-              <td class="p-3 ">{{ \Illuminate\Support\Str::limit($workshop1->name, 50, $end='...') }}</td>
-              <td class="text-blue-600">{{\Carbon\Carbon::parse($workshop1->deleted_at)->format('d F Y h:m') }}</td>
-              <td class="text-blue-600">{{$workshop1->user->name}}</td>
-              <td class = "flex items-center " >
-                <form method="POST" action="/workshopManage/{{$workshop1->id}}/restore">
-                @csrf
-              <button class="bg-sky-500 text-white px-3 p-2  text-xs rounded mr-3 my-2 hover:bg-blue-500 opacity-1">
-              <i class="fa-solid fa-trash-can-arrow-up"></i>
-                      Restore
-                    </button>
-                  </form>
-                <form method="POST" action="/forcedelete/{{$workshop1->id}}">
-                  @csrf
-                  @method('DELETE')
-                  <button class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">
-                    <i class="fa-solid fa-trash-can  fa-md"></i>
-                    Force Delete
-                  </button>
-                </form>
-              </td>
-              
-            </tr>
-            @endforeach
-    </table>
+            <livewire:showsafeworkshops/>
+      </div> 
   </div>
-  <div class="flex justfy-center p-3">
-    {{ $workshops1->links() }}
-  </div>
-</div> 
-</div>
-@endcan
+  @endcan
 </div>
 
 <script>
