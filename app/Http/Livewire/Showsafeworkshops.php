@@ -24,13 +24,10 @@ class Showsafeworkshops extends Component
         $sort = "ASC";
         if($this->sortby != null) $sort =  $this->sortby;
 
-        $workshops1 = Workshop::onlyTrashed()->whereHas('user', function (Builder $query) {
-            $query->where('name', 'like', '%'.$this->search.'%');
-        })
-        ->orwhere('name', 'like', '%'.$this->search.'%')
+        $workshops1 = Workshop::where('name', 'like', '%'.$this->search.'%')
         ->onlyTrashed()
         ->orderBy('deleted_at',$sort)
-        ->paginate(8,['*'], 'deletedWorkshopsPage');
+        ->paginate($page,['*'], 'deletedWorkshopsPage');
 
         return view('livewire.showsafeworkshops',['workshops1'=> $workshops1]);
     }
