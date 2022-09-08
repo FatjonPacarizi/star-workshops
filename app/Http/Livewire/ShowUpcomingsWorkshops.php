@@ -71,10 +71,9 @@ class ShowUpcomingsWorkshops extends Component
               $upcomingWorkshops = $upcomingWorkshops->paginate($page);
           }
   
-         $workshops1 = Workshop::orderBy('deleted_at','asc')->onlyTrashed()->paginate(8,['*'], 'deletedWorkshopsPage');
-              
+        
 
-        return view('livewire.show-upcomings-workshops',['upcomingWorkshops'=>$upcomingWorkshops, 'workshops1'=>$workshops1]);
+        return view('livewire.show-upcomings-workshops',['upcomingWorkshops'=>$upcomingWorkshops]);
     }
     public function reloadUpcomingWorkshops($search,$perpage,$sortby){
         $this->search = $search;
