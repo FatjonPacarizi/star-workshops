@@ -12,10 +12,10 @@
             </h1>
         </div>
         @foreach ($staffMembers as $staffMember)
-        <div class="w-full md:w-2/5 lg:w-1/4 p-6 bg-white md:ml-16 rounded-3xl mt-10">
+        <div  class="w-full h-fit md:w-2/5 lg:w-1/4 p-6 bg-white md:ml-16 rounded-3xl mt-10">
             <img class="w-full object-cover rounded-tl-lg rounded-tr-lg p-5" src="{{$staffMember->profile_photo_path ? asset('/storage/' . $staffMember->profile_photo_path) : asset('img/defaultuserphoto.png') }}" alt="" />
             <h5 class="py-1 text-3xl font-extrabold my-4 text-red-700">{{$staffMember->name}}</h5>
-            <p class="py-1 font-semibold leading-6 text-base text-gray-600 ">{{$staffMember->description}}</p>
+            <p  id = {{$staffMember->id}} class="py-1 font-semibold leading-6 text-base text-gray-600 "> {{\Illuminate\Support\Str::limit($staffMember->description, 150, $end='') }} <button onClick = "expandCard({{$staffMember->id}},'{{$staffMember->description}}')" class = "ml-2 text-blue-400">show more</button></p>
             <div class="flex h-10 mt-5 ">
                 <a href="{{$staffMember->instagram}}"><i class="fa-brands fa-instagram fa-2xl" style="color:red"></i></a>
                 <a href="{{$staffMember->facebook}}"><i class="fa-brands fa-facebook fa-2xl mx-4" style="color:red"></i></a>
@@ -47,6 +47,12 @@
             top: 0,
             behavior: 'smooth'
         });
+    }
+    function expandCard(id,fullText){
+        document.getElementById(id).innerHTML = fullText + "   <button class = 'text-blue-400' onClick = 'collapseCard("+id+")'>less</button>";
+    }
+    function collapseCard(id){
+        $( "#"+id ).load(window.location.href + " #"+id );
     }
 </script>
 
