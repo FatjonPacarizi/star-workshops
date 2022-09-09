@@ -30,7 +30,7 @@
           <form method="POST" action="/workshopManage/{{$pastsWorkshop->id}}">
             @csrf
             @method('DELETE')
-            <input type = "hidden" name = "tab" value = "0"/>
+            <input type = "hidden" name = "tab" value = "1"/>
             <button @if(count($pastsWorkshops)==1)  onClick = "changeURL('?upcomingWorkshopsPage=1')"  @endif class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">
               <i class="fa-solid fa-trash-can  fa-md"></i>
               Delete
