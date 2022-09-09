@@ -41,8 +41,8 @@
       <span class="sr-only">Loading...</span>
   </div>
   </div>
-  </div>
   <div class="m-3">
     {{ $workshops1->links() }}
   </div>
-</div>
+  </div>
+  
