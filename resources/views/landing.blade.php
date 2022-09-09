@@ -115,24 +115,22 @@
   </svg>
 </section>
 
-<section class="text-black body-font">
-  <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-      <img class="object-cover object-center rounded" alt="Evaluation" src="{{ asset('img/Evaluation.jpg') }}">
-    </div>
-    <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-red-600">Evaluation
+<section class="w-full text-white body-font">
+  <div class=" w-full flex flex-wrap  py-24 justify-between items-center ">
+    <div class=" md:w-1/2 lg:px-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center text-black ">
+      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium ">Evaluation
       </h1>
       <p class="mb-8 leading-relaxed">Star Workshops evaluation services help licensees assess the maturity of their security programme, measure the effectiveness of their security culture, and identify areas that are strong as well as those that could be improved.</p>
       <div class="flex justify-center">
-        <button class="inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg hover:bg-red-800 duration-300"><a href="/about">Find out more</a></button>
+        <button class="ml-4 mb-2 inline-flex text-white  border-0 py-2 px-6 focus:outline-none bg-red-600 hover:bg-red-700 rounded-full text-lg"><a href="{{route('workshops')}}">Find out more</a></button>
       </div>
     </div>
+    <div class=" md:w-1/2 border relative  mt-10 md:mt-0 py-10  rounded-l-3xl bg-gray-200 md:pl-16 flex justify-end text-center">
+      <div class="absolute w-2/3 rounded-l-3xl h-full right-0 top-0  bg-red-600 "></div>
+      <img class="w-11/12 object-cover object-center  rounded-l-3xl z-10" alt="Workshops and Training" src="{{ asset('img/Evaluation.jpg') }}">
+    </div>
   </div>
-  <svg class="swirl w-full h-6 md:h-20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2880 235" preserveAspectRatio="none">
-    <path fill-rule="evenodd" fill-opacity="red" fill="#dc2626" d="M2880.000,235.000 L2880.000,7.000 C2880.001,7.110 1931.895,-43.199 1417.644,136.038 C911.386,283.052 300.817,178.121 -0.000,37.000 C-0.000,203.528 -0.000,235.000 -0.000,235.000 "></path>
-    <path fill="url(#PSgrad_0)" d="M2880.000,235.000 L2880.000,7.000 C2880.001,7.110 1931.895,-43.199 1417.644,136.038 C911.386,283.052 300.817,178.121 -0.000,37.000 C-0.000,203.528 -0.000,235.000 -0.000,235.000 "></path>
-  </svg>
+ 
 </section>
 
 <section class="text-white body-font bg-red-600">
