@@ -13,7 +13,7 @@ class StoreWorkshop_UsersRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class StoreWorkshop_UsersRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'workshop_id'=>'required',
+            'user_id'=>'required',
         ];
     }
 }
