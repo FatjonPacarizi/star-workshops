@@ -6,26 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Models\Positions;
 use App\Models\positions_users;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class UserManageController extends Controller
 {
      public function index( Request $request){
-        
         $search = "";
         if($request->input('search')) $search=$request->input('search');
         $users = User::where("users.name", 'LIKE', "%{$search}%")->paginate(8);
         return view('manageUsers',['users'=>$users]);
     }
-    public function char (){
-        $users = User::select(DB::raw("COUNT(*) as count"))
-        ->whereYear('created_at', date('Y'))
-        ->groupBy(DB::raw("Month(created_at)"))
-        ->pluck('count');
-        
-        return view('/dashboard', compact('users'));
-    }
+
     //Show edit form
     public function edit($id){
 

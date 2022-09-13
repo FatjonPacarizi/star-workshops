@@ -35,7 +35,7 @@ Route::view('/workshop', 'workshop');
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
-Route::get('/bar-chart', [ChartController::class, 'index']);
+
 Route::get('/members', [WorkshopController::class, 'showMembers']);
 
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
@@ -138,7 +138,7 @@ Route::group(['middleware' => 'auth'], function () {
             // Add routes here for admin and superadmin
 
             //Show dashboard
-            Route::get('/dashboard', [UserManageController::class, 'char'])->name('dashboard');
+            Route::get('/dashboard', [ChartController::class, 'index'])->name('dashboard');
             //Show insert workshop page
             Route::get('/workshopManage/insert', [WorkshopController::class, 'create'])->name('showInsert');
 
