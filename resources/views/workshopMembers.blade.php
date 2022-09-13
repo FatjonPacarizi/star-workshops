@@ -17,9 +17,9 @@
             <h5 class="py-1 text-3xl font-extrabold my-4 text-red-700">{{$staffMember->name}}</h5>
             <p  id = {{$staffMember->id}} class="py-1 font-semibold leading-6 text-base text-gray-600 "> {{\Illuminate\Support\Str::limit($staffMember->description, 150, $end='') }} <button onClick = "expandCard({{$staffMember->id}},'{{$staffMember->description}}')" class = "ml-2 text-blue-400">show more</button></p>
             <div class="flex h-10 mt-5 ">
-                <a href="{{$staffMember->instagram}}"><i class="fa-brands fa-instagram fa-2xl" style="color:red"></i></a>
-                <a href="{{$staffMember->facebook}}"><i class="fa-brands fa-facebook fa-2xl mx-4" style="color:red"></i></a>
-                <a href="{{$staffMember->github}}"><i class="fa-brands fa-github fa-2xl" style="color:red"></i></a>
+                <a href="{{$staffMember->instagram}}" target="_blank"><i class="fa-brands fa-instagram fa-2xl" style="color:red"></i></a>
+                <a href="{{$staffMember->facebook}}" target="_blank"><i class="fa-brands fa-facebook fa-2xl mx-4" style="color:red"></i></a>
+                <a href="{{$staffMember->github}}" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color:red"></i></a>
             </div>
         </div>
         @endforeach

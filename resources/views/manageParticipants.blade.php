@@ -23,7 +23,8 @@
              }">
                
                 <div class="w-full flex mt-5 items-center">
-                  <i class="fa-solid fa-arrow-left mr-5"></i>
+                  <a href="{{  url()->previous() }}" ><i class="fa-solid fa-arrow-left mr-5"></i></a>
+                 
                   @php  
                   $pendingParticipantsTab = 1;
                   $approvedParticipantsTab = 1;
@@ -48,7 +49,7 @@
       <h1 class="p-3 text-black font-medium ml-2 ">Workshop participants Managment</h1>
 
               <div  x-show="tab === 0">
-                <p class = "text-left h-8 m-5 text-xl text-orange-400">Pending</p>
+                <p class = "text-left h-8 m-5 text-xl text-orange-400 w-2/4">Pending</p>
                 <table class="w-full ">
                   <tr class="text-gray-400 text-xs border-b ">
                     <td class="font-bold p-3 w-1/4">User Name</td>
@@ -138,6 +139,7 @@
               </div>
               <div x-show="tab === 2">
                 <p class = "text-left h-8 m-5 text-xl text-red-500">Not Approved</p>
+                
 
                 <table class="w-full">
                   <tr class="text-gray-400 text-xs border-b ">
