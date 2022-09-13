@@ -37,6 +37,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/workshopUserPdf', function () {
+    return view('workshopUserPdf');
+})->name('workshopUserPdf');
+
 Route::get('/members', [WorkshopController::class, 'showMembers']);
 
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
