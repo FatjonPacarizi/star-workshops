@@ -14,7 +14,7 @@ use App\Http\Controllers\usersController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\WorkshopUsersController;
 
-
+use App\Http\Controllers\ChartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -139,10 +139,7 @@ Route::group(['middleware' => 'auth'], function () {
             // Add routes here for admin and superadmin
 
             //Show dashboard
-            Route::get('/dashboard', function () {
-                return view('dashboard');
-            })->name('dashboard');
-
+            Route::get('/dashboard', [ChartController::class, 'index'])->name('dashboard');
             //Show insert workshop page
             Route::get('/workshopManage/insert', [WorkshopController::class, 'create'])->name('showInsert');
 
