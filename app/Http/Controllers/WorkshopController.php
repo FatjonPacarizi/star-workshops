@@ -324,4 +324,5 @@ class WorkshopController extends Controller
         return redirect()->back();
       
     }
+
 }

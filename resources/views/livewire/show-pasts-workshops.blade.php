@@ -6,7 +6,9 @@
           <td class=" text-sm">Limited Participants</td>
           <td>Workshop time</td>
           <td class = " w-24 text-sm">Workshop Image</td>
-          <td class=" w-72 ">Actions</td>
+          <td class=" w-72 text-center">Actions</td>
+          <td class=" w-24 ">Participant</td>
+    
         </tr>
         
       @unless(count($pastsWorkshops) == 0)
@@ -42,10 +44,14 @@
             @if($pastsWorkshop->pendingParticipants > 0)
             <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-red-400">{{$pastsWorkshop->pendingParticipants}}</p>
             @endif  
-          </a>
-          
-        </td>
-      </tr>
+            </a>
+          </td>
+              <td>
+              <a class="w-28 w-1/2 bg-sky-600 text-white p-2 pr-0 text-xs rounded flex items-center  my-2 hover:bg-sky-700" href={{ route('adminsuperadmin.showUser',$pastsWorkshop->id) }}>
+                <h2 class = "mx-1 ">Add Participant</h2>   
+              </a>
+            </td>
+            </tr>
       @endforeach
       @else
       <tr>

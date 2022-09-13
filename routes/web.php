@@ -12,6 +12,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsPageController;
 use App\Http\Controllers\usersController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\WorkshopUsersController;
 
 use App\Http\Controllers\ChartController;
 
@@ -174,6 +175,10 @@ Route::group(['middleware' => 'auth'], function () {
 
             //Delete workshop Participant
             Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('deleteParticipant');
+
+            Route::get('/addparticipant/{workshopid}',[WorkshopUsersController::class,'showUser'])->name('showUser');
+
+            Route::post('/participants/add',[WorkshopUsersController::class,'store'])->name('storeParticipant');
 
             Route::get('newspages', [NewsPageController::class, 'newspage'])->name('shownewspages');
             Route::get('add-newspage', [NewsPageController::class, 'create']);
