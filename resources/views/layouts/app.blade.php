@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,31 +9,21 @@
     $information = App\Models\Informations::all()->last();
     @endphp
     <title>{{$information->app_name}}</title>
-
-
     <!-- Fonts -->
-
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @livewireStyles
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
 </head>
-
 <body class="font-sans h-full antialiased  bg-[#F8F9FA]">
     <x-jet-banner />
-
     <div class="h-full  ">
-        
         <!-- Page Content -->
-
         <div class="w-full h-screen flex fixed  ">
             <aside class=" w-80 px-2">
-
                 <div class="menu is-menu-main h-full px-5">
                     <div class="p-2 py-1 mb-2 border-b">
                         {{-- Soft UI Dashboard --}}
@@ -42,20 +31,14 @@
                             @php
                                    $information = App\Models\Informations::all()->last();
                             @endphp
-                            
                                 <img class="block h-20 p-5 w-auto" alt="Logo" src="{{$information->logo_name ? asset('/storage/' . $information->logo_name) : asset('/img/Logo.png')}}">
                         </a>
                     </div>
-
                     <a href="{{ route('adminsuperadmin.dashboard') }}" class="flex items-center p-2 mb-1  rounded-lg  {{Request::is('dashboard') ? 'bg-white shadow-lg font-medium' : ''}}">
                       <div class="p-1 rounded-lg ml-2 {{Request::is('dashboard') ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white  shadow-md'}}">  <i class="mdi mdi-speedometer mx-1 "></i> </div>
                         <span class="grow ml-3 text-gray-600">Dashboard</span>
                     </a>
-
                     <p class="text-xs leading-4 p-3 ml-1 font-bold text-gray-400 uppercase ">System</p>
-
-
-
                     <ul class="menu-list text-white">
                         @can('is_admin_or_superadmin')
                         <li class="--set-active-tables-html">
@@ -75,7 +58,6 @@
                                 @if(count($pending)>0)
                                 <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-slate-400">{{count($pending)}}</p>
                                 @endif
-
                             </a>
                         </li>
                         @endcan
@@ -88,7 +70,6 @@
                                 $users = App\Models\User::all();
                                 @endphp
                                 <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-slate-400">{{count($users)}}</p>
-
                             </a>
                         </li>
                         @endcan
@@ -137,27 +118,19 @@
                                 @php
                                 $faqs = App\Models\Faq::all();
                                 @endphp
-
                                 <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-slate-400">{{count($faqs)}}</p>
-
-
                             </a>
                         </li>
-                        @endcan
-                        
+                        @endcan      
                 </div>
             </aside>
             <div class="w-full   overflow-y-scroll ">
                 @livewire('navigation-menu')
                 @yield('content')
-
             </div>
         </div>
     </div>
-
     @stack('modals')
-
     @livewireScripts
 </body>
-
 </html>

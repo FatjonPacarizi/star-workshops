@@ -85,16 +85,12 @@
             @livewire('profile.delete-user-form')
         </div>
     @endif
-    <div class="w-full   overflow-y-scroll ">
-                
+    <div class="w-full   overflow-y-scroll ">         
                 @yield('content')
-
             </div>
         </div>
     </div>
-
     @stack('modals')
-
     @livewireScripts
     @include('layouts.partials.footer')
 </body>
