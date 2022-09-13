@@ -211,8 +211,10 @@ class WorkshopController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Workshop $workshop)
-    {
-        $workshop->delete();
+    { 
+        $validated['delete_from_id'] = Auth::id();
+         $workshop::delete($validated);
+
         
         return back()->with("tab",request('tab'));
     }

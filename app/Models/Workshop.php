@@ -25,8 +25,7 @@ class Workshop extends Model
         'category_id',
         'filedlink',
         'time',
-        'img_workshop'
-
+        'img_workshop',
     ];
     
     public function workshopsItems(){
