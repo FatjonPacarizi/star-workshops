@@ -1,17 +1,12 @@
-<nav x-data="{ open: false }" class="bg-[#303C54]">
+<nav x-data="{ open: false }">
     <!-- Primary Navigation Menu -->
     <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center ">
-                    <a href="/">
-                        @php
-                               $information = App\Models\Informations::all()->last();
-                        @endphp
-                        
-                            <img class="block h-20 p-5 w-auto" alt="Logo" src="{{$information->logo_name ? asset('/storage/' . $information->logo_name) : asset('/img/Logo.png')}}">
-                    </a>
+                    <i class="fa-solid fa-bars"></i>
+                  
                 </div>
             </div>
 
@@ -71,13 +66,14 @@
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                @if(Auth::user()->profile_photo_path)
-                                <img class="h-20 w-20 rounded-full object-cover" src="{{Auth::user()->profile_photo_path ? asset('/storage/' . Auth::user()->profile_photo_path) : asset('img/defaultuserphoto.png') }}" alt="{{ Auth::user()->name}}" />
-                                @else
-                                <img class="h-8 w-8 rounded-full object-cover" src="{{Auth::user()->profile_photo_path ? asset('/storage/' . Auth::user()->profile_photo_path) : asset('img/defaultuserphoto.png') }}" alt="{{ Auth::user()->name}}" />
-                                @endif
+                            <div class="flex items-center">
+                                <i class="fa-regular fa-bell mx-5 "></i>
+                                <button class="flex items-center text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+                                <img class="h-8 w-8 rounded-full object-cover shadow" src="{{Auth::user()->profile_photo_path ? asset('/storage/' . Auth::user()->profile_photo_path) : asset('img/defaultuserphoto.png') }}" alt="{{ Auth::user()->name}}" />
+                                <h1 class = "mx-2 font-bold">{{ Auth::user()->name}}</h1>
+                                <i class="fa-solid fa-caret-down mr-3"></i>
                                 </button>
+                            </div>
                             @else
                                 <span class="inline-flex rounded-md">
                                     <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white hover:text-white focus:outline-none transition">

@@ -23,7 +23,7 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+       $users = [
             [
             'name' => 'author',
             'email' => 'author@author.com',
@@ -133,9 +133,11 @@ class UsersSeeder extends Seeder
             'instagram' => 'https://www.instagram.com/granits.ss/',
             'github' => 'https://github.com/granitsalihu1',
         ],
-    ]);
+    ];
     
-        
+    foreach($users as $user){
+        User::create($user);
+    }
         
        
 
