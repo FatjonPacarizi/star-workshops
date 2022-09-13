@@ -36,7 +36,7 @@
            
                         </a>
                     </div>
-                    <div class="hidden sm:block sm:ml-6">
+                    <div class="flex-shrink-0 flex items-center">
                         <div class="flex space-x-4">
                             <!-- Current: "bg-red-700 text-white", Default: "text-white hover:bg-red-700 hover:text-white" -->
                             <a href="{{route('workshops')}}" class="text-red-700 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium" aria-current="page">WORKSHOPS</a>
