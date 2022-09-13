@@ -138,7 +138,6 @@ Route::group(['middleware' => 'auth'], function () {
             // Add routes here for admin and superadmin
 
             //Show dashboard
-            Route::get('/bar-chart', [ChartController::class, 'index'])->name('bar-chart');
             Route::get('/dashboard', [UserManageController::class, 'char'])->name('dashboard');
             //Show insert workshop page
             Route::get('/workshopManage/insert', [WorkshopController::class, 'create'])->name('showInsert');
