@@ -63,9 +63,17 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-010-09 13:53:08',
+<<<<<<< HEAD
+            ],
+            
+            
+            [
+=======
                 'created_at' => '2022-01-09 12:14:19',
             ], [
+>>>>>>> bea86ec27f8b7f2e34d6161939e2c56ebe1f5489
                 'name' => 'Become a Certified HTML, CSS, JavaScript Web Developer',
                 'author' => '1',
                 'limited_participants' => '20',
@@ -106,6 +114,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-02-09 12:14:19',
             ], [
@@ -149,6 +158,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-02-09 12:14:19',
             ],
@@ -193,6 +203,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-02-09 12:14:19',
             ],
@@ -237,6 +248,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-09-09 12:14:19',
                 'created_at' => '2022-03-09 12:14:19',
             ],
@@ -281,6 +293,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-04-09 12:14:19',
             ],
@@ -325,6 +338,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-04-09 12:14:19',
             ],
@@ -369,6 +383,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-04-09 12:14:19',
             ],
@@ -413,6 +428,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-04-09 12:14:19',
             ],
@@ -456,6 +472,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-05-09 12:14:19',
             ],
@@ -500,6 +517,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-06-09 12:14:19',
             ], [
@@ -543,6 +561,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-06-09 12:14:19',
 
@@ -587,6 +606,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-07-09 12:14:19',
 
@@ -631,6 +651,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-07-09 12:14:19',
 
@@ -675,6 +696,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-08-09 12:14:19',
             ], [
@@ -718,6 +740,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-08-09 12:14:19',
             ], [
@@ -761,6 +784,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-08-09 12:14:19',
             ],
@@ -804,6 +828,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-09-09 12:14:19',
             ],
@@ -848,6 +873,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-09-09 12:14:19',
             ],
@@ -892,6 +918,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-09-09 12:14:19',
             ],
