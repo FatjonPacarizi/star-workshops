@@ -5,10 +5,8 @@
 
 @extends('layouts.app')
   @section('content')
-  <div class="w-full h-screen p-6  flex flex-col  items-center ">
+  <div class="w-full h-screen px-10  ">
 
-    <div class="w-full bg-white  rounded pb-4 mt-12">
-    
             @php  
               $tab = 0;
               if(session()->has('tab')) {$tab = session('tab'); }
@@ -20,13 +18,12 @@
 
              <div  x-data="{
               tab:{{$tab}},
-              active : 'bg-gray-100  rounded-t text-gray-900 border-b-2 border-sky-700',
-              inactive: 'text-gray-400 hover:text-gray-600 border-t  border-l border-r rounded-t'
+              active : 'bg-white shadow',
+              inactive: ' hover:shadow '
              }">
-              <div class="w-full flex justify-between border-b">
-                <h1 class = "p-3 text-slate-900">Workshop participants Managment</h1>
-                <div class="flex mr-10 items-end">
-
+               
+                <div class="w-full flex mt-5 items-center">
+                  <i class="fa-solid fa-arrow-left mr-5"></i>
                   @php  
                   $pendingParticipantsTab = 1;
                   $approvedParticipantsTab = 1;
@@ -38,20 +35,22 @@
     
                 @endphp
 
-                <button onClick = "changeURL('?pendingParticipantsPage={{$pendingParticipantsTab}}')" :class = "tab === 0 ? active: inactive" class = "px-5 h-8 flex items-center" @click="tab = 0">
+                <button onClick = "changeURL('?pendingParticipantsPage={{$pendingParticipantsTab}}')" :class = "tab === 0 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center" @click="tab = 0">
                   Pending 
                   @if(count($pendingParticipants)) 
                   <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-red-400">{{count($pendingParticipants)}}</p>
                   @endif
                 </button>
-                <button  onClick = "changeURL('?approvedParticipantsPage={{$approvedParticipantsTab}}')"  :class = "tab === 1 ? active: inactive" class = "px-5 h-8" @click="tab = 1">Approved</button>
-                <button  onClick = "changeURL('?notapprovedParticipantsPage={{$notapprovedParticipantsTab}}')"  :class = "tab === 2 ? active: inactive" class = "px-5 h-8" @click="tab = 2">Not Approved</button>
+                <button  onClick = "changeURL('?approvedParticipantsPage={{$approvedParticipantsTab}}')"  :class = "tab === 1 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl" @click="tab = 1">Approved</button>
+                <button  onClick = "changeURL('?notapprovedParticipantsPage={{$notapprovedParticipantsTab}}')"  :class = "tab === 2 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl" @click="tab = 2">Not Approved</button>
               </div>
-              </div>
+    <div class="w-full bg-white rounded-xl shadow-md py-4 mt-5">
+      <h1 class="p-3 text-black font-medium ml-2 ">Workshop participants Managment</h1>
+
               <div  x-show="tab === 0">
                 <p class = "text-left h-8 m-5 text-xl text-orange-400">Pending</p>
                 <table class="w-full ">
-                  <tr class="border-y border-gray-200 ">
+                  <tr class="text-gray-400 text-xs border-b ">
                     <td class="font-bold p-3 w-1/4">User Name</td>
                     <td class="font-bold p-3 w-1/4">User Email</td>
                     <td class="font-bold w-1/4">Applied On</td>
@@ -101,7 +100,7 @@
               <div x-show="tab === 1">
                 <p class = "text-left h-8 m-5 text-xl text-green-500">Approved</p>
                 <table class="w-full">
-                  <tr class="border-y border-gray-200 h-8 ">
+                  <tr class="text-gray-400 text-xs border-b ">
                     <td class="font-bold p-3 w-1/4">User Name</td>
                     <td class="font-bold p-3 w-1/4">User Email</td>
                     <td class="font-bold w-1/4">Applied On</td>
@@ -141,7 +140,7 @@
                 <p class = "text-left h-8 m-5 text-xl text-red-500">Not Approved</p>
 
                 <table class="w-full">
-                  <tr class="border-y border-gray-200 h-8 ">
+                  <tr class="text-gray-400 text-xs border-b ">
                     <td class="font-bold p-3 w-1/4">User Name</td>
                     <td class="font-bold p-3 w-1/4">User Email</td>
                     <td class="font-bold w-1/4">Applied On</td>
