@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Workshop_Users;
+use App\Models\workshops_users;
 use App\Http\Requests\StoreWorkshop_UsersRequest;
 use App\Http\Requests\UpdateWorkshop_UsersRequest;
+use App\Models\Workshop;
+use App\Models\User;
 
 class WorkshopUsersController extends Controller
 {
@@ -36,7 +39,17 @@ class WorkshopUsersController extends Controller
      */
     public function store(StoreWorkshop_UsersRequest $request)
     {
-        //
+
+        $validated = [
+            'workshop_id'=>$request->input('workshop_id'),
+            'user_id'=>$request->input('user_id'),
+            'application_status' => 'approved',
+            
+         ];
+        workshops_users::create($validated);
+
+        return redirect()->back();
+
     }
 
     /**
@@ -82,5 +95,12 @@ class WorkshopUsersController extends Controller
     public function destroy(Workshop_Users $workshop_Users)
     {
         //
+    }
+
+    
+    public function showUser($workshopid){
+        $workshops = Workshop::find($workshopid);
+        $users = User::all();
+        return view('workshopsParticipantAdd',['users'=> $users,'workshops'=>$workshops]);
     }
 }
