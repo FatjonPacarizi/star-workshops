@@ -30,7 +30,6 @@
         title: {
             text: 'New Workshops 2022'
         },
-      
         xAxis: {
             categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
                 'October', 'November', 'December'
