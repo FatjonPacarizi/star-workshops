@@ -34,8 +34,59 @@
             
             </div>
             <div class="m-3  items-center">
-                <div class="p-6  bg-white  ">
-                    <img class="object-cover w-full" alt="Map" src="{{ asset('img/chart.png') }}">
+                <div class="p-6  bg-white" id="container">
+                <script src="https://code.highcharts.com/highcharts.js"></script>
+
+<script type="text/javascript">
+    var users = <?php echo json_encode($users)?>;
+    Highcharts.chart('container', {
+        title: {
+            text: 'New User 2021'
+        },
+        subtitle: {
+            text: 'Bluebird youtube channel'
+        },
+        xAxis: {
+            categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+                'October', 'November', 'December'
+            ]
+        },
+        yAxis: {
+            title: {
+                text: 'Number of New Users'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                allowPointSelect: true
+            }
+        },
+        series: [{
+            name: 'New Users',
+            data: users
+        }],
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+</script>
+
                 </div>
             </div>
         </div>
