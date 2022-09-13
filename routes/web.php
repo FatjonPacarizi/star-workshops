@@ -12,8 +12,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsPageController;
 use App\Http\Controllers\usersController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\WorkshopUsersController;
 
-
+use App\Http\Controllers\ChartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -138,10 +139,7 @@ Route::group(['middleware' => 'auth'], function () {
             // Add routes here for admin and superadmin
 
             //Show dashboard
-            Route::get('/dashboard', function () {
-                return view('dashboard');
-            })->name('dashboard');
-
+            Route::get('/dashboard', [ChartController::class, 'index'])->name('dashboard');
             //Show insert workshop page
             Route::get('/workshopManage/insert', [WorkshopController::class, 'create'])->name('showInsert');
 
@@ -177,6 +175,10 @@ Route::group(['middleware' => 'auth'], function () {
 
             //Delete workshop Participant
             Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('deleteParticipant');
+
+            Route::get('/addparticipant/{workshopid}',[WorkshopUsersController::class,'showUser'])->name('showUser');
+
+            Route::post('/participants/add',[WorkshopUsersController::class,'store'])->name('storeParticipant');
 
             Route::get('newspages', [NewsPageController::class, 'newspage'])->name('shownewspages');
             Route::get('add-newspage', [NewsPageController::class, 'create']);
