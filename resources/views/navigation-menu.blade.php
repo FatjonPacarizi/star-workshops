@@ -71,7 +71,7 @@
                                 <button class="flex items-center text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
                                 <img class="h-8 w-8 rounded-full object-cover shadow" src="{{Auth::user()->profile_photo_path ? asset('/storage/' . Auth::user()->profile_photo_path) : asset('img/defaultuserphoto.png') }}" alt="{{ Auth::user()->name}}" />
                                 <h1 class = "mx-2 font-bold">{{ Auth::user()->name}}</h1>
-                                <i class="fa-solid fa-caret-down mr-3"></i>
+                                <i class="fa-solid fa-caret-down mr-3"></i> 
                                 </button>
                             </div>
                             @else

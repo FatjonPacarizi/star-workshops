@@ -36,7 +36,7 @@
             <aside class=" w-80 px-2">
 
                 <div class="menu is-menu-main h-full px-5">
-                    <div class="p-2 ">
+                    <div class="p-2 py-1 mb-2 border-b">
                         {{-- Soft UI Dashboard --}}
                         <a href="/" class = "">
                             @php

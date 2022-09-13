@@ -18,7 +18,7 @@
               </div>
               </td>
               <td class = "p-3 uppercase text-gray-400 text-xs" >{{$user->user_status}}</td>
-              <td class = "w-1/5"><div class="w-16 px-2 py-1 bg-gradient-to-r from-lime-400 to-green-500 flex justify-center items-center rounded-lg text-white text-xs">Verified</div></td>
+              <td class = "w-1/5"><div class="w-16 px-2 py-1 bg-gradient-to-r from-lime-500 to-green-500 flex justify-center items-center rounded-lg text-white text-xs font-medium">Verified</div></td>
               <td class="font-bold">                  
                 <p class = "text-xs text-gray-400">{{$user->created_at}}</p>
               </td>
@@ -33,9 +33,9 @@
                 <div class="inline-block relative " x-data="{ open: false }">
                   <i class="fa-solid fa-ellipsis-vertical cursor-pointer w-3"  @click="open = !open"></i>
                   <ul class="bg-white absolute mt-2 z-10 shadow rounded w-40 py-1 " x-show="open" @click.outside="open = false">
+                    <li><p class =  "text-xs p-3 text-gray-400 ">Manage User</p></li>
                     <li><a href="/usersManager/{{$user->id}}/edit" class="py-1 px-3 border-b block hover:bg-indigo-100"> <i class="fa-solid fa-pen mr-1  fa-sm"></i>Edit</a>
-                    <li>
-                      
+                    <li> 
                       <form method="POST" action="/usersManager/{{$user->id}}">
                         @csrf
                         @method('DELETE')
