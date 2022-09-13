@@ -1,41 +1,57 @@
 <div>
 <div class="w-full flex justify-center">
-            <table class="w-full mx-4"wire:loading.remove>
-              <tr class="border-y border-gray-200 ">
-                <td class="font-bold">Name</td>
+            <table class="w-full"wire:loading.remove>
+              <tr class="text-gray-400 text-xs border-b">
+                <td class="font-bold pl-5">Name</td>
                 <td class="font-bold p-3">User Status </td>
                 <td class="font-bold">Verified</td>
-                <td class="font-bold">Email</td>
-                <td class="font-bold  w-1/5">Actions</td>
+                <td class="font-bold">Registered</td>
+                <td class="font-bold  w-1/10">Actions</td>
               </tr>
-            @forelse ($users as $user)
-            <tr @if($user->user_status == 'superadmin') class = 'bg-gray-100' @endif>
-              <td class = "w-1/6">{{$user->name}}</td>
-              <td class = "p-3" >{{$user->user_status}}</td>
-              <td class = "w-1/5"><div class="w-6   bg-red-500 flex justify-center items-center rounded text-white text-xs">no</div></td>
-              <td ><a href="#" class = "text-blue-600"> {{$user->email}}</a></td>
-              <td class = "flex items-center" >
-                 <a href="/usersManager/{{$user->id}}/edit" class="bg-sky-500 text-white px-3 p-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
-                  <i class="fa-solid fa-pen mr-1  fa-md"></i>
-                  Edit
-                  </a>
-                <form method="POST" action="/usersManager/{{$user->id}}">
-                  @csrf
-                  @method('DELETE')
-                  <button class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">
-                    <i class="fa-solid fa-trash-can   fa-md"></i> 
-                                         Delete
-                  </button>
-                </form>
+            
+            @foreach ($users as $user)
+            <tr class = "border-t" style = "border-top-width: 0.01em">
+              <td>
+                <div class="w-full h-full flex items-center pl-5 p-2">
+                <img class="w-10 my-auto rounded-xl " alt="hero" src="{{$user->profile_photo_path ? asset('/storage/' . $user->profile_photo_path) : asset('img/defaultuserphoto.png')}}"/> 
+                <div class = "ml-3 "><h1 class = "text-black">{{$user->name}}</h1> <p class = "text-xs text-gray-500">{{$user->email}}</p></div>
+              </div>
+              </td>
+              <td class = "p-3 uppercase text-gray-400 text-xs" >{{$user->user_status}}</td>
+              <td class = "w-1/5"><div class="w-16 px-2 py-1 bg-gradient-to-r from-lime-500 to-green-500 flex justify-center items-center rounded-lg text-white text-xs font-medium">Verified</div></td>
+              <td class="font-bold">                  
+                <p class = "text-xs text-gray-400">{{$user->created_at}}</p>
+              </td>
+
+              <td  >
+                <div class="w-full h-full flex items-center">
+                @if($user->user_status == 'superadmin')
+                  <p class = "px-2 py-1 text-xs text-white bg-green-300 rounded-lg">Super Admin</p>
+                @else
+                
+
+                <div class="inline-block relative " x-data="{ open: false }">
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer w-3"  @click="open = !open"></i>
+                  <ul class="bg-white absolute mt-2 z-10 shadow rounded w-40 py-1 " x-show="open" @click.outside="open = false">
+                    <li><p class =  "text-xs p-3 text-gray-400 ">Manage User</p></li>
+                    <li><a href="/usersManager/{{$user->id}}/edit" class="py-1 px-3 border-b block hover:bg-indigo-100"> <i class="fa-solid fa-pen mr-1  fa-sm"></i>Edit</a>
+                    <li> 
+                      <form method="POST" action="/usersManager/{{$user->id}}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="w-full text-left text-red-400 py-1 px-3 block hover:bg-indigo-100">
+                          <i class="fa-solid fa-trash-can   fa-sm"></i>    Delete
+                        </button>
+                      </form>
+                  </ul>
+                </div>
+                @endif
+                
+                </div>
               </td>
             </tr>
-            @empty
-            <tr>
-              <td >
-               
-              </td>
-            </tr>
-            @endforelse
+           
+            @endforeach
     </table>
     <div role="status" wire:loading>
       <svg aria-hidden="true" class="mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
