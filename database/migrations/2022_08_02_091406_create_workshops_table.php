@@ -31,6 +31,7 @@ class CreateWorkshopsTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories');
             $table->dateTime('time');
             $table->string('img_workshop')->nullable();
+            $table->string('filedlink');
             $table->timestamps();
         });
     }

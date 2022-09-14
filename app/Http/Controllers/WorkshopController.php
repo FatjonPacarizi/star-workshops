@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
+use PDF;
 
 class WorkshopController extends Controller
 {
@@ -28,7 +29,10 @@ class WorkshopController extends Controller
      */
     public function index()
     {
-       
+        $workshop = User::select(DB::raw("COUNT(*) as count"))
+        ->whereYear('created_at', date('Y'))
+        ->groupBy(DB::raw("Month(updated_at)"))
+        ->pluck('count');
         return view('workshops');
     }
 
@@ -271,6 +275,43 @@ class WorkshopController extends Controller
 
         return view('manageParticipants',['pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
     }
+
+    public function showPDF($workshopid){
+
+        $pendingParticipants = Workshop::Join("workshops_users", function($join){
+            $join->on("workshops.id", "=", "workshops_users.workshop_id");
+        })
+        ->Join("users", function($join){
+            $join->on("workshops_users.user_id", "=", "users.id");
+        })
+        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id","workshops_users.created_at as appliedOn")
+        ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "pending"])
+        ->paginate(8,['*'], 'pendingParticipantsPage');
+
+        $approvedParticipants = Workshop::Join("workshops_users", function($join){
+            $join->on("workshops.id", "=", "workshops_users.workshop_id");
+        })
+        ->Join("users", function($join){
+            $join->on("workshops_users.user_id", "=", "users.id");
+        })
+        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id","workshops_users.created_at as appliedOn")
+        ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "approved"])
+        ->paginate(8,['*'], 'approvedParticipantsPage');
+
+        $notapprovedParticipants = Workshop::Join("workshops_users", function($join){
+            $join->on("workshops.id", "=", "workshops_users.workshop_id");
+        })
+        ->Join("users", function($join){
+            $join->on("workshops_users.user_id", "=", "users.id");
+        })
+        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id","workshops_users.created_at as appliedOn")
+        ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "notapproved"])
+        ->paginate(8,['*'], 'notapprovedParticipantsPage');
+
+        $pdf = PDF::loadView('managePDF', ['pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
+        return $pdf->stream('managePDF.pdf');
+    }
+
     public function approveParticipant($workshopid,$participantantID){
         $formFields = [
             'application_status' => 'approved'
