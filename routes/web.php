@@ -38,9 +38,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/myPDF', function () {
-    return view('myPDF');
-})->name('myPDF');
 
 Route::get('/members', [WorkshopController::class, 'showMembers']);
 
@@ -181,6 +178,9 @@ Route::group(['middleware' => 'auth'], function () {
             //Delete workshop Participant
             Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('deleteParticipant');
 
+            //PDF
+            Route::get('/pdf/{workshopid}', [WorkshopController::class,  'showPDF'])->name('showPDF');
+
             Route::get('/addparticipant/{workshopid}',[WorkshopUsersController::class,'showUser'])->name('showUser');
 
             Route::post('/participants/add',[WorkshopUsersController::class,'store'])->name('storeParticipant');
@@ -192,7 +192,6 @@ Route::group(['middleware' => 'auth'], function () {
             Route::put('update-newspage/{id}', [NewsPageController::class, 'update']);
             Route::delete('delete-newspage/{id}', [NewsPageController::class, 'destroy']);
 
-            Route::get('generate-pdf/', [PDFController::class, 'generatePDF']);
         }
     );
 
