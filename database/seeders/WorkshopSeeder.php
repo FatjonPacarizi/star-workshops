@@ -66,10 +66,9 @@ class WorkshopSeeder extends Seeder
                 'filedlink' => 'Workshop',
                 'time' => '2022-010-09 13:53:08',
                 'created_at' => '2022-01-09 12:14:19',
-
             ],         
-
             [
+
                 'name' => 'Become a Certified HTML, CSS, JavaScript Web Developer',
                 'author' => '1',
                 'limited_participants' => '20',
