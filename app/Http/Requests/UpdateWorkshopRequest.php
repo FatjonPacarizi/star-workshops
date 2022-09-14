@@ -31,6 +31,7 @@ class UpdateWorkshopRequest extends FormRequest
             'type_id' => 'required',
             'city_id' => 'required',
             'category_id' => 'required',
+            'filedlink' => 'required',
             'time' => 'required',
         ];
     }
