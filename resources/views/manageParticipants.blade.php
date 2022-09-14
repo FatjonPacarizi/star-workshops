@@ -36,8 +36,8 @@
                   if(request()->has('approvedParticipantsPage')) $approvedParticipantsTab = request('approvedParticipantsPage');
                   if(request()->has('notapprovedParticipantsPage')) $notapprovedParticipantsTab = request('notapprovedParticipantsPage');
     
-                @endphp
-
+                @endphp  
+                
                 <button onClick = "changeURL('?pendingParticipantsPage={{$pendingParticipantsTab}}')" :class = "tab === 0 ? active: inactive" class = "px-5 h-8 flex items-center" @click="tab = 0">
                   Pending 
                   @if(count($pendingParticipants)) 
@@ -46,10 +46,11 @@
                 </button>
                 <button  onClick = "changeURL('?approvedParticipantsPage={{$approvedParticipantsTab}}')"  :class = "tab === 1 ? active: inactive" class = "px-5 h-8" @click="tab = 1">Approved</button>
                 <button  onClick = "changeURL('?notapprovedParticipantsPage={{$notapprovedParticipantsTab}}')"  :class = "tab === 2 ? active: inactive" class = "px-5 h-8" @click="tab = 2">Not Approved</button>
+                <a href="/workshopManage" class="text-gray-500 pl-3 pb-1"><i class="fa-solid fa-arrow-left "></i> Back To Workshops</a>
               </div>
               </div>
               <div  x-show="tab === 0">
-                <p class = "text-left h-8 m-5 text-xl text-orange-400">Pending</p>
+                <p class = "text-left h-8 m-5 text-xl text-orange-400 w-2/4">Pending</p>
                 <table class="w-full ">
                   <tr class="border-y border-gray-200 ">
                     <td class="font-bold p-3 w-1/4">User Name</td>
@@ -139,6 +140,7 @@
               </div>
               <div x-show="tab === 2">
                 <p class = "text-left h-8 m-5 text-xl text-red-500">Not Approved</p>
+                
 
                 <table class="w-full">
                   <tr class="border-y border-gray-200 h-8 ">

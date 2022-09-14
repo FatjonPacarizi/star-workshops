@@ -23,6 +23,7 @@ class Workshop extends Model
         'country_id',
         'city_id',
         'category_id',
+        'filedlink',
         'time',
         'img_workshop'
 
