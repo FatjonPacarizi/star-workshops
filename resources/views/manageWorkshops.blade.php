@@ -32,7 +32,9 @@
         @endphp
         <button  onClick = "changeURL('?upcomingWorkshopsPage={{$upcomingtab}}')" :class = "tab === 0 ? active: inactive" class = "px-5 h-8 flex items-center" @click="tab = 0">Upcoming</button>
         <button  onClick = "changeURL('?pastsWorkshopsPage={{$pasttab}}')"  :class = "tab === 1 ? active: inactive" class = "px-5 h-8" @click="tab = 1 ">Pasts</button>
+        @can('is_super_admin')
         <button  onClick = "changeURL('?deletedWorkshopsPage={{$deleted}}')" :class = "tab === 2 ? active: inactive" class = "px-5 h-8" @click="tab = 2 ">Deleted</button>
+        @endcan
         </div>   
       </div>
       <a class="mx-5 mb-1 flex items-center" href="{{route('adminsuperadmin.showInsert')}}">
