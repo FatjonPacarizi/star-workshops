@@ -45,6 +45,7 @@
             <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-red-400">{{$pastsWorkshop->pendingParticipants}}</p>
             @endif  
             </a>
+            <a href={{ route('adminsuperadmin.showPDF',$pastsWorkshop->id)}}><i class="fa-solid fa-file-arrow-down pl-1"></i></a>
           </td>
               <td>
               <a class="w-28 w-1/2 bg-sky-600 text-white p-2 pr-0 text-xs rounded flex items-center  my-2 hover:bg-sky-700" href={{ route('adminsuperadmin.showUser',$pastsWorkshop->id) }}>
