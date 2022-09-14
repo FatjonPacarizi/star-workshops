@@ -39,7 +39,7 @@ class Workshop extends Model
     }
     public function deletefrom(){
         
-        return $this->belongsTo(User::class,'delete_from_id'); 
+        return $this->belongsTo(User::class,'deleted_from_id'); 
     }
 
 }

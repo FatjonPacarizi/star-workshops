@@ -211,20 +211,18 @@ class WorkshopController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Workshop $workshop)
-{      
-      $star= [ 
-        'delete_from_id'=>Auth::id(),
-        ]; 
-        Workshop::where('id',$workshop->id)->update($star);
-        $workshop->delete();
-        return back()->with("tab",request('tab'));
-    }
+    {      
+        
+            Workshop::where('id',$workshop->id)->update(['deleted_from_id' => Auth::id()]);
+            $workshop->delete();
+            return back()->with("tab",request('tab'));
+        }
 
 
     public function join($id){
 
         if(!Auth::check())
-          return redirect()->route('xamlogin');
+          return redirect()->route('login');
 
           $application_status = workshops_users::select('application_status')->where(['workshop_id'=>$id,'user_id'=>Auth::id()])
           ->get();
