@@ -28,6 +28,7 @@
                     Force Delete
                   </button>
                 </form>
+                <a href="http://127.0.0.1:8000/generate-pdf"><i class="fa-solid fa-file-arrow-down pl-1"></i></a>
               </td>
               
             </tr>

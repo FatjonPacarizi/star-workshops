@@ -13,6 +13,7 @@ use App\Http\Controllers\NewsPageController;
 use App\Http\Controllers\usersController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\WorkshopUsersController;
+use App\Http\Controllers\PDFController;
 
 use App\Http\Controllers\ChartController;
 
@@ -37,9 +38,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/workshopUserPdf', function () {
-    return view('workshopUserPdf');
-})->name('workshopUserPdf');
+Route::get('/myPDF', function () {
+    return view('myPDF');
+})->name('myPDF');
 
 Route::get('/members', [WorkshopController::class, 'showMembers']);
 
@@ -190,6 +191,8 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('edit-newspage/{id}', [NewsPageController::class, 'edit']);
             Route::put('update-newspage/{id}', [NewsPageController::class, 'update']);
             Route::delete('delete-newspage/{id}', [NewsPageController::class, 'destroy']);
+
+            Route::get('generate-pdf/', [PDFController::class, 'generatePDF']);
         }
     );
 
