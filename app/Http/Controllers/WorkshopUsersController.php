@@ -8,6 +8,7 @@ use App\Http\Requests\StoreWorkshop_UsersRequest;
 use App\Http\Requests\UpdateWorkshop_UsersRequest;
 use App\Models\Workshop;
 use App\Models\User;
+use PDF;
 
 class WorkshopUsersController extends Controller
 {

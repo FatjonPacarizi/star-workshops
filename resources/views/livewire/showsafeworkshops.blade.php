@@ -1,15 +1,16 @@
-<div>
-<div class="w-full flex justify-center">
-            <table class="w-full mx-4  font-thin" wire:loading.remove>
-              <tr class="border-y border-gray-200 ">
+<div class="w-full bg-white shadow-md  rounded-xl py-4 ">
+  <h1 class="p-3 text-black font-medium ml-2 ">Manage workshops</h1>
+
+            <table class="w-full  font-thin" wire:loading.remove>
+              <tr class="text-gray-400 text-xs ">
                 <td class="font-bold p-3 w-1/2">Workshop Name</td>
                 <td class="font-bold">Workshop deleted</td>
                 <td class="font-bold">Author</td>
                 <td class="font-bold w-72 ">Actions</td>
               </tr>
             @foreach($workshops1 as $workshop1)
-            <tr class = 'border-b border-gray-200'>
-              <td class="p-3 ">{{ \Illuminate\Support\Str::limit($workshop1->name, 50, $end='...') }}</td>
+            <tr class = 'border-t border-gray-200'>
+              <td class="p-3">{{ \Illuminate\Support\Str::limit($workshop1->name, 50, $end='...') }}</td>
               <td class="text-blue-600">{{\Carbon\Carbon::parse($workshop1->deleted_at)->format('d F Y h:m') }}</td>
               <td class="text-blue-600">{{$workshop1->user->name}}</td>
               <td class = "flex items-center " >
@@ -28,6 +29,7 @@
                     Force Delete
                   </button>
                 </form>
+                <a href="http://127.0.0.1:8000/pdf/{workshopid}"><i class="fa-solid fa-file-arrow-down pl-1"></i></a>
               </td>
               
             </tr>

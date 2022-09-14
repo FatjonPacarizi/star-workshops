@@ -1,5 +1,4 @@
-<div>
-<div class="w-full flex justify-center">
+<div class="w-full flex flex-col items-center">
       <table class="w-full" wire:loading.remove>
         <tr class="text-gray-400 text-xs border-b">
           <td class="font-bold pl-5">News Title</td>
@@ -48,9 +47,7 @@
       </svg>
       <span class="sr-only">Loading...</span>
   </div>
+  <div class="w-full m-3 px-3">
+    {{$news->links()}}
   </div>
-  <div class="m-3">
-  {{$news->links()}}
-</div>
-
-</div>
+  </div>

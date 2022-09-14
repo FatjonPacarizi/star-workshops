@@ -21,13 +21,18 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
       @php
       $upcomingtab = 1;
       $pasttab = 1;
+      $deleted = 1;
       if(request()->has('upcomingWorkshopsPage')) $upcomingtab = request('upcomingWorkshopsPage');
       if(request()->has('pastsWorkshopsPage')) $pasttab = request('pastsWorkshopsPage');
+      if(request()->has('deletedWorkshopsPage')) $deleted = request('deletedWorkshopsPage');
       @endphp
       <button onClick="changeURL('?upcomingWorkshopsPage={{$upcomingtab}}')" :class="tab === 0 ? active: inactive"
         class="px-5 h-8 flex items-center rounded-xl " @click="tab = 0">Upcoming</button>
       <button onClick="changeURL('?pastsWorkshopsPage={{$pasttab}}')" :class="tab === 1 ? active: inactive"
         class="px-5 h-8 ml-1 rounded-xl" @click="tab = 1 ">Pasts</button>
+      @can('is_super_admin')
+      <button  onClick = "changeURL('?deletedWorkshopsPage={{$deleted}}')" :class = "tab === 2 ? active: inactive"  class="px-5 h-8 ml-1 rounded-xl"  @click="tab = 2 ">Deleted</button>
+      @endcan
     </div>
     <div class="w-full">
       <div class="w-full px-5 pt-3" x-show="tab === 0">
@@ -41,22 +46,16 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
         <livewire:filter-past-workshops-manage>
           <livewire:show-past-workshops-manage />
       </div>
+
+      @can('is_super_admin')
+      <div class="w-full px-5 pt-3" x-show="tab === 2">
+        <livewire:filtersafeworkshops/>
+        <livewire:showsafeworkshops/>
+      </div>
+       @endcan
     </div>
 
   </div>
-
-
-  @can('is_super_admin')
-  <div class="w-full bg-white border border-gray-200 rounded pb-4 my-12">
-    <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
-      <h1 class="p-3 text-slate-900">Workshop Deleted
-        <livewire:filtersafeworkshops />
-      </h1>
-    </div>
-    <livewire:showsafeworkshops />
-  </div>
-</div>
-@endcan
 </div>
 
 <script>

@@ -37,6 +37,8 @@
         <td>
           <div class=" relative flex items-center " x-data="{ open: false }">
             <i class="fa-solid fa-ellipsis-vertical cursor-pointer w-3" @click="open = !open"></i>
+            <a class = "ml-3" href={{ route('adminsuperadmin.showPDF',$upcomingWorkshop->id)}}><i class="fa-solid fa-file-arrow-down pl-1"></i></a>
+
             <ul class="bg-white absolute top-0 mt-2 z-10 shadow-lg border border-gray-100 rounded-lg w-40 py-1 " x-show="open"
               @click.outside="open = false">
               <li>
