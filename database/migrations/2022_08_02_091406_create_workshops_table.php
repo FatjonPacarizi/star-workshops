@@ -40,7 +40,6 @@ class CreateWorkshopsTable extends Migration
 
     /**
      * Reverse the migrations.
-     *pale vallahi ama se
      * @return void
      */
     public function down()
