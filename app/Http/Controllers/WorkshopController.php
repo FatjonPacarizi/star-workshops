@@ -211,9 +211,12 @@ class WorkshopController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Workshop $workshop)
-{
+{      
+      $star= [ 
+        'delete_from_id'=>Auth::id(),
+        ]; 
+        Workshop::where('id',$workshop->id)->update($star);
         $workshop->delete();
-        
         return back()->with("tab",request('tab'));
     }
 
