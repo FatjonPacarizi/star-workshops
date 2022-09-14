@@ -3,13 +3,12 @@
 
 <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
 
-<div class="w-full h-full p-6 flex flex-col mb-20 items-center border">
+<div class="w-full  p-6 px-10 flex ">
 
-  <div class="w-full bg-white border  rounded ">
-    <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
-
-      <h1 class="p-3 text-slate-900">Workshop Managment</h1>
-
+  <div class="w-full bg-white   shadow-md rounded-xl  ">
+    <div class="w-full flex items-center  border-b border-gray-200 mb-4">
+      <a href="{{ route('adminsuperadmin.showManageWorkshops') }}" ><i class="fa-solid fa-arrow-left mx-4"></i></a>
+      <h1 class="p-3 text-black  font-medium  ">Workshop Insert</h1>
     </div>
 
     <form method="POST" action="{{route('adminsuperadmin.storeWorkshop')}}" enctype="multipart/form-data">

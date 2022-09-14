@@ -45,10 +45,10 @@
                 <li>
                   <p class="text-xs p-3 text-gray-400 ">Manage User</p>
                 </li>
-                <li><a href="/usersManager/{{$user->id}}/edit" class="py-1 px-3 border-b block hover:bg-indigo-100"> <i
+                <li><a href="/users/manage/{{$user->id}}/edit" class="py-1 px-3 border-b block hover:bg-indigo-100"> <i
                       class="fa-solid fa-pen mr-1  fa-sm"></i>Edit</a>
                 <li>
-                  <form method="POST" action="/usersManager/{{$user->id}}">
+                  <form method="POST" action="/users/manage/{{$user->id}}">
                     @csrf
                     @method('DELETE')
                     <button class="w-full text-left text-red-400 py-1 px-3 block hover:bg-indigo-100">

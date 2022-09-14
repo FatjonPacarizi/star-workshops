@@ -1,14 +1,15 @@
 <div>
 <div class="w-full flex justify-center">
-    <table class="w-full mx-4" wire:loading.remove>
-      <tr class="border-y border-gray-200">
-        <td class="font-bold p-3">News Title</td>
-        <td class="font-bold">Author</td>
-        <td class="font-bold">Description</td>
-        <td class="fint-bold">Date</td>
+      <table class="w-full" wire:loading.remove>
+        <tr class="text-gray-400 text-xs border-b">
+          <td class="font-bold pl-5">News Title</td>
+          <td class="font-bold p-3">Author</td>
+          <td class="font-bold">Description</td>
+          <td class="font-bold">Date</td>
         <td class="font-bold">Image</td>
-        <td class="font-bold text-center w-1/9">Action</td>
-      </tr>
+          <td class="font-bold  w-1/10">Actions</td>
+        </tr>
+  
       @foreach ($news as $item)
       <tr class='bg-white-100 border-y border-gray-200'>
 
@@ -26,10 +27,10 @@
         </td>
 
         <td>
-          <a href="{{ url('edit-newspage/'.$item->id) }}" class="bg-sky-500 text-white px-4 py-1 text-sm rounded ">Edit</a>
+          <a href="{{ url('/news/edit-news/'.$item->id) }}" class="bg-sky-500 text-white px-4 py-1 text-sm rounded ">Edit</a>
         </td>
         <td>
-                        <form action="{{ url('delete-newspage/'.$item->id) }}" method="POST">
+                        <form action="{{ url('news/delete-news/'.$item->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger bg-red-600 text-white px-4 py-1 text-sm rounded btn-sm">Delete</button>

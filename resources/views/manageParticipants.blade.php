@@ -23,7 +23,7 @@
              }">
                
                 <div class="w-full flex mt-5 items-center">
-                  <a href="{{  url()->previous() }}" ><i class="fa-solid fa-arrow-left mr-5"></i></a>
+                  <a href="{{ route('adminsuperadmin.showManageWorkshops') }}" ><i class="fa-solid fa-arrow-left mr-5"></i></a>
                  
                   @php  
                   $pendingParticipantsTab = 1;

@@ -8,7 +8,7 @@ use Livewire\WithPagination;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
-class ShowPastsWorkshops extends Component
+class ShowPastWorkshopsManage extends Component
 {
     
     use WithPagination;
@@ -34,10 +34,10 @@ class ShowPastsWorkshops extends Component
                   $join->on("workshops.id", "=", "workshops_users.workshop_id")
                   ->where("workshops_users.application_status", "=", 'pending');
               })
-              ->leftJoin("countries", function($join){
+              ->join("countries", function($join){
                 $join->on("workshops.country_id", "=", "countries.id");
                })
-               ->leftJoin("cities", function($join){
+               ->join("cities", function($join){
                 $join->on("workshops.city_id", "=", "cities.id");
                })
               ->select("workshops.id", "workshops.name","countries.name as countryName","cities.name as cityName","workshops.img_workshop", "workshops.limited_participants", "workshops.time")
@@ -49,7 +49,7 @@ class ShowPastsWorkshops extends Component
               
               
               if($this->search != null) 
-               $pastsWorkshops = $pastsWorkshops->where('name','like','%'.$this->search.'%');
+               $pastsWorkshops = $pastsWorkshops->where('workshops.name','like','%'.$this->search.'%');
 
                $pastsWorkshops = $pastsWorkshops->paginate($page);
 
@@ -63,10 +63,10 @@ class ShowPastsWorkshops extends Component
                   $join->on("workshops.id", "=", "workshops_users.workshop_id")
                   ->where("workshops_users.application_status", "=", "pending");
               })
-              ->leftJoin("countries", function($join){
+              ->join("countries", function($join){
                 $join->on("workshops.country_id", "=", "countries.id");
                })
-               ->leftJoin("cities", function($join){
+               ->join("cities", function($join){
                 $join->on("workshops.city_id", "=", "cities.id");
                })
               ->select("workshops.id", "workshops.name","countries.name as countryName","cities.name as cityName","workshops.img_workshop", "workshops.limited_participants", "workshops.time")
@@ -79,7 +79,7 @@ class ShowPastsWorkshops extends Component
               
                 
               if($this->search != null) 
-               $pastsWorkshops = $pastsWorkshops->where('name','like','%'.$this->search.'%');
+               $pastsWorkshops = $pastsWorkshops->where('workshops.name','like','%'.$this->search.'%');
 
                $pastsWorkshops = $pastsWorkshops->paginate($page);
           }
@@ -90,7 +90,7 @@ class ShowPastsWorkshops extends Component
 
 
 
-        return view('livewire.show-pasts-workshops',['pastsWorkshops'=>$pastsWorkshops, 'workshops1'=>$workshops1]);
+        return view('livewire.show-past-workshops-manage',['pastsWorkshops'=>$pastsWorkshops, 'workshops1'=>$workshops1]);
     }
     public function reloadPastsWorkshops($search,$perpage,$sortby){
         $this->search = $search;

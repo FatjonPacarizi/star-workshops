@@ -58,7 +58,7 @@ class UserManageController extends Controller
          ]);
        
   
-          return redirect('/usersManager');
+          return redirect('/users/manage');
       }
    
       // delete contact
@@ -66,6 +66,6 @@ class UserManageController extends Controller
         
         $user->delete();
         
-        return redirect('/usersManager');
+        return redirect('/users/manage');
       }
 }
