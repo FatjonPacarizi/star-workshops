@@ -212,9 +212,10 @@ class WorkshopController extends Controller
      */
     public function destroy(Workshop $workshop)
     {
-        $workshop->delete();
-        
-        return back()->with("tab",request('tab'));
+        Workshop::where('id',$workshop->id)->update(['deleted_from_id' => Auth::id()]);
+$workshop->delete();
+
+return back()->with("tab",request('tab'));
     }
 
 

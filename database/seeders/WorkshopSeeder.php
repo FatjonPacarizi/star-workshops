@@ -30,7 +30,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -63,16 +63,19 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-010-09 13:53:08',
                 'created_at' => '2022-01-09 12:14:19',
-            ], [
+            ],         
+            [
+
                 'name' => 'Become a Certified HTML, CSS, JavaScript Web Developer',
                 'author' => '1',
                 'limited_participants' => '20',
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -106,6 +109,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-02-09 12:14:19',
             ], [
@@ -115,7 +119,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -149,6 +153,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-02-09 12:14:19',
             ],
@@ -159,7 +164,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -193,6 +198,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-02-09 12:14:19',
             ],
@@ -203,7 +209,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -237,6 +243,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-09-09 12:14:19',
                 'created_at' => '2022-03-09 12:14:19',
             ],
@@ -247,7 +254,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -281,6 +288,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-04-09 12:14:19',
             ],
@@ -291,7 +299,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -325,6 +333,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-04-09 12:14:19',
             ],
@@ -335,7 +344,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -369,6 +378,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-04-09 12:14:19',
             ],
@@ -379,7 +389,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -413,6 +423,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-04-09 12:14:19',
             ],
@@ -423,7 +434,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -456,6 +467,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-05-09 12:14:19',
             ],
@@ -466,7 +478,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -500,6 +512,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-06-09 12:14:19',
             ], [
@@ -509,7 +522,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -543,6 +556,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-06-09 12:14:19',
 
@@ -553,7 +567,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -587,6 +601,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-07-09 12:14:19',
 
@@ -597,7 +612,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -631,6 +646,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-07-09 12:14:19',
 
@@ -641,7 +657,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -675,6 +691,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-08-09 12:14:19',
             ], [
@@ -684,7 +701,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -718,6 +735,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-08-09 12:14:19',
             ], [
@@ -727,7 +745,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -761,6 +779,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-08-09 12:14:19',
             ],
@@ -771,7 +790,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -804,6 +823,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-09-09 12:14:19',
             ],
@@ -814,7 +834,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -848,6 +868,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-09-09 12:14:19',
             ],
@@ -858,7 +879,7 @@ class WorkshopSeeder extends Seeder
                 'description' => '<h1 style="font-size:25px;"><b>Background</b></h1> </br>
                
                 Launch of the WINS International Best Practice Guide on Regulatory Practices for Radioactive Source Security
-                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
+                WINS published in June 2022 a new WINS International Best Practice Guide Regulatory Practices for Radioactive Source Security. The objective of this guide is to consolidate the experience and insights gathered by WINS in different activities and work material, providing considerations for best practices in the development and establishment of regulatory practices, different approaches and perspectives with respect to the regulatory practices, the role of threat assessment and risk reduction in informing and shaping such practices, and the coordination mechanisms that all these activities imply. The IAEA organised an International Conference on Safety and Security of Radioactive Sources – Accomplishments and Future Endeavours from 20–24 June 2022 in Vienna. The purpose of the conference was to foster the exchange of experiences and anticipated future developments related to establishing and maintaining a high level of safety and security of radioactive sources throughout their life cycle.  This international conference gathered a large number of radioactive source security professionals from around the world. Therefore, WINS decided to organise a side-event on the margins of this event to promote its new publication.
                 Pristina, KOSOVO.
                 <br></br>
                 <strong>Objectives</strong> 
@@ -892,6 +913,7 @@ class WorkshopSeeder extends Seeder
                 'country_id' => '1',
                 'city_id' => '1',
                 'category_id' => '1',
+                'filedlink' => 'Workshop',
                 'time' => '2022-08-09 12:14:19',
                 'created_at' => '2022-09-09 12:14:19',
             ],

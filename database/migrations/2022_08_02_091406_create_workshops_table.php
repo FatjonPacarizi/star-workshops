@@ -31,13 +31,16 @@ class CreateWorkshopsTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories');
             $table->dateTime('time');
             $table->string('img_workshop')->nullable();
+            $table->string('filedlink');
+            $table->bigInteger('deleted_from_id')->unsigned()->nullable();
+            $table->foreign('deleted_from_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
+     *pale vallahi ama se
      * @return void
      */
     public function down()
