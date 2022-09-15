@@ -1,45 +1,59 @@
-<div>
-<div class="w-full flex justify-center">
-    <table class="w-full mx-4" wire:loading.remove>
-      <tr class="border-y border-gray-200">
-        <td class="font-bold p-3">News Title</td>
-        <td class="font-bold">Author</td>
-        <td class="font-bold">Description</td>
-        <td class="fint-bold">Date</td>
-        <td class="font-bold">Image</td>
-        <td class="font-bold text-center w-1/9">Action</td>
-      </tr>
-      @foreach ($news as $item)
-      <tr class='bg-white-100 border-y border-gray-200'>
+<div class="w-full flex flex-col items-center">
+  <table class="w-full mx-auto" wire:loading.remove>
+    <tr class="text-gray-400 text-xs">
+      <td class=" p-3 w-2/5">News</td>
+      <td class="w-1/4">Description</td>
+      <td class = "w-1/4">Date</td>
+      <td>Actions</td>
 
+    </tr>
 
-        <td class="p-3">{{ Illuminate\Support\Str::limit($item->title, 20, $end='...') }}</td>
-
-        <td> {{ $item->author }}</td>
-
-        <td> {!! Illuminate\Support\Str::limit($item->description, 30, $end='...') !!}</td>
-
-        <td> {{ $item->time }}</td>
-
-        <td>
-          <img src="{{$item->image ? asset('/storage/' . $item->image) : asset('/img/defaultNewsImg.jpg')}}"  width="70px" height="70px" alt="Image">
-        </td>
-
-        <td>
-          <a href="{{ url('edit-newspage/'.$item->id) }}" class="bg-sky-500 text-white px-4 py-1 text-sm rounded ">Edit</a>
-        </td>
-        <td>
-                        <form action="{{ url('delete-newspage/'.$item->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger bg-red-600 text-white px-4 py-1 text-sm rounded btn-sm">Delete</button>
-                        </form>
-                    </td>
-
-      </tr>
-      @endforeach
+    @foreach ($news as $item)
+    <tr class='border-t border-gray-200' style="border-top-width: 0.01em">
+      <td>
+        <div class="w-full h-full flex items-center pl-5 p-2">
+          <img class="w-10 rounded" alt="hero"
+          src="{{$item->image ? asset('/storage/' . $item->image) : asset('/img/defaultNewsImg.jpg')}}" />
+          <div class="ml-3 ">
+            <h1 class="text-black">{{ Illuminate\Support\Str::limit($item->title, 35, $end='...') }}</h1>
+            <p class="text-xs text-gray-500">{{ $item->author }}</p>
+          </div>
+        </div>
+      </td>
+      <td> {!! Illuminate\Support\Str::limit($item->description, 30, $end='...') !!}</td>
     
-    </table>
+
+      <td class="text-xs text-gray-500 ">
+        {{\Carbon\Carbon::parse( $item->time)->format('d F Y h:m') }}
+      </td>
+      <td>
+        <div class="relative flex items-center" x-data="{ open: false }">
+          <i class="fa-solid fa-ellipsis-vertical cursor-pointer w-3" @click="open = !open"></i>
+
+          <ul class="bg-white absolute top-0  mt-2 z-10 shadow-lg rounded-lg border border-gray-100 w-36 py-1 " x-show="open"
+            @click.outside="open = false">
+            <li>
+              <p class="text-xs pl-3 py-2 text-gray-400 ">Manage News</p>
+            </li>
+            <li><a
+                href="{{ url('/news/edit-news/'.$item->id) }}"
+                class="py-1 px-3 border-b block hover:bg-indigo-100 ">
+                <i class="fa-solid fa-pen mr-1 fa-sm"></i>Edit</a>
+            <li>
+              <form method="POST" action="{{ url('news/delete-news/'.$item->id) }}">
+                @csrf
+                @method('DELETE')
+                <button class="w-full text-left text-red-400 py-1 px-3 block hover:bg-indigo-100 border-b">
+                  <i class="fa-solid fa-trash-can   fa-sm"></i> Delete
+                </button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    @endforeach
+  </table>
     <div role="status" wire:loading>
       <svg aria-hidden="true" class="mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
@@ -47,9 +61,9 @@
       </svg>
       <span class="sr-only">Loading...</span>
   </div>
+  <div class="w-full m-3 px-3">
+    {{$news->links()}}
   </div>
-  <div class="m-3">
-  {{$news->links()}}
-</div>
+  </div>
 
-</div>
+ 

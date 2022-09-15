@@ -33,17 +33,18 @@
                             @endphp
                                 <img class="block h-20 p-5 w-auto" alt="Logo" src="{{$information->logo_name ? asset('/storage/' . $information->logo_name) : asset('/img/Logo.png')}}">
                         </a>
+                      
                     </div>
-                    <a href="{{ route('adminsuperadmin.dashboard') }}" class="flex items-center p-2 mb-1  rounded-lg  {{Request::is('dashboard') ? 'bg-white shadow-lg font-medium' : ''}}">
-                      <div class="p-1 rounded-lg ml-2 {{Request::is('dashboard') ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white  shadow-md'}}">  <i class="mdi mdi-speedometer mx-1 "></i> </div>
+                    <a href="{{ route('adminsuperadmin.dashboard') }}" class="flex items-center p-2 mb-1  rounded-lg  {{Request::segment(1) == 'dashboard' ? 'bg-white shadow-lg font-medium' : ''}}" >
+                      <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'dashboard' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white  shadow-md'}}">  <i class="mdi mdi-speedometer mx-1 "></i> </div>
                         <span class="grow ml-3 text-gray-600">Dashboard</span>
                     </a>
                     <p class="text-xs leading-4 p-3 ml-1 font-bold text-gray-400 uppercase ">System</p>
                     <ul class="menu-list text-white">
                         @can('is_admin_or_superadmin')
                         <li class="--set-active-tables-html">
-                            <a href="{{ route('adminsuperadmin.showManageWorkshops') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::is('workshopManage') ? 'bg-white shadow-lg font-medium' : ''}}">
-                                <div class="p-1 rounded-lg ml-2 {{Request::is('workshopManage') ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="mdi mdi-widgets inline-flex mx-1"></i></div>
+                            <a href="{{ route('adminsuperadmin.showManageWorkshops') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::segment(1) == 'workshops' ? 'bg-white shadow-lg font-medium' : ''}}">
+                                <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'workshops' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="mdi mdi-widgets inline-flex mx-1"></i></div>
                                 <span class="grow ml-3 text-gray-600">Workshops</span>
 
                                 @php
@@ -63,8 +64,8 @@
                         @endcan
                         @can('is_super_admin')
                         <li class="--set-active-tables-html">
-                            <a href="{{ route('superadmin.showManageUsers') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::is('usersManager') ? 'bg-white shadow-lg font-medium' : ''}}">
-                                <div class="p-1 rounded-lg ml-2 {{Request::is('usersManager') ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">    <i class="mdi mdi-account-outline mx-1 "></i> </div>
+                            <a href="{{ route('superadmin.showManageUsers') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::segment(1) == 'users' ? 'bg-white shadow-lg font-medium' : ''}}">
+                                <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'users' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">    <i class="mdi mdi-account-outline mx-1 "></i> </div>
                                 <span class="grow ml-3 text-gray-600">Users</span>
                                 @php
                                 $users = App\Models\User::all();
@@ -75,24 +76,24 @@
                         @endcan
                         @can('is_super_admin')
                         <li class="--set-active-tables-html">
-                            <a href="{{ route('superadmin.showlandings') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::is('landings') ? 'bg-white shadow-lg font-medium' : ''}}">
-                                <div class="p-1 rounded-lg ml-2 {{Request::is('landings') ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}"><i class="fa-solid fa-house-chimney mx-1 fa-sm"></i></div>
+                            <a href="{{ route('superadmin.showlandings') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::is('landingpage') ? 'bg-white shadow-lg font-medium' : ''}}">
+                                <div class="p-1 rounded-lg ml-2 {{Request::is('landingpage') ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}"><i class="fa-solid fa-house-chimney mx-1 fa-sm"></i></div>
                                 <span class="grow  ml-3 text-gray-600">Landing Page</span>
                             </a>
                         </li>
                         @endcan
                         @can('is_super_admin')
                         <li class="--set-active-tables-html">
-                            <a href="{{ route('superadmin.showabouts') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::is('abouts') ? 'bg-white shadow-lg font-medium' : ''}}">
-                                <div class="p-1 rounded-lg ml-2 {{Request::is('abouts') ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}"> <i class="fa-solid fa-address-card mx-1  fa-sm"></i></div>
+                            <a href="{{ route('superadmin.showabouts') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::is('aboutus') ? 'bg-white shadow-lg font-medium' : ''}}">
+                                <div class="p-1 rounded-lg ml-2 {{Request::is('aboutus') ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}"> <i class="fa-solid fa-address-card mx-1  fa-sm"></i></div>
                                 <span class="grow  ml-3 text-gray-600">About Us</span>
                             </a>
                         </li>
                         @endcan
                         @can('is_admin_or_superadmin')
                         <li class="--set-active-tables-html">
-                            <a href="{{ route('adminsuperadmin.shownewspages') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::is('newspages') ? 'bg-white shadow-lg font-medium' : ''}}">
-                                <div class="p-1 rounded-lg ml-2 {{Request::is('newspages') ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}"> <i class="fa-regular fa-newspaper mx-1  fa-sm"></i></div>
+                            <a href="{{ route('adminsuperadmin.shownewspages') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::segment(1) == 'news' ? 'bg-white shadow-lg font-medium' : ''}}">
+                                <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'news' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}"> <i class="fa-regular fa-newspaper mx-1  fa-sm"></i></div>
                                 <span class="grow ml-3 text-gray-600">News</span>
                                 @php
                                 $news = App\Models\NewsPage::all();
@@ -104,16 +105,16 @@
                         @endcan
                         @can('is_super_admin')
                         <li class="--set-active-tables-html">
-                            <a href="{{ route('superadmin.ShowAppInfos') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::is('appInfos') ? 'bg-white shadow-lg font-medium' : ''}}">
-                                <div class="p-1 rounded-lg ml-2 {{Request::is('appInfos') ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="mdi mdi-format-list-checkbox mx-1"></i></div>
+                            <a href="{{ route('superadmin.ShowAppInfos') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::segment(1) == 'appinformations' ? 'bg-white shadow-lg font-medium' : ''}}">
+                                <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'appinformations' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="mdi mdi-format-list-checkbox mx-1"></i></div>
                                 <span class="grow ml-3 text-gray-600">App Informations</span>
                             </a>
                         </li>
                         @endcan
                         @can('is_super_admin')
                         <li class="--set-active-tables-html">
-                            <a href="{{ route('superadmin.faq') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::is('faq') ? 'bg-white shadow-lg font-medium' : ''}}">
-                                <div class="p-1 rounded-lg ml-2 {{Request::is('faq') ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="fa-solid fa-question mx-2"></i></div>
+                            <a href="{{ route('superadmin.faq') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::segment(1) == 'faq' ? 'bg-white shadow-lg font-medium' : ''}}">
+                                <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'faq'? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="fa-solid fa-question mx-2"></i></div>
                                 <span class="grow ml-3 text-gray-600">Faq</span>
                                 @php
                                 $faqs = App\Models\Faq::all();
@@ -125,7 +126,8 @@
                 </div>
             </aside>
             <div class="w-full   overflow-y-scroll ">
-                @livewire('navigation-menu')
+                
+                @include('navigation-menu',['link'=>1])
                 @yield('content')
             </div>
         </div>

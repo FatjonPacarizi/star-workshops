@@ -8,7 +8,7 @@ use Livewire\WithPagination;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
-class ShowUpcomingsWorkshops extends Component
+class ShowUpcomingWorkshopsManage extends Component
 {
   
     use WithPagination;
@@ -34,16 +34,22 @@ class ShowUpcomingsWorkshops extends Component
                   $join->on("workshops.id", "=", "workshops_users.workshop_id")
                   ->where("workshops_users.application_status", "=", 'pending');
               })
-              ->select("workshops.id", "workshops.name","workshops.img_workshop", "workshops.limited_participants", "workshops.time")
+              ->join("countries", function($join){
+                $join->on("workshops.country_id", "=", "countries.id");
+               })
+               ->join("cities", function($join){
+                $join->on("workshops.city_id", "=", "cities.id");
+               })
+              ->select("workshops.id", "workshops.name","countries.name as countryName","cities.name as cityName","workshops.img_workshop", "workshops.limited_participants", "workshops.time")
               ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
               ->whereNull("workshops.deleted_at")
               ->orderBy('id', $sort)
               ->where('workshops.time','>', $currentTime)
-              ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop");
+              ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop","countries.name","cities.name");
               
               
               if($this->search != null) 
-               $upcomingWorkshops = $upcomingWorkshops->where('name','like','%'.$this->search.'%');
+               $upcomingWorkshops = $upcomingWorkshops->where('workshops.name','like','%'.$this->search.'%');
 
                $upcomingWorkshops = $upcomingWorkshops->paginate($page);
 
@@ -57,23 +63,29 @@ class ShowUpcomingsWorkshops extends Component
                   $join->on("workshops.id", "=", "workshops_users.workshop_id")
                   ->where("workshops_users.application_status", "=", "pending");
               })
-              ->select("workshops.id", "workshops.limited_participants","workshops.img_workshop", "workshops.name", "workshops.time")
+              ->join("countries", function($join){
+                $join->on("workshops.country_id", "=", "countries.id");
+               })
+               ->join("cities", function($join){
+                $join->on("workshops.city_id", "=", "cities.id");
+               })
+              ->select("workshops.id", "workshops.name","countries.name as countryName","cities.name as cityName","workshops.img_workshop", "workshops.limited_participants", "workshops.time")
               ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
               ->where("workshops.author", "=", $myID)
               ->where('workshops.time','>', $currentTime)
               ->orderBy('id', 'DESC')
               ->whereNull("workshops.deleted_at")
-              ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop");
+              ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop","countries.name","cities.name");
               
               if($this->search != null) 
-              $upcomingWorkshops = $upcomingWorkshops->where('name','like','%'.$this->search.'%');
+              $upcomingWorkshops = $upcomingWorkshops->where('workshops.name','like','%'.$this->search.'%');
 
               $upcomingWorkshops = $upcomingWorkshops->paginate($page);
           }
   
         
 
-        return view('livewire.show-upcomings-workshops',['upcomingWorkshops'=>$upcomingWorkshops]);
+        return view('livewire.show-upcoming-workshops-manage',['upcomingWorkshops'=>$upcomingWorkshops]);
     }
     public function reloadUpcomingWorkshops($search,$perpage,$sortby){
         $this->search = $search;
