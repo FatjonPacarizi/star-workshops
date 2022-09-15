@@ -5,7 +5,7 @@
     <div class="w-full bg-white  rounded ">
         <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
             <h1 class="p-3 text-slate-900">App Landing</h1>
-            <a href="/landings" class="p-3 text-gray-400"> Cancel </a>
+            <a href="/dashboard" class="p-3 text-gray-400"> Cancel </a>
         </div>
         @if (session('status'))
         <h6>{{ session('status') }}</h6>
