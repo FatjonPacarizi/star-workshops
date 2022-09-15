@@ -6,6 +6,7 @@
                 <td class="p-3 w-1/2">Workshop Name</td>
                 <td>Workshop deleted</td>
                 <td>Author</td>
+                <td class="font-bold">Delete From</td>
                 <td class="w-72 ">Actions</td>
               </tr>
             @foreach($workshops1 as $workshop1)
@@ -13,6 +14,7 @@
               <td class="p-3">{{ \Illuminate\Support\Str::limit($workshop1->name, 50, $end='...') }}</td>
               <td class="text-blue-600">{{\Carbon\Carbon::parse($workshop1->deleted_at)->format('d F Y h:m') }}</td>
               <td class="text-blue-600">{{$workshop1->user->name}}</td>
+              <td class="text-blue-600">{{$workshop1->deletefrom->name}}</td>
               <td class = "flex items-center " >
                 <form method="POST" action="/workshops/manage/{{$workshop1->id}}/restore">
                 @csrf
