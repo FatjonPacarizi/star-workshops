@@ -9,7 +9,6 @@ use App\Models\User;
 use App\Models\Country;
 use App\Models\Category;
 use App\Models\Workshop;
-use Barryvdh\DomPDF\PDF;
 use App\Models\Positions;
 use Illuminate\Http\Request;
 use Illuminate\Queue\Worker;
@@ -19,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
+use PDF;
 
 class WorkshopController extends Controller
 {
