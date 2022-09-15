@@ -5,10 +5,8 @@
 
 @extends('layouts.app')
   @section('content')
-  <div class="w-full h-screen p-6  flex flex-col  items-center ">
+  <div class="w-full h-screen px-10  ">
 
-    <div class="w-full bg-white  rounded pb-4 mt-12">
-    
             @php  
               $tab = 0;
               if(session()->has('tab')) {$tab = session('tab'); }
@@ -20,13 +18,13 @@
 
              <div  x-data="{
               tab:{{$tab}},
-              active : 'bg-gray-100  rounded-t text-gray-900 border-b-2 border-sky-700',
-              inactive: 'text-gray-400 hover:text-gray-600 border-t  border-l border-r rounded-t'
+              active : 'bg-white shadow',
+              inactive: ' hover:shadow '
              }">
-              <div class="w-full flex justify-between border-b">
-                <h1 class = "p-3 text-slate-900">Workshop participants Managment</h1>
-                <div class="flex mr-10 items-end">
-
+               
+                <div class="w-full flex mt-5 items-center">
+                  <a href="{{ route('adminsuperadmin.showManageWorkshops') }}" ><i class="fa-solid fa-arrow-left mr-5"></i></a>
+                 
                   @php  
                   $pendingParticipantsTab = 1;
                   $approvedParticipantsTab = 1;
@@ -36,23 +34,27 @@
                   if(request()->has('approvedParticipantsPage')) $approvedParticipantsTab = request('approvedParticipantsPage');
                   if(request()->has('notapprovedParticipantsPage')) $notapprovedParticipantsTab = request('notapprovedParticipantsPage');
     
-                @endphp  
-                
-                <button onClick = "changeURL('?pendingParticipantsPage={{$pendingParticipantsTab}}')" :class = "tab === 0 ? active: inactive" class = "px-5 h-8 flex items-center" @click="tab = 0">
+                @endphp
+
+                <button onClick = "changeURL('?pendingParticipantsPage={{$pendingParticipantsTab}}')" :class = "tab === 0 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center" @click="tab = 0">
                   Pending 
                   @if(count($pendingParticipants)) 
                   <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-red-400">{{count($pendingParticipants)}}</p>
                   @endif
                 </button>
-                <button  onClick = "changeURL('?approvedParticipantsPage={{$approvedParticipantsTab}}')"  :class = "tab === 1 ? active: inactive" class = "px-5 h-8" @click="tab = 1">Approved</button>
-                <button  onClick = "changeURL('?notapprovedParticipantsPage={{$notapprovedParticipantsTab}}')"  :class = "tab === 2 ? active: inactive" class = "px-5 h-8" @click="tab = 2">Not Approved</button>
-                <a href="/workshopManage" class="text-gray-500 pl-3 pb-1"><i class="fa-solid fa-arrow-left "></i> Back To Workshops</a>
+                <button  onClick = "changeURL('?approvedParticipantsPage={{$approvedParticipantsTab}}')"  :class = "tab === 1 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl" @click="tab = 1">Approved</button>
+                <button  onClick = "changeURL('?notapprovedParticipantsPage={{$notapprovedParticipantsTab}}')"  :class = "tab === 2 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl" @click="tab = 2">Not Approved</button>
               </div>
-              </div>
+    <div class="w-full bg-white rounded-xl shadow-md py-4 mt-5">
+      <h1 class="p-3 text-black font-medium ml-2 ">Workshop participants Managment</h1>
+
               <div  x-show="tab === 0">
-                <p class = "text-left h-8 m-5 text-xl text-orange-400 w-2/4">Pending</p>
+                <div class="flex items-center p-5 justify-between">
+                  <p class = "text-left h-8 text-xl text-orange-400 w-2/4">Pending</p>
+                  <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
+                </div>
                 <table class="w-full ">
-                  <tr class="border-y border-gray-200 ">
+                  <tr class="text-gray-400 text-xs ">
                     <td class="font-bold p-3 w-1/4">User Name</td>
                     <td class="font-bold p-3 w-1/4">User Email</td>
                     <td class="font-bold w-1/4">Applied On</td>
@@ -61,7 +63,7 @@
                   
     
                 @foreach($pendingParticipants as $pendingParticipant)
-                <tr class = 'border-b border-gray-200'>
+                <tr class = 'border-t border-gray-200'>
                   <td class="p-3 ">{{$pendingParticipant->name}}</td>
                   <td class="p-3 ">{{$pendingParticipant->email}}</td>
                  
@@ -100,9 +102,12 @@
                 </div>
               </div>
               <div x-show="tab === 1">
-                <p class = "text-left h-8 m-5 text-xl text-green-500">Approved</p>
+                <div class="flex items-center p-5 justify-between">
+                  <p class = "text-left h-8 text-xl text-orange-400 w-2/4">Approved</p>
+                  <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
+                </div>
                 <table class="w-full">
-                  <tr class="border-y border-gray-200 h-8 ">
+                  <tr class="text-gray-400 text-xs">
                     <td class="font-bold p-3 w-1/4">User Name</td>
                     <td class="font-bold p-3 w-1/4">User Email</td>
                     <td class="font-bold w-1/4">Applied On</td>
@@ -111,7 +116,7 @@
                   
             
                 @foreach($approvedParticipants as $approvedParticipant)
-                <tr class = 'border-b border-gray-200 '>
+                <tr class = 'border-t border-gray-200 '>
                   <td class="p-3">{{$approvedParticipant->name}}</td>
                   <td class="p-3 ">{{$approvedParticipant->email}}</td>
                   <td ><a href="#" class = "text-blue-600"> {{$approvedParticipant->appliedOn}}</a></td>
@@ -139,11 +144,12 @@
               </div>
               </div>
               <div x-show="tab === 2">
-                <p class = "text-left h-8 m-5 text-xl text-red-500">Not Approved</p>
-                
-
+                <div class="flex items-center p-5 justify-between">
+                  <p class = "text-left h-8 text-xl text-orange-400 w-2/4">Not Approved</p>
+                  <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
+                </div>
                 <table class="w-full">
-                  <tr class="border-y border-gray-200 h-8 ">
+                  <tr class="text-gray-400 text-xs">
                     <td class="font-bold p-3 w-1/4">User Name</td>
                     <td class="font-bold p-3 w-1/4">User Email</td>
                     <td class="font-bold w-1/4">Applied On</td>
@@ -152,7 +158,7 @@
                   
             
                 @foreach($notapprovedParticipants as $notapprovedParticipant)
-                <tr class = 'border-b border-gray-200 '>
+                <tr class = 'border-t border-gray-200 '>
                   <td class="p-3">{{$notapprovedParticipant->name}}</td>
                   <td class="p-3 ">{{$notapprovedParticipant->email}}</td>
 
