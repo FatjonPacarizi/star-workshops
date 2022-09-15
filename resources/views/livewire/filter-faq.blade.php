@@ -15,8 +15,8 @@
     <div class = "flex flex-col items-center">
         <p class = "text-xs">Sort By</p>
         <select wire:model="sortby" wire:change = "filter" class="text-slate-900 rounded my-3 text-xs border-b border-gray-400 ml-4" >
-            <option value = "DESC">DESC</option>
             <option value = "ASC">ASC</option>
+            <option value = "DESC">DESC</option>
         </select>
     </div>
 
