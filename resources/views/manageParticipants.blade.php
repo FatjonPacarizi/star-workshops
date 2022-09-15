@@ -49,9 +49,12 @@
       <h1 class="p-3 text-black font-medium ml-2 ">Workshop participants Managment</h1>
 
               <div  x-show="tab === 0">
-                <p class = "text-left h-8 m-5 text-xl text-orange-400 w-2/4">Pending</p>
+                <div class="flex items-center p-5 justify-between">
+                  <p class = "text-left h-8 text-xl text-orange-400 w-2/4">Pending</p>
+                  <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
+                </div>
                 <table class="w-full ">
-                  <tr class="text-gray-400 text-xs border-b ">
+                  <tr class="text-gray-400 text-xs ">
                     <td class="font-bold p-3 w-1/4">User Name</td>
                     <td class="font-bold p-3 w-1/4">User Email</td>
                     <td class="font-bold w-1/4">Applied On</td>
@@ -60,7 +63,7 @@
                   
     
                 @foreach($pendingParticipants as $pendingParticipant)
-                <tr class = 'border-b border-gray-200'>
+                <tr class = 'border-t border-gray-200'>
                   <td class="p-3 ">{{$pendingParticipant->name}}</td>
                   <td class="p-3 ">{{$pendingParticipant->email}}</td>
                  
@@ -99,9 +102,12 @@
                 </div>
               </div>
               <div x-show="tab === 1">
-                <p class = "text-left h-8 m-5 text-xl text-green-500">Approved</p>
+                <div class="flex items-center p-5 justify-between">
+                  <p class = "text-left h-8 text-xl text-orange-400 w-2/4">Approved</p>
+                  <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
+                </div>
                 <table class="w-full">
-                  <tr class="text-gray-400 text-xs border-b ">
+                  <tr class="text-gray-400 text-xs">
                     <td class="font-bold p-3 w-1/4">User Name</td>
                     <td class="font-bold p-3 w-1/4">User Email</td>
                     <td class="font-bold w-1/4">Applied On</td>
@@ -110,7 +116,7 @@
                   
             
                 @foreach($approvedParticipants as $approvedParticipant)
-                <tr class = 'border-b border-gray-200 '>
+                <tr class = 'border-t border-gray-200 '>
                   <td class="p-3">{{$approvedParticipant->name}}</td>
                   <td class="p-3 ">{{$approvedParticipant->email}}</td>
                   <td ><a href="#" class = "text-blue-600"> {{$approvedParticipant->appliedOn}}</a></td>
@@ -138,11 +144,12 @@
               </div>
               </div>
               <div x-show="tab === 2">
-                <p class = "text-left h-8 m-5 text-xl text-red-500">Not Approved</p>
-                
-
+                <div class="flex items-center p-5 justify-between">
+                  <p class = "text-left h-8 text-xl text-orange-400 w-2/4">Not Approved</p>
+                  <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
+                </div>
                 <table class="w-full">
-                  <tr class="text-gray-400 text-xs border-b ">
+                  <tr class="text-gray-400 text-xs">
                     <td class="font-bold p-3 w-1/4">User Name</td>
                     <td class="font-bold p-3 w-1/4">User Email</td>
                     <td class="font-bold w-1/4">Applied On</td>
@@ -151,7 +158,7 @@
                   
             
                 @foreach($notapprovedParticipants as $notapprovedParticipant)
-                <tr class = 'border-b border-gray-200 '>
+                <tr class = 'border-t border-gray-200 '>
                   <td class="p-3">{{$notapprovedParticipant->name}}</td>
                   <td class="p-3 ">{{$notapprovedParticipant->email}}</td>
 

@@ -3,7 +3,7 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
 @endphp
 @extends('layouts.app')
 @section('content')
-<div class="w-full h-full px-6  flex flex-col  items-center ">
+<div class="w-full h-full px-5  flex flex-col  items-center ">
   {{-- {{dd(request()->has('pastsWorkshopsPage'))}} --}}
   @php
   $tab = 0;

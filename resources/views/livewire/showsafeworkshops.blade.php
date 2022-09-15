@@ -1,12 +1,12 @@
 <div class="w-full bg-white shadow-md  rounded-xl py-4 ">
   <h1 class="p-3 text-black font-medium ml-2 ">Manage workshops</h1>
 
-            <table class="w-full  font-thin" wire:loading.remove>
+            <table class="w-full " wire:loading.remove>
               <tr class="text-gray-400 text-xs ">
-                <td class="font-bold p-3 w-1/2">Workshop Name</td>
-                <td class="font-bold">Workshop deleted</td>
-                <td class="font-bold">Author</td>
-                <td class="font-bold w-72 ">Actions</td>
+                <td class="p-3 w-1/2">Workshop Name</td>
+                <td>Workshop deleted</td>
+                <td>Author</td>
+                <td class="w-72 ">Actions</td>
               </tr>
             @foreach($workshops1 as $workshop1)
             <tr class = 'border-t border-gray-200'>
@@ -14,7 +14,7 @@
               <td class="text-blue-600">{{\Carbon\Carbon::parse($workshop1->deleted_at)->format('d F Y h:m') }}</td>
               <td class="text-blue-600">{{$workshop1->user->name}}</td>
               <td class = "flex items-center " >
-                <form method="POST" action="/workshopManage/{{$workshop1->id}}/restore">
+                <form method="POST" action="/workshops/manage/{{$workshop1->id}}/restore">
                 @csrf
               <button class="bg-sky-500 text-white px-3 p-2  text-xs rounded mr-3 my-2 hover:bg-blue-500 opacity-1">
               <i class="fa-solid fa-trash-can-arrow-up"></i>

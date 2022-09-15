@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Country;
 use App\Models\Category;
 use App\Models\Workshop;
+use Barryvdh\DomPDF\PDF;
 use App\Models\Positions;
 use Illuminate\Http\Request;
 use Illuminate\Queue\Worker;
@@ -18,7 +19,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
-use PDF;
 
 class WorkshopController extends Controller
 {
@@ -273,7 +273,7 @@ class WorkshopController extends Controller
         ->paginate(8,['*'], 'notapprovedParticipantsPage');
 
 
-        return view('manageParticipants',['pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
+        return view('manageParticipants',['workshopName'=>Workshop::select('name')->where('id',$workshopid)->get(),'pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
     }
 
     public function showPDF($workshopid){
@@ -337,8 +337,8 @@ class WorkshopController extends Controller
     }
     public function deleteParticipant($workshopid,$participantantID){
        
-         $partiant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
-         $partiant->delete();
+         $participant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
+         $participant->delete();
 
          return redirect()->back()->with("tab",request('tab'));
 

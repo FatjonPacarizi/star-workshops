@@ -143,7 +143,7 @@
 
 
       <div class="w-full p-4 flex justify-end border-t border-gray-200">
-        <a href="/workshopManage" class="p-3 text-gray-400 mx-10"> Cancel </a>
+        <a href="/workshops/manage" class="p-3 text-gray-400 mx-10"> Cancel </a>
         <button class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600">Insert Workshop</button>
       </div>
     </form>
