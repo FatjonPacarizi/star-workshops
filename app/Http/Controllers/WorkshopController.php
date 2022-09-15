@@ -364,4 +364,9 @@ class WorkshopController extends Controller
       
     }
 
+    public function calendar(){
+
+        return view('calendar');
+    }
+
 }

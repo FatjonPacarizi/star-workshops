@@ -102,6 +102,14 @@
                             </a>
                         </li>
                         @endcan
+                        @can('is_admin_or_superadmin')
+                        <li class="--set-active-tables-html">
+                            <a href="" class="flex items-center p-2 mb-1 rounded-lg  {{Request::is('newspages') ? 'bg-white shadow-lg font-medium' : ''}}">
+                                <div class="p-1 rounded-lg ml-2 {{Request::is('newspages') ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}"> <i class="fa-regular fa-calendar-days mx-1 fa-sm"></i></div>
+                                <span class="grow ml-3 text-gray-600">Calendar</span>
+                            </a>
+                        </li>
+                        @endcan
                         @can('is_super_admin')
                         <li class="--set-active-tables-html">
                             <a href="{{ route('superadmin.ShowAppInfos') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::is('appInfos') ? 'bg-white shadow-lg font-medium' : ''}}">

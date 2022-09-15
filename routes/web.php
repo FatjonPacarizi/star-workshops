@@ -142,6 +142,8 @@ Route::group(['middleware' => 'auth'], function () {
 
             //Show dashboard
             Route::get('/dashboard', [ChartController::class, 'index'])->name('dashboard');
+
+            Route::get('/calendar',[WorkshopController::class,'calendar']);
             //Show insert workshop page
             Route::get('/workshopManage/insert', [WorkshopController::class, 'create'])->name('showInsert');
 
