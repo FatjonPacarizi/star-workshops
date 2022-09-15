@@ -1,4 +1,4 @@
-<div class = "flex justify-end">
+
     <div class = "flex justify-end items-end w-1/2 ">
         <div class="w-2/3 flex items-center rounded-xl border border-gray-200 mb-3 px-2  bg-white"><i class="fa-sharp fa-solid fa-magnifying-glass text-gray-300 fa-sm"></i> <input type="text" wire:model="search" wire:keyup.debounce = "filter" class=" w-full text-slate-900 h-8 text-xs border-none  focus:ring-0" placeholder="Type to Search"  /></div>
         <div class = "flex flex-col items-center">
@@ -17,4 +17,4 @@
             </div>
     </div>
     
-</div>
+
