@@ -1,12 +1,11 @@
 @extends('layouts.app')
 @section('content')
 <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
-<div class="w-full h-full p-6 flex flex-col  items-center border">
-    <div class="w-full bg-white  rounded ">
-        <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
-            <h1 class="p-3 text-slate-900">App Landing</h1>
-            <a href="/dashboard" class="p-3 text-gray-400"> Cancel </a>
-        </div>
+<div class="w-full  p-6 px-10 flex ">
+    <div class="w-full bg-white   shadow-md rounded-xl  ">
+      <div class="w-full flex items-center  border-b border-gray-200 mb-4">
+        <h1 class="p-3 text-black  font-medium  ">Landing Edit</h1>
+      </div>
         @if (session('status'))
         <h6>{{ session('status') }}</h6>
         @endif

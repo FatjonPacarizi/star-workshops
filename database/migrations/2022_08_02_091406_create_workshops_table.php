@@ -32,6 +32,8 @@ class CreateWorkshopsTable extends Migration
             $table->dateTime('time');
             $table->string('img_workshop')->nullable();
             $table->string('filedlink');
+            $table->bigInteger('deleted_from_id')->unsigned()->nullable();
+            $table->foreign('deleted_from_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
