@@ -36,7 +36,6 @@
         <td>
           <div class="relative flex items-center" x-data="{ open: false }">
             <i class="fa-solid fa-ellipsis-vertical cursor-pointer w-3" @click="open = !open"></i>
-            <a class = "ml-3" href={{ route('adminsuperadmin.showPDF',$pastsWorkshop->id)}}><i class="fa-solid fa-file-arrow-down pl-1"></i></a>
 
             <ul class="bg-white absolute top-0 mt-2 z-10 shadow-lg rounded-lg border border-gray-100 w-40 py-1 " x-show="open"
               @click.outside="open = false">
@@ -57,6 +56,10 @@
                   </button>
                 </form>
               </li>
+              <li>
+              <a class="w-full text-left py-1 px-3 block hover:bg-indigo-100 border-b text-blue-900 " href={{ route('adminsuperadmin.showPDF',$pastsWorkshop->id)}}>
+                <i class="fa-regular fa-file-pdf"></i> Generate PDF</a>
+            </li>
               <li>
                 <a class="py-1 px-3 block hover:bg-indigo-100 " href={{
                   route('adminsuperadmin.showUser',$pastsWorkshop->id) }}>
