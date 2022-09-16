@@ -38,6 +38,7 @@
 
                 <button onClick = "changeURL('?pendingParticipantsPage={{$pendingParticipantsTab}}')" :class = "tab === 0 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center" @click="tab = 0">
                   Pending 
+                 
                   @if(count($pendingParticipants)) 
                   <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-red-400">{{count($pendingParticipants)}}</p>
                   @endif
@@ -64,16 +65,16 @@
     
                 @foreach($pendingParticipants as $pendingParticipant)
                 <tr class = 'border-t border-gray-200'>
-                  <td class="p-3 ">{{$pendingParticipant->name}}</td>
-                  <td class="p-3 ">{{$pendingParticipant->email}}</td>
+                  <td class="p-3 ">{{$pendingParticipant->user->name}}</td>
+                  <td class="p-3 ">{{$pendingParticipant->user->email}}</td>
                  
-                  <td ><a href="#" class = "text-blue-600"> {{$pendingParticipant->appliedOn}}</a></td>
+                  <td ><a href="#" class = "text-blue-600"> {{$pendingParticipant->created_at}}</a></td>
                   <td class = "flex items-center " >
-                     <a href="/workshopManage/{{$pendingParticipant->id}}/edit" class="bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
+                     <a href="/workshopManage/{{$pendingParticipant->user->id}}/edit" class="bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
                       <i class="fa-solid fa-list fa-md "></i>
                           Info
                       </a>
-                      <form method="POST" action={{route('adminsuperadmin.approveParticipant',[$pendingParticipant->workshopID,$pendingParticipant->user_id])}}>
+                      <form method="POST" action={{route('adminsuperadmin.approveParticipant',[$pendingParticipant->workshop_id,$pendingParticipant->user->id])}}>
                         @csrf
                         @method('PUT')
                         <input type = "hidden" name = "tab" value = "0"/>
@@ -82,7 +83,7 @@
                           Approve 
                         </button>
                       </form>
-                      <form method="POST" action={{route('adminsuperadmin.declineParticipant',[$pendingParticipant->workshopID,$pendingParticipant->user_id])}} ">
+                      <form method="POST" action={{route('adminsuperadmin.declineParticipant',[$pendingParticipant->workshop_id,$pendingParticipant->user->id])}} ">
                         @csrf
                         @method('PUT')
                         <input type = "hidden" name = "tab" value = "0"/>
@@ -103,7 +104,7 @@
               </div>
               <div x-show="tab === 1">
                 <div class="flex items-center p-5 justify-between">
-                  <p class = "text-left h-8 text-xl text-orange-400 w-2/4">Approved</p>
+                  <p class = "text-left h-8 text-xl text-green-400 w-2/4">Approved</p>
                   <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
                 </div>
                 <table class="w-full">
@@ -117,15 +118,15 @@
             
                 @foreach($approvedParticipants as $approvedParticipant)
                 <tr class = 'border-t border-gray-200 '>
-                  <td class="p-3">{{$approvedParticipant->name}}</td>
-                  <td class="p-3 ">{{$approvedParticipant->email}}</td>
-                  <td ><a href="#" class = "text-blue-600"> {{$approvedParticipant->appliedOn}}</a></td>
+                  <td class="p-3">{{$approvedParticipant->user->name}}</td>
+                  <td class="p-3 ">{{$approvedParticipant->user->email}}</td>
+                  <td ><a href="#" class = "text-blue-600"> {{$approvedParticipant->created_at}}</a></td>
                   <td class = "flex items-center">
-                    <a href="/workshopManage/{{$approvedParticipant->id}}/edit" class="bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
+                    <a href="/workshopManage/{{$approvedParticipant->user->id}}/edit" class="bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
                       <i class="fa-solid fa-list fa-md "></i>
                           Info
                       </a>
-                    <form method="POST" action={{route('adminsuperadmin.declineParticipant',[$approvedParticipant->workshopID,$approvedParticipant->user_id])}} ">
+                    <form method="POST" action={{route('adminsuperadmin.declineParticipant',[$approvedParticipant->workshop_id,$approvedParticipant->user->id])}} ">
                       @csrf
                       @method('PUT')
                       <input type = "hidden" name = "tab" value = "1"/>
@@ -145,7 +146,7 @@
               </div>
               <div x-show="tab === 2">
                 <div class="flex items-center p-5 justify-between">
-                  <p class = "text-left h-8 text-xl text-orange-400 w-2/4">Not Approved</p>
+                  <p class = "text-left h-8 text-xl text-red-400 w-2/4">Not Approved</p>
                   <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
                 </div>
                 <table class="w-full">
@@ -159,17 +160,17 @@
             
                 @foreach($notapprovedParticipants as $notapprovedParticipant)
                 <tr class = 'border-t border-gray-200 '>
-                  <td class="p-3">{{$notapprovedParticipant->name}}</td>
-                  <td class="p-3 ">{{$notapprovedParticipant->email}}</td>
+                  <td class="p-3">{{$notapprovedParticipant->user->name}}</td>
+                  <td class="p-3 ">{{$notapprovedParticipant->user->email}}</td>
 
                  
-                  <td ><a href="#" class = "text-blue-600"> {{$notapprovedParticipant->appliedOn}}</a></td>
+                  <td ><a href="#" class = "text-blue-600"> {{$notapprovedParticipant->created_at}}</a></td>
                   <td class = "flex items-center">
-                    <a href="/workshopManage/{{$notapprovedParticipant->id}}/edit" class="bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
+                    <a href="/workshopManage/{{$notapprovedParticipant->user->id}}/edit" class="bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
                       <i class="fa-solid fa-list fa-md "></i>
                           Info
                       </a>
-                      <form method="POST" action={{route('adminsuperadmin.deleteParticipant',[$notapprovedParticipant->workshopID,$notapprovedParticipant->user_id])}}>
+                      <form method="POST" action={{route('adminsuperadmin.deleteParticipant',[$notapprovedParticipant->workshop_id,$notapprovedParticipant->user->id])}}>
                         @csrf
                         @method('DELETE')
                         <input type = "hidden" name = "tab" value = "2"/>
