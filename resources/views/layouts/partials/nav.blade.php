@@ -1,6 +1,7 @@
 @extends('welcome')
 <header>
-    <nav x-data="{ open: false }" class="py-3">
+    <nav x-data="{ open: false }" class="flex py-3">
+
         
         <button class="text-gray-700 w-10 h-10 p-8 relative focus:outline-none bg-white outline-none mobile-menu-button sm:hidden md:flex lg:hidden" @click="open = !open">
             <div class=" w-5 absolute left-1/2 top-1/2   transform  -translate-x-1/2 -translate-y-1/2">
@@ -10,28 +11,25 @@
             </div>
         </button>
 
-     
+                <div class="flex">
+                            <a href="{{ route('landing' ) }}">
+                                @php
+                                $information = App\Models\Informations::all()->last();
+                                @endphp
+                            <img class="h-10 m-3 mt-1 w-auto"alt="Logo" src="{{$information->logo_name ? asset('/storage/' . $information->logo_name) : asset('/img/Logo.png')}}">
+                            </a>
                     <div class="flex items-center">
-                            <div class="">
-                                <a href="{{ route('landing' ) }}">
-                                    @php
-                                    $information = App\Models\Informations::all()->last();
-                                    @endphp
-                                <img class="h-10 m-3 mt-1 w-auto"alt="Logo" src="{{$information->logo_name ? asset('/storage/' . $information->logo_name) : asset('/img/Logo.png')}}">
-                                </a>
-                            </div>
-
-                            <div class="hidden sm:hidden md:hidden lg:flex">
-                                    <a href="{{route('workshops')}}" class="px-3 py-2 text-sm hover-3 font-semibold" aria-current="page">WORKSHOPS</a>
-                                    <a href="/newspage" class="hover:text-white px-3 py-2 text-sm hover-3 font-semibold">NEWS </a>
-                                    <a href="/members" class="hover:text-white px-3 py-2 text-sm hover-3 font-semibold">MEMBERS </a>
-                                    <a href="/about" class="hover:text-white px-3 py-2 text-sm hover-3 font-semibold">ABOUT US </a>
-                            </div>
+                        <div class="hidden sm:hidden md:hidden lg:flex">
+                                <a href="{{route('workshops')}}" class="px-3 py-2 text-sm hover-3 font-semibold" aria-current="page">WORKSHOPS</a>
+                                <a href="/newspage" class="hover:text-white px-3 py-2 text-sm hover-3 font-semibold">NEWS </a>
+                                <a href="/members" class="hover:text-white px-3 py-2 text-sm hover-3 font-semibold">MEMBERS </a>
+                                <a href="/about" class="hover:text-white px-3 py-2 text-sm hover-3 font-semibold">ABOUT US </a>
+                        </div>
                     </div>
+            </div>
                 
     </nav>
 </header>
-
                     <div class="hidden flex mobile-menu lg:hidden">
                         <ul class="bg-white text-black w-full absolute">
                             <li><a href="{{route('workshops')}}" class="font-bold block text-sm flex justify-center py-4 text-sm  hover-2" aria-current="page">WORKSHOPS</a></li>
