@@ -69,5 +69,8 @@ class User extends Authenticatable
         
        return  $this->hasMany(Workshop::class,'id');
     }
+    public function message() {
+        return $this->hasMany("App\Models\Message");
+    }
 
 }

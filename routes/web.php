@@ -14,7 +14,7 @@ use App\Http\Controllers\usersController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\WorkshopUsersController;
 use App\Http\Controllers\PDFController;
-
+use App\Http\Controllers\InboxController;
 use App\Http\Controllers\ChartController;
 
 /*
@@ -62,6 +62,12 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/inbox', [InboxController::class, 'index'])->name('inbox.index');
+    Route::get('/inbox/{id}', [InboxController::class, 'show'])->name('inbox.show');
 });
 
 Route::group(['middleware' => 'auth'], function () {
