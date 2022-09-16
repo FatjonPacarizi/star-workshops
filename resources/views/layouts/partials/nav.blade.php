@@ -11,7 +11,6 @@
             </div>
         </button>
 
-     
                 <div class="flex">
                             <a href="{{ route('landing' ) }}">
                                 @php
