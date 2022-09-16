@@ -25,7 +25,6 @@ class Show extends Component
             'sender' => $this->sender
         ]);
     }
-
     public function mountComponent() {
         if (auth()->user()->is_admin == false) {
             $this->messages = \App\Models\Message::where('user_id', auth()->id())
