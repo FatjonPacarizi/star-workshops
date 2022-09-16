@@ -1,6 +1,7 @@
 @extends('welcome')
 <header>
     <nav x-data="{ open: false }" class="flex py-3">
+
         
         <button class="text-gray-700 w-10 h-10 p-8 relative focus:outline-none bg-white outline-none mobile-menu-button sm:hidden md:flex lg:hidden" @click="open = !open">
             <div class=" w-5 absolute left-1/2 top-1/2   transform  -translate-x-1/2 -translate-y-1/2">
@@ -30,7 +31,6 @@
                 
     </nav>
 </header>
-
                     <div class="hidden flex mobile-menu lg:hidden">
                         <ul class="bg-white text-black w-full absolute">
                             <li><a href="{{route('workshops')}}" class="font-bold block text-sm flex justify-center py-4 text-sm  hover-2" aria-current="page">WORKSHOPS</a></li>
