@@ -4,9 +4,8 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class FilterFaq extends Component
+class FilterFaq  extends Component
 {
-
     public $search;
     public $perpage;
     public $sortby;
@@ -18,6 +17,6 @@ class FilterFaq extends Component
 
     public function filter(){
 
-        $this->emitTo('show-faq','reloadFaq',$this->search,$this->perpage,$this->sortby);
+        $this->emitTo('show-faq','reloadFaq',$this->search,$this->perpage, $this->sortby);
     }
 }
