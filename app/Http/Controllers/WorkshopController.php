@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
+use App\Models\Positions;
+use App\Models\positions_users;
 
 class WorkshopController extends Controller
 {
@@ -39,15 +41,9 @@ class WorkshopController extends Controller
 
     public function showMembers(){
 
-
-        $staffMembers = User::Join("positions_users", function($join){
-            $join->on("users.id", "=", "positions_users.user_id");
-        })
-        ->Join("positions", function($join){
-            $join->on("positions_users.position_id", "=", "positions.id");
-        })
-        ->where('positions.position','staff')
-        ->select("users.id as id","users.name as name","users.description as description", "users.facebook as facebook","users.instagram as instagram","users.github as github","users.profile_photo_path as profile_photo_path")
+        $id = positions::select('id')->where('position','staff')->get();
+   
+        $staffMembers = positions_users::where('position_id', $id[0]->id)
         ->get();
 
         return view('workshopMembers',['staffMembers' => $staffMembers]);
