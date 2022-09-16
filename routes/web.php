@@ -66,8 +66,8 @@ Route::middleware([
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/inbox', [InboxController::class, 'index'])->name('inbox.index');
-    Route::get('/inbox/{id}', [InboxController::class, 'show'])->name('inbox.show');
+    Route::get('/test', [InboxController::class, 'index'])->name('test.index');
+    Route::get('/test/{id}', [InboxController::class, 'show'])->name('test.show');
 });
 
 Route::group(['middleware' => 'auth'], function () {

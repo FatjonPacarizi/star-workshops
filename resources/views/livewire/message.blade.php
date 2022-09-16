@@ -1,35 +1,9 @@
 <div>
 
-    <div class="w-full  justify-center" wire:poll="mountComponent()">
-        @if(auth()->user()->is_admin == true)
-            <div class="mx-4" wire:init>
-                <div class="">
-                    <div class="">
-                        Users
-                    </div>
-                    <div class="">
-                        <ul class="" wire:poll="render">
-                            @foreach($users as $user)
-                                @php
-                                    $not_seen = \App\Models\Message::where('user_id', $user->id)->where('receiver', auth()->id())->where('is_seen', false)->get() ?? null
-                                @endphp
-                                <a href="{{ route('inbox.show', $user->id) }}" class="text-dark link">
-                                    <li class="" wire:click="getUser({{ $user->id }})" id="user_{{ $user->id }}">
-                                        <img class="mx-4" src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png">
-                                        @if($user->is_online) <i class="fa fa-circle text-success online-icon"></i> @endif {{ $user->name }}
-                                        @if(filled($not_seen))
-                                            <div class="">{{ $not_seen->count() }}</div>
-                                        @endif
-                                    </li>
-                                </a>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        @endif
-        <div class="">
-            <div class="">
+    <div class=" w-full mt-10 lg:w-2/5 md:mt-0  md:p-2 flex flex-col md:items-start " wire:poll="mountComponent()">
+     
+    <div class=" w-full ">
+            <div class="bg-[#F2F2F2] "">
                 <div class="">
                     @if(isset($clicked_user)) {{ $clicked_user->name }}
 
@@ -41,33 +15,18 @@
                         Messages
                     @endif
                 </div>
-                    <div class="">
+                    <div class="text-3xl font-semibold text-red-700 p-6 px-6 pt-3"">
                         @if(!$messages)
                             No messages to show
                         @else
                             @if(isset($messages))
                                 @foreach($messages as $message)
                                     <div class=" @if($message->user_id !== auth()->id()) received @else sent @endif">
-                                        <p class=" my-0">{{ $message->user->name }}</p>
-                                        <p class="my-0">{{ $message->message }}</p>
-                                        @if ($message->file)
-                                            <div class="w-full my-2">
-                                                <img class="w-10" loading="lazy"  src="{{ $message->file }}">
-                                            </div>
-                                        @elseif ($message->file)
-                                            <div class="w-full my-2">
-                                                <video style="height: 250px" class="img-fluid rounded" controls>
-                                                    <source src="{{ $message->file }}">
-                                                </video>
-                                            </div>
-                                        @elseif ($message->file)
-                                            <div class="w-100 my-2">
-                                                <a href="{{ $message->file}}" class="bg-light p-2 rounded-pill" target="_blank"><i class="fa fa-download"></i> 
-                                                    {{ $message->file_name }}
-                                                </a>
-                                            </div>
-                                        @endif
-                                        <small class="text-muted w-100">Sent <em>{{ $message->created_at }}</em></small>
+                                        <p class=" w-full border-none rounded-md py-3">{{ $message->user->name }}</p>
+                                        <div class="bg-red-100 rounded-lg py-5 px-6 mb-3 text-base text-red-700 inline-flex items-center w-full">
+                                        <p class="w-full border-none rounded-md py-3">{{ $message->message }}</p>
+                                     
+                                        <small class="text-muted w-100">Sent <em>{{ $message->created_at }}</em></small></div>
                                     </div>
                                 @endforeach
                             @else
@@ -84,32 +43,14 @@
                             <div wire:loading wire:target='SendMessage'>
                                 Sending message . . . 
                             </div>
-                            <div wire:loading wire:target="file">
-                                Uploading file . . .
-                            </div>
-                            @if($file)
-                                <div class="mb-2">
-                                   You have an uploaded file <button type="button" wire:click="resetFile" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Remove {{ $file->getClientOriginalName() }}</button>
-                                </div>
-                            @else
-                                No file is uploaded.
-                            @endif
+                          
                             <div class="row">
-                                <div class="col-md-7">
-                                    <input wire:model="message" class="form-control input shadow-none w-100 d-inline-block" placeholder="Type a message" @if(!$file) required @endif>
+                                <div class="px-6 pt-3">
+                                    <input wire:model="message" class="w-full border-none rounded-md py-3" placeholder="Type a message" @if(!$file) required @endif>
                                 </div>
-                                @if(empty($file))
-                                <div class="col-md-1">
-                                    <button type="button" class="border" id="file-area">
-                                        <label>
-                                            <i class="fa fa-file-upload"></i>
-                                            <input type="file" wire:model="file">
-                                        </label>
-                                    </button>
-                                </div>
-                                @endif
+
                                 <div class="col-md-4">
-                                    <button class="btn btn-primary d-inline-block w-100"><i class="far fa-paper-plane"></i> Send</button>
+                                    <button class="rounded-tr-xl rounded-bl-xl px-12 py-2 bg-red-600 text-green-100 hover:bg-red-800 duration-300"><i class="far fa-paper-plane"></i> Send</button>
                                 </div>
                             </div>
                         </form>
