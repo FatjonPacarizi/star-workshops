@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
+use DateTime;
+use DateTimeZone;
 use Carbon\Carbon;
 use App\Models\City;
 use App\Models\Type;
@@ -9,16 +12,15 @@ use App\Models\User;
 use App\Models\Country;
 use App\Models\Category;
 use App\Models\Workshop;
-use App\Models\Positions;
-use Illuminate\Http\Request;
-use Illuminate\Queue\Worker;
 use App\Models\workshops_users;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
-use PDF;
+use App\Models\Positions;
+use App\Models\positions_users;
+
 
 class WorkshopController extends Controller
 {
@@ -29,10 +31,6 @@ class WorkshopController extends Controller
      */
     public function index()
     {
-        $workshop = User::select(DB::raw("COUNT(*) as count"))
-        ->whereYear('created_at', date('Y'))
-        ->groupBy(DB::raw("Month(updated_at)"))
-        ->pluck('count');
         return view('workshops');
     }
 
@@ -44,16 +42,13 @@ class WorkshopController extends Controller
 
     public function showMembers(){
 
+        $id = positions::select('id')->where('position','staff')->get();
+   
+        $staffMembers = User::whereHas('staff',function($query){
+            $query->where('position','staff');
+        })->get();
 
-        $staffMembers = User::Join("positions_users", function($join){
-            $join->on("users.id", "=", "positions_users.user_id");
-        })
-        ->Join("positions", function($join){
-            $join->on("positions_users.position_id", "=", "positions.id");
-        })
-        ->where('positions.position','staff')
-        ->select("users.id as id","users.name as name","users.description as description", "users.facebook as facebook","users.instagram as instagram","users.github as github","users.profile_photo_path as profile_photo_path")
-        ->get();
+        dd($staffMembers);
 
         return view('workshopMembers',['staffMembers' => $staffMembers]);
 
@@ -97,22 +92,18 @@ class WorkshopController extends Controller
     public function show($id)
     {    
 
-        $workshop = Workshop::Join("countries", function($join){
-                $join->on("workshops.country_id", "=", "countries.id");
-            })
-            ->Join("users", function($join){
-                $join->on("workshops.author", "=", "users.id");
-            })
-            ->select("workshops.id as id","workshops.name as name","workshops.description as description","users.name as author","workshops.time as time","workshops.img_workshop as img_workshop","countries.name AS country")
-            ->where('workshops.id',$id)
+        $workshop = Workshop::where('workshops.id',$id)
             ->get();     
 
-            //  dd($workshop);
+            $upcoming = false;
+            $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
 
-            
+            if (strtotime($workshop[0]->time) > strtotime($date->format("Y-m-d h:i:sa"))) $upcoming = true;
+
             $application_status = workshops_users::select('application_status')->where(['workshop_id'=>$id,'user_id'=>Auth::id()])
             ->get();
             
+            //dd($application_status);
 
             $already_applied = false;
             // if current user has alredy applied 
@@ -126,17 +117,16 @@ class WorkshopController extends Controller
             ->select("workshops.id as id","workshops.limited_participants as limited_participants")
             ->get();
 
-          //  dd(count($workshop_participants));
-          //  dd($workshop_participants[0]->limited_participants);
             $limitReached = false;
+            
             if($workshop_participants[0]->limited_participants != null && $workshop_participants[0]->limited_participants <= count($workshop_participants)) $limitReached = true; 
             
-           
         return view('workshopPage',['workshop'=>$workshop[0],
                                     'limitReached' => $limitReached, 
                                     'participants' => $workshop_participants[0]->limited_participants,
                                     'already_applied' => $already_applied,
-                                    'application_status' => $application_status]);
+                                    'application_status' => $application_status,
+                                    'upcoming' => $upcoming]);
     }
 
 
@@ -243,125 +233,73 @@ class WorkshopController extends Controller
 
     public function showParticipants($workshopid){
 
-        $pendingParticipants = Workshop::Join("workshops_users", function($join){
-            $join->on("workshops.id", "=", "workshops_users.workshop_id");
-        })
-        ->Join("users", function($join){
-            $join->on("workshops_users.user_id", "=", "users.id");
-        })
-        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id","workshops_users.created_at as appliedOn")
-        ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "pending"])
+
+        $pendingParticipants = workshops_users::where(["workshop_id" => $workshopid,"application_status" => "pending"])
         ->paginate(8,['*'], 'pendingParticipantsPage');
 
-        $approvedParticipants = Workshop::Join("workshops_users", function($join){
-            $join->on("workshops.id", "=", "workshops_users.workshop_id");
-        })
-        ->Join("users", function($join){
-            $join->on("workshops_users.user_id", "=", "users.id");
-        })
-        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id","workshops_users.created_at as appliedOn")
-        ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "approved"])
+        
+        $approvedParticipants = workshops_users::where(["workshop_id" => $workshopid,"application_status" => "approved"])
         ->paginate(8,['*'], 'approvedParticipantsPage');
 
-        $notapprovedParticipants = Workshop::Join("workshops_users", function($join){
-            $join->on("workshops.id", "=", "workshops_users.workshop_id");
-        })
-        ->Join("users", function($join){
-            $join->on("workshops_users.user_id", "=", "users.id");
-        })
-        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id","workshops_users.created_at as appliedOn")
-        ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "notapproved"])
+
+        $notapprovedParticipants = workshops_users::where(["workshop_id" => $workshopid,"application_status" => "notapproved"])
         ->paginate(8,['*'], 'notapprovedParticipantsPage');
 
+         //dd($pendingParticipants[0]->user->name);
 
         return view('manageParticipants',['workshopName'=>Workshop::select('name')->where('id',$workshopid)->get(),'pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
     }
 
     public function showPDF($workshopid){
 
-        $pendingParticipants = Workshop::Join("workshops_users", function($join){
-            $join->on("workshops.id", "=", "workshops_users.workshop_id");
-        })
-        ->Join("users", function($join){
-            $join->on("workshops_users.user_id", "=", "users.id");
-        })
-        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id","workshops_users.created_at as appliedOn")
-        ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "pending"])
+        $pendingParticipants = workshops_users::where(["workshop_id" => $workshopid,"application_status" => "pending"])
         ->paginate(8,['*'], 'pendingParticipantsPage');
 
-        $approvedParticipants = Workshop::Join("workshops_users", function($join){
-            $join->on("workshops.id", "=", "workshops_users.workshop_id");
-        })
-        ->Join("users", function($join){
-            $join->on("workshops_users.user_id", "=", "users.id");
-        })
-        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id","workshops_users.created_at as appliedOn")
-        ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "approved"])
+        
+        $approvedParticipants = workshops_users::where(["workshop_id" => $workshopid,"application_status" => "approved"])
         ->paginate(8,['*'], 'approvedParticipantsPage');
 
-        $notapprovedParticipants = Workshop::Join("workshops_users", function($join){
-            $join->on("workshops.id", "=", "workshops_users.workshop_id");
-        })
-        ->Join("users", function($join){
-            $join->on("workshops_users.user_id", "=", "users.id");
-        })
-        ->select("workshops.id as workshopID","users.name as name","users.email as email","workshops.time as time","workshops_users.user_id as user_id","workshops_users.created_at as appliedOn")
-        ->where(["workshops.id" => $workshopid, "workshops_users.application_status" => "notapproved"])
+
+        $notapprovedParticipants = workshops_users::where(["workshop_id" => $workshopid,"application_status" => "notapproved"])
         ->paginate(8,['*'], 'notapprovedParticipantsPage');
+
 
         $pdf = PDF::loadView('managePDF', ['pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
         return $pdf->stream('managePDF.pdf');
     }
 
     public function approveParticipant($workshopid,$participantantID){
-        $formFields = [
-            'application_status' => 'approved'
-         ];
-
-         $partiant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
-         $partiant->update($formFields);
+        
+        workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID])->update(['application_status' => 'approved']);
 
         return redirect()->back()->with("tab",request('tab'));
-
     }
 
     public function declineParticipant($workshopid,$participantantID){
-        $formFields = [
-            'application_status' => 'notapproved'
-         ];
-
-         $partiant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
-         $partiant->update($formFields);
+         
+         workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID])->update(['application_status' => 'notapproved']);
 
          return redirect()->back()->with("tab",request('tab'));
-
     }
+
     public function deleteParticipant($workshopid,$participantantID){
        
-         $participant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
-         $participant->delete();
+         workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID])->delete();
 
          return redirect()->back()->with("tab",request('tab'));
-
     }
 
     public function restore($id){
-
-        $workshop = Workshop::onlyTrashed()->findOrFail($id);
-        $workshop->restore();
-
-        return redirect()->back();
-
-    }
-
-    public function forceDelete($id)
-{
-   
-        $workshop = Workshop::onlyTrashed()->findOrFail($id);
-        $workshop->forceDelete();
+       
+        Workshop::onlyTrashed()->findOrFail($id)->restore();
 
         return redirect()->back();
-      
     }
 
+    public function forceDelete($id){
+        
+        Workshop::onlyTrashed()->findOrFail($id)->forceDelete();
+
+        return redirect()->back();
+    }
 }

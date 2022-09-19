@@ -37,9 +37,12 @@ class Workshop extends Model
     public function user(){
         
         return $this->belongsTo(User::class,'author'); 
-    }
+    }  
+    public function country(){
+        return $this->hasOne(Country::class,'id','country_id');
+    }  
+   
     public function deletefrom(){
-        
         return $this->belongsTo(User::class,'deleted_from_id'); 
     }
 }

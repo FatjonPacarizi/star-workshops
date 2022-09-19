@@ -14,5 +14,9 @@ class workshops_users extends Model
         'user_id',
         'application_status'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class,'user_id');
+    }
     
 }
