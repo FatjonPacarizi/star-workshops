@@ -41,7 +41,12 @@ class Workshop extends Model
     public function country(){
         return $this->hasOne(Country::class,'id','country_id');
     }  
-   
+    public function city(){
+        return $this->hasOne(City::class,'id','city_id');
+    }  
+   public function pendingParticipants(){
+        return $this->hasMany(workshops_users::class);
+   }
     public function deletefrom(){
         return $this->belongsTo(User::class,'deleted_from_id'); 
     }

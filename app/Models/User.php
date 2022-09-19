@@ -70,7 +70,8 @@ class User extends Authenticatable
        return  $this->hasMany(Workshop::class,'id');
     }
 
-    public function staff(){
-        return $this->hasMany(positions_users::class);
-    }
+   public function positions(){
+    return $this->belongsToMany(Positions::class,"positions_users","user_id","position_id") 
+    ->wherePivot('position_id',1);
+   }
 }
