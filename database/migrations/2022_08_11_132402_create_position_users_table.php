@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePositionsUsersTable extends Migration
+class CreatePositionUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -20,7 +20,6 @@ class CreatePositionsUsersTable extends Migration
             $table->bigInteger('position_id')->unsigned();
             $table->foreign('position_id')->references('id')->on('positions');
             $table->timestamps();
-
         });
     }
 
