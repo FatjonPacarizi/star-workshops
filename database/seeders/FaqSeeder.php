@@ -40,7 +40,7 @@ class FaqSeeder extends Seeder
             ],
             [
                 'question'      => 'Will i be able to join with via the phone?',
-                'answer'     => 'This is an interactive workshop with different media used throughout the session. Participation will be extremely hampered if you do not have access to a personal computer with a camera and microphone.',
+                'answer'     => 'This is an interactive workshop with different media used throughout the session. ',
                 'status'     => 'Active',
             
             ],

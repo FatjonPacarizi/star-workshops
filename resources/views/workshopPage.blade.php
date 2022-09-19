@@ -55,6 +55,7 @@
 </section>
 
 
+
 <section class=" body-font bg-white">
     <div class="container mx-auto px-5 py-24  ">
         <div class="lg:flex-grow lg:px-24 md:px-4 md:items-start md:text-left ">
@@ -62,7 +63,14 @@
         </div>
     </div>
 </section>
-
+<section class=" body-font bg-white">
+<div class="container mx-auto px-5 py-24  ">
+<div class="lg:flex-grow lg:px-24 md:px-4 md:items-start md:text-left ">
+  <div class="div">
+    <livewire:message>
+    </div>
+</div>
+</section>
 <button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed z-90 bottom-8 right-8 border-0 w-16 h-16 rounded-full bg-red-600 ring-2 ring-white text-white -rotate-90 text-5xl font-bold">&#10132;</button>
 
 

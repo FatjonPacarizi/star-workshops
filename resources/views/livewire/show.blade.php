@@ -1,6 +1,6 @@
 <div>
     <div class=" w-full mt-10 lg:w-2/5 md:mt-0  md:p-2 flex flex-col md:items-start">
-        @if(auth()->user()->is_admin == true)
+        @if(auth()->user()->is_online == true)
             <div class="w-full">
                 <div class="">
                     <div class="">

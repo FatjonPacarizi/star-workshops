@@ -6,7 +6,6 @@
             <div class="bg-[#F2F2F2] "">
                 <div class="">
                     @if(isset($clicked_user)) {{ $clicked_user->name }}
-
                     @elseif(auth()->user()->is_admin == true)
                         Select a user to see the chat
                     @elseif($admin->is_online)

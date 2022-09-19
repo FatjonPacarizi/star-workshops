@@ -33,7 +33,7 @@ class Message extends Component
     }
 
     public function mountComponent() {
-        if (auth()->user()->is_admin == false) {
+        if (auth()->user()->is_online == false) {
             $this->messages = \App\Models\Message::where('user_id', auth()->id())
                                                     ->orWhere('receiver', auth()->id())
                                                     ->orderBy('id', 'ASC')
@@ -44,21 +44,20 @@ class Message extends Component
                                                     ->orderBy('id', 'ASC')
                                                     ->get();
         }
-        $this->admin = \App\Models\User::where('is_admin', true)->first();
+        $this->admin = \App\Models\User::where('is_online', true)->first();
     }
 
     public function SendMessage() {
         $new_message = new \App\Models\Message();
         $new_message->message = $this->message;
         $new_message->user_id = auth()->id();
-        if (!auth()->user()->is_admin == true) {
-            $admin = User::where('is_admin', true)->first();
+        if (!auth()->user()->is_online == true) {
+            $admin = User::where('is_online', true)->first();
             $this->user_id = $admin->id;
         } else {
             $this->user_id = $this->clicked_user->id;
         }
         $new_message->receiver = $this->user_id;
-
         // Deal with the file if uploaded
         if ($this->file) {
             $file = $this->file->store('public/files');

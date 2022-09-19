@@ -26,7 +26,7 @@ class Show extends Component
         ]);
     }
     public function mountComponent() {
-        if (auth()->user()->is_admin == false) {
+        if (auth()->user()->is_online == false) {
             $this->messages = \App\Models\Message::where('user_id', auth()->id())
                                                     ->orWhere('receiver', auth()->id())
                                                     ->orderBy('id', 'ASC')
