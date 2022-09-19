@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
+use App\Models\Positions;
+use App\Models\positions_users;
+
 
 class WorkshopController extends Controller
 {
@@ -39,16 +42,13 @@ class WorkshopController extends Controller
 
     public function showMembers(){
 
+        $id = positions::select('id')->where('position','staff')->get();
+   
+        $staffMembers = User::whereHas('staff',function($query){
+            $query->where('position','staff');
+        })->get();
 
-        $staffMembers = User::Join("positions_users", function($join){
-            $join->on("users.id", "=", "positions_users.user_id");
-        })
-        ->Join("positions", function($join){
-            $join->on("positions_users.position_id", "=", "positions.id");
-        })
-        ->where('positions.position','staff')
-        ->select("users.id as id","users.name as name","users.description as description", "users.facebook as facebook","users.instagram as instagram","users.github as github","users.profile_photo_path as profile_photo_path")
-        ->get();
+        dd($staffMembers);
 
         return view('workshopMembers',['staffMembers' => $staffMembers]);
 
@@ -92,14 +92,7 @@ class WorkshopController extends Controller
     public function show($id)
     {    
 
-        $workshop = Workshop::Join("countries", function($join){
-                $join->on("workshops.country_id", "=", "countries.id");
-            })
-            ->Join("users", function($join){
-                $join->on("workshops.author", "=", "users.id");
-            })
-            ->select("workshops.id as id","workshops.name as name","workshops.description as description","users.name as author","workshops.time as time","workshops.img_workshop as img_workshop","countries.name AS country")
-            ->where('workshops.id',$id)
+        $workshop = Workshop::where('workshops.id',$id)
             ->get();     
 
             $upcoming = false;
@@ -107,10 +100,10 @@ class WorkshopController extends Controller
 
             if (strtotime($workshop[0]->time) > strtotime($date->format("Y-m-d h:i:sa"))) $upcoming = true;
 
-            
             $application_status = workshops_users::select('application_status')->where(['workshop_id'=>$id,'user_id'=>Auth::id()])
             ->get();
             
+            //dd($application_status);
 
             $already_applied = false;
             // if current user has alredy applied 
@@ -124,16 +117,15 @@ class WorkshopController extends Controller
             ->select("workshops.id as id","workshops.limited_participants as limited_participants")
             ->get();
 
-            
-
             $limitReached = false;
+            
             if($workshop_participants[0]->limited_participants != null && $workshop_participants[0]->limited_participants <= count($workshop_participants)) $limitReached = true; 
             
         return view('workshopPage',['workshop'=>$workshop[0],
                                     'limitReached' => $limitReached, 
                                     'participants' => $workshop_participants[0]->limited_participants,
                                     'already_applied' => $already_applied,
-                                    'application_status' => $application_status[0]->application_status,
+                                    'application_status' => $application_status,
                                     'upcoming' => $upcoming]);
     }
 
