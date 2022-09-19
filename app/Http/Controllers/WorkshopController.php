@@ -43,8 +43,11 @@ class WorkshopController extends Controller
 
         $id = positions::select('id')->where('position','staff')->get();
    
-        $staffMembers = positions_users::where('position_id', $id[0]->id)
-        ->get();
+        $staffMembers = User::whereHas('staff',function($query){
+            $query->where('position','staff');
+        })->get();
+
+        dd($staffMembers);
 
         return view('workshopMembers',['staffMembers' => $staffMembers]);
 
@@ -88,14 +91,7 @@ class WorkshopController extends Controller
     public function show($id)
     {    
 
-        $workshop = Workshop::Join("countries", function($join){
-                $join->on("workshops.country_id", "=", "countries.id");
-            })
-            ->Join("users", function($join){
-                $join->on("workshops.author", "=", "users.id");
-            })
-            ->select("workshops.id as id","workshops.name as name","workshops.description as description","users.name as author","workshops.time as time","workshops.img_workshop as img_workshop","countries.name AS country")
-            ->where('workshops.id',$id)
+        $workshop = Workshop::where('workshops.id',$id)
             ->get();     
 
             $upcoming = false;
@@ -103,10 +99,10 @@ class WorkshopController extends Controller
 
             if (strtotime($workshop[0]->time) > strtotime($date->format("Y-m-d h:i:sa"))) $upcoming = true;
 
-            
             $application_status = workshops_users::select('application_status')->where(['workshop_id'=>$id,'user_id'=>Auth::id()])
             ->get();
             
+            //dd($application_status);
 
             $already_applied = false;
             // if current user has alredy applied 
@@ -120,16 +116,15 @@ class WorkshopController extends Controller
             ->select("workshops.id as id","workshops.limited_participants as limited_participants")
             ->get();
 
-            
-
             $limitReached = false;
+            
             if($workshop_participants[0]->limited_participants != null && $workshop_participants[0]->limited_participants <= count($workshop_participants)) $limitReached = true; 
             
         return view('workshopPage',['workshop'=>$workshop[0],
                                     'limitReached' => $limitReached, 
                                     'participants' => $workshop_participants[0]->limited_participants,
                                     'already_applied' => $already_applied,
-                                    'application_status' => $application_status[0]->application_status,
+                                    'application_status' => $application_status,
                                     'upcoming' => $upcoming]);
     }
 

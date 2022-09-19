@@ -10,7 +10,7 @@
                 {{$workshop->name}}
             </h1>
             <p class="mb-8 leading-relaxed"> {{$workshop->time}} </p>
-            <p class="mb-8 leading-relaxed"> {{$workshop->country}} </p>
+            <p class="mb-8 leading-relaxed"> {{$workshop->country->name}} </p>
 
             <p class="mb-8 leading-relaxed">Author : {{$workshop->author}}</p>
 
@@ -19,12 +19,12 @@
             <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">Limitaion for this event have been reached: {{$participants}} participants</p>
             @elseif($already_applied)
             <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">
-                @if($application_status == 'pending')
+                @if($application_status[0]->application_status == 'pending')
                     @if(session()->has('message')) {{session('message')}}
                     @else 
                         Your application is still pending
                     @endif
-                 @elseif($application_status == 'notapproved')
+                 @elseif($application_status[0]->application_status == 'notapproved')
 
                     Your application is not approved
                     <a class="text-sky-800 underline" href='/about'>Contact Us</a>

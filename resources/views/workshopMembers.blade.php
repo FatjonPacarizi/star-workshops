@@ -13,13 +13,13 @@
         </div>
         @foreach ($staffMembers as $staffMember)
         <div  class="w-full h-fit md:w-2/5 lg:w-1/4 p-6 bg-white md:ml-16 rounded-3xl mt-10">
-            <img class="w-full object-cover rounded-tl-lg rounded-tr-lg p-5" src="{{$staffMember->user->profile_photo_path ? asset('/storage/' . $staffMember->user->profile_photo_path) : asset('img/defaultuserphoto.png') }}" alt="" />
-            <h5 class="py-1 text-3xl font-extrabold my-4 text-red-700">{{$staffMember->user->name}}</h5>
-            <p  id = {{$staffMember->id}} class="py-1 font-semibold leading-6 text-base text-gray-600 "> {{\Illuminate\Support\Str::limit($staffMember->user->description, 150, $end='') }} <button onClick = "expandCard({{$staffMember->user->id}},'{{$staffMember->user->description}}')" class = "ml-2 text-blue-400">show more</button></p>
+            <img class="w-full object-cover rounded-tl-lg rounded-tr-lg p-5" src="{{$staffMember->profile_photo_path ? asset('/storage/' . $staffMember->profile_photo_path) : asset('img/defaultuserphoto.png') }}" alt="" />
+            <h5 class="py-1 text-3xl font-extrabold my-4 text-red-700">{{$staffMember->name}}</h5>
+            <p  id = {{$staffMember->id}} class="py-1 font-semibold leading-6 text-base text-gray-600 "> {{\Illuminate\Support\Str::limit($staffMember->description, 150, $end='') }} <button onClick = "expandCard({{$staffMember->id}},'{{$staffMember->description}}')" class = "ml-2 text-blue-400">show more</button></p>
             <div class="flex h-10 mt-5 ">
-                <a href="{{$staffMember->user->instagram}}" target="_blank"><i class="fa-brands fa-instagram fa-2xl" style="color:red"></i></a>
-                <a href="{{$staffMember->user->facebook}}" target="_blank"><i class="fa-brands fa-facebook fa-2xl mx-4" style="color:red"></i></a>
-                <a href="{{$staffMember->user->github}}" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color:red"></i></a>
+                <a href="{{$staffMember->instagram}}" target="_blank"><i class="fa-brands fa-instagram fa-2xl" style="color:red"></i></a>
+                <a href="{{$staffMember->facebook}}" target="_blank"><i class="fa-brands fa-facebook fa-2xl mx-4" style="color:red"></i></a>
+                <a href="{{$staffMember->github}}" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color:red"></i></a>
             </div>
         </div>
         @endforeach
