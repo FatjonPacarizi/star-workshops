@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use PDF;
 use DateTime;
 use DateTimeZone;
-use Carbon\Carbon;
 use App\Models\City;
 use App\Models\Type;
 use App\Models\User;
@@ -13,13 +12,11 @@ use App\Models\Country;
 use App\Models\Category;
 use App\Models\Workshop;
 use App\Models\workshops_users;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
-use App\Models\Positions;
-use App\Models\positions_users;
+
 
 
 class WorkshopController extends Controller
