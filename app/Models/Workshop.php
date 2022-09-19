@@ -47,6 +47,7 @@ class Workshop extends Model
    public function pendingParticipants(){
         return $this->hasMany(workshops_users::class);
    }
+
     public function deletefrom(){
         return $this->belongsTo(User::class,'deleted_from_id'); 
     }

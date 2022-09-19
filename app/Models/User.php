@@ -74,4 +74,5 @@ class User extends Authenticatable
     return $this->belongsToMany(Positions::class,"positions_users","user_id","position_id") 
     ->wherePivot('position_id',1);
    }
+
 }

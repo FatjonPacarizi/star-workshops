@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
 use App\Models\Positions;
+use App\Models\positions_users;
 
 
 class WorkshopController extends Controller
@@ -41,8 +42,14 @@ class WorkshopController extends Controller
 
     public function showMembers(){
 
-      $staffMembers = User::with('positions')->get();
-       // dd($staffMembers[1]->positions);
+
+        $id = positions::select('id')->where('position','staff')->get();
+   
+        $staffMembers = User::whereHas('staff',function($query){
+            $query->where('position','staff');
+        })->get();
+
+        dd($staffMembers);
 
         return view('workshopMembers',['staffMembers' => $staffMembers]);
 
@@ -85,7 +92,6 @@ class WorkshopController extends Controller
      */
     public function show($id)
     {    
-
             $workshop = Workshop::where('workshops.id',$id)->get();     
 
             $upcoming = false;
