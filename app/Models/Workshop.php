@@ -45,7 +45,8 @@ class Workshop extends Model
         return $this->hasOne(City::class,'id','city_id');
     }  
    public function pendingParticipants(){
-        return $this->hasMany(workshops_users::class);
+        return $this->hasMany(workshops_users::class)
+        ->where('application_status','pending');
    }
 
     public function deletefrom(){

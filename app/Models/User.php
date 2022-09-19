@@ -69,10 +69,9 @@ class User extends Authenticatable
         
        return  $this->hasMany(Workshop::class,'id');
     }
-
-   public function positions(){
-    return $this->belongsToMany(Positions::class,"positions_users","user_id","position_id") 
-    ->wherePivot('position_id',1);
-   }
+   public function members(){
+    return $this->hasMany(positions_users::class)
+    ->where('position_id',2);
+}
 
 }
