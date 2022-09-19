@@ -12,7 +12,7 @@
             <p class="mb-8 leading-relaxed"> {{$workshop->time}} </p>
             <p class="mb-8 leading-relaxed"> {{$workshop->country->name}} </p>
 
-            <p class="mb-8 leading-relaxed">Author : {{$workshop->author}}</p>
+            <p class="mb-8 leading-relaxed">Author : {{$workshop->user->name}}</p>
 
             @if($upcoming)
             @if($limitReached)
