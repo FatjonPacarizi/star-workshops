@@ -69,4 +69,8 @@ class User extends Authenticatable
         
        return  $this->hasMany(Workshop::class,'id');
     }
+
+    public function staff(){
+        return $this->hasMany(positions_users::class);
+    }
 }
