@@ -26,30 +26,36 @@
                   <a href="{{ route('adminsuperadmin.showManageWorkshops') }}" ><i class="fa-solid fa-arrow-left mr-5"></i></a>
                  
                   @php  
-                  $pendingParticipantsTab = 1;
                   $approvedParticipantsTab = 1;
+                  $pendingParticipantsTab = 1;
                   $notapprovedParticipantsTab = 1;
     
-                  if(request()->has('pendingParticipantsPage')) $pendingParticipantsTab = request('pendingParticipantsPage');
                   if(request()->has('approvedParticipantsPage')) $approvedParticipantsTab = request('approvedParticipantsPage');
+                  if(request()->has('pendingParticipantsPage')) $pendingParticipantsTab = request('pendingParticipantsPage');
                   if(request()->has('notapprovedParticipantsPage')) $notapprovedParticipantsTab = request('notapprovedParticipantsPage');
     
                 @endphp
-
-                <button onClick = "changeURL('?pendingParticipantsPage={{$pendingParticipantsTab}}')" :class = "tab === 0 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center" @click="tab = 0">
+                
+                <button  onClick = "changeURL('?approvedParticipantsPage={{$approvedParticipantsTab}}')"  :class = "tab === 0 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center" @click="tab = 0">
+                  Approved
+                @if(count($approvedParticipants)) 
+                  <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-red-400">{{count($approvedParticipants)}}</p>
+                  @endif</button>
+               
+                <button onClick = "changeURL('?pendingParticipantsPage={{$pendingParticipantsTab}}')" :class = "tab === 1 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center " @click="tab = 1">
                   Pending 
-                 
                   @if(count($pendingParticipants)) 
                   <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-red-400">{{count($pendingParticipants)}}</p>
-                  @endif
-                </button>
-                <button  onClick = "changeURL('?approvedParticipantsPage={{$approvedParticipantsTab}}')"  :class = "tab === 1 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl" @click="tab = 1">Approved</button>
-                <button  onClick = "changeURL('?notapprovedParticipantsPage={{$notapprovedParticipantsTab}}')"  :class = "tab === 2 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl" @click="tab = 2">Not Approved</button>
+                  @endif</button>
+                <button  onClick = "changeURL('?notapprovedParticipantsPage={{$notapprovedParticipantsTab}}')"  :class = "tab === 2 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center" @click="tab = 2">Not Approved
+                @if(count($notapprovedParticipants)) 
+                  <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-red-400">{{count($notapprovedParticipants)}}</p>
+                  @endif</button>
               </div>
     <div class="w-full bg-white rounded-xl shadow-md py-4 mt-5">
       <h1 class="p-3 text-black font-medium ml-2 ">Workshop participants Managment</h1>
 
-              <div  x-show="tab === 0">
+              <div  x-show="tab === 1">
                 <div class="flex items-center p-5 justify-between">
                   <p class = "text-left h-8 text-xl text-orange-400 w-2/4">Pending</p>
                   <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
@@ -102,7 +108,7 @@
                 {{ $pendingParticipants->links() }}
                 </div>
               </div>
-              <div x-show="tab === 1">
+              <div x-show="tab === 0">
                 <div class="flex items-center p-5 justify-between">
                   <p class = "text-left h-8 text-xl text-green-400 w-2/4">Approved</p>
                   <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
