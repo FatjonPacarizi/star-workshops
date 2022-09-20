@@ -118,7 +118,7 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
           </tr>
           @endforeach
         </table>
-        @if(count($pendingParticipants) == 1) <p class="w-full p-5 text-center"> No pending participant found</p> @endif
+        @if(count($pendingParticipants) == 0) <p class="w-full p-5 text-center"> No pending participant found</p> @endif
         <div class=" p-3">
           {{ $pendingParticipants->links() }}
         </div>
