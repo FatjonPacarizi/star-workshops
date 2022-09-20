@@ -80,10 +80,31 @@
                  
                   <td ><a href="#" class = "text-blue-600"> {{$pendingParticipant->created_at}}</a></td>
                   <td class = "flex items-center " >
-                     <a href="/workshopManage/{{$pendingParticipant->user->id}}/edit" class="bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
-                      <i class="fa-solid fa-list fa-md "></i>
+                  <button class=" bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600 myBtn" >
+                  <i class="fa-solid fa-list fa-md "></i>
                           Info
-                      </a>
+    </button>
+    <div class="  bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center modal" >
+        <div class="bg-white max-w-sm py-2 px-3 rounded shadow-xl text-gray-800">
+            <div class=" flex justify-between items-center modal-content">
+                <h4 class="text-lg font-bold">Info User</h4>
+                <svg class="h-6 w-6 cursor-pointer p-1 hover:bg-gray-300 rounded-full"  fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <div class="mt-2 text-sm">
+            <p class="p-3 ">Email: {{$pendingParticipant->user->email}}</p>
+            <p class="p-3">Name: {{$pendingParticipant->user->name}}</p>
+            <p class="p-3">Description: {{$pendingParticipant->user->description}}</p>
+            </div>
+            <div class="mt-3 flex justify-end space-x-3">
+                <button class="px-3 py-1 rounded  hover:bg-red-300 hover:bg-opacity-50 hover:text-red-900" id="close-modal">Cancel</button>
+   
+            </div>
+        </div>
+    </div>
                       <form method="POST" action={{route('adminsuperadmin.approveParticipant',[$pendingParticipant->workshop_id,$pendingParticipant->user->id])}}>
                         @csrf
                         @method('PUT')
@@ -199,10 +220,31 @@
                  
                   <td ><a href="#" class = "text-blue-600"> {{$notapprovedParticipant->created_at}}</a></td>
                   <td class = "flex items-center">
-                    <a href="/workshopManage/{{$notapprovedParticipant->user->id}}/edit" class="bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
-                      <i class="fa-solid fa-list fa-md "></i>
+                  <button class=" bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600 myBtn" >
+                  <i class="fa-solid fa-list fa-md "></i>
                           Info
-                      </a>
+    </button>
+    <div class="  bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center modal" >
+        <div class="bg-white max-w-sm py-2 px-3 rounded shadow-xl text-gray-800">
+            <div class=" flex justify-between items-center modal-content">
+                <h4 class="text-lg font-bold">Info User</h4>
+                <svg class="h-6 w-6 cursor-pointer p-1 hover:bg-gray-300 rounded-full"  fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <div class="mt-2 text-sm">
+            <p class="p-3 ">Email: {{$notapprovedParticipant->user->email}}</p>
+            <p class="p-3">Name: {{$notapprovedParticipant->user->name}}</p>
+            <p class="p-3">Description: {{$notapprovedParticipant->user->description}}</p>
+            </div>
+            <div class="mt-3 flex justify-end space-x-3">
+                <button class="px-3 py-1 rounded  hover:bg-red-300 hover:bg-opacity-50 hover:text-red-900" id="close-modal">Cancel</button>
+   
+            </div>
+        </div>
+    </div>
                       <form method="POST" action={{route('adminsuperadmin.deleteParticipant',[$notapprovedParticipant->workshop_id,$notapprovedParticipant->user->id])}}>
                         @csrf
                         @method('DELETE')
@@ -237,7 +279,7 @@
 var spans = Array.from(document.getElementsByClassName("close"));
 
 btns.forEach(function(btn) {
-  btn.addEventListener("click", function() {
+  btn.addEventListener("click", function onClick() {
     this.nextElementSibling.style.display = "flex";
   })
 })
