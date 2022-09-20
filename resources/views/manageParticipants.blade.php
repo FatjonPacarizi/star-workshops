@@ -90,8 +90,8 @@
                 </svg>
             </div>
             <div class="mt-2 text-sm">
-            <p class="p-3 ">Email: {{$pendingParticipant->user->email}}</p>
             <p class="p-3">Name: {{$pendingParticipant->user->name}}</p>
+            <p class="p-3 ">Email: {{$pendingParticipant->user->email}}</p>
             <p class="p-3">Description: {{$pendingParticipant->user->description}}</p>
             </div>
             <div class="mt-3 flex justify-end space-x-3">
@@ -144,7 +144,6 @@
                   <td class="p-3">{{$approvedParticipant->user->name}}</td>
                   <td class="p-3 ">{{$approvedParticipant->user->email}}</td>
                   <td ><a href="#" class = "text-blue-600"> {{$approvedParticipant->created_at}}</a></td>
-                  <td class = "flex items-center">
                   <button class=" bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600 myBtn" >
                   <i class="fa-solid fa-list fa-md "></i> Info </button>
     <div class="  bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center modal" >
@@ -158,8 +157,8 @@
                 </svg>
             </div>
             <div class="mt-2 text-sm">
-            <p class="p-3 ">Email: {{$approvedParticipant->user->email}}</p>
             <p class="p-3">Name: {{$approvedParticipant->user->name}}</p>
+            <p class="p-3 ">Email: {{$approvedParticipant->user->email}}</p>
             <p class="p-3">Description: {{$approvedParticipant->user->description}}</p>
             </div>
             <div class="mt-3 flex justify-end space-x-3">
@@ -203,7 +202,7 @@
                   <td class="p-3">{{$notapprovedParticipant->user->name}}</td>
                   <td class="p-3 ">{{$notapprovedParticipant->user->email}}</td>
                   <td ><a href="#" class = "text-blue-600"> {{$notapprovedParticipant->created_at}}</a></td>
-                  <td class = "flex items-center">
+    
                   <button class=" bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600 myBtn" >
                   <i class="fa-solid fa-list fa-md "></i> Info</button>
     <div class="  bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center modal" >
@@ -217,8 +216,8 @@
                 </svg>
             </div>
             <div class="mt-2 text-sm">
-            <p class="p-3 ">Email: {{$notapprovedParticipant->user->email}}</p>
             <p class="p-3">Name: {{$notapprovedParticipant->user->name}}</p>
+            <p class="p-3 ">Email: {{$notapprovedParticipant->user->email}}</p>
             <p class="p-3">Description: {{$notapprovedParticipant->user->description}}</p>
             </div>
             <div class="mt-3 flex justify-end space-x-3">
