@@ -17,7 +17,7 @@ class ShowUpcomingWorkshopsPage extends Component
 
         $upcomings = Workshop::where('workshops.time','>=',$currentTime)
         ->orderBy('id', 'DESC')
-        ->paginate(6,['*'], 'upcomingWorkshopsPage');
+        ->simplePaginate(6,['*'], 'upcomingWorkshopsPage');
 
         return view('livewire.show-upcoming-workshops-page',['upcomings'=>$upcomings]);
     }
