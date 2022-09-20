@@ -168,8 +168,8 @@ class NewsPageSeeder extends Seeder
             The Investment Promotion Agency of Kosovo – IPAK is one of the most important government bodies that support the economic development and investment promotion of the country. Interested folks in the country, can find suitable pieces of information there, such as market reports, investment opportunities, case studies, success stories, etc.
             <br></br><br></br>
             Source:
-            <a href="www.digitalspoiler.com">
-            www.digitalspoiler.com</a>',
+            <a href="https://www.starlabs.dev/">
+            www.starlabs.dev</a>',
             'time' => '2022-09-09 12:14:19',
         ],[
             'title' => 'OUTSOURCING AS A GROWTH STRATEGY',
