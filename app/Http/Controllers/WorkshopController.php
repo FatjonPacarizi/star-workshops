@@ -283,8 +283,9 @@ class WorkshopController extends Controller
     }
 
     public function forceDelete($id){
-        
-        Workshop::onlyTrashed()->findOrFail($id)->forceDelete();
+        $workshop = Workshop::onlyTrashed()->findOrFail($id);
+        Storage::delete('/public/' .$workshop->img_workshop);
+        $workshop->forceDelete();
 
         return redirect()->back();
     }
