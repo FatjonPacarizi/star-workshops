@@ -4,11 +4,8 @@
 
 
 <section class=" body-font bg-white ">
-
     <div class="relative flex items-center justify-center">
-
         <p class="absolute text-7xl text-center text-white font-bold opacity-70">{{$about->title}} <span class="text-red-700"></span></p>
-
         <img src="{{$about->image ? asset('/storage/' . $about->image) : asset('img/defultaboutimage.png') }}" alt="">
     </div>
     <div class="w-full flex px-5 py-24 justify-center flex-wrap items-center">
@@ -24,7 +21,6 @@
                 </a>
             </div>
         </div>
-
         <div class=" w-full mt-10 lg:w-2/5 md:mt-0  md:p-2 flex flex-col md:items-start ">
             <div class=" w-full ">
                 <div class="bg-[#F2F2F2] ">
@@ -46,11 +42,8 @@
                                 @endif
 
                             </div>
-
                             <div class="px-6 pt-3">
-                                {{-- <label for="">Email</label>--}}
                                 <input type="text" class="w-full border-none rounded-md py-3" name="email" placeholder="Enter your email">
-
                                 @if ($errors->has('email'))
                                 <div class="bg-red-100 rounded-lg mb-3 text-base text-red-700 inline-flex items-center w-full" role="alert">
                                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" class="w-4 h-4 mr-2 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -60,9 +53,7 @@
                                 </div>
                                 @endif
                             </div>
-
                             <div class="px-6 pt-3">
-                                {{-- <label for="">Subject</label>--}}
                                 <input type="text" class="w-full border-none rounded-md py-3" name="subject" placeholder="Enter subject">
                                 @if ($errors->has('subject'))
                                 <div class="bg-red-100 rounded-lg py-5 px-6 mb-3 text-base text-red-700 inline-flex items-center w-full" role="alert">
@@ -89,17 +80,10 @@
                             <div class=" px-6 pt-3 pb-6">
                                 <button type="submit" class=" rounded-tr-xl rounded-bl-xl px-12 py-2 bg-red-600 text-green-100 hover:bg-red-800 duration-300">Send Email</button>
                             </div>
-
                         </form>
-
-
-
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </section>
@@ -132,10 +116,7 @@
         </div>
     </section>
 </div>
-
 <button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed z-90 bottom-8 right-8 border-0 w-16 h-16 rounded-full bg-red-600 ring-2 ring-white text-white -rotate-90 text-5xl font-bold">&#10132;</button>
-
-
 <!-- Javascript code -->
 <script>
     var toTopButton = document.getElementById("to-top-button");
@@ -155,7 +136,4 @@
         });
     }
 </script>
-
-
-
 @endsection

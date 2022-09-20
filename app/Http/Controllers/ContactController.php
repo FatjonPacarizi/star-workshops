@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
 class ContactController extends Controller
 {
-    function index(){
-        return view ('contactForm');
+    function index()
+    {
+        return view('contactForm');
     }
-    function send(Request $request){
+    function send(Request $request)
+    {
         $name = $request->name;
         $email = $request->email;
         $subject = $request->subject;
@@ -33,13 +34,10 @@ class ContactController extends Controller
         $mail->Subject = $subject;
         $mail->Body    = $message;
         $dt = $mail->send();
-        if ($dt){
+        if ($dt) {
             echo 'Message has been sent';
-        }else{
+        } else {
             echo 'Something went wrong';
         }
-
-
-
     }
 }

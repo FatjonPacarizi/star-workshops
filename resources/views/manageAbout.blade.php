@@ -1,8 +1,6 @@
 <x-app-layout>
   <div class="p-6 flex flex-col  items-center">
-
     <div class="w-full bg-white border pb-4">
-      
             <h1 class = "p-3 text-slate-900 border-b border-gray-200 mb-4 ">User Managment</h1>
              <div class="w-full flex justify-center">
             <table class="w-full mx-4">
