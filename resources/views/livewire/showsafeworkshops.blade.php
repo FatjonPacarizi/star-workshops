@@ -44,8 +44,7 @@
     </svg>
     <span class="sr-only">Loading...</span>
   </div>
-</div>
-<div class="m-3">
+  <div class="m-3">
   {{ $workshops1->links() }}
 </div>
 </div>
