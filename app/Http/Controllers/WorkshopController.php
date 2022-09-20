@@ -98,15 +98,22 @@ class WorkshopController extends Controller
                 $join->on("workshops.id", "=", "workshops_users.workshop_id");
             })
             ->select("workshops.id as id","workshops.limited_participants as limited_participants")
+            ->where("workshops_users.workshop_id",$id)
             ->get();
 
             $limitReached = false;
+            $participants = 0;
+
+            if(count($workshop_participants) > 0) {
+                if($workshop_participants[0]->limited_participants != null && $workshop_participants[0]->limited_participants <= count($workshop_participants)) $limitReached = true;
+                $participants =  $workshop_participants[0]->limited_participants;
+            }
             
-            if($workshop_participants[0]->limited_participants != null && $workshop_participants[0]->limited_participants <= count($workshop_participants)) $limitReached = true; 
             
+
         return view('workshopPage',['workshop'=>$workshop[0],
                                     'limitReached' => $limitReached, 
-                                    'participants' => $workshop_participants[0]->limited_participants,
+                                    'participants' => $participants,
                                     'already_applied' => $already_applied,
                                     'application_status' => $application_status,
                                     'upcoming' => $upcoming]);
