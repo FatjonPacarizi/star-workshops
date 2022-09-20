@@ -18,7 +18,7 @@
           <img class="w-10  rounded" alt="hero" src="{{$upcomingWorkshop->img_workshop ? asset('/storage/' . $upcomingWorkshop->img_workshop) : asset('/img/test.jpg')}}" />
           <div class="ml-3 ">
             <h1 class="text-black">{{\Illuminate\Support\Str::limit($upcomingWorkshop->name, 45, $end='...') }}</h1>
-            <p class="text-xs text-gray-500">{{$upcomingWorkshop->countryName}}, {{$upcomingWorkshop->cityName}}</p>
+            <p class="text-xs text-gray-500">{{$upcomingWorkshop->country->name}}, {{$upcomingWorkshop->city->name}}</p>
           </div>
         </div>
       </td>
@@ -70,9 +70,10 @@
         <a href={{ route('adminsuperadmin.showParticipants',$upcomingWorkshop->id)}} class="w-fit px-3 py-2
             text-left flex items-center relative ">
           <i class="fa-solid fa-user fa-md text-gray-400"></i>
-          @if($upcomingWorkshop->pendingParticipants > 0)
+          
+          @if(count($upcomingWorkshop->pendingParticipants) > 0)
           <p class="w-4 h-4 text-xs text-white absolute top-0 right-0 flex justify-center items-center rounded-full bg-red-400">
-            {{$upcomingWorkshop->pendingParticipants}}
+            {{count($upcomingWorkshop->pendingParticipants)}}
           </p>
           @endif
         </a>

@@ -19,7 +19,7 @@
               src="{{$pastsWorkshop->img_workshop ? asset('/storage/' . $pastsWorkshop->img_workshop) : asset('/img/test.jpg')}}" />
             <div class="ml-3 ">
               <h1 class="text-black">{{\Illuminate\Support\Str::limit($pastsWorkshop->name, 45, $end='...') }}</h1>
-              <p class="text-xs text-gray-500">{{$pastsWorkshop->countryName}}, {{$pastsWorkshop->cityName}}</p>
+              <p class="text-xs text-gray-500">{{$pastsWorkshop->country->name}}, {{$pastsWorkshop->city->name}}</p>
             </div>
           </div>
         </td>
@@ -73,10 +73,10 @@
           <a href={{ route('adminsuperadmin.showParticipants',$pastsWorkshop->id)}} class="w-fit px-3 py-2
             text-left flex items-center relative ">
             <i class="fa-solid fa-user fa-md text-gray-400"></i>
-            @if($pastsWorkshop->pendingParticipants > 0)
+            @if(count($pastsWorkshop->pendingParticipants) > 0)
             <p
               class="w-4 h-4 text-xs text-white absolute top-0 right-0 flex justify-center items-center rounded-full bg-red-400">
-              {{$pastsWorkshop->pendingParticipants}}</p>
+              {{count($pastsWorkshop->pendingParticipants)}}</p>
             @endif
           </a>
         </td>

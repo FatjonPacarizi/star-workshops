@@ -29,24 +29,11 @@ class ShowPastWorkshopsManage extends Component
           $currentTime = Carbon::now('Europe/Tirane');
   
           if(request()->user()->user_status == 'superadmin'){
-            
-              $pastsWorkshops = Workshop::leftJoin("workshops_users", function($join){
-                  $join->on("workshops.id", "=", "workshops_users.workshop_id")
-                  ->where("workshops_users.application_status", "=", 'pending');
-              })
-              ->join("countries", function($join){
-                $join->on("workshops.country_id", "=", "countries.id");
-               })
-               ->join("cities", function($join){
-                $join->on("workshops.city_id", "=", "cities.id");
-               })
-              ->select("workshops.id", "workshops.name","countries.name as countryName","cities.name as cityName","workshops.img_workshop", "workshops.limited_participants", "workshops.time")
-              ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
-              ->whereNull("workshops.deleted_at")
+                      
+              $pastsWorkshops = Workshop::whereNull("workshops.deleted_at")
               ->orderBy('id', $sort)
-              ->where('workshops.time','<', $currentTime)
-              ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop","countries.name","cities.name");
-              
+              ->where('workshops.time','<', $currentTime); 
+  
               
               if($this->search != null) 
                $pastsWorkshops = $pastsWorkshops->where('workshops.name','like','%'.$this->search.'%');
@@ -57,26 +44,10 @@ class ShowPastWorkshopsManage extends Component
           else{
              
               $myID = Auth::id();
-  
-  
-              $pastsWorkshops = Workshop::leftJoin("workshops_users", function($join){
-                  $join->on("workshops.id", "=", "workshops_users.workshop_id")
-                  ->where("workshops_users.application_status", "=", "pending");
-              })
-              ->join("countries", function($join){
-                $join->on("workshops.country_id", "=", "countries.id");
-               })
-               ->join("cities", function($join){
-                $join->on("workshops.city_id", "=", "cities.id");
-               })
-              ->select("workshops.id", "workshops.name","countries.name as countryName","cities.name as cityName","workshops.img_workshop", "workshops.limited_participants", "workshops.time")
-              ->selectRaw('COUNT(workshops_users.application_status) as pendingParticipants')
-              ->where("workshops.author", "=", $myID)
-              ->orderBy('id', 'DESC')
-              ->where('workshops.time','<=', $currentTime)
-              ->whereNull("workshops.deleted_at")
-              ->groupBy("workshops.id","workshops.name","workshops.time","workshops.limited_participants","workshops.img_workshop","countries.name","cities.name");
-              
+              $pastsWorkshops = Workshop::whereNull("workshops.deleted_at")
+              ->orderBy('id', $sort)
+              ->where('workshops.time','<', $currentTime)
+              ->where("workshops.author", "=", $myID); 
                 
               if($this->search != null) 
                $pastsWorkshops = $pastsWorkshops->where('workshops.name','like','%'.$this->search.'%');

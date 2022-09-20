@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use PDF;
 use DateTime;
 use DateTimeZone;
-use Carbon\Carbon;
 use App\Models\City;
 use App\Models\Type;
 use App\Models\User;
@@ -13,13 +12,11 @@ use App\Models\Country;
 use App\Models\Category;
 use App\Models\Workshop;
 use App\Models\workshops_users;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
-use App\Models\Positions;
-use App\Models\positions_users;
+
 
 
 class WorkshopController extends Controller
@@ -41,17 +38,7 @@ class WorkshopController extends Controller
      */
 
     public function showMembers(){
-
-        $id = positions::select('id')->where('position','staff')->get();
-   
-        $staffMembers = User::whereHas('staff',function($query){
-            $query->where('position','staff');
-        })->get();
-
-        dd($staffMembers);
-
-        return view('workshopMembers',['staffMembers' => $staffMembers]);
-
+        return view('workshopMembers',['staffMembers' => User::has('members')->get()]);
     }
     public function create()
     {
@@ -91,9 +78,7 @@ class WorkshopController extends Controller
      */
     public function show($id)
     {    
-
-        $workshop = Workshop::where('workshops.id',$id)
-            ->get();     
+            $workshop = Workshop::where('workshops.id',$id)->get();     
 
             $upcoming = false;
             $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
@@ -103,8 +88,6 @@ class WorkshopController extends Controller
             $application_status = workshops_users::select('application_status')->where(['workshop_id'=>$id,'user_id'=>Auth::id()])
             ->get();
             
-            //dd($application_status);
-
             $already_applied = false;
             // if current user has alredy applied 
             if(count($application_status)>0)
@@ -132,9 +115,7 @@ class WorkshopController extends Controller
 
     public function showWorkshopManage()
     {
-       
         return view('manageWorkshops');
-
     }
 
     /**
@@ -228,7 +209,7 @@ class WorkshopController extends Controller
                 );
         }
 
-        return redirect('/workshop/'.$id)->with('message','Congratulations you have successfuly applied');
+        return redirect()->back()->with('message','Congratulations you have successfuly applied');
     }
 
     public function showParticipants($workshopid){
@@ -244,8 +225,6 @@ class WorkshopController extends Controller
 
         $notapprovedParticipants = workshops_users::where(["workshop_id" => $workshopid,"application_status" => "notapproved"])
         ->paginate(8,['*'], 'notapprovedParticipantsPage');
-
-         //dd($pendingParticipants[0]->user->name);
 
         return view('manageParticipants',['workshopName'=>Workshop::select('name')->where('id',$workshopid)->get(),'pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
     }
