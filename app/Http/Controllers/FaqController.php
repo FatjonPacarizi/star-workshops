@@ -15,9 +15,7 @@ class FaqController extends Controller
      */
     public function index()
     {
-        $faq = Faq::orderBy('id', 'DESC')->paginate(8);
- 
-        return view('faq',['faq'=>$faq]);
+        return view('faq');
     }
 
     /**
@@ -38,7 +36,7 @@ class FaqController extends Controller
      */
     public function store(StoreFaqRequest $request)
     {
-        $validated = $request->validated();  
+        $validated = $request->validated();
         Faq::create($validated);
         return redirect()->route('superadmin.faq');
     }
@@ -51,7 +49,6 @@ class FaqController extends Controller
      */
     public function show(Faq $faq)
     {
-
     }
 
     /**
@@ -64,7 +61,7 @@ class FaqController extends Controller
     {
         $faq = Faq::find($id);
 
-        return view('editfaq',['faq' => $faq]);
+        return view('editfaq', ['faq' => $faq]);
     }
 
     /**
@@ -77,7 +74,6 @@ class FaqController extends Controller
     public function update(UpdateFaqRequest $request, $id)
     {
         $validated = $request->validated();
-       //update appinfo
         Faq::find($id)->update($validated);
         return back();
     }
@@ -95,15 +91,16 @@ class FaqController extends Controller
         return back();
     }
 
-    public function changeStatus($id){
+    public function changeStatus($id)
+    {
 
-       $getStatus = Faq::select('status')->where('id',$id)->first();
-       if($getStatus->status == 'Active' ){
-        $status = 'Deactive';
-       }else{
-        $status = 'Active';
-       }
-       Faq::where('id',$id)->update(['status'=>$status]);
-       return redirect()->back();
+        $getStatus = Faq::select('status')->where('id', $id)->first();
+        if ($getStatus->status == 'Active') {
+            $status = 'Deactive';
+        } else {
+            $status = 'Active';
+        }
+        Faq::where('id', $id)->update(['status' => $status]);
+        return redirect()->back();
     }
 }

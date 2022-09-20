@@ -5,10 +5,10 @@
 <div class="w-full  p-6 px-10 flex ">
 
     <div class="w-full bg-white   shadow-md rounded-xl  ">
-      <div class="w-full flex items-center  border-b border-gray-200 mb-4">
-        <a href="/news"><i class="fa-solid fa-arrow-left mx-4"></i></a>
-        <h1 class="p-3 text-black  font-medium  ">News Edit</h1>
-      </div>
+        <div class="w-full flex items-center  border-b border-gray-200 mb-4">
+            <a href="/news"><i class="fa-solid fa-arrow-left mx-4"></i></a>
+            <h1 class="p-3 text-black  font-medium  ">News Edit</h1>
+        </div>
         @if (session('status'))
         <h6>{{ session('status') }}</h6>
         @endif
@@ -18,7 +18,8 @@
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">News Title</label>
                 <div class="w-full mx-5">
-                    <input type="text" name="title" value="{{$newspage->title}}" class="border border-gray-200 rounded p-1 w-full "/>
+                    <input type="text" name="title" value="{{$newspage->title}}"
+                        class="border border-gray-200 rounded p-1 w-full " />
                     @error('title')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
@@ -27,7 +28,8 @@
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Author</label>
                 <div class="w-full mx-5">
-                    <input type="text" name="author" value="{{$newspage->author}}" class="border border-gray-200 rounded p-1 w-full ">                
+                    <input type="text" name="author" value="{{$newspage->author}}"
+                        class="border border-gray-200 rounded p-1 w-full ">
                     @error('author')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
@@ -36,7 +38,8 @@
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Description</label>
                 <div class="w-full mx-5">
-                    <textarea type="text" name="description" value="" class="border border-gray-200 rounded p-1 w-full mx-5">
+                    <textarea type="text" name="description" value=""
+                        class="border border-gray-200 rounded p-1 w-full mx-5">
                     {{$newspage->description}}</textarea>
                     @error('description')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -60,7 +63,8 @@
             </script>
             <div class="mb-6  flex items-center">
                 <label class="w-28 text-sm mx-5">Date</label>
-                <input type="datetime-local" name="time" value="{{$newspage->time}}" class="border border-gray-300 rounded p-1 mx-1"/>
+                <input type="datetime-local" name="time" value="{{$newspage->time}}"
+                    class="border border-gray-300 rounded p-1 mx-1" />
             </div>
             <div class="mb-6  flex items-center">
                 <label class="w-28 text-sm mx-5">Image</label>
@@ -69,11 +73,14 @@
                     @error('image')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
-                 </div>
-                <img class="object-cover mx-5 rounded" alt="Image" src="{{$newspage->image ? asset('/storage/' . $newspage->image) : asset('/img/defaultNewsImg.jpg')}}" width="100">
+                </div>
+                <img class="object-cover mx-5 rounded" alt="Image"
+                    src="{{$newspage->image ? asset('/storage/' . $newspage->image) : asset('/img/defaultNewsImg.jpg')}}"
+                    width="100">
             </div>
             <div class="w-full p-2 flex justify-end border-t border-gray-200">
-                <button type="submit" class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600">Update news</button>
+                <button type="submit" class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600">Update
+                    news</button>
             </div>
         </form>
     </div>
