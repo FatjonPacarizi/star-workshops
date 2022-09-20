@@ -37,7 +37,7 @@
                 @endphp
 
                
-                <button  onClick = "changeURL('?approvedParticipantsPage={{$approvedParticipantsTab}}')"  :class = "tab === 0 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center"" @click="tab = 0">Approved
+                <button  onClick = "changeURL('?approvedParticipantsPage={{$approvedParticipantsTab}}')"  :class = "tab === 0 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center" @click="tab = 0">Approved
                 @if(count($approvedParticipants)) 
                   <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-red-400">{{count($approvedParticipants)}}</p>
                   @endif
@@ -49,7 +49,7 @@
                   <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-red-400">{{count($pendingParticipants)}}</p>
                   @endif
                 </button>
-                <button  onClick = "changeURL('?notapprovedParticipantsPage={{$notapprovedParticipantsTab}}')"  :class = "tab === 2 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center"" @click="tab = 2">Not Approved
+                <button  onClick = "changeURL('?notapprovedParticipantsPage={{$notapprovedParticipantsTab}}')"  :class = "tab === 2 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center" @click="tab = 2">Not Approved
                 @if(count($notapprovedParticipants)) 
                   <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-red-400">{{count($notapprovedParticipants)}}</p>
                   @endif
@@ -63,6 +63,7 @@
                   <p class = "text-left h-8 text-xl text-orange-400 w-2/4">Pending</p>
                   <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
                 </div>
+                
                 <table class="w-full ">
                   <tr class="text-gray-400 text-xs ">
                     <td class="font-bold p-3 w-1/4">User Name</td>
@@ -111,7 +112,7 @@
                 {{ $pendingParticipants->links() }}
                 </div>
               </div>
-              <div x-show="tab === 0">
+              <div x-show="tab === 0" id="modal">
                 <div class="flex items-center p-5 justify-between">
                   <p class = "text-left h-8 text-xl text-green-400 w-2/4">Approved</p>
                   <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
@@ -131,10 +132,33 @@
                   <td class="p-3 ">{{$approvedParticipant->user->email}}</td>
                   <td ><a href="#" class = "text-blue-600"> {{$approvedParticipant->created_at}}</a></td>
                   <td class = "flex items-center">
-                    <a href="/workshopManage/{{$approvedParticipant->user->id}}/edit" class="bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
-                      <i class="fa-solid fa-list fa-md "></i>
+                 
+                  <button class=" bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600 myBtn" >
+                  <i class="fa-solid fa-list fa-md "></i>
                           Info
-                      </a>
+    </button>
+    <div class="  bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center modal" >
+        <div class="bg-white max-w-sm py-2 px-3 rounded shadow-xl text-gray-800">
+            <div class=" flex justify-between items-center modal-content">
+                <h4 class="text-lg font-bold">Info User</h4>
+                <svg class="h-6 w-6 cursor-pointer p-1 hover:bg-gray-300 rounded-full"  fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <div class="mt-2 text-sm">
+            <p class="p-3 ">Email: {{$approvedParticipant->user->email}}</p>
+            <p class="p-3">Name: {{$approvedParticipant->user->name}}</p>
+            <p class="p-3">Description: {{$approvedParticipant->user->description}}</p>
+            </div>
+            <div class="mt-3 flex justify-end space-x-3">
+                <button class="px-3 py-1 rounded  hover:bg-red-300 hover:bg-opacity-50 hover:text-red-900" id="close-modal">Cancel</button>
+   
+            </div>
+        </div>
+    </div>
+                  
                     <form method="POST" action={{route('adminsuperadmin.declineParticipant',[$approvedParticipant->workshop_id,$approvedParticipant->user->id])}} ">
                       @csrf
                       @method('PUT')
@@ -208,4 +232,29 @@
          }
        }
          </script>
+          <script>
+         var btns = Array.from(document.getElementsByClassName("myBtn"));
+var spans = Array.from(document.getElementsByClassName("close"));
+
+btns.forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    this.nextElementSibling.style.display = "flex";
+  })
+})
+
+spans.forEach(function(span) {
+  span.addEventListener("click", function() {
+    this.closest(".modal").style.display = "";
+  })
+})
+
+window.onclick = function(event) {
+  let modal = event.target.closest(".modal");
+  if (modal) {
+    modal.style.display = "";
+  }
+}
+
+    </script>
+    
 @endsection
