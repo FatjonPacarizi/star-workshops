@@ -10,7 +10,7 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
   if(session()->has('tab')) {$tab = session('tab'); }
   else{
   if(request()->has('pastsWorkshopsPage')) $tab = 1;
-  }
+  } if(request()->has('deletedWorkshopsPage')) $tab = 2;
   @endphp
   <div class="w-full pb-4 relative" x-data="{
       tab:{{$tab}},
