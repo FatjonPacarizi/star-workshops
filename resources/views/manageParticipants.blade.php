@@ -63,7 +63,6 @@
                   <p class = "text-left h-8 text-xl text-orange-400 w-2/4">Pending</p>
                   <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
                 </div>
-                
                 <table class="w-full ">
                   <tr class="text-gray-400 text-xs ">
                     <td class="font-bold p-3 w-1/4">User Name</td>
@@ -71,19 +70,15 @@
                     <td class="font-bold w-1/4">Applied On</td>
                     <td class="font-bold  w-1/4">Actions</td>
                   </tr>
-                  
-    
+
                 @foreach($pendingParticipants as $pendingParticipant)
                 <tr class = 'border-t border-gray-200'>
                   <td class="p-3 ">{{$pendingParticipant->user->name}}</td>
                   <td class="p-3 ">{{$pendingParticipant->user->email}}</td>
-                 
                   <td ><a href="#" class = "text-blue-600"> {{$pendingParticipant->created_at}}</a></td>
                   <td class = "flex items-center " >
                   <button class=" bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600 myBtn" >
-                  <i class="fa-solid fa-list fa-md "></i>
-                          Info
-    </button>
+                  <i class="fa-solid fa-list fa-md "></i>Info</button>
     <div class="  bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center modal" >
         <div class="bg-white max-w-sm py-2 px-3 rounded shadow-xl text-gray-800">
             <div class=" flex justify-between items-center modal-content">
@@ -101,7 +96,6 @@
             </div>
             <div class="mt-3 flex justify-end space-x-3">
                 <button class="px-3 py-1 rounded  hover:bg-red-300 hover:bg-opacity-50 hover:text-red-900" id="close-modal">Cancel</button>
-   
             </div>
         </div>
     </div>
@@ -123,7 +117,6 @@
                           Decline
                         </button>
                       </form>
-                    
                   </td>
                 </tr>
                 @endforeach
@@ -145,7 +138,6 @@
                     <td class="font-bold w-1/4">Applied On</td>
                     <td class="font-bold  w-1/4">Actions</td>
                   </tr>
-                  
             
                 @foreach($approvedParticipants as $approvedParticipant)
                 <tr class = 'border-t border-gray-200 '>
@@ -153,11 +145,8 @@
                   <td class="p-3 ">{{$approvedParticipant->user->email}}</td>
                   <td ><a href="#" class = "text-blue-600"> {{$approvedParticipant->created_at}}</a></td>
                   <td class = "flex items-center">
-                 
                   <button class=" bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600 myBtn" >
-                  <i class="fa-solid fa-list fa-md "></i>
-                          Info
-    </button>
+                  <i class="fa-solid fa-list fa-md "></i> Info </button>
     <div class="  bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center modal" >
         <div class="bg-white max-w-sm py-2 px-3 rounded shadow-xl text-gray-800">
             <div class=" flex justify-between items-center modal-content">
@@ -175,11 +164,9 @@
             </div>
             <div class="mt-3 flex justify-end space-x-3">
                 <button class="px-3 py-1 rounded  hover:bg-red-300 hover:bg-opacity-50 hover:text-red-900" id="close-modal">Cancel</button>
-   
             </div>
         </div>
-    </div>
-                  
+    </div>  
                     <form method="POST" action={{route('adminsuperadmin.declineParticipant',[$approvedParticipant->workshop_id,$approvedParticipant->user->id])}} ">
                       @csrf
                       @method('PUT')
@@ -210,20 +197,15 @@
                     <td class="font-bold w-1/4">Applied On</td>
                     <td class="font-bold w-1/4 ">Actions</td>
                   </tr>
-                  
             
                 @foreach($notapprovedParticipants as $notapprovedParticipant)
                 <tr class = 'border-t border-gray-200 '>
                   <td class="p-3">{{$notapprovedParticipant->user->name}}</td>
                   <td class="p-3 ">{{$notapprovedParticipant->user->email}}</td>
-
-                 
                   <td ><a href="#" class = "text-blue-600"> {{$notapprovedParticipant->created_at}}</a></td>
                   <td class = "flex items-center">
                   <button class=" bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600 myBtn" >
-                  <i class="fa-solid fa-list fa-md "></i>
-                          Info
-    </button>
+                  <i class="fa-solid fa-list fa-md "></i> Info</button>
     <div class="  bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center modal" >
         <div class="bg-white max-w-sm py-2 px-3 rounded shadow-xl text-gray-800">
             <div class=" flex justify-between items-center modal-content">
@@ -241,7 +223,6 @@
             </div>
             <div class="mt-3 flex justify-end space-x-3">
                 <button class="px-3 py-1 rounded  hover:bg-red-300 hover:bg-opacity-50 hover:text-red-900" id="close-modal">Cancel</button>
-   
             </div>
         </div>
     </div>
@@ -273,9 +254,7 @@
              window.history.pushState({path:newurl},'',newurl);
          }
        }
-         </script>
-          <script>
-         var btns = Array.from(document.getElementsByClassName("myBtn"));
+       var btns = Array.from(document.getElementsByClassName("myBtn"));
 var spans = Array.from(document.getElementsByClassName("close"));
 
 btns.forEach(function(btn) {
@@ -296,7 +275,7 @@ window.onclick = function(event) {
     modal.style.display = "";
   }
 }
-
-    </script>
+         </script>
+          
     
 @endsection
