@@ -10,34 +10,28 @@
                 {{$workshop->name}}
             </h1>
             <p class="mb-8 leading-relaxed"> {{$workshop->time}} </p>
-            <p class="mb-8 leading-relaxed"> {{$workshop->country}} </p>
+            <p class="mb-8 leading-relaxed"> {{$workshop->country->name}} </p>
 
-            <p class="mb-8 leading-relaxed">Author : {{$workshop->author}}</p>
-            @php
-            $upcoming = false;
-            $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
+            <p class="mb-8 leading-relaxed">Author : {{$workshop->user->name}}</p>
 
-            if (strtotime($workshop->time) > strtotime($date->format("Y-m-d h:i:sa"))) $upcoming = true;
-            @endphp
             @if($upcoming)
             @if($limitReached)
             <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">Limitaion for this event have been reached: {{$participants}} participants</p>
             @elseif($already_applied)
             <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">
-                @switch($application_status[0]->application_status)
+                @if($application_status[0]->application_status == 'pending')
+                    @if(session()->has('message')) {{session('message')}}
+                    @else 
+                        Your application is still pending
+                    @endif
+                 @elseif($application_status[0]->application_status == 'notapproved')
 
-                @case('pending')
-                @if(session()->has('message')) {{session('message')}}
-                @else Your application is still pending @endif
-                @break
+                    Your application is not approved
+                    <a class="text-sky-800 underline" href='/about'>Contact Us</a>
 
-                @case('notapproved')
-                Your application is not approved
-                <a class="text-sky-800 underline" href='/about'>Contact Us</a>
-                @break
-                @default
-                This event will start: {{ $workshop->time}}
-                @endswitch
+                 @else
+                    This event will start: {{ $workshop->time}}
+                @endif
             </p>
             @else
             <a class="mb-8 px-5 py-2 bg-white rounded-md text-black" href={{route('workshop-join',$workshop->id)}}>Apply</a>
@@ -65,11 +59,8 @@
 
 <button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed z-90 bottom-8 right-8 border-0 w-16 h-16 rounded-full bg-red-600 ring-2 ring-white text-white -rotate-90 text-5xl font-bold">&#10132;</button>
 
-
-<!-- Javascript code -->
 <script>
     var toTopButton = document.getElementById("to-top-button");
-    // When the user scrolls down 200px from the top of the document, show the button
     window.onscroll = function() {
         if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
             toTopButton.classList.remove("hidden");
@@ -77,7 +68,6 @@
             toTopButton.classList.add("hidden");
         }
     }
-    // When the user clicks on the button, scroll to the top of the document
     function goToTop() {
         window.scrollTo({
             top: 0,

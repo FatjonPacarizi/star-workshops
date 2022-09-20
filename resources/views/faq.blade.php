@@ -6,11 +6,7 @@
     <livewire:filter-faq/>
 </div>
   <div class="w-full bg-white shadow-md rounded-xl  py-4 " >
-
     <h1 class="p-3 text-black  font-medium ml-2 ">Manage faq</h1>
-
     <livewire:show-faq/>
-
   </div>
   @endsection
-  {{-- box-shadow: rgba(149, 157, 165, 0.2) 0px 24px 30px; --}}
