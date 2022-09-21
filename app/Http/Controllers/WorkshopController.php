@@ -69,10 +69,7 @@ class WorkshopController extends Controller
             return $item->id;
         });
 
-       // dd($workshop_ids);
         $users = workshops_users::whereIn('workshop_id',$workshop_ids)->get();
-
-       // dd($users);
 
         $emails = array();
         for($i=0;$i<count($users);$i++){
@@ -80,7 +77,7 @@ class WorkshopController extends Controller
                 $emails[$i] = $users[$i]->user->email;
             }
         }
-        
+
         Workshop::create($validated);
 
         if(count($users)>0)  Mail::to($emails)->send(new newWorkshopEmailSender("test"));
