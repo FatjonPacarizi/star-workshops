@@ -17,7 +17,6 @@ class CreateWorkshopsUsersTable extends Migration
             $table->id();
             $table->bigInteger('workshop_id')->unsigned();
             $table->foreign('workshop_id')->references('id')->on('workshops')->onDelete('cascade');
-            $table->bigInteger('workshop_category_id');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('application_status')->default('pending');

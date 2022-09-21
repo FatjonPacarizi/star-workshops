@@ -64,8 +64,15 @@ class WorkshopController extends Controller
          
             $validated['img_workshop'] = request()->file('img_workshop')->store('workshopsImg','public');
         }
-        
-        $users = workshops_users::where('workshop_category_id',$request->input('category_id'))->get();
+
+        $workshop_ids =  Workshop::where('category_id',$request->input('category_id'))->get() ->map(function ($item) {
+            return $item->id;
+        });
+
+       // dd($workshop_ids);
+        $users = $users = workshops_users::whereIn('workshop_id',$workshop_ids)->get();
+
+       // dd($users);
 
         $emails = array();
         for($i=0;$i<count($users);$i++){
@@ -209,8 +216,7 @@ class WorkshopController extends Controller
     }
 
 
-    public function join($id,$workshop_category_id){
-
+    public function join($id){
         if(!Auth::check())
           return redirect()->route('login');
 
@@ -222,7 +228,6 @@ class WorkshopController extends Controller
                 workshops_users::create(
                     [
                         'workshop_id' => $id,
-                        'workshop_category_id' => $workshop_category_id,
                         'user_id' => Auth::id()
                     ]
                 );

@@ -18,28 +18,23 @@ class WorkshopsUsersSeeder extends Seeder
     {
         $workshop_participants = [
             [
-                'workshop_id' => '3',
-                'workshop_category_id' => '2',
+                'workshop_id' => '11',
                 'user_id' => '3',
             ],
             [
                 'workshop_id' => '11',
-                'workshop_category_id' => '1',
                 'user_id' => '2',
             ],
             [
                 'workshop_id' => '11',
-                'workshop_category_id' => '1',
                 'user_id' => '1',
             ],
             [
                 'workshop_id' => '10',
-                'workshop_category_id' => '1',
                 'user_id' => '2',
             ],
             [
                 'workshop_id' => '7',
-                'workshop_category_id' => '1',
                 'user_id' => '3',
             ],
 
