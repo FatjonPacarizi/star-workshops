@@ -10,7 +10,7 @@
                 {{$workshop->name}}
             </h1>
             <p class="mb-8 leading-relaxed"> {{$workshop->time}} </p>
-            <p class="mb-8 leading-relaxed"> {{$workshop->country->name}} {{$workshop->category_id}} </p>
+            <p class="mb-8 leading-relaxed"> {{$workshop->country->name}}</p>
 
             <p class="mb-8 leading-relaxed">Author : {{$workshop->user->name}}</p>
 
