@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
-
-
+use App\Mail\newWorkshopEmailSender;
+use Illuminate\Support\Facades\Mail;
 
 class WorkshopController extends Controller
 {
@@ -65,7 +65,18 @@ class WorkshopController extends Controller
             $validated['img_workshop'] = request()->file('img_workshop')->store('workshopsImg','public');
         }
         
+        $users = workshops_users::where('workshop_category_id',$request->input('category_id'))->get();
+
+        $emails = array();
+        for($i=0;$i<count($users);$i++){
+            if (!in_array($users[$i]->user->email, $emails)){
+                $emails[$i] = $users[$i]->user->email;
+            }
+        }
+        
         Workshop::create($validated);
+
+        if(count($users)>0)  Mail::to($emails)->send(new newWorkshopEmailSender("test"));
         
         return redirect()->route('adminsuperadmin.showManageWorkshops');
     }
@@ -198,7 +209,7 @@ class WorkshopController extends Controller
     }
 
 
-    public function join($id){
+    public function join($id,$workshop_category_id){
 
         if(!Auth::check())
           return redirect()->route('login');
@@ -211,6 +222,7 @@ class WorkshopController extends Controller
                 workshops_users::create(
                     [
                         'workshop_id' => $id,
+                        'workshop_category_id' => $workshop_category_id,
                         'user_id' => Auth::id()
                     ]
                 );

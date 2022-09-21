@@ -10,7 +10,7 @@
                 {{$workshop->name}}
             </h1>
             <p class="mb-8 leading-relaxed"> {{$workshop->time}} </p>
-            <p class="mb-8 leading-relaxed"> {{$workshop->country->name}} </p>
+            <p class="mb-8 leading-relaxed"> {{$workshop->country->name}} {{$workshop->category_id}} </p>
 
             <p class="mb-8 leading-relaxed">Author : {{$workshop->user->name}}</p>
 
@@ -34,7 +34,7 @@
                 @endif
             </p>
             @else
-            <a class="mb-8 px-5 py-2 bg-white rounded-md text-black" href={{route('workshop-join',$workshop->id)}}>Apply</a>
+            <a class="mb-8 px-5 py-2 bg-white rounded-md text-black" href= "/workshops/{{$workshop->id}}/{{$workshop->category_id}}/join">Apply</a>
             @endif
             @else
             <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">Applications for this event are closed</p>

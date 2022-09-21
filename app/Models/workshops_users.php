@@ -11,12 +11,12 @@ class workshops_users extends Model
 
     protected $fillable = [
         'workshop_id',
+        'workshop_category_id',
         'user_id',
         'application_status'
     ];
 
     public function user(){
         return $this->belongsTo(User::class,'user_id');
-    }
-    
+    }    
 }

@@ -150,7 +150,7 @@ class WorkshopSeeder extends Seeder
                 'type_id' => '1',
                 'country_id' => '1',
                 'city_id' => '1',
-                'category_id' => '1',
+                'category_id' => '2',
                 'filedlink' => 'Workshop',
                 'time' => '2022-10-09 12:14:19',
                 'created_at' => '2022-02-09 12:14:19',
