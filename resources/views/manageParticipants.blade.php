@@ -80,7 +80,7 @@
                   <button class=" bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600 myBtn" >
                   <i class="fa-solid fa-list fa-md "></i>Info</button>
     <div class="  bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center modal" >
-        <div class="bg-white max-w-sm py-2 px-3 rounded shadow-xl text-gray-800">
+        <div class="bg-white max-w-sm py-2 px-3 rounded shadow-2xl text-gray-800">
             <div class=" flex justify-between items-center modal-content">
                 <h4 class="text-lg font-bold">Info User</h4>
                 <svg class="h-6 w-6 cursor-pointer p-1 hover:bg-gray-300 rounded-full"  fill="currentColor" viewBox="0 0 20 20">
@@ -144,10 +144,11 @@
                   <td class="p-3">{{$approvedParticipant->user->name}}</td>
                   <td class="p-3 ">{{$approvedParticipant->user->email}}</td>
                   <td ><a href="#" class = "text-blue-600"> {{$approvedParticipant->created_at}}</a></td>
+                  <td class = "flex items-center">
                   <button class=" bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600 myBtn" >
                   <i class="fa-solid fa-list fa-md "></i> Info </button>
     <div class="  bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center modal" >
-        <div class="bg-white max-w-sm py-2 px-3 rounded shadow-xl text-gray-800">
+        <div class="bg-white max-w-sm py-2 px-3 rounded shadow-2xl text-gray-800">
             <div class=" flex justify-between items-center modal-content">
                 <h4 class="text-lg font-bold">Info User</h4>
                 <svg class="h-6 w-6 cursor-pointer p-1 hover:bg-gray-300 rounded-full"  fill="currentColor" viewBox="0 0 20 20">
@@ -202,11 +203,11 @@
                   <td class="p-3">{{$notapprovedParticipant->user->name}}</td>
                   <td class="p-3 ">{{$notapprovedParticipant->user->email}}</td>
                   <td ><a href="#" class = "text-blue-600"> {{$notapprovedParticipant->created_at}}</a></td>
-    
+                  <td class = "flex items-center">
                   <button class=" bg-sky-500 text-white px-3 py-2  text-xs rounded mr-3 my-2 hover:bg-sky-600 myBtn" >
                   <i class="fa-solid fa-list fa-md "></i> Info</button>
     <div class="  bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center modal" >
-        <div class="bg-white max-w-sm py-2 px-3 rounded shadow-xl text-gray-800">
+        <div class="bg-white max-w-sm py-2 px-3 rounded shadow-2xl text-gray-800">
             <div class=" flex justify-between items-center modal-content">
                 <h4 class="text-lg font-bold">Info User</h4>
                 <svg class="h-6 w-6 cursor-pointer p-1 hover:bg-gray-300 rounded-full"  fill="currentColor" viewBox="0 0 20 20">
