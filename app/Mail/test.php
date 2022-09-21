@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class newWorkshopEmailSender extends Mailable
+class test extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,12 +16,9 @@ class newWorkshopEmailSender extends Mailable
      *
      * @return void
      */
-    public $workshop_id;
-    public $workshop_name;
-    public function __construct($workshop_id,$workshop_name)
+    public function __construct()
     {
-        $this->workshop_id =  $workshop_id;
-        $this->workshop_name =  $workshop_name;
+        //
     }
 
     /**
@@ -31,6 +28,6 @@ class newWorkshopEmailSender extends Mailable
      */
     public function build()
     {
-        return $this->view('email.onNewWorkshopEmail',['workshop_id'=>$this->workshop_id,'workshop_name'=>$this->workshop_name]);
+        return $this->view('view.name');
     }
 }
