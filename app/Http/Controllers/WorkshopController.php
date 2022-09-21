@@ -70,7 +70,7 @@ class WorkshopController extends Controller
         });
 
        // dd($workshop_ids);
-        $users = $users = workshops_users::whereIn('workshop_id',$workshop_ids)->get();
+        $users = workshops_users::whereIn('workshop_id',$workshop_ids)->get();
 
        // dd($users);
 
