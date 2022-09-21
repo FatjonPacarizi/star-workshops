@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class positions_users extends Model
 {
+
+    protected $fillable = [
+        'user_id',
+        'position_id'
+    ];
+
     use HasFactory;
 
     public function user(){
