@@ -48,9 +48,6 @@ class Workshop extends Model
         return $this->hasMany(workshops_users::class)
         ->where('application_status','pending');
    }
-   public function participants(){
-    return $this->hasMany(workshops_users::class);
-   }
 
     public function deletefrom(){
         return $this->belongsTo(User::class,'deleted_from_id'); 
