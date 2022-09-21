@@ -12,6 +12,6 @@ class ShowNewsPage extends Component
 
     public function render()
     {
-        return view('livewire.show-news-page',['newspages'=>Newspage::orderBy('id', 'DESC')->paginate(6)]);
+        return view('livewire.show-news-page',['newspages'=>Newspage::orderBy('id', 'DESC')->simplePaginate(6)]);
     }
 }

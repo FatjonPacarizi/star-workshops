@@ -4,7 +4,6 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
 @extends('layouts.app')
 @section('content')
 <div class="w-full h-full px-5  flex flex-col  items-center ">
-  {{-- {{dd(request()->has('pastsWorkshopsPage'))}} --}}
   @php
   $tab = 0;
   if(session()->has('tab')) {$tab = session('tab'); }
@@ -54,7 +53,6 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
       </div>
        @endcan
     </div>
-
   </div>
 </div>
 

@@ -66,17 +66,11 @@
                     @enderror
                  </div>
                 <img class="object-cover mx-5 rounded" alt="Image" src="{{$informations->logo_name ? asset('/storage/' . $informations->logo_name) : asset('/img/Logo.png')}}" width="100">
-
             </div>
             <div class="w-full p-2 flex justify-end border-t border-gray-200">
                 <button type="submit" class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600">Update App</button>
-
-
             </div>
-
         </form>
     </div>
-
 </div>
-
 @endsection
