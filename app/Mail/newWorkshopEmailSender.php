@@ -16,10 +16,12 @@ class newWorkshopEmailSender extends Mailable
      *
      * @return void
      */
-    public $message;
-    public function __construct($msg)
+    public $workshop_id;
+    public $workshop_name;
+    public function __construct($workshop_id,$workshop_name)
     {
-        $this->message = $msg;
+        $this->workshop_id =  $workshop_id;
+        $this->workshop_name =  $workshop_name;
     }
 
     /**
@@ -29,6 +31,6 @@ class newWorkshopEmailSender extends Mailable
      */
     public function build()
     {
-        return $this->html($this->message);
+        return $this->view('email.onNewWorkshopEmail',['workshop_id'=>$this->workshop_id,'workshop_name'=>$this->workshop_name]);
     }
 }

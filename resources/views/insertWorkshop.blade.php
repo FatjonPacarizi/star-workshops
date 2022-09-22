@@ -22,7 +22,7 @@
       <div class="mb-6 flex items-center">
         <label class="w-28 text-sm mx-5">Participants Limit</label>
         <div class = "w-full mx-5">
-          <input type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Limit participants" name="limited_participants" value="{{old('limited_participants')}}" />
+          <input type="number" class="border border-gray-200 rounded p-1 w-full" placeholder="Limit participants" name="limited_participants" value="{{old('limited_participants')}}" />
           @error('limited_participants')
           <p class="text-red-500 text-xs mt-1">{{$message}}</p>
           @enderror
@@ -30,7 +30,7 @@
       </div>
       <div class="mb-6 flex items-center">
         <label class="w-28 text-sm mx-5" for="">Description</label>
-        <textarea type="text" name="description" class="border border-gray-200 rounded p-1 w-full mx-5"></textarea>
+        <textarea type="text" name="description" class="border border-gray-200 rounded p-1 w-full mx-5">{{old('description')}}</textarea>
       </div>
       <script>
         tinymce.init({
@@ -109,7 +109,7 @@
       <div class="mb-6  flex items-center">
         <label class="w-28 text-sm mx-5">Time</label>
         <div>
-          <input @if(old('country_id') == $country->id) selected @endif type="datetime-local" name="time" />
+          <input  type="datetime-local" name="time"  value="{{old('time')}}"/>
           @error('time')
           <p class="text-red-500 text-xs mt-1">{{$message}}</p>
           @enderror
@@ -119,7 +119,7 @@
       <div class="mb-6 flex items-center">
         <label class="w-28 text-sm mx-5">Link</label>
         <div class = "w-full mx-5">
-          <input type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Link" name="filedlink"/>
+          <input type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Link" name="filedlink" value="{{old('filedlink')}}"/>
           @error('filedlink')
           <p class="text-red-500 text-xs mt-1">{{$message}}</p>
           @enderror

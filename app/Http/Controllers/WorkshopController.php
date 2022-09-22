@@ -78,9 +78,9 @@ class WorkshopController extends Controller
             }
         }
 
-        Workshop::create($validated);
+        $workshop =  Workshop::create($validated);
 
-        if(count($users)>0)  Mail::to($emails)->send(new newWorkshopEmailSender("test"));
+        if(count($users)>0)  Mail::to($emails)->send(new newWorkshopEmailSender($workshop->id,$workshop->name));
         
         return redirect()->route('adminsuperadmin.showManageWorkshops');
     }
