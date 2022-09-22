@@ -23,11 +23,6 @@ class CountrySeeder extends Seeder
                 'region'  => 'Eastern Europe',
             ],
             [
-                'name' => 'Prizren',
-                'language'     => 'Shqip',
-                'region'  => 'Eastern Europe',
-            ],
-            [
                 'name'      => 'Kosova',
                 'language'     => 'Shqip',
                 'region'  => 'Eastern Europe',
