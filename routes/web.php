@@ -43,8 +43,6 @@ Route::get('/', function () {
 Route::get('/members', [WorkshopController::class, 'showMembers']);
 
 Route::get('/streaming',[StreamingController::class,'view']);
-
-
 Route::get('/streaminglive/{id}',[StreamingController::class, 'show']);
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
 Route::get('/newspage', [NewsPageController::class, 'index']);
@@ -58,9 +56,7 @@ Route::get('landings', [LandingController::class, 'landing']);
 Route::get('/workshops/{id}/join', [WorkshopController::class, 'join'])->name('workshop-join');
 Route::get('/workshop/{id}', [WorkshopController::class, 'show'])->name('single-workshop');
 
-//Route::get('/streaming',[StreamingController::class,'view']);
 Route::get('/streaming/{id}',[StreamingController::class,'index'])->name('streaming');
-
 Route::get('/workshops', [WorkshopController::class, 'index'])->name('workshops');
 
 Route::post('/send', [App\Http\Controllers\MailController::class, 'send'])->name('emailsend');
