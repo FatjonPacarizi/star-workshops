@@ -4,13 +4,12 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
 @extends('layouts.app')
 @section('content')
 <div class="w-full h-full px-5  flex flex-col  items-center ">
-  {{-- {{dd(request()->has('pastsWorkshopsPage'))}} --}}
   @php
   $tab = 0;
   if(session()->has('tab')) {$tab = session('tab'); }
   else{
   if(request()->has('pastsWorkshopsPage')) $tab = 1;
-  }
+  } if(request()->has('deletedWorkshopsPage')) $tab = 2;
   @endphp
   <div class="w-full pb-4 relative" x-data="{
       tab:{{$tab}},
@@ -54,7 +53,6 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
       </div>
        @endcan
     </div>
-
   </div>
 </div>
 
