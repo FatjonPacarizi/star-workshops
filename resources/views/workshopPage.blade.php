@@ -34,7 +34,11 @@
                 @endif
             </p>
             @else
-            <a class="mb-8 px-5 py-2 bg-white rounded-md text-black" href= "/workshops/{{$workshop->id}}/join">Apply</a>
+                @can('is_admin_or_superadmin')
+                <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">This event will start: {{ $workshop->time}}</p>
+                    @else
+                    <a class="mb-8 px-5 py-2 bg-white rounded-md text-black" href= "/workshops/{{$workshop->id}}/join">Apply</a>
+                @endcan
             @endif
             @else
             <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">Applications for this event are closed</p>
