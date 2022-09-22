@@ -13,9 +13,7 @@ class ShowPastsWorkshopsPage extends Component
 
     public function render()
     {
-        $currentTime = Carbon::now('Europe/Tirane');
-
-        $pasts = Workshop::where('workshops.time','<',$currentTime)
+        $pasts = Workshop::whereNotNull('workshop_endTime')
         ->orderBy('id', 'DESC')
         ->simplePaginate(6,['*'], 'pastsWorkshopsPage');
         

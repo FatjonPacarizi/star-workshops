@@ -32,7 +32,7 @@ class ShowPastWorkshopsManage extends Component
                       
               $pastsWorkshops = Workshop::whereNull("workshops.deleted_at")
               ->orderBy('id', $sort)
-              ->where('workshops.time','<', $currentTime); 
+              ->whereNotNull('workshop_endTime');
   
               
               if($this->search != null) 
@@ -46,7 +46,7 @@ class ShowPastWorkshopsManage extends Component
               $myID = Auth::id();
               $pastsWorkshops = Workshop::whereNull("workshops.deleted_at")
               ->orderBy('id', $sort)
-              ->where('workshops.time','<', $currentTime)
+              ->whereNotNull('workshop_endTime')
               ->where("workshops.author", "=", $myID); 
                 
               if($this->search != null) 

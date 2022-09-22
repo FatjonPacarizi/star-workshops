@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
 use App\Mail\newWorkshopEmailSender;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class WorkshopController extends Controller
@@ -100,9 +101,7 @@ class WorkshopController extends Controller
             $streamings = Streaming::all()->where('workshop_id',$id);
 
             $upcoming = false;
-            $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
-
-            if (strtotime($workshop[0]->time) > strtotime($date->format("Y-m-d h:i:sa"))) $upcoming = true;
+            if ($workshop[0]->workshop_endTime == null) $upcoming = true;
 
             $application_status = workshops_users::select('application_status')->where(['workshop_id'=>$id,'user_id'=>Auth::id()])
             ->get();
@@ -202,6 +201,17 @@ class WorkshopController extends Controller
         Storage::delete('/public/' .$oldWorkshopImg);
         }
         
+        return back();
+    }
+
+    public function startWorkshop($id){
+
+        Workshop::where('id',$id)->update(['workshop_startTime' => Carbon::now()->timezone('Europe/Tirane')->toDateTimeString()]);
+        return back();
+    }
+
+    public function endWorkshop($id){
+        Workshop::where('id',$id)->update(['workshop_endTime' => Carbon::now()->timezone('Europe/Tirane')->toDateTimeString()]);
         return back();
     }
 
