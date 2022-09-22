@@ -55,10 +55,11 @@
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
                             </div>
+                            @can('is_admin_or_superadmin')
                             <x-jet-dropdown-link href="{{ ('dashboard') }}">
                                 {{ __('Dashboard') }}
                             </x-jet-dropdown-link>
-                           
+                           @endcan
                             <x-jet-dropdown-link href="{{ ('userprofile') }}">
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
