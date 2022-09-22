@@ -52,4 +52,9 @@ class Workshop extends Model
     public function deletefrom(){
         return $this->belongsTo(User::class,'deleted_from_id'); 
     }
+
+    public function streaming(){
+
+        return $this->belongsTo(Streaming::class,'id');
+    }
 }
