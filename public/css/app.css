@@ -1446,6 +1446,9 @@ select {
 .-mt-1 {
   margin-top: -0.25rem;
 }
+.mr-0 {
+  margin-right: 0px;
+}
 .mr-1 {
   margin-right: 0.25rem;
 }

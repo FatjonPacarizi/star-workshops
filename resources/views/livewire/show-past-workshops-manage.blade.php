@@ -60,6 +60,14 @@
               <a class="w-full text-left py-1 px-3 block hover:bg-indigo-100 border-b text-blue-900 " href={{ route('adminsuperadmin.showPDF',$pastsWorkshop->id)}}>
                 <i class="fa-regular fa-file-pdf"></i> Generate PDF</a>
             </li>
+            <li class = "flex items-center px-3 py-1 border-b hover:bg-indigo-100">
+              <i class="fa-regular fa-calendar-check mr-1.5 text-red-400"></i>
+              <form method="POST" action="/workshops/manage/{{$pastsWorkshop->id}}/endworkshop/" class = "flex items-center">
+                @csrf
+                @method('PUT')
+                <input onChange="this.form.submit()" type ="checkbox" name="ended"  @if($pastsWorkshop->workshop_endTime != null) checked  @endif  class = "mr-2 rounded"/>Ended
+              </form>
+            </li>
               <li>
                 <a class="py-1 px-3 block hover:bg-indigo-100 " href={{
                   route('adminsuperadmin.showUser',$pastsWorkshop->id) }}>
