@@ -186,7 +186,6 @@ Route::group(['middleware' => 'auth'], function () {
                     
             Route::get('/workshops/manage/addparticipant/{workshopid}',[WorkshopUsersController::class,'showUser'])->name('showUser');
 
-
             Route::post('/participants/add',[WorkshopUsersController::class,'store'])->name('storeParticipant');
 
             Route::get('news', [NewsPageController::class, 'newspage'])->name('shownewspages');
