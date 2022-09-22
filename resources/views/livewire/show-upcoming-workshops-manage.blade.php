@@ -66,37 +66,21 @@
             </li>
             <li class = "flex items-center px-3 py-1 border-b hover:bg-indigo-100">
               <i class="fa-regular fa-calendar-plus mr-1.5 text-green-300"></i>
-              @if($upcomingWorkshop->workshop_startTime == null)
-              <form method="POST" action="/workshops/manage/{{$upcomingWorkshop->id}}/startworkshop/">
+             
+              <form method="POST" action="/workshops/manage/{{$upcomingWorkshop->id}}/startworkshop/" class = "flex items-center">
                 @csrf
                 @method('PUT')
-                <button class="w-full text-left  py-1 text-black">
-                  Start Workshop
-                </button>
+                <input onChange="this.form.submit()" type ="checkbox" name="started"  @if($upcomingWorkshop->workshop_startTime != null) checked  @endif class = "mr-2 rounded"/>
+                Started
               </form>
-              @else
-              <div class = "text-xs">
-                Started at:
-                <p>{{$upcomingWorkshop->workshop_startTime}}</p>
-              </div>
-              @endif
             </li>
             <li class = "flex items-center px-3 py-1 border-b hover:bg-indigo-100">
               <i class="fa-regular fa-calendar-check mr-1.5 text-red-400"></i>
-              @if($upcomingWorkshop->workshop_endTime == null)
-              <form method="POST" action="/workshops/manage/{{$upcomingWorkshop->id}}/endworkshop/">
+              <form method="POST" action="/workshops/manage/{{$upcomingWorkshop->id}}/endworkshop/" class = "flex items-center">
                 @csrf
                 @method('PUT')
-                <button class="w-full text-left  py-1 text-black">
-                  End Workshop
-                </button>
+                <input onChange="this.form.submit()" type ="checkbox" name="ended"  @if($upcomingWorkshop->workshop_endTime != null) checked  @endif  class = "mr-2 rounded"/>Ended
               </form>
-              @else
-              <div class = "text-xs">
-                Ended at:
-                <p>{{$upcomingWorkshop->workshop_endTime}}</p>
-              </div>
-              @endif
             </li>
             <li>
               <a class="py-1 px-3 block hover:bg-indigo-100 " href={{

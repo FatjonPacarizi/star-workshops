@@ -206,12 +206,22 @@ class WorkshopController extends Controller
 
     public function startWorkshop($id){
 
-        Workshop::where('id',$id)->update(['workshop_startTime' => Carbon::now()->timezone('Europe/Tirane')->toDateTimeString()]);
+        $workshop_startTime = null;
+        
+        if(request()->input('started') != null) $workshop_startTime = Carbon::now()->timezone('Europe/Tirane')->toDateTimeString();
+
+        Workshop::where('id',$id)->update(['workshop_startTime' => $workshop_startTime]);
         return back();
     }
 
     public function endWorkshop($id){
-        Workshop::where('id',$id)->update(['workshop_endTime' => Carbon::now()->timezone('Europe/Tirane')->toDateTimeString()]);
+
+        $workshop_endTime = null;
+        
+        if(request()->input('ended') != null) $workshop_endTime = Carbon::now()->timezone('Europe/Tirane')->toDateTimeString();
+      
+
+        Workshop::where('id',$id)->update(['workshop_endTime' => $workshop_endTime]);
         return back();
     }
 
