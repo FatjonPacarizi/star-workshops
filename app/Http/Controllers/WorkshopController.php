@@ -11,6 +11,8 @@ use App\Models\User;
 use App\Models\Country;
 use App\Models\Category;
 use App\Models\Workshop;
+use App\Models\Streaming;
+use App\Models\streamings_workshops;
 use App\Models\workshops_users;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -95,6 +97,8 @@ class WorkshopController extends Controller
     {    
             $workshop = Workshop::where('workshops.id',$id)->get();     
 
+            $streamings = Streaming::all()->where('workshop_id',$id);
+
             $upcoming = false;
             $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
 
@@ -131,7 +135,8 @@ class WorkshopController extends Controller
                                     'participants' => $participants,
                                     'already_applied' => $already_applied,
                                     'application_status' => $application_status,
-                                    'upcoming' => $upcoming]);
+                                    'upcoming' => $upcoming,
+                                    'streamings'=>$streamings]);
     }
 
 
@@ -149,6 +154,8 @@ class WorkshopController extends Controller
     public function edit($id,$participants)
     {
         $workshop = Workshop::find($id);
+
+        
        
         //Secure
         if( $workshop->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
