@@ -59,6 +59,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => null,
                 'workshop_endTime' => null,
                 'type_id' => '1',
                 'country_id' => '1',
@@ -104,6 +105,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => null,
                 'workshop_endTime' => null,
                 'type_id' => '1',
                 'country_id' => '1',
@@ -149,6 +151,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => '2022-10-09 14:20:19',
                 'workshop_endTime' => null,
                 'type_id' => '1',
                 'country_id' => '1',
@@ -195,6 +198,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => null,
                 'workshop_endTime' => null,
                 'type_id' => '1',
                 'country_id' => '1',
@@ -241,6 +245,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => null,
                 'workshop_endTime' => null,
                 'type_id' => '1',
                 'country_id' => '1',
@@ -287,6 +292,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => null,
                 'workshop_endTime' => null,
                 'type_id' => '1',
                 'country_id' => '1',
@@ -333,6 +339,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => null,
                 'workshop_endTime' => null,
                 'type_id' => '1',
                 'country_id' => '1',
@@ -379,6 +386,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => null,
                 'workshop_endTime' => null,
                 'type_id' => '1',
                 'country_id' => '1',
@@ -425,6 +433,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => null,
                 'workshop_endTime' => null,
                 'type_id' => '1',
                 'country_id' => '1',
@@ -470,6 +479,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => null,
                 'workshop_endTime' => null,
                 'type_id' => '1',
                 'country_id' => '1',
@@ -516,6 +526,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => null,
                 'workshop_endTime' => null,
                 'type_id' => '1',
                 'country_id' => '1',
@@ -561,7 +572,8 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
-                'workshop_endTime' => '2022-08-09 12:14:19',
+                'workshop_startTime' => '2022-08-09 12:20:19',
+                'workshop_endTime' => '2022-08-09 14:14:19',
                 'type_id' => '1',
                 'country_id' => '1',
                 'city_id' => '1',
@@ -607,6 +619,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => '2022-08-09 12:20:19',
                 'workshop_endTime' => '2022-08-09 12:14:19',
                 'type_id' => '1',
                 'country_id' => '1',
@@ -653,6 +666,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => '2022-08-09 12:20:19',
                 'workshop_endTime' => '2022-08-09 12:14:19',
                 'type_id' => '1',
                 'country_id' => '1',
@@ -699,6 +713,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => '2022-08-09 12:20:19',
                 'workshop_endTime' => '2022-08-09 12:14:19',
                 'type_id' => '1',
                 'country_id' => '1',
@@ -744,6 +759,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => '2022-08-09 12:20:19',
                 'workshop_endTime' => '2022-08-09 12:14:19',
                 'type_id' => '1',
                 'country_id' => '1',
@@ -789,6 +805,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => '2022-08-09 12:20:19',
                 'workshop_endTime' => '2022-08-09 12:14:19',
                 'type_id' => '1',
                 'country_id' => '1',
@@ -834,6 +851,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => '2022-08-09 12:20:19',
                 'workshop_endTime' => '2022-08-09 12:14:19',
                 'type_id' => '1',
                 'country_id' => '1',
@@ -880,6 +898,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => '2022-08-09 12:20:19',
                 'workshop_endTime' => '2022-08-09 12:14:19',
                 'type_id' => '1',
                 'country_id' => '1',
@@ -926,6 +945,7 @@ class WorkshopSeeder extends Seeder
                 Event time: 22 June 2022, 12:45-13:45 CEST
                 Event location: International Atomic Energy Agency, Vienna International Centre, Wagramer Strasse 5, 1220 Vienna, Austria, Room M5, M-building
                 WINS is promoting gender parity in its events and female delegates were strongly encouraged to participate.',
+                'workshop_startTime' => '2022-08-09 12:20:19',
                 'workshop_endTime' => '2022-08-09 12:14:19',
                 'type_id' => '1',
                 'country_id' => '1',

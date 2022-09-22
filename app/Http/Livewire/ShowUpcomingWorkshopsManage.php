@@ -33,7 +33,7 @@ class ShowUpcomingWorkshopsManage extends Component
              
             $upcomingWorkshops = Workshop::whereNull("workshops.deleted_at")
             ->orderBy('id', $sort)
-            ->where('workshops.time','>', $currentTime); 
+            ->whereNull('workshop_endTime'); 
               if($this->search != null) 
                $upcomingWorkshops = $upcomingWorkshops->where('workshops.name','like','%'.$this->search.'%');
 
@@ -46,7 +46,7 @@ class ShowUpcomingWorkshopsManage extends Component
 
               $upcomingWorkshops = Workshop::whereNull("workshops.deleted_at")
               ->orderBy('id', $sort)
-              ->where('workshops.time','>', $currentTime)
+              ->whereNull('workshop_endTime')
               ->where("workshops.author", "=", $myID); 
   
               if($this->search != null) 

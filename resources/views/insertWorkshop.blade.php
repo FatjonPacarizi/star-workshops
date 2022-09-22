@@ -106,10 +106,10 @@
         </div>
       </div>
 
-      <div class="mb-6  flex items-center">
+      <div class="mb-6 mx-1 flex items-center">
         <label class="w-28 text-sm mx-5">Time</label>
         <div>
-          <input  type="datetime-local" name="time"  value="{{old('time')}}"/>
+          <input  type="datetime-local" name="time"  value="{{old('time')}}" class="border border-gray-300 rounded p-1 "/>
           @error('time')
           <p class="text-red-500 text-xs mt-1">{{$message}}</p>
           @enderror
