@@ -77,4 +77,9 @@ class User extends Authenticatable
     public function userposition(){
         return $this->belongsToMany(Positions::class,'positions_users','user_id','position_id');
     }
+
+   public function members(){
+    
+    return $this->hasMany(positions_users::class)->where('position_id',2);
+}
 }
