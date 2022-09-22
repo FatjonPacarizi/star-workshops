@@ -26,6 +26,7 @@
                         </div>
                     </div>
                 @auth  
+
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
@@ -88,6 +89,7 @@
                 </div>
                 @endif
             @endauth
+
                 
     </nav>
 </header>
