@@ -25,7 +25,7 @@
                                 <a href="/about" class="hover:text-white px-3 py-2 text-sm hover-3 font-semibold">ABOUT US </a>
                         </div>
                     </div>
-
+                @auth  
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
@@ -79,6 +79,14 @@
                         </x-slot>
                     </x-jet-dropdown>
                 </div>
+                @else
+                <div class="flex items-center">
+                    <a href="{{ route('login') }}" class="p-2 rounded-full hover-2">Log in</a>
+                    @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="p-2 rounded-full hover-2">Register</a>
+                </div>
+                @endif
+            @endauth
                 
     </nav>
 </header>
