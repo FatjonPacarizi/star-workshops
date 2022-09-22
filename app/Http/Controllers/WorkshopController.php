@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
-
-
+use App\Mail\newWorkshopEmailSender;
+use Illuminate\Support\Facades\Mail;
 
 class WorkshopController extends Controller
 {
@@ -66,8 +66,23 @@ class WorkshopController extends Controller
          
             $validated['img_workshop'] = request()->file('img_workshop')->store('workshopsImg','public');
         }
-        
-        Workshop::create($validated);
+
+        $workshop_ids =  Workshop::where('category_id',$request->input('category_id'))->get() ->map(function ($item) {
+            return $item->id;
+        });
+
+        $users = workshops_users::whereIn('workshop_id',$workshop_ids)->get();
+
+        $emails = array();
+        for($i=0;$i<count($users);$i++){
+            if (!in_array($users[$i]->user->email, $emails)){
+                $emails[$i] = $users[$i]->user->email;
+            }
+        }
+
+        $workshop =  Workshop::create($validated);
+
+        if(count($users)>0)  Mail::to($emails)->send(new newWorkshopEmailSender($workshop->id,$workshop->name));
         
         return redirect()->route('adminsuperadmin.showManageWorkshops');
     }
@@ -206,7 +221,6 @@ class WorkshopController extends Controller
 
 
     public function join($id){
-
         if(!Auth::check())
           return redirect()->route('login');
 
@@ -290,8 +304,9 @@ class WorkshopController extends Controller
     }
 
     public function forceDelete($id){
-        
-        Workshop::onlyTrashed()->findOrFail($id)->forceDelete();
+        $workshop = Workshop::onlyTrashed()->findOrFail($id);
+        Storage::delete('/public/' .$workshop->img_workshop);
+        $workshop->forceDelete();
 
         return redirect()->back();
     }

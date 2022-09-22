@@ -199,12 +199,8 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/news/edit-news/{id}', [NewsPageController::class, 'edit']);
             Route::put('/update-news/{id}', [NewsPageController::class, 'update']);
             Route::delete('/news/delete-news/{id}', [NewsPageController::class, 'destroy']);
-
         }
     );
-
-
-
     //Users group routes
     Route::group(
         [

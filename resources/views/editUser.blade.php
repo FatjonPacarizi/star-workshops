@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
 <div class="w-full  p-6 px-10 flex ">
-
   <div class="w-full bg-white   shadow-md rounded-xl  ">
     <div class="w-full flex items-center  border-b border-gray-200 mb-4">
       <a href="/users/manage"><i class="fa-solid fa-arrow-left mx-4"></i></a>
@@ -14,7 +13,6 @@
         <label class="w-28 text-sm mx-5">Name</label>
         <input type="text" class="border border-gray-200 rounded p-1 w-full mx-5" placeholder="Name" name="name"
           value="{{$user->name}}" />
-
         @error('name')
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
         @enderror
@@ -42,9 +40,8 @@
       <div class="mb-6  flex items-center">
         <label class="w-28 text-sm mx-5 ">Position</label>
         <select class="w-full mx-5 rounded border border-gray-200 p-1" name='position_id'>
-
           @foreach($positions as $position)
-          <option @if($position->position == $userPosition->position) selected @endif value =
+          <option @if($position->position == $user->userposition[0]->position) selected @endif value =
             '{{$position->id}}'>{{$position->position}}</option>
           @endforeach
 

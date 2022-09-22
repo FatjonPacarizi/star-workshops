@@ -64,14 +64,25 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function workshop()
+    {
 
-    public function workshop(){
-        
-       return  $this->hasMany(Workshop::class,'id');
+        return  $this->hasMany(Workshop::class, 'id');
     }
+    public function members()
+    {
+        return $this->hasMany(positions_users::class)
+            ->where('position_id', 2);
+    }
+    public function userposition(){
+        return $this->belongsToMany(Positions::class,'positions_users','user_id','position_id');
+    }
+<<<<<<< HEAD
 
    public function members(){
     
     return $this->hasMany(positions_users::class)->where('position_id',2);
 }
+=======
+>>>>>>> e87ae8716971d894f550591d48c6aacd4b16bc05
 }
