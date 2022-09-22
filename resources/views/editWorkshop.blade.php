@@ -111,12 +111,21 @@
       </div>
       <div class="mb-6  flex items-center">
         <label class="w-28 text-sm mx-5">Time</label>
-        <div class="w-full mx-5">
+        <div class="mx-2">
           <input type="datetime-local" name="time" value="{{$workshop->time}}" />
           @error('time')
           <p class="text-red-500 text-xs mt-1">{{$message}}</p>
           @enderror
         </div>
+        @if ($workshop->workshop_endTime == null)
+        <form method="POST" action="/forcedelete/{{$workshop1->id}}">
+          @csrf
+          @method('DELETE')
+          <button class="p-2 bg-red-500 rounded text-white text-xs" >End Workshop</button>
+        </form>
+        @else
+        Ended at : {{$workshop->workshop_endTime}}
+        @endif
       </div>
       <div class="mb-6 flex items-center">
         <label class="w-28 text-sm mx-5">Link</label>
