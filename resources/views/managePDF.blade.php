@@ -3,7 +3,8 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
 @endphp
 <div>
   <div>
-    <h1 style="text-align: center;">Workshop participants Managment</h1>
+    <h1 style="text-align: center;">{{$workshopName[0]->name}}</h1>
+    <h3 class="text-align: center;">Workshop participants Managment</h3>
   </div>
   <div>
     <p style="font-family: Arial, Helvetica, sans-serif; color:orange;">Pending</p>
