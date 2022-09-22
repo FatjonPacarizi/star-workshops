@@ -37,7 +37,6 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
         <td>User Email</td>
         <td>Applied On</td>
       </tr>
-
       @foreach($approvedParticipants as $approvedParticipant)
       <tr style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">
         <td>{{$approvedParticipant->user->name}}</td>
@@ -61,7 +60,6 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
         <td>User Email</td>
         <td>Applied On</td>
       </tr>
-
       @foreach($notapprovedParticipants as $notapprovedParticipant)
       <tr style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">
         <td>{{$notapprovedParticipant->user->name}}</td>
