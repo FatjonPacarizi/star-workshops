@@ -28,7 +28,7 @@ class CreateWorkshopsTable extends Migration
             $table->bigInteger('city_id')->unsigned();
             $table->foreign('city_id')->references('id')->on('cities');
             $table->bigInteger('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories');         
             $table->dateTime('time');
             $table->string('img_workshop')->nullable();
             $table->string('filedlink');

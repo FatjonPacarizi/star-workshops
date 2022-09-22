@@ -214,7 +214,7 @@
             </div>
             <div class="flex items-center mt-2">
               <i class="fa-solid fa-user text-gray-500 ml-5 mr-2 -mt-1"></i>
-              <h1 class="uppercase  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">{{$workshop->author}}</h1>
+              <h1 class="uppercase  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">{{$workshop->user->name}}</h1>
             </div>
           </div>
         </a>
@@ -226,7 +226,7 @@
 </section>
 
 
-<button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed z-90 bottom-8 right-8 border-0 w-16 h-16 rounded-full bg-red-600 ring-2 ring-white text-white -rotate-90 text-5xl font-bold">&#10132;</button>
+<button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed z-40 bottom-8 right-8 border-0 w-16 h-16 rounded-full bg-red-600 ring-2 ring-white text-white -rotate-90 text-5xl font-bold">&#10132;</button>
 
 
 <!-- Javascript code -->

@@ -14,6 +14,7 @@ use App\Http\Controllers\usersController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\WorkshopUsersController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\StreamingController;
 
 use App\Http\Controllers\ChartController;
 
@@ -41,6 +42,8 @@ Route::get('/', function () {
 
 Route::get('/members', [WorkshopController::class, 'showMembers']);
 
+Route::get('/streaming',[StreamingController::class,'view']);
+Route::get('/streaminglive/{id}',[StreamingController::class, 'show']);
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
 Route::get('/newspage', [NewsPageController::class, 'index']);
 Route::get('/newspage/{id}', [NewsPageController::class, 'show'])->name('single-news');
@@ -53,6 +56,7 @@ Route::get('landings', [LandingController::class, 'landing']);
 Route::get('/workshops/{id}/join', [WorkshopController::class, 'join'])->name('workshop-join');
 Route::get('/workshop/{id}', [WorkshopController::class, 'show'])->name('single-workshop');
 
+Route::get('/streaming/{id}',[StreamingController::class,'index'])->name('streaming');
 Route::get('/workshops', [WorkshopController::class, 'index'])->name('workshops');
 
 Route::post('/send', [App\Http\Controllers\MailController::class, 'send'])->name('emailsend');
@@ -190,12 +194,8 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/news/edit-news/{id}', [NewsPageController::class, 'edit']);
             Route::put('/update-news/{id}', [NewsPageController::class, 'update']);
             Route::delete('/news/delete-news/{id}', [NewsPageController::class, 'destroy']);
-
         }
     );
-
-
-
     //Users group routes
     Route::group(
         [

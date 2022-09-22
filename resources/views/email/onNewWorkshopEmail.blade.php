@@ -7,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <!--this may be deleted in the future-->
+    <h3>{{$workshop_name}}</h3>
+    @php 
+        $link =  url("/workshop/$workshop_id");
+    @endphp
+    <a href="{{$link}}">{{$link}}</a>
 </body>
 </html>
