@@ -271,7 +271,7 @@ class WorkshopController extends Controller
         ->paginate(8,['*'], 'notapprovedParticipantsPage');
 
 
-        $pdf = PDF::loadView('managePDF', ['pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
+        $pdf = PDF::loadView('managePDF', ['workshopName'=>Workshop::select('name')->where('id',$workshopid)->get(),'pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
         return $pdf->stream('managePDF.pdf');
     }
 
