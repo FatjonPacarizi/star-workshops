@@ -2,16 +2,17 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use Livewire\Component;
 use App\Models\Workshop;
-use App\Models\User;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Builder;
 
 class Showsafeworkshops extends Component
 {
     use WithPagination;
-    protected $listeners = ['reloadSafeworkshops'];
+    protected $listeners = ['reloadSafeworkshops','$refresh'];
     public $search;
     public $perpage;
     public $sortby;
@@ -38,5 +39,22 @@ class Showsafeworkshops extends Component
         $this->search = $search;
         $this->perpage = $perpage;
         $this->sortby = $sortby;
+    }
+
+    public function restore($id){
+       
+        Workshop::onlyTrashed()->findOrFail($id)->restore();
+
+        $this->emitTo('show-ongoing-workshops-manage', '$refresh');
+
+        $this->emitTo('show-past-workshops-manage', '$refresh');
+
+        $this->emitTo('show-upcoming-workshops-manage', '$refresh');
+    }
+
+    public function forceDelete($id){
+        $workshop = Workshop::onlyTrashed()->findOrFail($id);
+        Storage::delete('/public/' .$workshop->img_workshop);
+        $workshop->forceDelete();
     }
 }

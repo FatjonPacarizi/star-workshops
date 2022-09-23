@@ -38,7 +38,7 @@
         <div class=" relative flex items-center " x-data="{ open: false }">
           <i class="fa-solid fa-ellipsis-vertical cursor-pointer w-3" @click="open = !open"></i>
 
-          <ul class="bg-white absolute top-0 mt-2 z-10 shadow-lg border border-gray-100 rounded-lg w-40 py-1 "
+          <ul id = "menu" class="bg-white absolute top-0 mt-2 z-10 shadow-lg border border-gray-100 rounded-lg w-40 py-1 "
             x-show="open" @click.outside="open = false">
             <li>
               <p class="text-xs pl-3 p-2 text-gray-400 ">Manage Workshop</p>
@@ -49,14 +49,9 @@
                 <i class="fa-solid fa-pen mr-1 fa-sm"></i>Edit</a>
             </li>
             <li>
-              <form method="POST" action="/workshops/manage/{{$upcomingWorkshop->id}}">
-                @csrf
-                @method('DELETE')
-                <input type="hidden" name="tab" value="0" />
-                <button class="w-full text-left text-red-400 py-1 px-3 hover:bg-indigo-100 border-b">
+                <button wire:click = 'deleteWorkshop({{$upcomingWorkshop->id}})' onClick = "hideupcomingmenu()" class="w-full text-left text-red-400 py-1 px-3 hover:bg-indigo-100 border-b">
                   <i class="fa-solid fa-trash-can   fa-sm"></i> Delete
                 </button>
-              </form>
             </li>
             <li>
               <a class="py-1 px-3 block hover:bg-indigo-100 text-blue-900 border-b" href={{
@@ -66,21 +61,8 @@
             </li>
             <li class = "flex items-center px-3 py-1 border-b hover:bg-indigo-100">
               <i class="fa-regular fa-calendar-plus mr-1.5 text-green-300"></i>
-             
-              <form method="POST" action="/workshops/manage/{{$upcomingWorkshop->id}}/startworkshop/" class = "flex items-center">
-                @csrf
-                @method('PUT')
-                <input onChange="this.form.submit()" type ="checkbox" name="started"  @if($upcomingWorkshop->workshop_startTime != null) checked  @endif class = "mr-2 rounded"/>
+                <input wire:change = 'startWorkshop({{$upcomingWorkshop->id}})' type ="checkbox" onClick = "hideupcomingmenu()"  @if($upcomingWorkshop->workshop_startTime != null) checked  @endif class = "mr-2 rounded"/>
                 Started
-              </form>
-            </li>
-            <li class = "flex items-center px-3 py-1 border-b hover:bg-indigo-100">
-              <i class="fa-regular fa-calendar-check mr-1.5 text-red-400"></i>
-              <form method="POST" action="/workshops/manage/{{$upcomingWorkshop->id}}/endworkshop/" class = "flex items-center">
-                @csrf
-                @method('PUT')
-                <input onChange="this.form.submit()" type ="checkbox" name="ended"  @if($upcomingWorkshop->workshop_endTime != null) checked  @endif  class = "mr-2 rounded"/>Ended
-              </form>
             </li>
             <li>
               <a class="py-1 px-3 block hover:bg-indigo-100 " href={{
@@ -137,3 +119,9 @@
   <div class=" p-3">{{ $upcomingWorkshops->links() }}</div>
 
 </div>
+
+<script>
+  function hideupcomingmenu(){
+    var x = document.getElementById("menu").style.display = "none";
+  }
+  </script>

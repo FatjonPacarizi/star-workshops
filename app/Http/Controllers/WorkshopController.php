@@ -203,43 +203,6 @@ class WorkshopController extends Controller
         
         return back();
     }
-
-    public function startWorkshop($id){
-
-        $workshop_startTime = null;
-        
-        if(request()->input('started') != null) $workshop_startTime = Carbon::now()->timezone('Europe/Tirane')->toDateTimeString();
-
-        Workshop::where('id',$id)->update(['workshop_startTime' => $workshop_startTime]);
-        return back();
-    }
-
-    public function endWorkshop($id){
-
-        $workshop_endTime = null;
-        
-        if(request()->input('ended') != null) $workshop_endTime = Carbon::now()->timezone('Europe/Tirane')->toDateTimeString();
-      
-
-        Workshop::where('id',$id)->update(['workshop_endTime' => $workshop_endTime]);
-        return back();
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Workshop  $workshop
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Workshop $workshop)
-    {
-        Workshop::where('id',$workshop->id)->update(['deleted_from_id' => Auth::id()]);
-        $workshop->delete();
-        
-        return back()->with("tab",request('tab'));
-    }
-
-
     public function join($id){
         if(!Auth::check())
           return redirect()->route('login');
@@ -314,20 +277,5 @@ class WorkshopController extends Controller
          workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID])->delete();
 
          return redirect()->back()->with("tab",request('tab'));
-    }
-
-    public function restore($id){
-       
-        Workshop::onlyTrashed()->findOrFail($id)->restore();
-
-        return redirect()->back();
-    }
-
-    public function forceDelete($id){
-        $workshop = Workshop::onlyTrashed()->findOrFail($id);
-        Storage::delete('/public/' .$workshop->img_workshop);
-        $workshop->forceDelete();
-
-        return redirect()->back();
     }
 }
