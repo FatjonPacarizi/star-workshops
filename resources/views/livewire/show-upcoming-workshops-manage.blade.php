@@ -63,7 +63,6 @@
               <i class="fa-regular fa-calendar-plus mr-1.5 text-green-300"></i>
                 <input wire:change = 'startWorkshop({{$upcomingWorkshop->id}})' type ="checkbox" onClick = "hideupcomingmenu()"  @if($upcomingWorkshop->workshop_startTime != null) checked  @endif class = "mr-2 rounded"/>
                 Started
-              
             </li>
             <li>
               <a class="py-1 px-3 block hover:bg-indigo-100 " href={{

@@ -203,7 +203,6 @@ class WorkshopController extends Controller
         
         return back();
     }
-
     public function join($id){
         if(!Auth::check())
           return redirect()->route('login');
