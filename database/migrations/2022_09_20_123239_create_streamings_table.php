@@ -15,8 +15,8 @@ class CreateStreamingsTable extends Migration
     {
         Schema::create('streamings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
+            $table->string('title');
+            $table->text('description');
             $table->string('url');
             $table->bigInteger('workshop_id')->unsigned();
             $table->foreign('workshop_id')->references('id')->on('workshops')->onDelete('cascade');

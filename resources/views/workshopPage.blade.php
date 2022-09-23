@@ -85,61 +85,39 @@
 </section>
 
 
+
 <div class="overflow-x-auto">
-    <div
-        class="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden">
-        <div class="w-full lg:w-5/6">
-            <div class="bg-white shadow-md rounded my-6">
-                <table class="min-w-max w-full table-auto">
-                    <thead>
-                        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                            <th class="py-3 px-6 text-left">Title</th>
-
-                            <th class="py-3 px-6 text-center">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-600 text-sm font-light">
+        <div class="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden">
+            <div class="w-full lg:w-5/6">
+                <h1>Intruduction</h1>
+                <div class="bg-white shadow-md rounded my-6">
+                    <table class="min-w-max w-full table-auto">
+                        <thead>
+                            <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                                <th class="py-3 px-6 text-left">Title</th>
+                               
+                                <th class="py-3 px-6 text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600 text-sm font-light">
                         @foreach($streamings as $str)
-                        <tr class="border-b border-gray-200 hover:bg-gray-100">
-                            <td class="py-3 px-6 text-left whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <span class="font-medium"><a href={{route('streaming',$str->id)}}>{{$str->name
-                                            }}</a></span>
-                                </div>
-                            </td>
-
-                            <td class="py-3 px-6 text-center"><i class="fa fa-youtube-play"></i>
-                                <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs"><a
-                                        href={{route('streaming',$str->id)}}>Preview</a></span>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <span class="font-medium"><a href={{route('streaming',$str->id)}}>{{$str->title }}</a></span>
+                                    </div>
+                                </td>
+                       
+                                <td class="py-3 px-6 text-center"><i class="fa fa-youtube-play"></i>
+                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs"><a href={{route('streaming',$str->id)}}>Preview</a></span>
+                                </td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-
-<button id="to-top-button" onclick="goToTop()" title="Go To Top"
-    class="hidden fixed z-90 bottom-8 right-8 border-0 w-16 h-16 rounded-full bg-red-600 ring-2 ring-white text-white -rotate-90 text-5xl font-bold">&#10132;</button>
-
-<script>
-    var toTopButton = document.getElementById("to-top-button");
-    window.onscroll = function() {
-        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-            toTopButton.classList.remove("hidden");
-        } else {
-            toTopButton.classList.add("hidden");
-        }
-    }
-    function goToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-</script>
-
 @endsection

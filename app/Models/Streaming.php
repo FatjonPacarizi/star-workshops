@@ -9,6 +9,13 @@ class Streaming extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'description',
+        'url',
+        'workshop_id'
+    ];
+
     public function workshop(){
 
         return $this->hasMany(Workshop::class,'id','workshop_id');

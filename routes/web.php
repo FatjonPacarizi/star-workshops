@@ -42,8 +42,6 @@ Route::get('/', function () {
 
 Route::get('/members', [WorkshopController::class, 'showMembers']);
 
-Route::get('/streaming',[StreamingController::class,'view']);
-Route::get('/streaminglive/{id}',[StreamingController::class, 'show']);
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
 Route::get('/newspage', [NewsPageController::class, 'index']);
 Route::get('/newspage/{id}', [NewsPageController::class, 'show'])->name('single-news');
@@ -188,6 +186,13 @@ Route::group(['middleware' => 'auth'], function () {
             //Delete workshop Participant
             Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('deleteParticipant');
 
+            Route::get('/streaminglive/{id}',[StreamingController::class, 'show']);
+            Route::get('/streaminglive/insert/{id}',[StreamingController::class, 'insert']);
+            Route::post('/add-streaming', [StreamingController::class, 'store']);
+            Route::get('/streaminglive/edit/{id}',[StreamingController::class, 'edit']);
+            Route::put('/update-streaming/{id}',[StreamingController::class,'update'])->name('updateStreaming');
+            Route::delete('/streaming/delete/{id}', [StreamingController::class, 'destroy']);
+            
             Route::get('/pdf/{workshopid}', [WorkshopController::class,  'showPDF'])->name('showPDF');
                     
             Route::get('/workshops/manage/addparticipant/{workshopid}',[WorkshopUsersController::class,'showUser'])->name('showUser');
