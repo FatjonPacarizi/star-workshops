@@ -5,16 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Streaming;
 use App\Models\Workshop;
+use App\Http\Requests\StoreStreamingRequest;
 
 class StreamingController extends Controller
 {
-    public function view(){
-
-        $streaming = Streaming::all();
-
-        return view('listStreaming',['streaming'=>$streaming]);
-    }
-
+    
     public function index($id){
 
         $streaming = Streaming::find($id);
@@ -24,8 +19,48 @@ class StreamingController extends Controller
 
     public function show($id){
 
+       $workshop = Workshop::find($id);
        $streaming = Streaming::all()->where('workshop_id',$id);
 
-        return view('manageStreamingAdd',['streaming'=>$streaming]);
+        return view('manageStreaming',['streaming'=>$streaming,'workshop'=>$workshop]);
     }
+
+    public function insert($id){
+
+        $workshops = Workshop::find($id);
+
+        return view('insertStreaming',['workshops'=>$workshops]);
+    }
+
+    public function store(StoreStreamingRequest $request){
+
+        $validated = $request->validated();
+        Streaming::create($validated);
+
+        return redirect()->back();
+    }
+    
+    public function edit($id){
+
+        $streaming = Streaming::find($id);
+
+        return view('editStreaming',['streaming'=>$streaming]);
+    }
+
+    public function update(UpdateStreamingRequest $request, $id){
+
+        $validated = $request->validated();
+        Streaming::find($id)->update($validated);
+        
+        return back();
+    }
+
+    public function destroy($id){
+
+        $streaming = Streaming::find($id);
+        $streaming->delete();
+
+        return redirect()->back();
+    }
+
 }

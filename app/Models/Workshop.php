@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Category;
 
 class Workshop extends Model
 {
@@ -47,6 +48,11 @@ class Workshop extends Model
    public function pendingParticipants(){
         return $this->hasMany(workshops_users::class)
         ->where('application_status','pending');
+   }
+
+   public function category(){
+
+    return $this->hasOne(Category::class,'id','category_id');
    }
 
     public function deletefrom(){

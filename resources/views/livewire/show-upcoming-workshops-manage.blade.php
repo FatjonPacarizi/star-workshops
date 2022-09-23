@@ -65,8 +65,7 @@
             </li>
             <li>
               <a class="py-1 px-3 block hover:bg-indigo-100 " href="/streaminglive/{{$upcomingWorkshop->id}}">
-                <i class="fa-solid fa-video-plus text-gray-400 fa-sm"></i>Streaming
-              </a>
+              <i class="fa-solid fa-airplay text-gray-400 fa-sm"></i> Streaming</a>
             </li>
           </ul>
         </div>
