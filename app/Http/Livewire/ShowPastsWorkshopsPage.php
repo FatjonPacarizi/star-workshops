@@ -14,7 +14,7 @@ class ShowPastsWorkshopsPage extends Component
     public function render()
     {
         $pasts = Workshop::whereNotNull('workshop_endTime')
-        ->orderBy('id', 'DESC')
+        ->orderBy('workshop_endTime', 'DESC')
         ->simplePaginate(6,['*'], 'pastsWorkshopsPage');
         
         return view('livewire.show-pasts-workshops-page',['pasts'=>$pasts]);

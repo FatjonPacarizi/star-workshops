@@ -37,7 +37,7 @@
           <div class="relative flex items-center" x-data="{ open: false }">
             <i class="fa-solid fa-ellipsis-vertical cursor-pointer w-3" @click="open = !open"></i>
 
-            <ul class="bg-white absolute top-0 mt-2 z-10 shadow-lg rounded-lg border border-gray-100 w-40 py-1 " x-show="open"
+            <ul id = "pastmenu" class="bg-white absolute top-0 mt-2 z-10 shadow-lg rounded-lg border border-gray-100 w-40 py-1 " x-show="open"
               @click.outside="open = false">
               <li>
                 <p class="text-xs pl-3 py-2 text-gray-400 ">Manage Workshop</p>
@@ -47,14 +47,9 @@
                   class="py-1 px-3 border-b block hover:bg-indigo-100 ">
                   <i class="fa-solid fa-pen mr-1 fa-sm"></i>Edit</a>
               <li>
-                <form method="POST" action="/workshops/manage/{{$pastsWorkshop->id}}">
-                  @csrf
-                  @method('DELETE')
-                  <input type="hidden" name="tab" value="1" />
-                  <button class="w-full text-left text-red-400 py-1 px-3 block hover:bg-indigo-100 border-b">
-                    <i class="fa-solid fa-trash-can   fa-sm"></i> Delete
-                  </button>
-                </form>
+                <button wire:click = 'deleteWorkshop({{$pastsWorkshop->id}})' onClick = "hidepastmenu()" class="w-full text-left text-red-400 py-1 px-3 hover:bg-indigo-100 border-b">
+                  <i class="fa-solid fa-trash-can   fa-sm"></i> Delete
+                </button>
               </li>
               <li>
               <a class="w-full text-left py-1 px-3 block hover:bg-indigo-100 border-b text-blue-900 " href={{ route('adminsuperadmin.showPDF',$pastsWorkshop->id)}}>
@@ -62,11 +57,8 @@
             </li>
             <li class = "flex items-center px-3 py-1 border-b hover:bg-indigo-100">
               <i class="fa-regular fa-calendar-check mr-1.5 text-red-400"></i>
-              <form method="POST" action="/workshops/manage/{{$pastsWorkshop->id}}/endworkshop/" class = "flex items-center">
-                @csrf
-                @method('PUT')
-                <input onChange="this.form.submit()" type ="checkbox" name="ended"  @if($pastsWorkshop->workshop_endTime != null) checked  @endif  class = "mr-2 rounded"/>Ended
-              </form>
+              <input wire:change = 'endWorkshop({{$pastsWorkshop->id}})' type ="checkbox"  onClick = "hidepastmenu()" @if($pastsWorkshop->workshop_endTime != null) checked  @endif class = "mr-2 rounded"/>
+              Ended
             </li>
               <li>
                 <a class="py-1 px-3 block hover:bg-indigo-100 " href={{
@@ -116,3 +108,8 @@
     <div class=" p-3">{{ $pastsWorkshops->links() }}</div>
   
   </div>
+  <script>
+    function hidepastmenu(){
+      var x = document.getElementById("pastmenu").style.display = "none";
+    }
+  </script>
