@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
 use App\Mail\newWorkshopEmailSender;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class WorkshopController extends Controller
@@ -100,9 +101,7 @@ class WorkshopController extends Controller
             $streamings = Streaming::all()->where('workshop_id',$id);
 
             $upcoming = false;
-            $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
-
-            if (strtotime($workshop[0]->time) > strtotime($date->format("Y-m-d h:i:sa"))) $upcoming = true;
+            if ($workshop[0]->workshop_endTime == null) $upcoming = true;
 
             $application_status = workshops_users::select('application_status')->where(['workshop_id'=>$id,'user_id'=>Auth::id()])
             ->get();
@@ -204,22 +203,6 @@ class WorkshopController extends Controller
         
         return back();
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Workshop  $workshop
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Workshop $workshop)
-    {
-        Workshop::where('id',$workshop->id)->update(['deleted_from_id' => Auth::id()]);
-        $workshop->delete();
-        
-        return back()->with("tab",request('tab'));
-    }
-
-
     public function join($id){
         if(!Auth::check())
           return redirect()->route('login');
@@ -271,7 +254,7 @@ class WorkshopController extends Controller
         ->paginate(8,['*'], 'notapprovedParticipantsPage');
 
 
-        $pdf = PDF::loadView('managePDF', ['pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
+        $pdf = PDF::loadView('managePDF', ['workshopName'=>Workshop::select('name')->where('id',$workshopid)->get(),'pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
         return $pdf->stream('managePDF.pdf');
     }
 
@@ -294,20 +277,5 @@ class WorkshopController extends Controller
          workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID])->delete();
 
          return redirect()->back()->with("tab",request('tab'));
-    }
-
-    public function restore($id){
-       
-        Workshop::onlyTrashed()->findOrFail($id)->restore();
-
-        return redirect()->back();
-    }
-
-    public function forceDelete($id){
-        $workshop = Workshop::onlyTrashed()->findOrFail($id);
-        Storage::delete('/public/' .$workshop->img_workshop);
-        $workshop->forceDelete();
-
-        return redirect()->back();
     }
 }

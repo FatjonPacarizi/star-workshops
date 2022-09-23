@@ -21,6 +21,8 @@ class CreateWorkshopsTable extends Migration
             $table->foreign('author')->references('id')->on('users')->onDelete('cascade');
             $table->Integer('limited_participants')->nullable();
             $table->text('description');
+            $table->dateTime('workshop_startTime')->nullable();
+            $table->dateTime('workshop_endTime')->nullable();
             $table->bigInteger('type_id')->unsigned();
             $table->foreign('type_id')->references('id')->on('types');
             $table->bigInteger('country_id')->unsigned();

@@ -13,7 +13,7 @@ class ShowUpcomingWorkshopsManage extends Component
   
     use WithPagination;
     public $search;
-    protected $listeners = ['reloadUpcomingWorkshops'];
+    protected $listeners = ['reloadUpcomingWorkshops','$refresh'];
     public $perpage;
     public $sortby;
     
@@ -33,7 +33,7 @@ class ShowUpcomingWorkshopsManage extends Component
              
             $upcomingWorkshops = Workshop::whereNull("workshops.deleted_at")
             ->orderBy('id', $sort)
-            ->where('workshops.time','>', $currentTime); 
+            ->whereNull(['workshop_startTime','workshop_endTime']); 
               if($this->search != null) 
                $upcomingWorkshops = $upcomingWorkshops->where('workshops.name','like','%'.$this->search.'%');
 
@@ -46,7 +46,7 @@ class ShowUpcomingWorkshopsManage extends Component
 
               $upcomingWorkshops = Workshop::whereNull("workshops.deleted_at")
               ->orderBy('id', $sort)
-              ->where('workshops.time','>', $currentTime)
+              ->whereNull(['workshop_startTime','workshop_endTime'])
               ->where("workshops.author", "=", $myID); 
   
               if($this->search != null) 
@@ -63,5 +63,22 @@ class ShowUpcomingWorkshopsManage extends Component
         $this->search = $search;
         $this->perpage = $perpage;
         $this->sortby = $sortby;
+    }
+    public function startWorkshop($id){
+      $workshop_startTime = Carbon::now()->timezone('Europe/Tirane')->toDateTimeString();
+      $workshop = Workshop::find($id);
+
+      if($workshop->workshop_startTime != null) $workshop_startTime = null;
+     
+      Workshop::where('id',$id)->update(['workshop_startTime' => $workshop_startTime]);
+
+      $this->emitTo('show-ongoing-workshops-manage', '$refresh');
+    }
+
+    public function deleteWorkshop($id){
+        Workshop::where('id',$id)->update(['deleted_from_id' => Auth::id()]);
+        Workshop::find($id)->delete();
+        
+        $this->emitTo('showsafeworkshops', '$refresh');
     }
 }

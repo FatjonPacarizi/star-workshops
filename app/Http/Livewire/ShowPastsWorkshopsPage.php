@@ -13,10 +13,8 @@ class ShowPastsWorkshopsPage extends Component
 
     public function render()
     {
-        $currentTime = Carbon::now('Europe/Tirane');
-
-        $pasts = Workshop::where('workshops.time','<',$currentTime)
-        ->orderBy('id', 'DESC')
+        $pasts = Workshop::whereNotNull('workshop_endTime')
+        ->orderBy('workshop_endTime', 'DESC')
         ->simplePaginate(6,['*'], 'pastsWorkshopsPage');
         
         return view('livewire.show-pasts-workshops-page',['pasts'=>$pasts]);

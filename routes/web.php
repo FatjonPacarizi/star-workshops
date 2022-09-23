@@ -159,6 +159,12 @@ Route::group(['middleware' => 'auth'], function () {
             //Update a workshop
             Route::put('workshops/manage/{id}', [WorkshopController::class, 'update']);
 
+            //Start a workshop
+            Route::put('workshops/manage/{id}/startworkshop', [WorkshopController::class, 'startWorkshop']);
+            
+             //End a workshop
+            Route::put('workshops/manage/{id}/endworkshop', [WorkshopController::class, 'endWorkshop']);
+
             //Delete a workshop
             Route::delete('/workshops/manage/{workshop}', [WorkshopController::class, 'destroy']);
             Route::delete('/forcedelete/{id}', [WorkshopController::class, 'forceDelete']);
