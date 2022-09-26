@@ -20,7 +20,7 @@ class NewsPageSeeder extends Seeder
     {
         DB::table('news_pages')->insert([[
             'title' => 'STARLABS HOSTED 53 COMPANIES FROM GERMANY',
-            'author' => 'Admin',
+            'author' => '1',
             'description' => 'A delegation of 53 businesses from Germany, visited Kosovo during April, for a three-day visit.
             StarLabs, was honored to host the companies and organize a one day visit at the Companys premises and also at the Digital School, on April 30th, 2022.<br></br>
             
@@ -37,7 +37,7 @@ class NewsPageSeeder extends Seeder
             'time' => '2022-09-09 12:14:19',
         ],[
             'title' => 'Kosovo President Vjosa Osmani visited StarLabs and Digital School.',
-            'author' => 'Admin 1',
+            'author' => '1',
             'description' => 'World Creativity and Innovation Day was marked with senior state level visits to our companies.<br></br>
 
             Prishtina, April 21, 2022 – The President of the Republic of Kosovo, Mrs. Vjosa Osmani–Sadriu, chose our companies – StarLabs and Digital School – on The World Creativity and Innovation Day. 
@@ -49,14 +49,14 @@ class NewsPageSeeder extends Seeder
         ],
         [
             'title' => 'MEET NEHARI AND METRY.V, WHO WILL SPEED UP YOUR WEBSITE!',
-            'author' => 'Admin 2',
+            'author' => '1',
             'description' => 'Nehar Jashari returned from Germany, and received funding from StarLabs to launch his company.
 
             Prishtina, March 2022 – How many times did you have to open a new webpage on your internet browser, and get a single word: “loading”? <br></br>We don’t think there’s anything that makes us angrier when we browse websites than when we waste time on getting information, services, or buying any products on one of the websites that are designed to carry out these tasks for us. The 23-year-old from Prishtina, who works as a programmer at StarLabs, Nehari Jashari has been thinking about a solution to this problem. Fast websites, high performance, efficiency, problem-solving as well as greater business opportunities – this is what he offers with the product he is developing with StarLabs as part of his start-up – Metry.V.',
             'time' => '2022-09-09 12:14:19',
         ],[
             'title' => '36 NEW POSITIONS AVALIABLE!',
-            'author' => 'User',
+            'author' => '1',
             'description' => 'StarLabs has just started working with two new clients, which are present in several European countries. Therefore, our Company needs to increase the number of our team members. We are consequently looking for talents who can join us in 36 available positions at our Company.
             <br></br>
     
@@ -98,7 +98,7 @@ class NewsPageSeeder extends Seeder
             'time' => '2022-09-09 12:14:19',
         ],[
             'title' => 'THE INTERNSHIP PROGRAM AT STARLABS, A TECH LAB IN KOSOVO',
-            'author' => 'Admin 1',
+            'author' => '1',
             'description' => 'In addition to contributing to the technology market, with the services it provides, StarLabs has opened its doors to young people who want to work in this field, enabling them to prepare for the labor market.
 
             Prishtina, February 2022 – It’s a normal day of work at StarLabs. And Emini, a 23-year-old from Gjilan, is sitting at his desk. His big headphones are on his shoulders. You never know when he’ll need them.
@@ -114,7 +114,7 @@ class NewsPageSeeder extends Seeder
             'time' => '2022-09-09 12:14:19',
         ],[
             'title' => 'OUR APPROACH TO HELP YOU SUCCEED',
-            'author' => 'Admin',
+            'author' => '1',
             'description' => 'Many organizations around the world have reduced costs, improved service delivery and enabled innovation and growth by engaging with StarLabs as their strategic outsourcing partner.
 
             While their reasons vary as much as their businesses, most see outsourcing as a more predictable, scalable, and reliable way to move their business forward.
@@ -137,7 +137,7 @@ class NewsPageSeeder extends Seeder
             'time' => '2022-09-09 12:14:19',
         ],[
             'title' => 'WHY KOSOVO IS AN OUTSOURCING OPPORTUNITY?',
-            'author' => 'Admin 2',
+            'author' => '1',
             'description' => 'A strong average of English and German skills, similar work culture to people of Western Europe and the US, huge, untapped and well-educated workforce and experienced training service providers, which deliver certified professionals to the market, make Kosovo a runner-up in the list of the top places for outsourcing in Eastern Europe.
             <br></br>
             Strong and certified expertise in different fields such as the web and mobile application development; Software Testing; Database Development; Web/ Mobile Design; Project Management and more.
@@ -173,7 +173,7 @@ class NewsPageSeeder extends Seeder
             'time' => '2022-09-09 12:14:19',
         ],[
             'title' => 'OUTSOURCING AS A GROWTH STRATEGY',
-            'author' => 'Admin 2',
+            'author' => '1',
             'description' => 'StarLabs can become one of the MAIN DRIVERS in your company’s growth.
             <br></br>
             Managers in developed countries are increasingly interested in outsourcing as a potential source of competitiveness and value creation.<br></br>
@@ -197,7 +197,7 @@ class NewsPageSeeder extends Seeder
             'time' => '2022-09-09 12:14:19',
         ],[
             'title' => 'MEET NEHARI AND METRY.V, WHO WILL SPEED UP YOUR WEBSITE!',
-            'author' => 'Admin 3',
+            'author' => '1',
             'description' => 'Nehar Jashari returned from Germany, and received funding from StarLabs to launch his company.
             <br></br>
             Prishtina, March 2022 – How many times did you have to open a new webpage on your internet browser, and get a single word: “loading”? We don’t think there’s anything that makes us angrier when we browse websites than when we waste time on getting information, services, or buying any products on one of the websites that are designed to carry out these tasks for us. 
@@ -206,7 +206,7 @@ class NewsPageSeeder extends Seeder
             'time' => '2022-09-09 12:14:19',
         ],[
             'title' => 'STARLABS HOSTED COMPANIES FROM GERMANY',
-            'author' => 'Admin',
+            'author' => '1',
             'description' => 'A delegation of 53 businesses from Germany, visited Kosovo during April, for a three-day visit.
             <br></br>
             StarLabs, was honored to host the companies and organize a one day visit at the Companys premises and also at the Digital School, on April 30th, 2022.

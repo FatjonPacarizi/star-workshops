@@ -22,16 +22,6 @@
                 </div>
             </div>
             <div class="mb-6 flex items-center">
-                <label class="w-28 text-sm mx-5" for="">Author</label>
-                <div class="w-full mx-5">
-                    <input type="text" name="author" class="border border-gray-200 rounded p-1 w-full "
-                        value="{{old('author')}}">
-                    @error('author')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                    @enderror
-                </div>
-            </div>
-            <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Description</label>
                 <div class="w-full mx-5">
                     <textarea type="text" name="description"
