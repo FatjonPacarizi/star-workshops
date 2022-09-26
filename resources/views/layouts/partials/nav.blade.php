@@ -1,4 +1,5 @@
 <header>
+    <div class="fixed bg-white w-full z-40">
     <nav x-data="{ open: false }" class="flex justify-between items-center px-5 py-3">
 
 
@@ -109,14 +110,15 @@
 
     </nav>
 </header>
-<div class="hidden flex mobile-menu lg:hidden">
-    <ul class="bg-white text-black w-full absolute">
-        <li><a href="{{route('workshops')}}" class="font-bold block text-sm flex justify-center py-4 text-sm  hover-2"
-                aria-current="page">WORKSHOPS</a></li>
-        <li><a href="/newspage" class="font-bold block text-sm flex justify-center py-4 text-sm hover-2">NEWS</a></li>
-        <li><a href="/members" class="font-bold block text-sm flex justify-center py-4 text-sm hover-2">MEMBERS</a></li>
-        <li><a href="/about" class="font-bold block text-sm flex justify-center py-4 text-sm hover-2">ABOUT US</a></li>
-    </ul>
+    <div class="hidden flex mobile-menu lg:hidden">
+        <ul class="bg-white text-black w-full absolute">
+            <li><a href="{{route('workshops')}}" class="font-bold block text-sm flex justify-center py-4 text-sm  hover-2"
+                    aria-current="page">WORKSHOPS</a></li>
+            <li><a href="/newspage" class="font-bold block text-sm flex justify-center py-4 text-sm hover-2">NEWS</a></li>
+            <li><a href="/members" class="font-bold block text-sm flex justify-center py-4 text-sm hover-2">MEMBERS</a></li>
+            <li><a href="/about" class="font-bold block text-sm flex justify-center py-4 text-sm hover-2">ABOUT US</a></li>
+        </ul>
+    </div>
 </div>
 <script>
     const btn = document.querySelector("button.mobile-menu-button");

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="text-white body-font bg-red-600 bg-red-600">
+<section class="text-white body-font bg-red-600 bg-red-600 pt-24">
   <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
     <div class="text-center lg:w-2/3 w-full">
       <h1 class="title-font sm:text-1xl text-1xl mb-4 font-medium text-white">{{$landing->heading}}</h1>
