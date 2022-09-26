@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\MessageEvent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\User\Controller;
@@ -17,6 +18,7 @@ use App\Http\Controllers\PDFController;
 use App\Http\Controllers\StreamingController;
 
 use App\Http\Controllers\ChartController;
+use App\Http\Controllers\chatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/chat', [chatController::class, 'index']);
+Route::get('/chat/send', [chatController::class, 'send'])->name('send');
 
 Route::get('/members', [WorkshopController::class, 'showMembers']);
 
