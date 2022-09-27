@@ -16,7 +16,7 @@ class chatController extends Controller
     public function send(){
      
         broadcast(new MessageEvent("msg"));
-        return  back();
+      
     }
 
 }

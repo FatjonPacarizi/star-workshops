@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
 use App\Mail\newWorkshopEmailSender;
+use App\Models\Message;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
