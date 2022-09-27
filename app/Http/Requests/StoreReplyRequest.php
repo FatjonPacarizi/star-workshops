@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreStreamingRequest extends FormRequest
+class StoreReplyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,10 @@ class StoreStreamingRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'description' => 'required',
-            'url' => 'required',
-            'workshop_id'=>'required',
-            'streaming_id'=>'required',
+        'comment_id'=>'required',
+        'name'=> 'required',
+        'reply' => 'required',
+        'user_id' => 'required',
         ];
     }
 }
