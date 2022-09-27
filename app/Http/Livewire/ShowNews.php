@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Auth;
 use App\Models\NewsPage;
 
 
@@ -25,7 +26,7 @@ class ShowNews extends Component
 
 
 
-        return view('livewire.show-news',['news'=>NewsPage::where('title','like','%'.$this->search.'%')->orWhere('author','like','%'.$this->search.'%')->orderBy('id',$sort)->paginate($page)]);
+        return view('livewire.show-news',['news'=>NewsPage::where('title','like','%'.$this->search.'%')->where(['author'=>Auth::id()])->orderBy('id',$sort)->paginate($page)]);
     }
      public function reloadNews($search,$perpage,$sortby){
        

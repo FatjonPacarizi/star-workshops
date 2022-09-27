@@ -6,6 +6,7 @@ use App\Models\NewsPage;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreNewsPageRequest;
 use App\Http\Requests\UpdateNewsPageRequest;
+use Illuminate\Support\Facades\Auth;
 
 class NewsPageController extends Controller
 {
@@ -18,6 +19,7 @@ class NewsPageController extends Controller
     public function  newspage()
     {
         return view('newspages.index');
+
     }
 
     public function create()
@@ -28,6 +30,7 @@ class NewsPageController extends Controller
     public function store(StoreNewsPageRequest $request)
     {
         $validated = $request->validated();
+        $validated['author'] = Auth::id();
 
         if (request()->hasFile('image')) {
             $validated['image'] = request()->file('image')->store('newsImgs', 'public');
@@ -40,7 +43,7 @@ class NewsPageController extends Controller
 
     public function show($id)
     {
-        $newspage = Newspage::find($id);
+        $newspage = Newspage::where(['id'=>$id,'author'=>Auth::id()])->get();
         return view('newsp', ['newspage' => $newspage, 'threenews' => Newspage::where('id', '!=', $id)->orderBy('id', 'DESC')->paginate(3)]);
     }
 
@@ -52,6 +55,8 @@ class NewsPageController extends Controller
 
     public function update(UpdateNewsPageRequest $request, $id)
     {
+        $request->author = Auth::id();
+
         $validated = $request->validated();
 
         $newspage = Newspage::find($id);
