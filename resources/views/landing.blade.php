@@ -92,7 +92,7 @@
         <div class="h-full border-2 bg-white border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
           <img class="lg:h-48 md:h-36 w-full object-cover object-center" alt="" src="{{$newspage->image ? asset('/storage/' . $newspage->image) : asset('/img/defaultNewsImg.jpg')}}">
           <div class="p-6 ">
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{ $newspage->title }}</h1>
+            <a href="{{route('single-news',$newspage->id)}}" class="title-font text-lg font-medium text-gray-900 mb-3 underline">{{ $newspage->title }}</a>
             <p class="leading-relaxed text-gray-700 mb-3">{!! Illuminate\Support\Str::limit($newspage->description, 50, $end='...') !!}</p>
             <h2 class="tracking-widest text-3xs title-font font-medium text-gray-500 mb-1">{{ \Carbon\Carbon::parse($newspage->time)->format('d/m/Y')}}</h2>
             <div class="flex items-center flex-wrap ">
