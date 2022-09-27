@@ -193,6 +193,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/streaminglive/edit/{id}',[StreamingController::class, 'edit']);
             Route::put('/update-streaming/{id}',[StreamingController::class,'update'])->name('updateStreaming');
             Route::delete('/streaming/delete/{id}', [StreamingController::class, 'destroy']);
+            Route::get('change-status/{id}', [StreamingController::class, 'changeStatus'])->name('change');
 
             Route::post('/comment-add',[CommentController::class,'store']);
             Route::delete('/comment/delete/{comment}',[CommentController::class,'destroy']);

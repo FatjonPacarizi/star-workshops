@@ -8,17 +8,18 @@ use App\Models\Workshop;
 use App\Http\Requests\StoreStreamingRequest;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\workshops_users;
 
 class StreamingController extends Controller
 {
     
     public function index($id){
 
+        $workshop_user = workshops_users::all();
         $streaming = Streaming::find($id);
         $comments = Comment::latest('created_at')->where('streaming_id',$id)->paginate(3);
 
-        return view('streaming',['streaming'=>$streaming,'comments'=>$comments]);
+        return view('streaming',['streaming'=>$streaming,'comments'=>$comments,'workshop_user'=>$workshop_user]);
     }
 
     public function show($id){
@@ -67,5 +68,17 @@ class StreamingController extends Controller
         return redirect()->back();
     }
 
+    public function changeStatus($id)
+    {
+
+        $getStatus = Streaming::select('status')->where('id', $id)->first();
+        if ($getStatus->status == 'paid') {
+            $status = 'free';
+        } else {
+            $status = 'paid';
+        }
+        Streaming::where('id', $id)->update(['status' => $status]);
+        return redirect()->back();
+    }
 
 }

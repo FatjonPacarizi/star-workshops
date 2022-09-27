@@ -1476,6 +1476,27 @@ select {
 .mt-24 {
   margin-top: 6rem;
 }
+.mb-24 {
+  margin-bottom: 6rem;
+}
+.mb-52 {
+  margin-bottom: 13rem;
+}
+.mb-auto {
+  margin-bottom: auto;
+}
+.mb-60 {
+  margin-bottom: 15rem;
+}
+.mb-72 {
+  margin-bottom: 18rem;
+}
+.mb-80 {
+  margin-bottom: 20rem;
+}
+.mb-12 {
+  margin-bottom: 3rem;
+}
 .block {
   display: block;
 }
@@ -1710,14 +1731,14 @@ select {
 .max-w-sm {
   max-width: 24rem;
 }
+.max-w-6xl {
+  max-width: 72rem;
+}
 .max-w-screen-sm {
   max-width: 640px;
 }
 .max-w-lg {
   max-width: 32rem;
-}
-.max-w-6xl {
-  max-width: 72rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -2320,6 +2341,9 @@ select {
 .p-8 {
   padding: 2rem;
 }
+.p-12 {
+  padding: 3rem;
+}
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -2396,6 +2420,10 @@ select {
   padding-left: 3rem;
   padding-right: 3rem;
 }
+.px-9 {
+  padding-left: 2.25rem;
+  padding-right: 2.25rem;
+}
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -2453,6 +2481,9 @@ select {
 .pl-5 {
   padding-left: 1.25rem;
 }
+.pt-24 {
+  padding-top: 6rem;
+}
 .pt-3 {
   padding-top: 0.75rem;
 }
@@ -2470,9 +2501,6 @@ select {
 }
 .pr-16 {
   padding-right: 4rem;
-}
-.pt-24 {
-  padding-top: 6rem;
 }
 .text-left {
   text-align: left;
@@ -2735,6 +2763,14 @@ select {
 .text-green-100 {
   --tw-text-opacity: 1;
   color: rgb(220 252 231 / var(--tw-text-opacity));
+}
+.text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity));
+}
+.text-blue-700 {
+  --tw-text-opacity: 1;
+  color: rgb(29 78 216 / var(--tw-text-opacity));
 }
 .underline {
   text-decoration-line: underline;

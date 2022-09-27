@@ -100,6 +100,8 @@ class WorkshopController extends Controller
 
             $streamings = Streaming::all()->where('workshop_id',$id);
 
+            $workshop_user = workshops_users::all();
+
             $upcoming = false;
             if ($workshop[0]->workshop_endTime == null) $upcoming = true;
 
@@ -135,7 +137,8 @@ class WorkshopController extends Controller
                                     'already_applied' => $already_applied,
                                     'application_status' => $application_status,
                                     'upcoming' => $upcoming,
-                                    'streamings'=>$streamings]);
+                                    'streamings'=>$streamings,
+                                     'workshop_user'=>$workshop_user]);
     }
 
 
