@@ -16,7 +16,7 @@
           src="{{$item->image ? asset('/storage/' . $item->image) : asset('/img/defaultNewsImg.jpg')}}" />
           <div class="ml-3 ">
             <h1 class="text-black">{{ Illuminate\Support\Str::limit($item->title, 35, $end='...') }}</h1>
-            <p class="text-xs text-gray-500">{{ $item->author }}</p>
+            <p class="text-xs text-gray-500">{{$item->user->name}}</p>
           </div>
         </div>
       </td>

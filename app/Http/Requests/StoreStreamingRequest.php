@@ -28,6 +28,7 @@ class StoreStreamingRequest extends FormRequest
             'description' => 'required',
             'url' => 'required',
             'workshop_id'=>'required',
+            'streaming_id'=>'required',
         ];
     }
 }

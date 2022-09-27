@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="text-white body-font bg-red-600 bg-red-600">
+<section class="text-white body-font bg-red-600 bg-red-600 pt-24">
   <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
     <div class="text-center lg:w-2/3 w-full">
       <h1 class="title-font sm:text-1xl text-1xl mb-4 font-medium text-white">{{$landing->heading}}</h1>
@@ -224,31 +224,4 @@
     <button class="flex mx-auto mt-16 text-white bg-red-600 border-0 py-2 px-8 focus:outline-none rounded-full text-lg hover:bg-red-800 duration-300"><a href="http://127.0.0.1:8000/workshops">View all events</a></button>
   </div>
 </section>
-
-
-<button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed z-40 bottom-8 right-8 border-0 w-16 h-16 rounded-full bg-red-600 ring-2 ring-white text-white -rotate-90 text-5xl font-bold">&#10132;</button>
-
-
-<!-- Javascript code -->
-<script>
-  var toTopButton = document.getElementById("to-top-button");
-
-  // When the user scrolls down 200px from the top of the document, show the button
-  window.onscroll = function() {
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-      toTopButton.classList.remove("hidden");
-    } else {
-      toTopButton.classList.add("hidden");
-    }
-  }
-
-  // When the user clicks on the button, scroll to the top of the document
-  function goToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }
-</script>
-
 @endsection
