@@ -5,6 +5,7 @@
             <td class="font-bold">Title</td>
             <td class="font-bold">Workshop</td>
             <td class="font-bold">Category</td>
+            <td class="font-bold">Free/Paid</td>
             <td class="font-bold w-1/5 ">Actions</td>
           </tr>
      
@@ -14,6 +15,7 @@
           <td>  {{$str->title}}</td>
           <td> {{$str->workshop[0]->name}}</td>
           <td> {{$str->workshop[0]->category->name}} </td>
+          <td> {{$str->status}}</td>
           <td class = "flex items-center " >    
              <a href="/streaminglive/edit/{{$str->id}}" class="bg-sky-500 text-white px-3 p-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
               <i class="fa-solid fa-pen fa-md"></i>
