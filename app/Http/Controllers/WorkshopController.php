@@ -278,4 +278,9 @@ class WorkshopController extends Controller
 
          return redirect()->back()->with("tab",request('tab'));
     }
+
+    public function calendar(){
+
+        return view('calendar');
+    }
 }
