@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Streaming;
 use App\Models\Workshop;
 use App\Http\Requests\StoreStreamingRequest;
+use App\Http\Requests\UpdateStreamingRequest;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use App\Models\workshops_users;
@@ -24,17 +25,17 @@ class StreamingController extends Controller
 
     public function show($id){
 
-       $workshop = Workshop::find($id);
-       $streaming = Streaming::all()->where('workshop_id',$id);
+        $workshops = Workshop::find($id);
+       $streaming = Streaming::where('workshop_id',$workshops);
 
-        return view('manageStreaming',['streaming'=>$streaming,'workshop'=>$workshop]);
+        return view('manageStreaming',['streaming'=>$streaming]);
     }
 
     public function insert($id){
 
         $workshops = Workshop::find($id);
 
-        return view('insertStreaming',['workshops'=>$workshops]);
+        return view('insertStreaming',['workshops'=> $workshops]);
     }
 
     public function store(StoreStreamingRequest $request){
@@ -48,16 +49,18 @@ class StreamingController extends Controller
     public function edit($id){
 
         $streaming = Streaming::find($id);
+        $workshops = Workshop::find($id);
 
-        return view('editStreaming',['streaming'=>$streaming]);
+        return view('editStreaming',['streaming'=>$streaming,'workshops'=> $workshops]);
     }
 
     public function update(UpdateStreamingRequest $request, $id){
 
         $validated = $request->validated();
-        Streaming::find($id)->update($validated);
+        $streaming = Streaming::find($id);
+        $streaming->update($validated);
         
-        return back();
+        return redirect()->back();
     }
 
     public function destroy($id){

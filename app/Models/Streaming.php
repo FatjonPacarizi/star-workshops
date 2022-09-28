@@ -13,7 +13,8 @@ class Streaming extends Model
         'title',
         'description',
         'url',
-        'workshop_id'
+        'workshop_id',
+        'status'
     ];
 
     public function workshop(){

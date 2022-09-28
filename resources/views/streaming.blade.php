@@ -62,9 +62,9 @@
     <div class="flex flex-wrap lg:mx-4 p-12 mb-72 justify-center w-4/5">
         <div class="flex flex-col items-center mt-12">
             <h1 class="text-6xl font-bold text-red-500 mt-4"><i class="fa-solid fa-circle-play text-red-600"></i> {{$streaming->title}} </h1>
-            <h1 class="text-6xl font-bold text-grey-500 mt-6 mb-12">Lecture content locked </h1>
-            <p class="mb-4">If you're already enrolled,<a href="{{ route('login') }}" class="text-blue-700"> you'll need to login.</a></p>
-            <h1> Get back to workshop: Apply to enroll this course </h1>
+            <h1 class="text-6xl font-bold text-grey-500 mt-6 mb-10">   Lecture content locked </h1>
+            <p class="mb-2">If you're already enrolled,<a href="{{ route('login') }}" class="text-blue-700"> you'll need to login.</a></p>
+            <h1> Get back to workshop: <b>Apply to enroll this course</b> </h1>
         </div>
     </div>
 </section>

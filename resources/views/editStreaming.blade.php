@@ -5,12 +5,12 @@
 <div class="w-full  p-6 px-10 flex ">
   <div class="w-full bg-white   shadow-md rounded-xl  ">
     <div class="w-full flex items-center  border-b border-gray-200 mb-4">
-      <a href="/update/{{$streaming->id}}" ><i class="fa-solid fa-arrow-left mx-4"></i></a>
+      <a href="/streaminglive/{{$workshops->id}}" ><i class="fa-solid fa-arrow-left mx-4"></i></a>
       <h1 class="p-3 text-black  font-medium  ">Streaming Update</h1>
     </div>
-    <form method="POST" action="" enctype="multipart/form-data">
+    <form method="POST" action="/streaming/update-streaming/{{$streaming->id}}" enctype="multipart/form-data">
       @csrf
-      
+      @method('PUT')
     <div class="mb-6 flex items-center">
         <label class="w-28 text-sm mx-5">Workshop Name</label>
         <div class = "w-full mx-5">
@@ -22,6 +22,8 @@
           @enderror
         </div>
       </div>
+
+      <input hidden type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Name" name="status" value="{{$streaming->status}}" />
 
       <div class="mb-6 flex items-center">
         <label class="w-28 text-sm mx-5">Title</label>
@@ -36,31 +38,16 @@
       <div class="mb-6 flex items-center">
         <label class="w-28 text-sm mx-5">Video Url</label>
         <div class = "w-full mx-5">
-          <input type="text" id="yourText" disabled class="border border-gray-200 rounded p-1 w-full" placeholder="Url" value="{{$streaming->url}}" name="url"/>
-          <input type="checkbox" id="yourBox" />
+          <input type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Url" value="{{$streaming->url}}" name="url"/>
           @error('url')
           <p class="text-red-500 text-xs mt-1">{{$message}}</p>
           @enderror
         </div>
       </div>
-<!--
-      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 flex  justify-center" for="file_input">Set url video or choose a file</label>
-
-      <div class="mb-6 flex items-center">
-        <label class="w-28 text-sm mx-5">Video Url</label>
-        <div class = "w-full mx-5">
-            <input type="file"  id="yourText" disabled  class="border border-gray-200 rounded p-1 w-full" >
-            <input type="checkbox" id="yourBox" />
-        @error('url')
-          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-          @enderror
-        </div>
-      </div>
--->
 
       <div class="mb-6 flex items-center">
         <label class="w-28 text-sm mx-5" for="">Description</label>
-        <textarea type="text" name="description" class="border border-gray-200 rounded p-1 w-full mx-5">{{old('description')}}</textarea>
+        <textarea type="text" name="description" class="border border-gray-200 rounded p-1 w-full mx-5">{{$streaming->description}}</textarea>
       </div>
       <script>
         tinymce.init({
@@ -79,16 +66,11 @@
       </script>
 
       <div class="w-full p-4 flex justify-end border-t border-gray-200">
-        <a href="" class="p-3 text-gray-400 mx-10"> Cancel </a>
+        <a href="/streaminglive/{{$workshops->id}}" class="p-3 text-gray-400 mx-10"> Cancel </a>
         <button class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600">Update Streaming</button>
       </div>
 
     </form>
   </div>
 </div>
-<script>
-document.getElementById('yourBox').onchange = function() {
-    document.getElementById('yourText').disabled = !this.checked;
-};
-</script>
 @endsection

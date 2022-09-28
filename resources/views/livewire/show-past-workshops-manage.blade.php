@@ -66,6 +66,10 @@
                   <i class="fa-solid fa-user-plus text-gray-400 fa-sm"></i> Add Participant
                 </a>
               </li>
+              <li>
+              <a class="py-1 px-3 block hover:bg-indigo-100 " >
+              <i class="fa-solid fa-video text-gray-400 fa-sm"></i> Streaming</a>
+            </li>
             </ul>
           </div>
         </td>
