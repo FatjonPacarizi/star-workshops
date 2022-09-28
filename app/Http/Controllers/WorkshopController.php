@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use PDF;
-use DateTime;
-use DateTimeZone;
 use App\Models\City;
 use App\Models\Type;
 use App\Models\User;
@@ -12,16 +10,16 @@ use App\Models\Country;
 use App\Models\Category;
 use App\Models\Workshop;
 use App\Models\Streaming;
-use App\Models\streamings_workshops;
+use Illuminate\Support\Str;
 use App\Models\workshops_users;
+use App\Mail\newWorkshopEmailSender;
+use App\Models\streamings_workshops;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use ParagonIE\ConstantTime\Base64UrlSafe;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
-use App\Mail\newWorkshopEmailSender;
-use App\Models\Message;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Mail;
 
 class WorkshopController extends Controller
 {
@@ -63,6 +61,7 @@ class WorkshopController extends Controller
     {
         $validated = $request->validated();
         $validated['author'] = Auth::id();
+        $validated['workshop_token'] = Base64UrlSafe::encode(random_bytes(20));
 
         if(request()->hasFile('img_workshop')) {
          
@@ -96,7 +95,7 @@ class WorkshopController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {    
+    {   
             $workshop = Workshop::where('workshops.id',$id)->get();     
 
             $streamings = Streaming::all()->where('workshop_id',$id);

@@ -20,6 +20,7 @@ class Workshop extends Model
         'limited_participants',
         'description',
         'author',
+        'workshop_token',
         'type_id',
         'country_id',
         'city_id',
@@ -49,6 +50,7 @@ class Workshop extends Model
         return $this->hasMany(workshops_users::class)
         ->where('application_status','pending');
    }
+  
 
    public function category(){
 

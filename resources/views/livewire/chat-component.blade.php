@@ -9,16 +9,13 @@
 
                 <ul id="chatList">
                     @foreach ($messages as $msg)
-                    <li> 
-                        @php 
-                           $name = $msg->sender;
-                           $firstLetter = $name[0];
-                        @endphp   
+                    <li>
                         <div class="flex p-5">
-                            <div class = "w-8 h-8 p-3 rounded-full border flex justify-center items-center ">{{$firstLetter}}</div> 
+                            <div class="w-8 h-8 p-3 rounded-full border flex justify-center items-center ">
+                                {{strtoupper($msg->sender[0])}}</div>
                             <div class="w-full bg-gray-100 ml-3 rounded p-2">
-                                <span class = "text-black font-bold block">{{$msg->sender}}</span>
-                                <p class = "text-xs text-gray-500">{{$msg->message}}</p> 
+                                <span class="text-xs text-gray-500 block">{{$msg->sender}}</span>
+                                <p class="text-black font-bold break-all">{{$msg->message}}</p>
                             </div>
                         </div>
                     </li>
@@ -27,38 +24,42 @@
 
             </div>
             <div class="bg-gray-100">
-
-                <input type="text" id="chat-input" class="w-11/12 bg-inherit border-none focus:ring-0"
-                    placeholder="Send a message..."  wire:model="message" wire:keydown.enter="send('{{auth()->user()->name}}')"/>
-                <button onClick = "clearInput()"  id="chat-submit"  wire:click = "send('{{auth()->user()->name}}')"> <i
-                        class="fa-regular fa-paper-plane"></i></button>
-
+                <textarea type="text" id="chat-input" oninput="auto_height(this)" class="w-11/12 h-8 overflow-hidden bg-inherit border-none focus:ring-0" placeholder="Send a message..." wire:model.defer="message" wire:keydown.enter="send('{{auth()->user()->name}}')"></textarea>
+                <button onClick="clearInput()" id="chat-submit" wire:click="send('{{auth()->user()->name}}')"> <i
+                        class="fa-regular fa-paper-plane"></i></button>   
+                <input type = "hidden" value = {{$workshop_id}} id = "channel" />
             </div>
         </div>
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
-        Echo.channel('chat')
+        Echo.private('<?php echo "workshop.".$workshop_id ?>')
             .listen('MessageEvent', (e) => {
                 const data = Object.values(e.msg);
                 var ul = document.getElementById("chatList");
                 var li = document.createElement("li");
 
                 li.innerHTML = '<div class="flex p-5"><div class = "w-8 h-8 p-3 rounded-full border flex justify-center items-center ">'+data[0][0]+'</div>'+
-                '<div class="w-full bg-gray-100 ml-3 rounded p-2"> <span class = "text-black font-bold block">'+data[0]+'</span> <p class = "text-xs text-gray-500">'+ data[1] +'</p></div></div>'
+                '<div class="w-full bg-gray-100 ml-3 rounded p-2"> <span class = "text-xs text-gray-500 block">'+data[0]+'</span> <p class = "text-black font-bold break-all">'+ data[1] +'</p></div></div>'
                 ; 
                 ul.appendChild(li);
                 
-                $('div').animate({scrollTop: $("#chatList li").last().offset().top},'slow');
+
+                $("div").scrollTop($("#chatList")[0].scrollHeight);
+               // $('div').animate({scrollTop: $("#chatList li").last().offset().top},'slow');
             });
              function clearInput() {
                 document.getElementById("chat-input").value = "";
              }
              window.onload = function() {
-                $("div").scrollTop(1000);
-               
+                $("div").scrollTop($("#chatList")[0].scrollHeight);               
             };
 
+
+            function auto_height(elem) { 
+                elem.style.height = "1px";
+                elem.style.height = (elem.scrollHeight)+"px";
+            }
             //in case we need
               //     var ul = document.getElementById("chatList");
             //     var li = document.createElement("li");

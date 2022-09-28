@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+use App\Models\workshops_users;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -15,4 +17,14 @@ use Illuminate\Support\Facades\Broadcast;
 
 Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
+});
+Broadcast::channel('workshop.{id}', function ($user, $id) {
+    if($user->user_status == "admin" || $user->user_status == "superadmin") return true;
+
+    $approved = User:: find($user->id)->workshops()->wherePivot('workshop_id',$id)->wherePivot('application_status','approved')->first();
+
+    if($approved!=null) return true;
+    
+    return false;
+    
 });

@@ -66,8 +66,11 @@ class User extends Authenticatable
 
     public function workshop()
     {
-
         return  $this->hasMany(Workshop::class, 'id');
+    }
+    public function workshops()
+    {
+        return  $this->belongsToMany(Workshop::class,'workshops_users','user_id','workshop_id');
     }
     public function members()
     {

@@ -19,6 +19,7 @@
                     <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">Limitaion for this event
                         have been reached: {{$participants}} participants</p>
                     @elseif($already_applied)
+                  
                     @if($application_status[0]->application_status == 'pending')
                     <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">
                         @if(session()->has('message'))
@@ -83,7 +84,13 @@
 <section class=" body-font bg-white my-10 px-5  md:px-16  lg:px-24">
     <div>
         @auth
-            <livewire:chat-component  />
+            @can('is_admin_or_superadmin')
+                  <livewire:chat-component  />
+                @else
+                    @if($already_applied && $application_status[0]->application_status == 'approved')
+                        <livewire:chat-component  />
+                    @endif
+            @endcan
         @endauth
         <p>{!! $workshop->description !!}</p>
     </div>

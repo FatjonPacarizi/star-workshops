@@ -13,6 +13,7 @@ use Illuminate\Queue\SerializesModels;
 class MessageEvent implements ShouldBroadcast
 {
     public $msg;
+    public $wID;
 
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -21,9 +22,11 @@ class MessageEvent implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($msg)
+    public function __construct($msg,$wID)
     {
         $this->msg = $msg;
+        $this->wID = $wID;
+        //dd("workshop.{$this->wID}");
     }
 
     /**
@@ -33,6 +36,6 @@ class MessageEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('chat');
+        return new PrivateChannel("workshop.{$this->wID}");
     }
 }

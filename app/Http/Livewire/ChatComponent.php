@@ -18,30 +18,33 @@ class ChatComponent extends Component
     public function render()
     {
         $workshop = Workshop::find($this->currentUrl[strlen($this->currentUrl)-1]);
-        return view('livewire.chat-component', ['messages' => Message::where('workshop',$workshop->name)->get()]);
+        return view('livewire.chat-component', ['messages' => Message::where('workshop',$workshop->name)->get(),'workshop_id'=>$this->currentUrl[strlen($this->currentUrl)-1]]);
     }
     public function send($name)
     {
+        if($this->message != null){
 
-        $array = array();
-        $array['name'] = $name;
-        $array['message'] = $this->message;
+            $workshop_id = $this->currentUrl[strlen($this->currentUrl)-1];
 
-        //dd(json_encode($array));
-        event(new \App\Events\MessageEvent($array));
+            $array = array();
+            $array['name'] = $name;
+            $array['message'] = $this->message;
 
-        $msg =  $this->message;
+            //dd(json_encode($array));
+            event(new \App\Events\MessageEvent($array,$workshop_id));
 
-        $this->message = null;
+            $msg =  $this->message;
 
-        $workshop = Workshop::find($this->currentUrl[strlen($this->currentUrl)-1]);
+            $this->message = null;
 
-        Message::create([
-            'sender' => $name,
-            'workshop' => $workshop->name,
-            'message' => $msg
-        ]
-        );
+            $workshop = Workshop::find($workshop_id);
 
+            Message::create([
+                'sender' => $name,
+                'workshop' => $workshop->name,
+                'message' => $msg
+            ]
+            );
+        }
     }
 }
