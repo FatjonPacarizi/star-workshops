@@ -15,10 +15,10 @@ class AppointmentsCalendar extends LivewireCalendar
         return Workshop::whereNotNull('time')
            ->get()
            ->map(function ($workshop) {
-
+            if($workshop->author == Auth::check())
             return [
-                'id'=> $workshop->id,
-                'title'=> $workshop->name,
+                'id'  => $workshop->id,
+                'title'=> $workshop->name ,
                 'description' => $workshop->user->name. ' '
                     .$workshop->category->name,
                 'date' => $workshop->time,

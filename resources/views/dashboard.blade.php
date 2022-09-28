@@ -24,16 +24,16 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
+
         
 		     <script src="https://code.highcharts.com/highcharts.js"></script>
 		<script type="text/javascript">
     var workshops = <?php echo json_encode($workshops)?>;
-=======
+
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script type="text/javascript">
             var workshops = <?php echo json_encode($workshops)?>;
->>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
+
     Highcharts.chart('chart', {
         title: {
             text: 'New Workshops 2022'

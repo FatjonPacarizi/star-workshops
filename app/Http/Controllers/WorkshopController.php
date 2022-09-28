@@ -274,22 +274,20 @@ class WorkshopController extends Controller
 
     public function deleteParticipant($workshopid,$participantantID){
        
-<<<<<<< HEAD
-         $participant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
+        $participant = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID]);
          $participant->delete();
-=======
+
          workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID])->delete();
->>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
+
 
          return redirect()->back()->with("tab",request('tab'));
     }
-<<<<<<< HEAD
+
 
     public function calendar(){
 
         return view('calendar');
     }
 
-=======
->>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
+
 }

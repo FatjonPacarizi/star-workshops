@@ -2,7 +2,6 @@
 @section('content')
 
 <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
-<<<<<<< HEAD
 
 <div class="w-full  p-6 px-10 flex ">
 
@@ -12,14 +11,6 @@
       <h1 class="p-3 text-black  font-medium  ">Workshop Edit</h1>
     </div>
 
-=======
-<div class="w-full  p-6 px-10 flex ">
-  <div class="w-full bg-white   shadow-md rounded-xl  ">
-    <div class="w-full flex items-center  border-b border-gray-200 mb-4">
-      <a href="{{ route('adminsuperadmin.showManageWorkshops') }}"><i class="fa-solid fa-arrow-left mx-4"></i></a>
-      <h1 class="p-3 text-black  font-medium  ">Workshop Edit</h1>
-    </div>
->>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
     <form method="POST" action="/workshops/manage/{{$workshop->id}}" enctype="multipart/form-data">
       @csrf
       @method('PUT')
@@ -152,11 +143,7 @@
       </div>
       <div class="w-full p-4 flex justify-end border-t border-gray-200">
         <a href="/workshops/manage" class="p-3 text-gray-400 mx-10"> Cancel </a>
-<<<<<<< HEAD
         <button class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600" type = "submit">Update Workshop</button>
-=======
-        <button class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600" type="submit">Update Workshop</button>
->>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
       </div>
     </form>
   </div>

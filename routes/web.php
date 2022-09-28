@@ -161,15 +161,13 @@ Route::group(['middleware' => 'auth'], function () {
 
             //Update a workshop
             Route::put('workshops/manage/{id}', [WorkshopController::class, 'update']);
-<<<<<<< HEAD
-=======
 
             //Start a workshop
             Route::put('workshops/manage/{id}/startworkshop', [WorkshopController::class, 'startWorkshop']);
             
              //End a workshop
             Route::put('workshops/manage/{id}/endworkshop', [WorkshopController::class, 'endWorkshop']);
->>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
+
 
             //Delete a workshop
             Route::delete('/workshops/manage/{workshop}', [WorkshopController::class, 'destroy']);
@@ -192,11 +190,11 @@ Route::group(['middleware' => 'auth'], function () {
             //Delete workshop Participant
             Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('deleteParticipant');
 
-<<<<<<< HEAD
+
             Route::get('/pdf/{workshopid}', [WorkshopController::class,  'showPDF'])->name('showPDF');
                     
             Route::get('/workshops/manage/addparticipant/{workshopid}',[WorkshopUsersController::class,'showUser'])->name('showUser');
-=======
+
             Route::get('/streaminglive/{id}',[StreamingController::class, 'show']);
             Route::get('/streaminglive/insert/{id}',[StreamingController::class, 'insert']);
             Route::post('/add-streaming', [StreamingController::class, 'store']);
@@ -208,23 +206,23 @@ Route::group(['middleware' => 'auth'], function () {
             Route::delete('/comment/delete/{comment}',[CommentController::class,'destroy']);
             Route::post('/reply-add',[ReplyController::class,'store']);
             Route::delete('/reply/delete/{id}',[ReplyController::class,'destroy']);
->>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
+
 
             
             Route::get('/pdf/{workshopid}', [WorkshopController::class,  'showPDF'])->name('showPDF');
                     
             Route::get('/workshops/manage/addparticipant/{workshopid}',[WorkshopUsersController::class,'showUser'])->name('showUser');
 
-<<<<<<< HEAD
+
             Route::get('news', [NewsPageController::class, 'newspage'])->name('shownewspages');
             Route::get('/news/add-news', [NewsPageController::class, 'create']);
             Route::post('/add-news', [NewsPageController::class, 'store']);
             Route::get('/news/edit-news/{id}', [NewsPageController::class, 'edit']);
             Route::put('/update-news/{id}', [NewsPageController::class, 'update']);
             Route::delete('/news/delete-news/{id}', [NewsPageController::class, 'destroy']);
-=======
+
             Route::post('/participants/add',[WorkshopUsersController::class,'store'])->name('storeParticipant');
->>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
+
 
             Route::get('news', [NewsPageController::class, 'newspage'])->name('shownewspages');
             Route::get('/news/add-news', [NewsPageController::class, 'create']);

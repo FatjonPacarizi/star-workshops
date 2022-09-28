@@ -2,10 +2,7 @@
     <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex  items-center">
-<<<<<<< HEAD
                 <!-- Logo -->
-=======
->>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
                 <div class="shrink-0 flex items-center ">
                     <i class="fa-solid fa-bars"></i>
                 </div>
@@ -34,7 +31,6 @@
 
                         <x-slot name="content">
                             <div class="w-60">
-<<<<<<< HEAD
                                 <!-- Team Management -->
                                 <div class="block px-4 py-2 text-xs text-gray-400">
                                     {{ __('Manage Team') }}
@@ -45,20 +41,11 @@
                                     {{ __('Team Settings') }}
                                 </x-jet-dropdown-link>
 
-=======
-                                <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Manage Team') }}
-                                </div>
-                                <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
-                                    {{ __('Team Settings') }}
-                                </x-jet-dropdown-link>
->>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
                                 @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                 <x-jet-dropdown-link href="{{ route('teams.create') }}">
                                     {{ __('Create New Team') }}
                                 </x-jet-dropdown-link>
                                 @endcan
-<<<<<<< HEAD
 
                                 <div class="border-t border-gray-100"></div>
 
@@ -67,12 +54,6 @@
                                     {{ __('Switch Teams') }}
                                 </div>
 
-=======
-                                <div class="border-t border-gray-100"></div>
-                                <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Switch Teams') }}
-                                </div>
->>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
                                 @foreach (Auth::user()->allTeams() as $team)
                                 <x-jet-switchable-team :team="$team" />
                                 @endforeach

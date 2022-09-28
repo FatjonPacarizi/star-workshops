@@ -43,7 +43,6 @@ class UserManageController extends Controller
         ]);
 
 
-<<<<<<< HEAD
          positions_users::where('user_id',$user->id)->update([
             'position_id' => request('position_id'),
          ]);
@@ -59,15 +58,4 @@ class UserManageController extends Controller
         
         return redirect('/users/manage');
       }
-=======
-        return redirect('/users/manage');
-    }
-
-    public function destroy(User $user)
-    {
-        $user->delete();
-
-        return redirect('/users/manage');
-    }
->>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
 }
