@@ -28,18 +28,23 @@ class Workshop extends Model
         'img_workshop'
 
     ];
-    
+
     public function workshopsItems(){
 
         return $this->hasOne(Country::class, 'category_id');
     }
-    
+
     public function user(){
-        
-        return $this->belongsTo(User::class,'author'); 
+
+        return $this->belongsTo(User::class,'author');
     }
     public function deletefrom(){
-        
-        return $this->belongsTo(User::class,'deleted_from_id'); 
+
+        return $this->belongsTo(User::class,'deleted_from_id');
+    }
+
+    public function category(){
+
+        return $this->belongsTo(Category::class,'category_id');
     }
 }

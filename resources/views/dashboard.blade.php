@@ -12,6 +12,7 @@
             
         </span>
         </div>
+        
         <div class="txt m-2 p-4 ">
                 @php
                    $users = App\Models\User::find(1);
@@ -30,6 +31,7 @@
             </div>
             
         </div>
+        
 		     <script src="https://code.highcharts.com/highcharts.js"></script>
 		<script type="text/javascript">
     var workshops = <?php echo json_encode($workshops)?>;

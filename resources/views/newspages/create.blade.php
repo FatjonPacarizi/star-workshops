@@ -4,14 +4,14 @@
 <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
 
 
-<div class="p-6 flex flex-col w-full  items-center">
+<div class="w-full  p-6 px-10 flex ">
 
-    <div class="w-full bg-white  rounded">
-        <div class="w-full flex justify-between items-center  border-b border-gray-200 mb-4">
-            <h1 class="p-3 text-slate-900">App News</h1>
-            <a href="http://127.0.0.1:8000/newspages" class="p-3 text-gray-400"> Cancel</a>
-        </div>
-        <form action="{{ url('add-newspage') }}" method="POST" enctype="multipart/form-data">
+    <div class="w-full bg-white   shadow-md rounded-xl  ">
+      <div class="w-full flex items-center  border-b border-gray-200 mb-4">
+        <a href="/news"><i class="fa-solid fa-arrow-left mx-4"></i></a>
+        <h1 class="p-3 text-black  font-medium  ">News insert</h1>
+      </div>
+        <form action="/add-news" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-6 flex items-center">
