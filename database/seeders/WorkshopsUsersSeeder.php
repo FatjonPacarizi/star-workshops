@@ -23,15 +23,15 @@ class WorkshopsUsersSeeder extends Seeder
             ],
             [
                 'workshop_id' => '11',
-                'user_id' => '2',
+                'user_id' => '5',
             ],
             [
                 'workshop_id' => '11',
-                'user_id' => '1',
+                'user_id' => '5',
             ],
             [
                 'workshop_id' => '10',
-                'user_id' => '2',
+                'user_id' => '4',
             ],
             [
                 'workshop_id' => '7',

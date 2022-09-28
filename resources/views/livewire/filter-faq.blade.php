@@ -9,9 +9,16 @@
     </select>
     </div>
     <div class = "flex flex-col items-center">
+<<<<<<< HEAD
         <select wire:model="sortby" wire:change = "filter" class="text-slate-900 rounded-xl my-3 text-xs border-b border-gray-100 ml-4 focus:ring-0 " >
             <option value = "ASC">ASC</option>
             <option value = "DESC">DESC</option>
+=======
+        <p class = "text-xs">Sort By</p>
+        <select wire:model="sortby" wire:change = "filter" class="text-slate-900 rounded my-3 text-xs border-b border-gray-400 ml-4" >
+            <option value = "ASC">Active</option>
+            <option value = "DESC">Deactive</option>
+>>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
         </select>
         </div>
 </div>

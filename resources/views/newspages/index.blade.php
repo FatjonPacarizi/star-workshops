@@ -10,7 +10,6 @@
       @if (session('status'))
       <div class="w-full flex justify-center">{{ session('status') }}</div>
       @endif
-      
       <livewire:show-news/>
 </div>
   @endsection

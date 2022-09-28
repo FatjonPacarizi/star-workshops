@@ -6,7 +6,6 @@ use Carbon\Carbon;
 use App\Models\Landing;
 use App\Models\Workshop;
 use App\Models\NewsPage;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UpdateLandingRequest;
 
 class LandingController extends Controller
@@ -15,19 +14,11 @@ class LandingController extends Controller
         
         $currentTime = Carbon::now('Europe/Tirane');
 
-        $newspage = NewsPage::limit(3)->orderBy('id', 'DESC')->get();
-
-        $upcomings = Workshop::limit(6)->Join("users", function($join){
-            $join->on("workshops.author", "=", "users.id");
-        })
+        $upcomings = Workshop::limit(6)
         ->where('workshops.time','>=',$currentTime)
-        ->select("users.name as author",'workshops.id',"workshops.name as name", "workshops.img_workshop as img_workshop","workshops.time as time")   
-        ->orderBy('workshops.id','desc')->get();
+        ->orderBy('id','desc')->get();
 
-        
-
-        return view('landing', ['upcomings' => $upcomings, 'newspage' => $newspage,'landing'=>Landing::all()->last()]);
-
+        return view('landing', ['upcomings' => $upcomings, 'newspage' => NewsPage::limit(3)->orderBy('id', 'DESC')->get(),'landing'=>Landing::all()->last()]);
     }
 
     public function landing()
@@ -37,13 +28,10 @@ class LandingController extends Controller
 
     public function update(UpdateLandingRequest $request, $id)
     {
-        $landing = landing::find($id);
-
         $validated = $request->validated();
 
-        $landing->update($validated);
+        landing::find($id)->update($validated);
         
-
         return redirect('/landings')->with('status', 'Landing Updated Successfully');
     }
 }

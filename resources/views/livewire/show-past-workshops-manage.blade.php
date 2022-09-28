@@ -19,7 +19,11 @@
               src="{{$pastsWorkshop->img_workshop ? asset('/storage/' . $pastsWorkshop->img_workshop) : asset('/img/test.jpg')}}" />
             <div class="ml-3 ">
               <h1 class="text-black">{{\Illuminate\Support\Str::limit($pastsWorkshop->name, 45, $end='...') }}</h1>
+<<<<<<< HEAD
               <p class="text-xs text-gray-500">{{$pastsWorkshop->countryName}}, {{$pastsWorkshop->cityName}}</p>
+=======
+              <p class="text-xs text-gray-500">{{$pastsWorkshop->country->name}}, {{$pastsWorkshop->city->name}}</p>
+>>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
             </div>
           </div>
         </td>
@@ -36,9 +40,14 @@
         <td>
           <div class="relative flex items-center" x-data="{ open: false }">
             <i class="fa-solid fa-ellipsis-vertical cursor-pointer w-3" @click="open = !open"></i>
+<<<<<<< HEAD
             <a class = "ml-3" href={{ route('adminsuperadmin.showPDF',$pastsWorkshop->id)}}><i class="fa-solid fa-file-arrow-down pl-1"></i></a>
 
             <ul class="bg-white absolute top-0 mt-2 z-10 shadow-lg rounded-lg border border-gray-100 w-40 py-1 " x-show="open"
+=======
+
+            <ul id = "pastmenu" class="bg-white absolute top-0 mt-2 z-10 shadow-lg rounded-lg border border-gray-100 w-40 py-1 " x-show="open"
+>>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
               @click.outside="open = false">
               <li>
                 <p class="text-xs pl-3 py-2 text-gray-400 ">Manage Workshop</p>
@@ -48,6 +57,7 @@
                   class="py-1 px-3 border-b block hover:bg-indigo-100 ">
                   <i class="fa-solid fa-pen mr-1 fa-sm"></i>Edit</a>
               <li>
+<<<<<<< HEAD
                 <form method="POST" action="/workshops/manage/{{$pastsWorkshop->id}}">
                   @csrf
                   @method('DELETE')
@@ -58,6 +68,22 @@
                 </form>
               </li>
               <li>
+=======
+                <button wire:click = 'deleteWorkshop({{$pastsWorkshop->id}})' onClick = "hidepastmenu()" class="w-full text-left text-red-400 py-1 px-3 hover:bg-indigo-100 border-b">
+                  <i class="fa-solid fa-trash-can   fa-sm"></i> Delete
+                </button>
+              </li>
+              <li>
+              <a class="w-full text-left py-1 px-3 block hover:bg-indigo-100 border-b text-blue-900 " href={{ route('adminsuperadmin.showPDF',$pastsWorkshop->id)}}>
+                <i class="fa-regular fa-file-pdf"></i> Generate PDF</a>
+            </li>
+            <li class = "flex items-center px-3 py-1 border-b hover:bg-indigo-100">
+              <i class="fa-regular fa-calendar-check mr-1.5 text-red-400"></i>
+              <input wire:change = 'endWorkshop({{$pastsWorkshop->id}})' type ="checkbox"  onClick = "hidepastmenu()" @if($pastsWorkshop->workshop_endTime != null) checked  @endif class = "mr-2 rounded"/>
+              Ended
+            </li>
+              <li>
+>>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
                 <a class="py-1 px-3 block hover:bg-indigo-100 " href={{
                   route('adminsuperadmin.showUser',$pastsWorkshop->id) }}>
                   <i class="fa-solid fa-user-plus text-gray-400 fa-sm"></i> Add Participant
@@ -70,10 +96,17 @@
           <a href={{ route('adminsuperadmin.showParticipants',$pastsWorkshop->id)}} class="w-fit px-3 py-2
             text-left flex items-center relative ">
             <i class="fa-solid fa-user fa-md text-gray-400"></i>
+<<<<<<< HEAD
             @if($pastsWorkshop->pendingParticipants > 0)
             <p
               class="w-4 h-4 text-xs text-white absolute top-0 right-0 flex justify-center items-center rounded-full bg-red-400">
               {{$pastsWorkshop->pendingParticipants}}</p>
+=======
+            @if(count($pastsWorkshop->pendingParticipants) > 0)
+            <p
+              class="w-4 h-4 text-xs text-white absolute top-0 right-0 flex justify-center items-center rounded-full bg-red-400">
+              {{count($pastsWorkshop->pendingParticipants)}}</p>
+>>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
             @endif
           </a>
         </td>
@@ -104,4 +137,13 @@
     </div>
     <div class=" p-3">{{ $pastsWorkshops->links() }}</div>
   
+<<<<<<< HEAD
   </div>
+=======
+  </div>
+  <script>
+    function hidepastmenu(){
+      var x = document.getElementById("pastmenu").style.display = "none";
+    }
+  </script>
+>>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96

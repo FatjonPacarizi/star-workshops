@@ -16,4 +16,9 @@ class NewsPage extends Model
         'time',
         'image',
     ];
+
+    public function user(){
+        
+        return $this->belongsTo(User::class,'author'); 
+    }  
 }

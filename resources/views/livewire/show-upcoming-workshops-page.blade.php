@@ -1,12 +1,18 @@
 <div>
     <div class=" flex flex-wrap">
         @foreach($upcomings as $upcoming)
+        @php 
+
+
+
+        @endphp
         <div class="card  relative rounded shadow-lg  bg-white cursor-pointer ">
           <a href="{{route('single-workshop',$upcoming->id)}}">
             <div class="opacity"></div>
             <img class="img" src="{{$upcoming->img_workshop ? asset('/storage/' . $upcoming->img_workshop) : asset('/img/test.jpg')}}" />
-            <h1 class=" absolute top-0 left-0 text-white p-5 font-bold text-lg">{{$upcoming->name}}</h1>
-            <div class="my-5">
+            <h1 class=" absolute top-0 left-0 text-white p-5 font-bold text-lg"> @if($upcoming->workshop_startTime != null ) <span class="w-2.5 h-2.5 bg-red-500 rounded-full inline-block "></span> @endif{{$upcoming->name}}</h1>
+            <div class="flex items-center justify-between">
+            <div class="my-5 w-8/12">
               <div class="flex items-center">
                 <i class="fa-solid fa-calendar-days text-gray-500 ml-5 mr-2 -mt-1 "></i>
                 <h1 class="uppercase  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">{{ \Carbon\Carbon::parse($upcoming->time)->format('d-F-Y') }}
@@ -14,9 +20,13 @@
               </div>
               <div class="flex items-center mt-2">
                 <i class="fa-solid fa-user text-gray-500 ml-5 mr-2 -mt-1"></i>
-                <h1 class="uppercase  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">{{$upcoming->author}}</h1>
+                <h1 class="uppercase  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">{{$upcoming->user->name}}</h1>
               </div>
             </div>
+            @if($upcoming->workshop_startTime != null ) 
+              <div class="border border-red-400 rounded mr-5 px-5 text-red-400 font-bold">live</div>
+            @endif
+          </div>
           </a>
         </div>
         @endforeach

@@ -96,7 +96,7 @@
                                 <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'news' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}"> <i class="fa-regular fa-newspaper mx-1  fa-sm"></i></div>
                                 <span class="grow ml-3 text-gray-600">News</span>
                                 @php
-                                $news = App\Models\NewsPage::all();
+                                $news = App\Models\NewsPage::where(['author'=> Auth::id()])->get();
                                 @endphp
                                 <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-slate-400">{{count($news)}}</p>
 

@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\NewsPage;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreNewsPageRequest;
 use App\Http\Requests\UpdateNewsPageRequest;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class NewsPageController extends Controller
 {
@@ -20,6 +19,7 @@ class NewsPageController extends Controller
     public function  newspage()
     {
         return view('newspages.index');
+
     }
 
     public function create()
@@ -30,11 +30,12 @@ class NewsPageController extends Controller
     public function store(StoreNewsPageRequest $request)
     {
         $validated = $request->validated();
-      
-        if(request()->hasFile('image')) {
-            $validated['image'] = request()->file('image')->store('newsImgs','public');
+        $validated['author'] = Auth::id();
+
+        if (request()->hasFile('image')) {
+            $validated['image'] = request()->file('image')->store('newsImgs', 'public');
         }
-        
+
         newspage::create($validated);
 
         return redirect('/news')->with('status', 'News added successfully');
@@ -43,7 +44,7 @@ class NewsPageController extends Controller
     public function show($id)
     {
         $newspage = Newspage::find($id);
-        return view('newsp',['newspage'=>$newspage,'threenews'=>Newspage::where('id','!=',$id)->orderBy('id', 'DESC')->paginate(3)]);
+        return view('newsp', ['newspage' => $newspage, 'threenews' => Newspage::where('id', '!=', $id)->orderBy('id', 'DESC')->paginate(3)]);
     }
 
     public function edit($id)
@@ -54,23 +55,22 @@ class NewsPageController extends Controller
 
     public function update(UpdateNewsPageRequest $request, $id)
     {
+        $request->author = Auth::id();
+
         $validated = $request->validated();
-      
+
         $newspage = Newspage::find($id);
-        if(request()->hasFile('image')) {
-         
-            $validated['image'] = request()->file('image')->store('newsImgs','public');
-            //e ruajm old news image para se me update
-             $oldNewsImg = $newspage->image;
+        if (request()->hasFile('image')) {
+
+            $validated['image'] = request()->file('image')->store('newsImgs', 'public');
+            $oldNewsImg = $newspage->image;
         }
-        
-        //update news
+
         $newspage->update($validated);
-        
+
         // delete old img only when db update is succesful
-        if(request()->hasFile('image')) {
-        //delete old img
-        Storage::delete('/public/' .$oldNewsImg);
+        if (request()->hasFile('image')) {
+            Storage::delete('/public/' . $oldNewsImg);
         }
         return redirect('/news')->with('status', 'News updated successfully');
     }
@@ -78,10 +78,7 @@ class NewsPageController extends Controller
     public function destroy($id)
     {
         $newspage = Newspage::find($id);
-        $destination = 'uploads/newspage/'.$newspage->image;
-            if (File::exists($destination)) {
-                File::delete($destination);
-            }
+        Storage::delete('/public/' . $newspage->image);
         $newspage->delete();
         return redirect('/news')->with('status', 'News deleted successfully');
     }

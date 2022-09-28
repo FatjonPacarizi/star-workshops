@@ -6,53 +6,44 @@ use App\Http\Controllers\Controller;
 use App\Models\Positions;
 use App\Models\positions_users;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class UserManageController extends Controller
 {
-     public function index( Request $request){
-        $search = "";
-        if($request->input('search')) $search=$request->input('search');
-        $users = User::where("users.name", 'LIKE', "%{$search}%")->paginate(8);
-        return view('manageUsers',['users'=>$users]);
+    public function index()
+    {
+        return view('manageUsers');
     }
 
-    //Show edit form
-    public function edit($id){
-
-        $userPosition = User::Join("positions_users", function($join){
-            $join->on("users.id", "=", "positions_users.user_id");
-        })
-        ->Join("positions", function($join){
-            $join->on("positions_users.position_id", "=", "positions.id");
-        })
-        ->where('positions_users.user_id',$id)
-        ->select("positions.position as position")
-        ->get();
-     
-        return view('editUser',['user'=>User::find($id),'positions'=>Positions::all(),'userPosition'=>$userPosition[0]]);
+    public function edit($id)
+    {
+        return view('editUser', ['user' => User::find($id), 'positions' => Positions::all()]);
     }
 
-      //update user
-      public function update($id){
+    public function update($id)
+    {
+        request()->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'user_status' => 'required',
+        ]);
 
-          request()->validate([
-              'name' => 'required',
-              'email' => 'required|email',
-              'user_status' => 'required',
-          ]);
-  
-          $user = User::find($id);
-          $user->update([
-              'name' => request('name'),
-              'email' => request('email'),
-              'user_status' => request('user_status'),
-              'description' => request('description'),
-              'facebook' => ('facebook'),
-              'instagram' => ('instagram'),
-              'github' => ('github'),
-          ]);
+        $user = User::find($id);
+        $user->update([
+            'name' => request('name'),
+            'email' => request('email'),
+            'user_status' => request('user_status'),
+            'description' => request('description'),
+            'facebook' => ('facebook'),
+            'instagram' => ('instagram'),
+            'github' => ('github'),
+        ]);
 
+        positions_users::where('user_id', $user->id)->update([
+            'position_id' => request('position_id'),
+        ]);
+
+
+<<<<<<< HEAD
          positions_users::where('user_id',$user->id)->update([
             'position_id' => request('position_id'),
          ]);
@@ -68,4 +59,15 @@ class UserManageController extends Controller
         
         return redirect('/users/manage');
       }
+=======
+        return redirect('/users/manage');
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        return redirect('/users/manage');
+    }
+>>>>>>> a94ef35a8528d1541e525dc68ae8e95695257a96
 }

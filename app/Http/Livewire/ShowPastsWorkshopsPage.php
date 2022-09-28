@@ -13,16 +13,9 @@ class ShowPastsWorkshopsPage extends Component
 
     public function render()
     {
-        $currentTime = Carbon::now('Europe/Tirane');
-
-        $pasts = Workshop::Join("users", function($join){
-            $join->on("workshops.author", "=", "users.id");
-        })
-        ->where('workshops.time','<',$currentTime)
-        ->select("users.name as author",'workshops.id',"workshops.name as name", "workshops.img_workshop as img_workshop","workshops.time as time")
-        ->orderBy('id', 'DESC')
-        ->paginate(6,['*'], 'pastsWorkshopsPage');
-
+        $pasts = Workshop::whereNotNull('workshop_endTime')
+        ->orderBy('workshop_endTime', 'DESC')
+        ->simplePaginate(6,['*'], 'pastsWorkshopsPage');
         
         return view('livewire.show-pasts-workshops-page',['pasts'=>$pasts]);
     }
