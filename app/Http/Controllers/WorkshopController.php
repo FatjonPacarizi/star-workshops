@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use PDF;
-use DateTime;
-use DateTimeZone;
 use App\Models\City;
 use App\Models\Type;
 use App\Models\User;
@@ -12,15 +10,16 @@ use App\Models\Country;
 use App\Models\Category;
 use App\Models\Workshop;
 use App\Models\Streaming;
-use App\Models\streamings_workshops;
+use Illuminate\Support\Str;
 use App\Models\workshops_users;
+use App\Mail\newWorkshopEmailSender;
+use App\Models\streamings_workshops;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use ParagonIE\ConstantTime\Base64UrlSafe;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
-use App\Mail\newWorkshopEmailSender;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Mail;
 
 class WorkshopController extends Controller
 {
@@ -62,6 +61,7 @@ class WorkshopController extends Controller
     {
         $validated = $request->validated();
         $validated['author'] = Auth::id();
+        $validated['workshop_token'] = Base64UrlSafe::encode(random_bytes(20));
 
         if(request()->hasFile('img_workshop')) {
          
@@ -94,18 +94,17 @@ class WorkshopController extends Controller
      * @param  \App\Models\Workshop  $workshop
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {    
-            $workshop = Workshop::where('workshops.id',$id)->get();     
-
-            $streamings = Streaming::all()->where('workshop_id',$id);
+    public function show(Workshop $workshop)
+    {   
+            
+            $streamings = Streaming::all()->where('workshop_id',$workshop->id);
 
             $workshop_user = workshops_users::all();
 
             $upcoming = false;
-            if ($workshop[0]->workshop_endTime == null) $upcoming = true;
+            if ($workshop->workshop_endTime == null) $upcoming = true;
 
-            $application_status = workshops_users::select('application_status')->where(['workshop_id'=>$id,'user_id'=>Auth::id()])
+            $application_status = workshops_users::select('application_status')->where(['workshop_id'=>$workshop->id,'user_id'=>Auth::id()])
             ->get();
             
             $already_applied = false;
@@ -118,7 +117,7 @@ class WorkshopController extends Controller
                 $join->on("workshops.id", "=", "workshops_users.workshop_id");
             })
             ->select("workshops.id as id","workshops.limited_participants as limited_participants")
-            ->where("workshops_users.workshop_id",$id)
+            ->where("workshops_users.workshop_id",$workshop->id)
             ->get();
 
             $limitReached = false;
@@ -131,7 +130,7 @@ class WorkshopController extends Controller
             
             
 
-        return view('workshopPage',['workshop'=>$workshop[0],
+        return view('workshopPage',['workshop'=>$workshop,
                                     'limitReached' => $limitReached, 
                                     'participants' => $participants,
                                     'already_applied' => $already_applied,
