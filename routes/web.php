@@ -116,6 +116,8 @@ Route::group(['middleware' => 'auth'], function () {
 
             //Edit app Infos
             Route::put('/appinformations/{id}/edit', [InformationController::class, 'update']);
+
+            Route::get('/calendar',[WorkshopController::class,'calendar'])->name('calendar');
         }
     );
 
