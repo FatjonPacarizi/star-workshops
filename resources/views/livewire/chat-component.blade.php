@@ -65,22 +65,6 @@
                 e.preventDefault();
                 @this.send();
             }
-            else{
-              
-            }
             });
-
-
-            //in case we need
-              //     var ul = document.getElementById("chatList");
-            //     var li = document.createElement("li");
-
-            //     li.innerHTML = '<div class="flex p-5"><div class = "w-8 h-8 p-3 rounded-full border flex justify-center items-center ">'+ name[0] + '</div>'+
-            //     '<div class="w-full bg-gray-100 ml-3 rounded p-2"> <span class = "text-black font-bold block">{{auth()->user()->name}}</span> <p class = "text-xs text-gray-500">'+ document.getElementById("chat-input").value +'</p></div></div>'
-            //     ; 
-            //     ul.appendChild(li);
-            //     document.getElementById("chat-input").value = "";
-            //     $('div').animate({scrollTop: $("#chatList li").last().offset().top},'slow');
-
     </script>
 </div>

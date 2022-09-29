@@ -61,7 +61,6 @@ class WorkshopController extends Controller
     {
         $validated = $request->validated();
         $validated['author'] = Auth::id();
-        $validated['workshop_token'] = Base64UrlSafe::encode(random_bytes(20));
 
         if(request()->hasFile('img_workshop')) {
          
