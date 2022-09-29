@@ -1,4 +1,4 @@
-To enable chat with websocket-package follow this steps: <br>
+To enable chat with websocket-package do following steps: <br>
 php artisan migrate:fresh --seed  <br>
 php artisan serve  <br>
 php artisan websocket:serve   <br>
