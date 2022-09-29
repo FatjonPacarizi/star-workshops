@@ -1,3 +1,34 @@
+To enable chat with websocket-package do following steps: <br>
+php artisan migrate:fresh --seed  <br>
+php artisan serve  <br>
+php artisan websocket:serve   <br>
+nese(nuk e njeh komanden 'websocket')<br>
+{  
+    in terminal:  <br>
+    composer require beyondcode/laravel-websockets  <br>
+    php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="migrations"  <br>
+    php artisan migrate:fresh --seed  <br>
+    php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="config"  <br>
+} <br>
+ <br>
+in .env file replace this lines <br>
+{
+       
+
+        BROADCAST_DRIVER=log    
+        PUSHER_APP_ID=
+        PUSHER_APP_KEY=
+        PUSHER_APP_SECRET=
+
+        {{WITH}}
+
+        BROADCAST_DRIVER=pusher  
+        PUSHER_APP_ID=myID
+        PUSHER_APP_KEY=myKey
+        PUSHER_APP_SECRET=secret
+}
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">

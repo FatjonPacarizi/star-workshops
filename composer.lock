@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "6a53c7e8b633adda641cb1c85fccd0ea",
+=======
+    "content-hash": "578289c16c7d2398e407b099a0042d6e",
+>>>>>>> 2c901219e30926d93e1f702bb4a9c45faed05e44
     "packages": [
         {
             "name": "asantibanez/livewire-calendar",
