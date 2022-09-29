@@ -7,7 +7,7 @@
 
         @endphp
         <div class="card  relative rounded shadow-lg  bg-white cursor-pointer ">
-          <a href="{{route('single-workshop',$upcoming->id)}}">
+          <a href="{{route('single-workshop',$upcoming)}}">
             <div class="opacity"></div>
             <img class="img" src="{{$upcoming->img_workshop ? asset('/storage/' . $upcoming->img_workshop) : asset('/img/test.jpg')}}" />
             <h1 class=" absolute top-0 left-0 text-white p-5 font-bold text-lg"> @if($upcoming->workshop_startTime != null ) <span class="w-2.5 h-2.5 bg-red-500 rounded-full inline-block "></span> @endif{{$upcoming->name}}</h1>

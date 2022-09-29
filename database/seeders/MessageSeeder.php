@@ -16,27 +16,27 @@ class MessageSeeder extends Seeder
     {
         $messages = [
             [
-            'sender' => 'author',
-            'workshop' => 'Become a Certified HTML, CSS, JavaScript Web Developer',
-            'message' => 'test',
+                'sender_id' => 2,
+                'workshop_id' => 3,
+                'message' => 'hello im author',
             ],
             [
-                'sender' => 'admin',
-                'workshop' => 'Become a Certified HTML, CSS, JavaScript Web Developer',
+                'sender_id' => 10,
+                'workshop_id' => 3,
                 'message' => 'hello',
             ],
             [
-                'sender' => 'author',
-                'workshop' => 'Become a Certified HTML, CSS, JavaScript Web Developer',
-                'message' => '123',
+                'sender_id' => 1,
+                'workshop_id' => 3,
+                'message' => 'hello im admin',
             ],
             [
-                'sender' => 'user',
-                'workshop' => 'Become a Certified HTML, CSS, JavaScript Web Developer',
+                'sender_id' => 3,
+                'workshop_id' => 1,
                 'message' => '321',
             ],[
-                'sender' => 'Granit',
-                'workshop' => 'Become a Certified HTML, CSS, JavaScript Web Developer',
+                'sender_id' => 10,
+                'workshop_id' => 1,
                 'message' => 'its working',
             ]
       

@@ -8,40 +8,32 @@ use Livewire\Component;
 
 class ChatComponent extends Component
 {
-    public $currentUrl;
     public $message;
+    public $workshop;
 
-    public function mount()
-    {
-        $this->currentUrl = url()->current();
-    }
     public function render()
     {
-        $workshop = Workshop::find($this->currentUrl[strlen($this->currentUrl)-1]);
-        return view('livewire.chat-component', ['messages' => Message::where('workshop',$workshop->name)->get(),'workshop_id'=>$this->currentUrl[strlen($this->currentUrl)-1]]);
+        return view('livewire.chat-component', ['messages' => Message::where('workshop_id',$this->workshop->id)->get(),'workshop_id'=>$this->workshop->id]);
     }
-    public function send($name)
+    public function send()
     {
         if($this->message != null){
 
-            $workshop_id = $this->currentUrl[strlen($this->currentUrl)-1];
-
             $array = array();
-            $array['name'] = $name;
+            $array['name'] = auth()->user()->name;
             $array['message'] = $this->message;
+            $array['status'] = auth()->user()->user_status;
 
             //dd(json_encode($array));
-            event(new \App\Events\MessageEvent($array,$workshop_id));
+            event(new \App\Events\MessageEvent($array,$this->workshop->id));
 
             $msg =  $this->message;
 
             $this->message = null;
 
-            $workshop = Workshop::find($workshop_id);
-
-            Message::create([
-                'sender' => $name,
-                'workshop' => $workshop->name,
+            Message::insert([
+                'sender_id' => auth()->user()->id,
+                'workshop_id' => $this->workshop->id,
                 'message' => $msg
             ]
             );

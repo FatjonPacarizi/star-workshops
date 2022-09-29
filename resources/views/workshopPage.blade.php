@@ -81,14 +81,19 @@
 </section>
 
 
-<section class=" body-font bg-white my-10 px-5  md:px-16  lg:px-24">
+<section class=" body-font bg-white my-14 px-5  md:px-16  lg:px-24">
     <div>
         @auth
-            @can('is_admin_or_superadmin')
-                  <livewire:chat-component  />
+            @can('is_super_admin')
+                    @livewire('chat-component', ['workshop' => $workshop])
+                  {{-- <livewire:chat-component  :workshop = "{{$workshop}}"/> --}}
                 @else
-                    @if($already_applied && $application_status[0]->application_status == 'approved')
-                        <livewire:chat-component  />
+                    @if(auth()->user()->user_status == 'admin' && $workshop->author == auth()->user()->id) 
+                        @livewire('chat-component', ['workshop' => $workshop])
+                    @else
+                        @if($already_applied && $application_status[0]->application_status == 'approved')
+                            @livewire('chat-component', ['workshop' => $workshop])
+                        @endif
                     @endif
             @endcan
         @endauth

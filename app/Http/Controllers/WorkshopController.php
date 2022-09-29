@@ -94,16 +94,15 @@ class WorkshopController extends Controller
      * @param  \App\Models\Workshop  $workshop
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Workshop $workshop)
     {   
-            $workshop = Workshop::where('workshops.id',$id)->get();     
-
-            $streamings = Streaming::all()->where('workshop_id',$id);
+            
+            $streamings = Streaming::all()->where('workshop_id',$workshop->id);
 
             $upcoming = false;
-            if ($workshop[0]->workshop_endTime == null) $upcoming = true;
+            if ($workshop->workshop_endTime == null) $upcoming = true;
 
-            $application_status = workshops_users::select('application_status')->where(['workshop_id'=>$id,'user_id'=>Auth::id()])
+            $application_status = workshops_users::select('application_status')->where(['workshop_id'=>$workshop->id,'user_id'=>Auth::id()])
             ->get();
             
             $already_applied = false;
@@ -116,7 +115,7 @@ class WorkshopController extends Controller
                 $join->on("workshops.id", "=", "workshops_users.workshop_id");
             })
             ->select("workshops.id as id","workshops.limited_participants as limited_participants")
-            ->where("workshops_users.workshop_id",$id)
+            ->where("workshops_users.workshop_id",$workshop->id)
             ->get();
 
             $limitReached = false;
@@ -129,7 +128,7 @@ class WorkshopController extends Controller
             
             
 
-        return view('workshopPage',['workshop'=>$workshop[0],
+        return view('workshopPage',['workshop'=>$workshop,
                                     'limitReached' => $limitReached, 
                                     'participants' => $participants,
                                     'already_applied' => $already_applied,
