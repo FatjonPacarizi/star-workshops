@@ -42,7 +42,7 @@ Route::get('/', function () {
 
 
 Route::get('/members', [WorkshopController::class, 'showMembers']);
-
+Route::get('/aside',[StreamingController::class,'streamingview']);
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
 Route::get('/newspage', [NewsPageController::class, 'index']);
 Route::get('/newspage/{id}', [NewsPageController::class, 'show'])->name('single-news');
@@ -116,6 +116,8 @@ Route::group(['middleware' => 'auth'], function () {
 
             //Edit app Infos
             Route::put('/appinformations/{id}/edit', [InformationController::class, 'update']);
+
+            Route::get('/calendar',[WorkshopController::class,'calendar'])->name('calendar');
         }
     );
 
@@ -187,13 +189,14 @@ Route::group(['middleware' => 'auth'], function () {
             //Delete workshop Participant
             Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('deleteParticipant');
 
-            Route::get('/workshops/manage/streaminglive/{workshopid}',[StreamingController::class, 'show'])->name('showStreaming');
-            Route::get('/streaminglive/insert/{id}',[StreamingController::class, 'insert']);
+            Route::get('/workshops/manage/streaminglive/{id}',[StreamingController::class, 'show'])->name('showStreaming');
+            Route::get('/streaminglive/insert/{id}',[StreamingController::class, 'insert'])->name('insertStreaming');
             Route::post('/streaminglive/add-streaming', [StreamingController::class, 'store']);
             Route::get('/streaminglive/edit/{id}',[StreamingController::class, 'edit']);
             Route::put('/streaming/update-streaming/{id}',[StreamingController::class,'update']);
             Route::delete('/streaming/delete/{id}', [StreamingController::class, 'destroy']);
             Route::get('change-status/{id}', [StreamingController::class, 'changeStatus'])->name('change');
+           
 
             Route::post('/comment-add',[CommentController::class,'store']);
             Route::delete('/comment/delete/{comment}',[CommentController::class,'destroy']);

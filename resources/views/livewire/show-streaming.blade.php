@@ -13,8 +13,8 @@
         <tr class = 'border-b border-gray-200'>
 
           <td>  {{$str->title}}</td>
-          <td> {{$str->workshop[0]->name}}</td>
-          <td> {{$str->workshop[0]->category->name}} </td>
+          <td> {{$str->workshop->name}}</td>
+          <td> {{$str->workshop->category->name}} </td>
           <td class="text-items-center">
             @if($str->status != 'paid')
             <a href="{{ url('change-status/'.$str->id)}}" class="bg-green-500 text-white p-2 text-xs rounded mr-3 hover:bg-green-600">Free</a>

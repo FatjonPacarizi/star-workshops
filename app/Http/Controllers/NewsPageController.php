@@ -43,7 +43,7 @@ class NewsPageController extends Controller
 
     public function show($id)
     {
-        $newspage = Newspage::where(['id'=>$id,'author'=>Auth::id()])->get();
+        $newspage = Newspage::find($id);
         return view('newsp', ['newspage' => $newspage, 'threenews' => Newspage::where('id', '!=', $id)->orderBy('id', 'DESC')->paginate(3)]);
     }
 

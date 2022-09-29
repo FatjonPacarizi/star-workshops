@@ -25,10 +25,9 @@ class StreamingController extends Controller
 
     public function show($id){
 
-        $workshops = Workshop::find($id);
-       $streaming = Streaming::where('workshop_id',$workshops);
+       $workshops = Workshop::find($id);
 
-        return view('manageStreaming',['streaming'=>$streaming]);
+       return view('manageStreaming',['workshops'=>$workshops]);
     }
 
     public function insert($id){
@@ -82,6 +81,11 @@ class StreamingController extends Controller
         }
         Streaming::where('id', $id)->update(['status' => $status]);
         return redirect()->back();
+    }
+
+    public function streamingview(){
+
+        return view('asideStreaming');
     }
 
 }

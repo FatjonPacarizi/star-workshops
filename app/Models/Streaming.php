@@ -19,6 +19,6 @@ class Streaming extends Model
 
     public function workshop(){
 
-        return $this->hasMany(Workshop::class,'id','workshop_id');
+        return $this->belongsTo(Workshop::class,'workshop_id');
     }
 }
