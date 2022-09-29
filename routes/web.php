@@ -16,7 +16,8 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\WorkshopUsersController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\StreamingController;
-
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\chatController;
 
@@ -119,6 +120,8 @@ Route::group(['middleware' => 'auth'], function () {
 
             //Edit app Infos
             Route::put('/appinformations/{id}/edit', [InformationController::class, 'update']);
+
+            Route::get('/calendar',[WorkshopController::class,'calendar'])->name('calendar');
         }
     );
 
@@ -196,6 +199,12 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/streaminglive/edit/{id}',[StreamingController::class, 'edit']);
             Route::put('/update-streaming/{id}',[StreamingController::class,'update'])->name('updateStreaming');
             Route::delete('/streaming/delete/{id}', [StreamingController::class, 'destroy']);
+
+            Route::post('/comment-add',[CommentController::class,'store']);
+            Route::delete('/comment/delete/{comment}',[CommentController::class,'destroy']);
+            Route::post('/reply-add',[ReplyController::class,'store']);
+            Route::delete('/reply/delete/{id}',[ReplyController::class,'destroy']);
+
             
             Route::get('/pdf/{workshopid}', [WorkshopController::class,  'showPDF'])->name('showPDF');
                     

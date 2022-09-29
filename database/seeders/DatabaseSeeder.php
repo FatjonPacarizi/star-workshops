@@ -13,6 +13,7 @@ use App\Models\Feedback;
 use App\Models\Workshop;
 use App\Models\Landing;
 use App\Models\NewsPage;
+use App\Models\Streaming;
 use Illuminate\Database\Seeder;
 use Database\Seeders\InformationSeeder;
 
@@ -41,7 +42,8 @@ class DatabaseSeeder extends Seeder
             LandingsSeeder::class,
             WorkshopsUsersSeeder::class, 
             NewsPageSeeder::class,
-            MessageSeeder::class
+            MessageSeeder::class,
+            StreamingSeeder::class
         ]);
 
     }

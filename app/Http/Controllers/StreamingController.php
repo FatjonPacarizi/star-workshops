@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Streaming;
 use App\Models\Workshop;
 use App\Http\Requests\StoreStreamingRequest;
+use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
+
 
 class StreamingController extends Controller
 {
@@ -13,8 +16,9 @@ class StreamingController extends Controller
     public function index($id){
 
         $streaming = Streaming::find($id);
+        $comments = Comment::latest('created_at')->where('streaming_id',$id)->paginate(3);
 
-        return view('streaming',['streaming'=>$streaming]);
+        return view('streaming',['streaming'=>$streaming,'comments'=>$comments]);
     }
 
     public function show($id){
@@ -62,5 +66,6 @@ class StreamingController extends Controller
 
         return redirect()->back();
     }
+
 
 }
