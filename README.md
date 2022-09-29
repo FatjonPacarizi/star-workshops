@@ -19,15 +19,13 @@ in .env file replace this lines <br>
         PUSHER_APP_ID=
         PUSHER_APP_KEY=
         PUSHER_APP_SECRET=
-        PUSHER_APP_CLUSTER=mt1
 
         {{WITH}}
 
         BROADCAST_DRIVER=pusher  
-        PUSHER_APP_ID=anyID
-        PUSHER_APP_KEY=anyKey
-        PUSHER_APP_SECRET=anysecret
-        PUSHER_APP_CLUSTER=mt1
+        PUSHER_APP_ID=myID
+        PUSHER_APP_KEY=myKey
+        PUSHER_APP_SECRET=secret
 }
 
 
