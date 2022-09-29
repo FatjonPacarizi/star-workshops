@@ -23,13 +23,12 @@ in .env file replace this lines <br>
 
         {{WITH}}
 
-        BROADCAST_DRIVER=log  
+        BROADCAST_DRIVER=pusher  
         PUSHER_APP_ID=anyID
         PUSHER_APP_KEY=anyKey
         PUSHER_APP_SECRET=anysecret
         PUSHER_APP_CLUSTER=mt1
 }
-/////////////////////////////////////////////////////////
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
