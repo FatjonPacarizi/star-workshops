@@ -2,7 +2,8 @@ To enable chat with websocket-package follow this steps: <br>
 php artisan migrate:fresh --seed  <br>
 php artisan serve  <br>
 php artisan websocket:serve   <br>
-nese(nuk e njeh komanden 'websocket'){  <br>
+nese(nuk e njeh komanden 'websocket')<br>
+{  
     in terminal:  <br>
     composer require beyondcode/laravel-websockets  <br>
     php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="migrations"  <br>
