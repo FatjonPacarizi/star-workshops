@@ -1,4 +1,3 @@
-/////////////////////////////////////////////////////// <br>
 To enable chat with websocket-package follow this steps: <br>
 php artisan migrate:fresh --seed  <br>
 php artisan serve  <br>
@@ -13,7 +12,7 @@ nese(nuk e njeh komanden 'websocket'){  <br>
  <br>
 in .env file replace this lines <br>
 {
-        {{replace}}
+       
 
         BROADCAST_DRIVER=log    
         PUSHER_APP_ID=
