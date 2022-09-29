@@ -42,6 +42,7 @@ class DatabaseSeeder extends Seeder
             LandingsSeeder::class,
             WorkshopsUsersSeeder::class, 
             NewsPageSeeder::class,
+            MessageSeeder::class,
             StreamingSeeder::class
         ]);
 

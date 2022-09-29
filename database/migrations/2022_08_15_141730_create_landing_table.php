@@ -15,8 +15,6 @@ class CreateLandingTable extends Migration
     {
         Schema::create('landings', function (Blueprint $table) {
             $table->id();
-
-            
             $table->string('heading');
             $table->text('paragraf');
             $table->string('button');
