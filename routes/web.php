@@ -42,7 +42,7 @@ Route::get('/', function () {
 
 
 Route::get('/members', [WorkshopController::class, 'showMembers']);
-
+Route::get('/members/{id}', [WorkshopController::class, 'singleMembers'])->name('single-member'); 
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
 Route::get('/newspage', [NewsPageController::class, 'index']);
 Route::get('/newspage/{id}', [NewsPageController::class, 'show'])->name('single-news');

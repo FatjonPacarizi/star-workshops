@@ -41,7 +41,13 @@ class WorkshopController extends Controller
      */
 
     public function showMembers(){
+        
         return view('workshopMembers',['staffMembers' => User::has('members')->get()]);
+    }
+    public function singleMembers($id){
+        $staffMembers = User::find($id);
+        return view('single-member', ['staffMembers' => $staffMembers]);
+   
     }
     public function create()
     {
