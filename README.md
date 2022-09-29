@@ -1,14 +1,14 @@
 ///////////////////////////////////////////////////////
-To enable chat with websocket-package follow this steps:
-php artisan migrate:fresh --seed
-php artisan serve
-php artisan websocket:serve 
-//nese(nuk e njeh komanden 'websocket'){
-    in terminal:
-    composer require beyondcode/laravel-websockets
-    php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="migrations"
-    php artisan migrate:fresh --seed
-    php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="config"
+To enable chat with websocket-package follow this steps: 
+php artisan migrate:fresh --seed 
+php artisan serve 
+php artisan websocket:serve  
+//nese(nuk e njeh komanden 'websocket'){ 
+    in terminal: 
+    composer require beyondcode/laravel-websockets 
+    php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="migrations" 
+    php artisan migrate:fresh --seed 
+    php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="config" 
 }
 
 in .env file replace this lines
