@@ -18,9 +18,15 @@
                 alt="" />
             <h5 class="py-1 text-3xl font-extrabold my-4 text-red-700">{{$staffMember->name}}</h5>
             <p id={{$staffMember->id}} class="py-1 font-semibold leading-6 text-base text-gray-600 ">
-                {{\Illuminate\Support\Str::limit($staffMember->description, 150, $end='') }} <button
-                    onClick="expandCard({{$staffMember->id}},'{{$staffMember->description}}')"
-                    class="ml-2 text-blue-400">show more</button></p>
+                {{\Illuminate\Support\Str::limit($staffMember->description, 150, $end='') }} <a href="{{route('single-member',$staffMember->id)}}"
+                    onClick="expandCard({{route('single-member',$staffMember->id)}}')"
+                    class="ml-2 text-blue-400"></button></p>
+                    <a class="text-red-600 inline-flex items-center md:mb-2 lg:mb-1" href="{{route('single-member',$staffMember->id)}}">Read More
+                  <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
             <div class="flex h-10 mt-5 ">
                 <a href="{{$staffMember->instagram}}" target="_blank"><i class="fa-brands fa-instagram fa-2xl"
                         style="color:red"></i></a>
