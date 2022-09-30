@@ -1,7 +1,7 @@
 @extends('layouts.landinglayouts')
 @section('content')
 
-<section class="text-white body-font bg-red-700 ">
+<section class="text-white body-font bg-red-700 mt-10">
     <div class="mx-auto flex px-5 py-24 md:flex-row flex-col md:px-16  lg:px-24 items-center">
         <div class="lg:flex-grow md:w-1/2  flex flex-col md:items-start md:text-left ">
             <a href="{{route('workshops')}}" class="inline-flex border-0 text-black  text-sm hover:text-white">
@@ -86,7 +86,6 @@
         @auth
             @can('is_super_admin')
                     @livewire('chat-component', ['workshop' => $workshop])
-                  {{-- <livewire:chat-component  :workshop = "{{$workshop}}"/> --}}
                 @else
                     @if(auth()->user()->user_status == 'admin' && $workshop->author == auth()->user()->id) 
                         @livewire('chat-component', ['workshop' => $workshop])

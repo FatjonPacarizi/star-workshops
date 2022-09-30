@@ -2,9 +2,7 @@
 
 namespace App\Events;
 
-use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -13,7 +11,10 @@ use Illuminate\Queue\SerializesModels;
 class MessageEvent implements ShouldBroadcast
 {
     public $msg;
-    public $wID;
+    public $sender;
+    public $sender_status;
+    public $msg_time;
+    public $workshop_id;
 
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -22,11 +23,13 @@ class MessageEvent implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($msg,$wID)
+    public function __construct($msg,$sender,$sender_status,$msg_time,$workshop_id)
     {
         $this->msg = $msg;
-        $this->wID = $wID;
-        //dd("workshop.{$this->wID}");
+        $this->sender = $sender;
+        $this->sender_status = $sender_status;
+        $this->msg_time = $msg_time;
+        $this->workshop_id = $workshop_id;
     }
 
     /**
@@ -36,6 +39,6 @@ class MessageEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel("workshop.{$this->wID}");
+        return new PrivateChannel("workshop.{$this->workshop_id}");
     }
 }

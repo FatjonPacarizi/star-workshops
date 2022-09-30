@@ -1,5 +1,5 @@
 <header>
-    <div class="fixed bg-white w-full z-40">
+    <div class="fixed top-0 bg-white w-full z-40">
     <nav x-data="{ open: false }" class="flex justify-between items-center px-5 py-3">
 
 
@@ -27,7 +27,7 @@
             <img class="h-10 m-3 mr-0 mt-1 w-auto " alt="Logo"
                 src="{{$information->logo_name ? asset('/storage/' . $information->logo_name) : asset('/img/Logo.png')}}">
         </a>
-        <div class="flex items-center">
+        <div class="flex items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <div class="hidden sm:hidden md:hidden lg:flex">
                 <a href="{{route('workshops')}}" class="px-3 py-2 text-sm hover-3 font-semibold"
                     aria-current="page">WORKSHOPS</a>
