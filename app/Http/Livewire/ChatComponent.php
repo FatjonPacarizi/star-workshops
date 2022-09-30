@@ -18,7 +18,7 @@ class ChatComponent extends Component
     {
         if($msg != null && $msg != ''){
 
-            event(new \App\Events\MessageEvent($msg,auth()->user()->name,auth()->user()->user_status,substr(\Carbon\Carbon::now('Europe/Tirane'),11,-3),$this->workshop->id));
+            event(new \App\Events\MessageEvent($msg,auth()->user()->name,auth()->user()->user_status,substr(\Carbon\Carbon::now('Europe/Tirane'),11,-3),false,$this->workshop->id));
 
             Message::create([
                 'sender_id' => auth()->user()->id,
@@ -27,5 +27,9 @@ class ChatComponent extends Component
             ]
             );
         }
+    }
+    public function typing()
+    {
+            event(new \App\Events\MessageEvent(null,null,null,null,true,$this->workshop->id));
     }
 }

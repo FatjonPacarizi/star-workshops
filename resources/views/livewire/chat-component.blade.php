@@ -24,18 +24,28 @@
                 </li>
                 @endforeach
             </ul>
+           
+
         </div>
-        <div class="bg-gray-100 flex items-center">
+        <div class="bg-gray-100 flex items-center relative">
             <form class= "w-full flex items-center">
-                <textarea type="text" id="chat-input" oninput="auto_height(this)" class="w-11/12 h-10 border-none  overflow-hidden bg-inherit  focus:ring-0" placeholder="Send a message..."></textarea>
+                <textarea type="text" id="chat-input" oninput="auto_height(this)" class="w-11/12 h-10 border-none  overflow-hidden bg-inherit  focus:ring-0"  placeholder="Send a message..."></textarea>
                 <button type="button" onClick="send()"><i class="fa-regular fa-paper-plane ml-2"></i></button>
             </form>
+            <img wire:ignore id = "t" class="hidden rounded w-10 h-6 absolute left-2 -top-8" src="{{asset('/img/typing.gif')}}"/>
         </div>
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
+        var hideHyping;
         Echo.private('<?php echo "workshop.".$workshop_id ?>')
             .listen('MessageEvent', (e) => {
+                
+                if(e.is_typing)  {
+                    clearTimeout( hideHyping )
+                    showTyping();
+                }
+                else{
                     var color = 'green-500 ';
                     if(e.sender_status != 'user') color = 'red-600 ';
 
@@ -48,6 +58,8 @@
                     ul.appendChild(li);
                     
                     $("div").scrollTop($("#chatList")[0].scrollHeight);
+                    document.getElementById("t").style.display = "none";
+                }
             });
              window.onload = function() {
                 $("div").scrollTop($("#chatList")[0].scrollHeight);               
@@ -69,6 +81,15 @@
                     e.preventDefault();
                     send();
                 }
+                if( e.keyCode >= 48 && e.keyCode <= 90) @this.typing();
             });
+
+            function showTyping() { 
+            document.getElementById("t").style.display = "block";
+            hideHyping = window.setTimeout( 
+            function() {
+                document.getElementById("t").style.display = "none";
+            }, 3000);
+        }
     </script>
 </div>

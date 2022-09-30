@@ -14,6 +14,7 @@ class MessageEvent implements ShouldBroadcast
     public $sender;
     public $sender_status;
     public $msg_time;
+    public $is_typing;
     public $workshop_id;
 
     use Dispatchable, InteractsWithSockets, SerializesModels;
@@ -23,12 +24,13 @@ class MessageEvent implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($msg,$sender,$sender_status,$msg_time,$workshop_id)
+    public function __construct($msg,$sender,$sender_status,$msg_time,$is_typing,$workshop_id)
     {
         $this->msg = $msg;
         $this->sender = $sender;
         $this->sender_status = $sender_status;
         $this->msg_time = $msg_time;
+        $this->is_typing = $is_typing;
         $this->workshop_id = $workshop_id;
     }
 
