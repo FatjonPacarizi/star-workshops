@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Message;
-use App\Models\Workshop;
 use Livewire\Component;
 
 class ChatComponent extends Component
