@@ -3,12 +3,14 @@ php artisan migrate:fresh --seed  <br>
 php artisan serve  <br>
 php artisan websocket:serve   <br>
 nese(nuk e njeh komanden 'websocket')<br>
-{  
+{  <br>
     in terminal:  <br>
+    composer update  <br>
     composer require beyondcode/laravel-websockets  <br>
     php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="migrations"  <br>
     php artisan migrate:fresh --seed  <br>
     php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="config"  <br>
+    php artisan websocket:serve   <br>
 } <br>
  <br>
 in .env file replace this lines <br>
@@ -29,7 +31,6 @@ in .env file replace this lines <br>
 }
 
 finaly: npm run dev <br>
-
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
