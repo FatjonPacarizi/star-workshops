@@ -115,6 +115,14 @@
                         @endcan
                         @can('is_super_admin')
                         <li class="--set-active-tables-html">
+                            <a href="{{ route('superadmin.calendar') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::segment(1) == 'calendar' ? 'bg-white shadow-lg font-medium' : ''}}">
+                                <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'calendar'? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="fa-sharp fa-solid fa-calendar-days mx-2"></i></div>
+                                <span class="grow ml-3 text-gray-600">Calendar</span>
+                            </a>
+                        </li>
+                        @endcan
+                        @can('is_super_admin')
+                        <li class="--set-active-tables-html">
                             <a href="{{ route('superadmin.faq') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::segment(1) == 'faq' ? 'bg-white shadow-lg font-medium' : ''}}">
                                 <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'faq'? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="fa-solid fa-question mx-2"></i></div>
                                 <span class="grow ml-3 text-gray-600">Faq</span>
@@ -127,8 +135,7 @@
                         @endcan      
                 </div>
             </aside>
-            <div class="w-full   overflow-y-scroll ">
-                
+            <div class="w-full overflow-y-scroll">
                 @include('navigation-menu',['link'=>1])
                 @yield('content')
             </div>

@@ -1281,6 +1281,9 @@ select {
 .col-span-6 {
   grid-column: span 6 / span 6;
 }
+.float-right {
+  float: right;
+}
 .m-3 {
   margin: 0.75rem;
 }
@@ -1352,6 +1355,10 @@ select {
 .my-10 {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
+}
+.my-14 {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -1571,6 +1578,9 @@ select {
 .h-72 {
   height: 18rem;
 }
+.h-96 {
+  height: 24rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1689,14 +1699,6 @@ select {
 }
 .w-6\/12 {
   width: 50%;
-}
-.min-w-0 {
-  min-width: 0px;
-}
-.min-w-max {
-  min-width: -webkit-max-content;
-  min-width: -moz-max-content;
-  min-width: max-content;
 }
 .max-w-screen-xl {
   max-width: 1280px;
@@ -1860,6 +1862,9 @@ select {
 .items-center {
   align-items: center;
 }
+.justify-start {
+  justify-content: flex-start;
+}
 .justify-end {
   justify-content: flex-end;
 }
@@ -1934,6 +1939,9 @@ select {
 .whitespace-nowrap {
   white-space: nowrap;
 }
+.whitespace-pre-line {
+  white-space: pre-line;
+}
 .rounded-md {
   border-radius: 0.375rem;
 }
@@ -1971,6 +1979,14 @@ select {
 .rounded-l-3xl {
   border-top-left-radius: 1.5rem;
   border-bottom-left-radius: 1.5rem;
+}
+.rounded-t {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+.rounded-b-lg {
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 .rounded-tr-xl {
   border-top-right-radius: 0.75rem;
@@ -2014,6 +2030,9 @@ select {
 }
 .border-r {
   border-right-width: 1px;
+}
+.border-l {
+  border-left-width: 1px;
 }
 .border-none {
   border-style: none;
@@ -2181,6 +2200,9 @@ select {
 .bg-blue-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+}
+.bg-inherit {
+  background-color: inherit;
 }
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
@@ -2442,6 +2464,9 @@ select {
 }
 .text-end {
   text-align: end;
+}
+.align-middle {
+  vertical-align: middle;
 }
 .font-sans {
   font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -3476,6 +3501,11 @@ select {
     padding-right: 1rem;
   }
 
+  .md\:px-16 {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
   .md\:pl-16 {
     padding-left: 4rem;
   }
@@ -3486,6 +3516,11 @@ select {
 
   .md\:text-left {
     text-align: left;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 }
 @media (min-width: 1024px) {
@@ -3521,6 +3556,14 @@ select {
 
   .lg\:mb-0 {
     margin-bottom: 0px;
+  }
+
+  .lg\:ml-10 {
+    margin-left: 2.5rem;
+  }
+
+  .lg\:mb-4 {
+    margin-bottom: 1rem;
   }
 
   .lg\:flex {
@@ -3599,6 +3642,11 @@ select {
 
   .lg\:pr-10 {
     padding-right: 2.5rem;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 }
 @media (min-width: 1280px) {
