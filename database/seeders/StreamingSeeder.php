@@ -27,14 +27,14 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
                 'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
-                'workshop_id' => '1',
+                'workshop_id' => '2',
 
             ],[
                 'title' => 'Tailwind:  Fonts & Colors',
                 'description' => '<h1>Setting the text color</h1>
                 <p>Control the text color of an element using the</p> <code>text-{color}</code> <p>utilities.</p>',
                 'url' => 'https://www.youtube.com/embed?v=w0KZhi3DD-0&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=3',
-                'workshop_id' => '1',
+                'workshop_id' => '3',
 
             ],[
                 'title' => 'Tailwind:  Margin, Padding & Borders',
@@ -52,7 +52,7 @@ class StreamingSeeder extends Seeder
                 <li>Tailwind CSS border</li>
                 <p>Project using these properties</p>',
                 'url' => 'https://www.youtube.com/embed?v=1g4W2U-l350&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=4',
-                'workshop_id' => '1',
+                'workshop_id' => '4',
 
             ],[
                 'title' => 'Tailwind:  Config',
@@ -61,7 +61,7 @@ class StreamingSeeder extends Seeder
                 <br>
                 <p>Because Tailwind is a framework for building bespoke user interfaces, it has been designed from the ground up with customization in mind.</p>',
                 'url' => 'https://www.youtube.com/embed?v=6UVQlB1eo5A&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=5',
-                'workshop_id' => '1',
+                'workshop_id' => '5',
 
             ],[
                 'title' => 'Tailwind:  Custom Fonts',
@@ -72,14 +72,14 @@ class StreamingSeeder extends Seeder
                 font-serif	font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
                 font-mono	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;</code>',
                 'url' => 'https://www.youtube.com/embed?v=arfDRUIZOiw&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=6',
-                'workshop_id' => '1',
+                'workshop_id' => '6',
 
             ],[
                 'title' => 'Tailwind:  Using Flexbox',
                 'description' => '<h1>Flex</h1>
                  <p>Utilities for controlling how flex items both grow and shrink.</p>',
                 'url' => 'https://www.youtube.com/embed?v=WK6u8YDYqak&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=7',
-                'workshop_id' => '1',
+                'workshop_id' => '7',
 
             ],[
                 'title' => 'Tailwind:  Responsive Classes',
@@ -90,21 +90,101 @@ class StreamingSeeder extends Seeder
                 <br>
                 <p>There are five breakpoints by default, inspired by common device resolutions:</p>',
                 'url' => 'https://www.youtube.com/embed?v=VYFjvMfVv2o&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=8',
-                'workshop_id' => '1',
+                'workshop_id' => '8',
 
             ],[
                 'title' => 'Tailwind:  Cards',
                 'description' => '<h1>Tailwind CSS Cards - Flowbite</h1>
                 <p>Get started with a large variety of Tailwind CSS card examples for your web project</p>',
                 'url' => 'https://www.youtube.com/watch?v=vqKie-xmcFs&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=9',
-                'workshop_id' => '1',
+                'workshop_id' => '9',
 
             ],[
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
                 'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
-                'workshop_id' => '1',
+                'workshop_id' => '10',
+
+            ],
+            [
+                'title' => 'Tailwind:  Badges',
+                'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
+                 <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
+                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'workshop_id' => '11',
+
+            ],
+            [
+                'title' => 'Tailwind:  Badges',
+                'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
+                 <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
+                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'workshop_id' => '12',
+
+            ],
+            [
+                'title' => 'Tailwind:  Badges',
+                'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
+                 <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
+                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'workshop_id' => '13',
+
+            ],
+            [
+                'title' => 'Tailwind:  Badges',
+                'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
+                 <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
+                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'workshop_id' => '14',
+
+            ],
+            [
+                'title' => 'Tailwind:  Badges',
+                'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
+                 <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
+                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'workshop_id' => '15',
+
+            ],
+            [
+                'title' => 'Tailwind:  Badges',
+                'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
+                 <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
+                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'workshop_id' => '16',
+
+            ],
+            [
+                'title' => 'Tailwind:  Badges',
+                'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
+                 <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
+                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'workshop_id' => '17',
+
+            ],
+            [
+                'title' => 'Tailwind:  Badges',
+                'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
+                 <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
+                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'workshop_id' => '18',
+
+            ],
+            [
+                'title' => 'Tailwind:  Badges',
+                'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
+                 <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
+                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'workshop_id' => '19',
+
+            ],
+            [
+                'title' => 'Tailwind:  Badges',
+                'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
+                 <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
+                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'workshop_id' => '20',
 
             ],
         ]);
