@@ -29,7 +29,7 @@
         </div>
         <div class="bg-gray-100 flex items-center relative">
             <form class= "w-full flex items-center">
-                <textarea type="text" id="chat-input" oninput="auto_height(this)" class="w-11/12 h-10 border-none  overflow-hidden bg-inherit  focus:ring-0"  placeholder="Send a message..."></textarea>
+                <textarea  id="chat-input" oninput="auto_height()" class="w-11/12 h-10 border-none  overflow-hidden bg-inherit  focus:ring-0"  placeholder="Send a message..." wire:ignore></textarea>
                 <button type="button" onClick="send()"><i class="fa-regular fa-paper-plane ml-2"></i></button>
             </form>
             <img wire:ignore id = "t" class="hidden rounded w-10 h-6 absolute left-2 -top-8" src="{{asset('/img/typing.gif')}}"/>
@@ -65,13 +65,23 @@
                 $("div").scrollTop($("#chatList")[0].scrollHeight);               
             };
 
-            function auto_height(elem) { 
-                elem.style.height = "1px";
-                elem.style.height = (elem.scrollHeight)+"px";
+            function auto_height() {
+                    var elem = document.getElementById("chat-input");
+                    elem.style.height = "1px";
+                    elem.style.height = (elem.scrollHeight)+"px";
             }
+           
+            var im_typing = false;
+            var timeout_is_set = false;
+            var timeout;
+
             function send() { 
+                clearTimeout(timeout);
+                im_typing = false;
+                timeout_is_set = false;
                 @this.send(document.getElementById('chat-input').value);
                 document.getElementById("chat-input").value = "";
+                auto_height();
             }
 
             $("textarea").keydown(function(e){
@@ -81,15 +91,28 @@
                     e.preventDefault();
                     send();
                 }
-                if( e.keyCode >= 48 && e.keyCode <= 90) @this.typing();
+                if( e.keyCode >= 48 && e.keyCode <= 90){
+                    if(!im_typing) {@this.typing(); im_typing = true;}
+                    else  { // Send typing every 2 second, not every keydown
+                        if(!timeout_is_set){
+                            timeout_is_set = true;
+                            timeout = window.setTimeout( 
+                            function() {
+                                @this.typing();
+                                im_typing = false;
+                                timeout_is_set = false;
+                            }, 2000);
+                        }
+                    }
+                }
             });
 
             function showTyping() { 
-            document.getElementById("t").style.display = "block";
-            hideHyping = window.setTimeout( 
-            function() {
-                document.getElementById("t").style.display = "none";
-            }, 3000);
-        }
+                document.getElementById("t").style.display = "block";
+                hideHyping = window.setTimeout( 
+                function() {
+                    document.getElementById("t").style.display = "none";
+                }, 2500);
+            }
     </script>
 </div>
