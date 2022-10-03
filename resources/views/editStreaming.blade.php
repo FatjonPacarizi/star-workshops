@@ -8,14 +8,14 @@
       <a href="/streaminglive/{{$workshops->id}}" ><i class="fa-solid fa-arrow-left mx-4"></i></a>
       <h1 class="p-3 text-black  font-medium  ">Streaming Update</h1>
     </div>
-    <form method="POST" action="/streaming/update-streaming/{{$streaming->id}}" enctype="multipart/form-data">
+    <form method="POST" action="/streaming/update/{{$streaming->id}}" enctype="multipart/form-data">
       @csrf
       @method('PUT')
     <div class="mb-6 flex items-center">
         <label class="w-28 text-sm mx-5">Workshop Name</label>
         <div class = "w-full mx-5">
         <select class="border border-gray-200 rounded p-1 w-full" name="workshop_id">
-            <option value = "{{$streaming->workshop[0]->id}}">{{$streaming->workshop[0]->name}}</option>
+            <option value = "{{$streaming->workshop->id}}">{{$streaming->workshop->name}}</option>
         </select>
           @error('name')
           <p class="text-red-500 text-xs mt-1">{{$message}}</p>

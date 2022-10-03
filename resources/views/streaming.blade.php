@@ -1,6 +1,6 @@
 @extends('layouts.landinglayouts')
 @section('content')
-@if($workshop_user[0]->application_status == 'approved' || $streaming->status == 'free')
+@if($streaming->status == 'free')
 <section class="flex flex-wrap justify-center relative bg-[#f2f2f2]">
     <div class="flex flex-wrap lg:mx-4 pt-12 pb-16 justify-center w-4/5">
         <div class="flex flex-col items-center mt-16">

@@ -54,11 +54,11 @@ class StreamingController extends Controller
     }
 
     public function update(UpdateStreamingRequest $request, $id){
-
-        $validated = $request->validated();
-        $streaming = Streaming::find($id);
-        $streaming->update($validated);
         
+        $validated = $request->validated();
+        $streaming = Streaming::findOrFail($id);
+        $streaming->update($validated);
+
         return redirect()->back();
     }
 
@@ -83,9 +83,11 @@ class StreamingController extends Controller
         return redirect()->back();
     }
 
-    public function streamingview(){
+    public function streamingview($id){
 
-        return view('asideStreaming');
+        $streaming = Streaming::all()->where('workshop_id',$id);
+
+        return view('asideStreaming',['streaming'=>$streaming]);
     }
 
 }

@@ -21,4 +21,9 @@ class Streaming extends Model
 
         return $this->belongsTo(Workshop::class,'workshop_id');
     }
+
+    public function user(){
+
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

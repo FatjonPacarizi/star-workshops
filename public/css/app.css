@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
+! tailwindcss v3.1.7 | MIT License | https://tailwindcss.com
 *//*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
@@ -428,6 +428,7 @@ select {
   background-size: 1.5em 1.5em;
   padding-right: 2.5rem;
   -webkit-print-color-adjust: exact;
+     color-adjust: exact;
           print-color-adjust: exact;
 }
 
@@ -438,6 +439,7 @@ select {
   background-size: initial;
   padding-right: 0.75rem;
   -webkit-print-color-adjust: unset;
+     color-adjust: unset;
           print-color-adjust: unset;
 }
 
@@ -447,6 +449,7 @@ select {
           appearance: none;
   padding: 0;
   -webkit-print-color-adjust: exact;
+     color-adjust: exact;
           print-color-adjust: exact;
   display: inline-block;
   vertical-align: middle;
@@ -1330,6 +1333,10 @@ select {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.my-14 {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -1349,10 +1356,6 @@ select {
 .-mx-2 {
   margin-left: -0.5rem;
   margin-right: -0.5rem;
-}
-.my-14 {
-  margin-top: 3.5rem;
-  margin-bottom: 3.5rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -1560,6 +1563,9 @@ select {
   height: -moz-fit-content;
   height: fit-content;
 }
+.h-96 {
+  height: 24rem;
+}
 .h-2\.5 {
   height: 0.625rem;
 }
@@ -1580,9 +1586,6 @@ select {
 }
 .h-72 {
   height: 18rem;
-}
-.h-96 {
-  height: 24rem;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -1659,6 +1662,9 @@ select {
 .w-2\/3 {
   width: 66.666667%;
 }
+.w-11\/12 {
+  width: 91.666667%;
+}
 .w-5\/6 {
   width: 83.333333%;
 }
@@ -1693,9 +1699,6 @@ select {
 }
 .w-36 {
   width: 9rem;
-}
-.w-11\/12 {
-  width: 91.666667%;
 }
 .w-3\/12 {
   width: 25%;
@@ -1995,6 +1998,10 @@ select {
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
+.rounded-b-lg {
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
 .rounded-b {
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
@@ -2002,10 +2009,6 @@ select {
 .rounded-l-3xl {
   border-top-left-radius: 1.5rem;
   border-bottom-left-radius: 1.5rem;
-}
-.rounded-b-lg {
-  border-bottom-right-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
 }
 .rounded-tl-lg {
   border-top-left-radius: 0.5rem;
@@ -2197,6 +2200,9 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(242 242 242 / var(--tw-bg-opacity));
 }
+.bg-inherit {
+  background-color: inherit;
+}
 .bg-indigo-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(67 56 202 / var(--tw-bg-opacity));
@@ -2205,13 +2211,9 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(233 213 255 / var(--tw-bg-opacity));
 }
-.bg-\[\#F8F9FA\] {
+.bg-gray-400 {
   --tw-bg-opacity: 1;
-  background-color: rgb(248 249 250 / var(--tw-bg-opacity));
-}
-.bg-gray-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 .bg-yellow-100 {
   --tw-bg-opacity: 1;
@@ -2235,6 +2237,10 @@ select {
 .bg-white\/70 {
   background-color: rgb(255 255 255 / 0.7);
 }
+.bg-\[\#F8F9FA\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 249 250 / var(--tw-bg-opacity));
+}
 .bg-\[\#CB0C9F\] {
   --tw-bg-opacity: 1;
   background-color: rgb(203 12 159 / var(--tw-bg-opacity));
@@ -2254,9 +2260,6 @@ select {
 .bg-yellow-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(202 138 4 / var(--tw-bg-opacity));
-}
-.bg-inherit {
-  background-color: inherit;
 }
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
@@ -2783,7 +2786,8 @@ select {
   color: rgb(220 252 231 / var(--tw-text-opacity));
 }
 .underline {
-  text-decoration-line: underline;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }
 .antialiased {
   -webkit-font-smoothing: antialiased;
@@ -2881,9 +2885,9 @@ select {
           backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 .transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -3664,6 +3668,14 @@ select {
     margin-bottom: 0px;
   }
 
+  .lg\:ml-10 {
+    margin-left: 2.5rem;
+  }
+
+  .lg\:mb-4 {
+    margin-bottom: 1rem;
+  }
+
   .lg\:mb-3 {
     margin-bottom: 0.75rem;
   }
@@ -3678,14 +3690,6 @@ select {
 
   .lg\:mr-20 {
     margin-right: 5rem;
-  }
-
-  .lg\:ml-10 {
-    margin-left: 2.5rem;
-  }
-
-  .lg\:mb-4 {
-    margin-bottom: 1rem;
   }
 
   .lg\:mb-1 {
