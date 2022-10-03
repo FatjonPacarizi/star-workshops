@@ -67,6 +67,7 @@ class WorkshopController extends Controller
     {
         $validated = $request->validated();
         $validated['author'] = Auth::id();
+        $validated['workshop_token'] = Base64UrlSafe::encode(random_bytes(20));
 
         if(request()->hasFile('img_workshop')) {
          
@@ -104,6 +105,8 @@ class WorkshopController extends Controller
             
             $streamings = Streaming::all()->where('workshop_id',$workshop->id);
 
+            $workshop_user = workshops_users::all();
+
             $upcoming = false;
             if ($workshop->workshop_endTime == null) $upcoming = true;
 
@@ -139,7 +142,8 @@ class WorkshopController extends Controller
                                     'already_applied' => $already_applied,
                                     'application_status' => $application_status,
                                     'upcoming' => $upcoming,
-                                    'streamings'=>$streamings]);
+                                    'streamings'=>$streamings,
+                                     'workshop_user'=>$workshop_user]);
     }
 
 

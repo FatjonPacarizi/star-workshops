@@ -85,6 +85,31 @@
             }
 
             $("textarea").keydown(function(e){
+<<<<<<< HEAD
+            // Enter was pressed without shift key
+            if (e.keyCode == 13 && !e.shiftKey)
+            {
+                e.preventDefault();
+                @this.send();
+            }
+            else{
+              
+            }
+            });
+
+
+            //in case we need
+              //     var ul = document.getElementById("chatList");
+            //     var li = document.createElement("li");
+
+            //     li.innerHTML = '<div class="flex p-5"><div class = "w-8 h-8 p-3 rounded-full border flex justify-center items-center ">'+ name[0] + '</div>'+
+            //     '<div class="w-full bg-gray-100 ml-3 rounded p-2"> <span class = "text-black font-bold block">{{auth()->user()->name}}</span> <p class = "text-xs text-gray-500">'+ document.getElementById("chat-input").value +'</p></div></div>'
+            //     ; 
+            //     ul.appendChild(li);
+            //     document.getElementById("chat-input").value = "";
+            //     $('div').animate({scrollTop: $("#chatList li").last().offset().top},'slow');
+
+=======
                 // Enter was pressed without shift key
                 if (e.keyCode == 13 && !e.shiftKey)
                 {
@@ -108,11 +133,21 @@
             });
 
             function showTyping() { 
+<<<<<<< HEAD
+            document.getElementById("t").style.display = "block";
+            hideHyping = window.setTimeout( 
+            function() {
+                document.getElementById("t").style.display = "none";
+            }, 3000);
+        }
+>>>>>>> 214a71a8fc302e071ae0f52a3480a3332ed2ea09
+=======
                 document.getElementById("t").style.display = "block";
                 hideHyping = window.setTimeout( 
                 function() {
                     document.getElementById("t").style.display = "none";
                 }, 2500);
             }
+>>>>>>> 1559c4f7f86e48f9e8256dcf6d6eb10e1cab21bf
     </script>
 </div>
