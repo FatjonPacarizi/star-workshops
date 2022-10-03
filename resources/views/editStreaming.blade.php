@@ -8,7 +8,7 @@
       <a href="/streaminglive/{{$workshops->id}}" ><i class="fa-solid fa-arrow-left mx-4"></i></a>
       <h1 class="p-3 text-black  font-medium  ">Streaming Update</h1>
     </div>
-    <form method="POST" action="/streaming/update/{{$streaming->id}}" enctype="multipart/form-data">
+    <form method="POST" action="/update-streaming/{{$streaming->id}}" enctype="multipart/form-data">
       @csrf
       @method('PUT')
     <div class="mb-6 flex items-center">

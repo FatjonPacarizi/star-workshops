@@ -56,8 +56,8 @@ class StreamingController extends Controller
     public function update(UpdateStreamingRequest $request, $id){
         
         $validated = $request->validated();
-        $streaming = Streaming::findOrFail($id);
-        $streaming->update($validated);
+        $streamings = Streaming::find($id);
+        $streamings->update($validated);
 
         return redirect()->back();
     }
