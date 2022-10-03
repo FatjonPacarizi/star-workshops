@@ -92,19 +92,15 @@
                     send();
                 }
                 if( e.keyCode >= 48 && e.keyCode <= 90){
-                    if(!im_typing) {console.log("first");@this.typing(); im_typing = true;}
+                    if(!im_typing) {@this.typing(); im_typing = true;}
                     else  { // Send typing every 2 second, not every keydown
-                        console.log("else");
                         if(!timeout_is_set){
-                        console.log("timeout_is_set");
-
                             timeout_is_set = true;
-                           timeout = window.setTimeout( 
+                            timeout = window.setTimeout( 
                             function() {
                                 @this.typing();
                                 im_typing = false;
                                 timeout_is_set = false;
-                                console.log("timeout");
                             }, 2000);
                         }
                     }
