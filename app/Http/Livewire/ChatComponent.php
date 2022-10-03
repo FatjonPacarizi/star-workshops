@@ -8,21 +8,29 @@ use Livewire\Component;
 class ChatComponent extends Component
 {
     public $workshop;
+    public $msg;
+    public $db_messages;
 
+    public function mount(){
+        $this->db_messages = Message::where('workshop_id',$this->workshop->id)->get();
+    }
     public function render()
     {
-        return view('livewire.chat-component', ['messages' => Message::where('workshop_id',$this->workshop->id)->get(),'workshop_id'=>$this->workshop->id]);
+        return view('livewire.chat-component', ['messages'=>$this->db_messages,'workshop_id'=>$this->workshop->id]);
     }
     public function send($msg)
     {
         if($msg != null && $msg != ''){
 
-            event(new \App\Events\MessageEvent($msg,auth()->user()->name,auth()->user()->user_status,substr(\Carbon\Carbon::now('Europe/Tirane'),11,-3),false,$this->workshop->id));
+            $msg_time = \Carbon\Carbon::now('Europe/Tirane');
 
-            Message::create([
+            event(new \App\Events\MessageEvent($msg,auth()->user()->name,auth()->user()->user_status,substr($msg_time,11,-3),false,$this->workshop->id));
+
+            Message::insert([
                 'sender_id' => auth()->user()->id,
                 'workshop_id' => $this->workshop->id,
-                'message' => $msg
+                'message' => $msg,
+                'created_at' => $msg_time
             ]
             );
         }
@@ -31,4 +39,9 @@ class ChatComponent extends Component
     {
             event(new \App\Events\MessageEvent(null,null,null,null,true,$this->workshop->id));
     }
+    public function test($t)
+    {
+           dd($t);
+    }
+    
 }
