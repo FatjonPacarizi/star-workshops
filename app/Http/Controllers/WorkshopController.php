@@ -157,18 +157,11 @@ class WorkshopController extends Controller
     public function edit($id,$participants)
     {
         $workshop = Workshop::find($id);
-
-        
-       
         //Secure
         if( $workshop->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
            
         return view('editWorkshop', ['workshop'=>$workshop,
-                                    'participants'=>$participants,
-                                    'countries'=>Country::all(),
-                                    'cities'=>City::all(),
-                                    'types'=>Type::all(),
-                                    'categories'=>Category::all()]);
+]);
     }
 
     /**
