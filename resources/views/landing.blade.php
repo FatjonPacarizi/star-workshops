@@ -1,17 +1,45 @@
 @extends('layouts.landinglayouts')
 
 @section('content')
-
-<section class="text-white body-font bg-red-600 bg-red-600 pt-24">
-  <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-    <div class="text-center lg:w-2/3 w-full">
+<section class="text-white body-font bg-red-600 bg-red-600 pt-24">     
+  <div class="container mx-auto flex px-5 py-24 items-center justify-center ">
+  
+    <div class="text-center lg:w-2/3 w-full float-left mr-12 text-center"> 
       <h1 class="title-font sm:text-1xl text-1xl mb-4 font-medium text-white">{{$landing->heading}}</h1>
       <div class="mb-8 leading-relaxed text-white">{!! $landing->paragraf !!}</div>
       <div class="flex justify-center">
         <a href="{{$landing->button}}" class="ml-4 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-100 rounded-full text-lg">Read the full statement</a>
       </div>
     </div>
-  </div>
+    @if(Auth::check())
+    @if($user != Auth::user()->id)
+    <div class="min-w-32 bg-white min-h-32 p-1 mb-2 float-left font-medium">
+      <div class="w-32 flex-none rounded-t lg:rounded-t-none lg:rounded-l text-center shadow-lg ">
+          <div class="block rounded-t overflow-hidden  text-center text-black">
+            <div class="bg-red-500 text-white py-1">
+            {{Carbon\Carbon::now()->format('F')}}
+            </div>
+            <div class="pt-1 border-l border-r border-grey-500 bg-white ">
+              <span class="text-5xl font-bold leading-tight">
+              {{Carbon\Carbon::now()->format('d')}}
+              </span>
+            </div>
+            <div class="border-l border-r border-b rounded-b-lg text-center border-white bg-white pt-2 mb-1 ">
+              <span class="text-sm">
+              {{Carbon\Carbon::now()->format('D')}}
+              </span>
+            </div>
+            <div class="pb-2 border-l border-r border-b rounded-b-lg text-center border-white bg-white ">
+              <span class="text-xs leading-normal">
+              {{$workshop->name}}<br>
+              <p class="text-red-600"><b>{{\Carbon\Carbon::parse($workshop->time)->diffForHumans()}}</b></p>
+              </span>
+            </div>
+          </div>
+      </div>
+    </div>@endif
+    @endif
+</div>
   <svg class="swirl w-full h-6 md:h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
     <path fill="white" d="M0,100 Q50,1 100,100"></path>
   </svg>

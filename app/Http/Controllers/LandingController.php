@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Landing;
 use App\Models\Workshop;
 use App\Models\NewsPage;
@@ -18,7 +20,9 @@ class LandingController extends Controller
         ->where('workshops.time','>=',$currentTime)
         ->orderBy('id','desc')->get();
 
-        return view('landing', ['upcomings' => $upcomings, 'newspage' => NewsPage::limit(3)->orderBy('id', 'DESC')->get(),'landing'=>Landing::all()->last()]);
+        $user = User::where('user_status', '==', 'user')->get()->first();
+
+        return view('landing', ['upcomings' => $upcomings, 'newspage' => NewsPage::limit(3)->orderBy('id', 'DESC')->get(),'landing'=>Landing::all()->last(),'workshop'=>Workshop::all()->where('time','>=',$currentTime)->first(),'user'=>$user]);
     }
 
     public function landing()
