@@ -1483,6 +1483,9 @@ select {
 .mb-20 {
   margin-bottom: 5rem;
 }
+.mr-12 {
+  margin-right: 3rem;
+}
 .mb-16 {
   margin-bottom: 4rem;
 }
@@ -1497,12 +1500,6 @@ select {
 }
 .mt-24 {
   margin-top: 6rem;
-}
-.mr-10 {
-  margin-right: 2.5rem;
-}
-.mr-12 {
-  margin-right: 3rem;
 }
 .block {
   display: block;
@@ -1882,9 +1879,6 @@ select {
 }
 .flex-wrap {
   flex-wrap: wrap;
-}
-.place-content-end {
-  place-content: end;
 }
 .items-start {
   align-items: flex-start;
@@ -2536,12 +2530,6 @@ select {
 }
 .pr-16 {
   padding-right: 4rem;
-}
-.pr-3 {
-  padding-right: 0.75rem;
-}
-.pl-8 {
-  padding-left: 2rem;
 }
 .text-left {
   text-align: left;
