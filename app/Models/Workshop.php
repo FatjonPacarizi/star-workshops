@@ -20,6 +20,7 @@ class Workshop extends Model
         'limited_participants',
         'description',
         'author',
+        'workshop_token',
         'type_id',
         'country_id',
         'city_id',

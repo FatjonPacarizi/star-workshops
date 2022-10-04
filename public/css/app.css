@@ -1712,6 +1712,9 @@ select {
 .w-6\/12 {
   width: 50%;
 }
+.w-3\/12 {
+  width: 25%;
+}
 .max-w-screen-xl {
   max-width: 1280px;
 }
@@ -1738,6 +1741,9 @@ select {
 }
 .flex-shrink-0 {
   flex-shrink: 0;
+}
+.flex-shrink {
+  flex-shrink: 1;
 }
 .shrink-0 {
   flex-shrink: 0;
@@ -2087,6 +2093,10 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(224 231 255 / var(--tw-border-opacity));
 }
+.border-red-700 {
+  --tw-border-opacity: 1;
+  border-color: rgb(185 28 28 / var(--tw-border-opacity));
+}
 .border-red-500 {
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
@@ -2218,6 +2228,10 @@ select {
 }
 .bg-inherit {
   background-color: inherit;
+}
+.bg-yellow-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(202 138 4 / var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
@@ -2464,6 +2478,12 @@ select {
 }
 .pr-16 {
   padding-right: 4rem;
+}
+.pl-4 {
+  padding-left: 1rem;
+}
+.pb-2 {
+  padding-bottom: 0.5rem;
 }
 .text-left {
   text-align: left;
@@ -2936,6 +2956,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(30 58 138 / var(--tw-bg-opacity));
 }
+.hover\:bg-red-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 202 202 / var(--tw-bg-opacity));
+}
 .hover\:bg-sky-900:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(12 74 110 / var(--tw-bg-opacity));
@@ -3123,11 +3147,6 @@ select {
   .dark\:text-gray-400 {
     --tw-text-opacity: 1;
     color: rgb(156 163 175 / var(--tw-text-opacity));
-  }
-
-  .dark\:text-gray-300 {
-    --tw-text-opacity: 1;
-    color: rgb(209 213 219 / var(--tw-text-opacity));
   }
 }
 @media (min-width: 640px) {
@@ -3412,6 +3431,10 @@ select {
     margin-bottom: 0px;
   }
 
+  .md\:mt-8 {
+    margin-top: 2rem;
+  }
+
   .md\:flex {
     display: flex;
   }
@@ -3498,6 +3521,11 @@ select {
     padding-right: 4rem;
   }
 
+  .md\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .md\:pl-16 {
     padding-left: 4rem;
   }
@@ -3508,6 +3536,10 @@ select {
 
   .md\:text-left {
     text-align: left;
+  }
+
+  .md\:text-center {
+    text-align: center;
   }
 
   .md\:text-4xl {

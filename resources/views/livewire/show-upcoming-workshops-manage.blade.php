@@ -71,8 +71,8 @@
               </a>
             </li>
             <li>
-              <a class="py-1 px-3 block hover:bg-indigo-100 " href="/streaminglive/{{$upcomingWorkshop->id}}">
-              <i class="fa-solid fa-airplay text-gray-400 fa-sm"></i> Streaming</a>
+              <a class="py-1 px-3 block hover:bg-indigo-100 " href="/workshops/manage/streaminglive/{{$upcomingWorkshop->id}}">
+              <i class="fa-solid fa-video text-gray-400 fa-sm"></i> Streaming</a>
             </li>
           </ul>
         </div>

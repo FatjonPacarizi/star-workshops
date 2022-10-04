@@ -46,7 +46,7 @@ Route::get('/chat', [chatController::class, 'index']);
 Route::get('/chat/send', [chatController::class, 'send'])->name('send');
 
 Route::get('/members', [WorkshopController::class, 'showMembers']);
-Route::get('/members/{id}', [WorkshopController::class, 'singleMembers'])->name('single-member'); 
+Route::get('/aside/{id}',[StreamingController::class,'streamingview']);
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
 Route::get('/newspage', [NewsPageController::class, 'index']);
 Route::get('/newspage/{id}', [NewsPageController::class, 'show'])->name('single-news');
@@ -63,6 +63,9 @@ Route::get('/streaming/{id}',[StreamingController::class,'index'])->name('stream
 Route::get('/workshops', [WorkshopController::class, 'index'])->name('workshops');
 
 Route::post('/send', [App\Http\Controllers\MailController::class, 'send'])->name('emailsend');
+
+Route::get('/notification', [UserManageController::class,'showNotificaton']);
+Route::get('/markAsRead',[UserManageController::class, 'markAsRead']);
 
 Route::middleware([
     'auth:sanctum',
@@ -193,12 +196,15 @@ Route::group(['middleware' => 'auth'], function () {
             //Delete workshop Participant
             Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('deleteParticipant');
 
-            Route::get('/streaminglive/{id}',[StreamingController::class, 'show']);
-            Route::get('/streaminglive/insert/{id}',[StreamingController::class, 'insert']);
-            Route::post('/add-streaming', [StreamingController::class, 'store']);
+            Route::get('/workshops/manage/streaminglive/{id}',[StreamingController::class, 'show'])->name('showStreaming');
+            Route::get('/streaminglive/insert/{id}',[StreamingController::class, 'insert'])->name('insertStreaming');
+            Route::post('/streaminglive/add-streaming', [StreamingController::class, 'store']);
             Route::get('/streaminglive/edit/{id}',[StreamingController::class, 'edit']);
-            Route::put('/update-streaming/{id}',[StreamingController::class,'update'])->name('updateStreaming');
+            Route::put('/update-streaming/{id}',[StreamingController::class,'update']);
             Route::delete('/streaming/delete/{id}', [StreamingController::class, 'destroy']);
+            Route::get('change-status/{id}', [StreamingController::class, 'changeStatus'])->name('change');
+
+           
 
             Route::post('/comment-add',[CommentController::class,'store']);
             Route::delete('/comment/delete/{comment}',[CommentController::class,'destroy']);

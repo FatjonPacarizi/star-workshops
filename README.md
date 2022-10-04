@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 To enable chat with websocket-package do following steps: <br>
 php artisan migrate:fresh --seed  <br>
 php artisan serve  <br>
@@ -32,6 +34,7 @@ in .env file replace this lines <br>
 
 finaly: npm run dev <br>
 
+>>>>>>> 214a71a8fc302e071ae0f52a3480a3332ed2ea09
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">

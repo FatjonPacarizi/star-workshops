@@ -13,11 +13,17 @@ class Streaming extends Model
         'title',
         'description',
         'url',
-        'workshop_id'
+        'workshop_id',
+        'status'
     ];
 
     public function workshop(){
 
-        return $this->hasMany(Workshop::class,'id','workshop_id');
+        return $this->belongsTo(Workshop::class,'workshop_id');
+    }
+
+    public function user(){
+
+        return $this->belongsTo(User::class,'user_id');
     }
 }
