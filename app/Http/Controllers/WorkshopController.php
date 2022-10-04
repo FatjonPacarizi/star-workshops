@@ -92,7 +92,7 @@ class WorkshopController extends Controller
         $workshop =  Workshop::create($validated);
         
         $notification = User::first();
-        $notification->notify(new NewWorkshopNotification($workshop));
+        $notification->notify(new NewNotification($workshop));
 
         if(count($users)>0)  Mail::to($emails)->send(new newWorkshopEmailSender($workshop->id,$workshop->name));
         
