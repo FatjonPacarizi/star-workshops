@@ -8,7 +8,6 @@ use App\Models\Country;
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithFileUploads;
-use App\Models\Workshop;
 use Illuminate\Support\Facades\Storage;
 
 class EditWorkshop extends Component
@@ -48,8 +47,7 @@ class EditWorkshop extends Component
         'categories'=>Category::all()]);
     }
     public function update(){
-      //  dd($formData);
-
+       if($this->limited_participants == "") $this->limited_participants = null;
        $validatedData = $this->validate([
             'name' => 'required',
             'limited_participants' => 'nullable|numeric|gt:0',
@@ -58,36 +56,25 @@ class EditWorkshop extends Component
             'country_id' => 'required',
             'type_id' => 'required',
             'category_id' => 'required',
-            'time' => 'date:d-m-Y h:i:s',
-            'img_workshop' => 'image',
+            'time' => 'date:d-m-y h:i:ss',
             'filedlink' => '',
-           
         ]);
-
-        // if(request()->hasFile('img_workshop')) {
-         
-            
-        //     $validated['img_workshop'] = request()->file('img_workshop')->store('workshopsImg','public');
-
-        //     //e ruajm old workshopimg para se me update
-        //      $oldWorkshopImg = $this->workshop->img_workshop;
-        // }
-        $file_name =  $this->img_workshop->store('workshopsImg','public');
-        $validated['img_workshop'] = $file_name;
-        
-        //update workshop
-        $this->workshop->update($validatedData);
-        
-        // delete old img only when db update is succesful
-        // if(request()->hasFile('img_workshop')) {
-        // //delete old img
-        // Storage::delete('/public/' .$oldWorkshopImg);
-        // }
-        
-
        
-        $this->dispatchBrowserEvent('workshopUpdate');
-     
+        if($this->img_workshop != null){
 
+            $file_name =  $this->img_workshop->store('workshopsImg','public');
+        
+            $validatedData['img_workshop'] = $file_name;
+
+            $oldWorkshopImg = $this->workshop->img_workshop;
+        }
+
+        $this->workshop->update($validatedData);
+
+        // delete old img only when db update is succesful
+        if($this->img_workshop != null){
+            Storage::delete('/public/' .$oldWorkshopImg);
+        }
+        $this->dispatchBrowserEvent('workshopUpdate');
     }
 }
