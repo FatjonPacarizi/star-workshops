@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Storage;
 use ParagonIE\ConstantTime\Base64UrlSafe;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
+use App\Notifications\NewNotification;
+use Session;
 
 class WorkshopController extends Controller
 {
@@ -88,6 +90,9 @@ class WorkshopController extends Controller
         }
 
         $workshop =  Workshop::create($validated);
+        
+        $notification = User::first();
+        $notification->notify(new NewWorkshopNotification($workshop));
 
         if(count($users)>0)  Mail::to($emails)->send(new newWorkshopEmailSender($workshop->id,$workshop->name));
         
