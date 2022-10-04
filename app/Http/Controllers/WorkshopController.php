@@ -65,8 +65,11 @@ class WorkshopController extends Controller
      * @param  \App\Http\Requests\StoreWorkshopRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreWorkshopRequest $request)
+    public function store()
     {
+<<<<<<< HEAD
+    
+=======
         $validated = $request->validated();
         $validated['author'] = Auth::id();
         $validated['workshop_token'] = Base64UrlSafe::encode(random_bytes(20));
@@ -97,6 +100,7 @@ class WorkshopController extends Controller
         if(count($users)>0)  Mail::to($emails)->send(new newWorkshopEmailSender($workshop->id,$workshop->name));
         
         return redirect()->route('adminsuperadmin.showManageWorkshops');
+>>>>>>> 6372d99e93101c42c5b89fd70f883f7709fabc64
     }
 
     /**
@@ -163,21 +167,12 @@ class WorkshopController extends Controller
      * @param  \App\Models\Workshop  $workshop
      * @return \Illuminate\Http\Response
      */
-    public function edit($id,$participants)
-    {
-        $workshop = Workshop::find($id);
-
-        
-       
+    public function edit(Workshop $workshop)
+    {   
         //Secure
         if( $workshop->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
            
-        return view('editWorkshop', ['workshop'=>$workshop,
-                                    'participants'=>$participants,
-                                    'countries'=>Country::all(),
-                                    'cities'=>City::all(),
-                                    'types'=>Type::all(),
-                                    'categories'=>Category::all()]);
+        return view('editWorkshop', ['workshop'=>$workshop]);
     }
 
     /**

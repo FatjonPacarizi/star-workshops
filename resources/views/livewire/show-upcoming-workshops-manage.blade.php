@@ -44,7 +44,7 @@
               <p class="text-xs pl-3 p-2 text-gray-400 ">Manage Workshop</p>
             </li>
             <li><a
-                href="/workshops/manage/{{$upcomingWorkshop->id}}/{{$upcomingWorkshop->limited_participants ? $upcomingWorkshop->limited_participants : 'null'}}/edit"
+                href="/workshops/manage/{{$upcomingWorkshop->id}}/edit"
                 class="py-1 px-3 border-b block hover:bg-indigo-100 ">
                 <i class="fa-solid fa-pen mr-1 fa-sm"></i>Edit</a>
             </li>
