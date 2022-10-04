@@ -67,40 +67,7 @@ class WorkshopController extends Controller
      */
     public function store()
     {
-<<<<<<< HEAD
     
-=======
-        $validated = $request->validated();
-        $validated['author'] = Auth::id();
-        $validated['workshop_token'] = Base64UrlSafe::encode(random_bytes(20));
-
-        if(request()->hasFile('img_workshop')) {
-         
-            $validated['img_workshop'] = request()->file('img_workshop')->store('workshopsImg','public');
-        }
-
-        $workshop_ids =  Workshop::where('category_id',$request->input('category_id'))->get() ->map(function ($item) {
-            return $item->id;
-        });
-
-        $users = workshops_users::whereIn('workshop_id',$workshop_ids)->get();
-
-        $emails = array();
-        for($i=0;$i<count($users);$i++){
-            if (!in_array($users[$i]->user->email, $emails)){
-                $emails[$i] = $users[$i]->user->email;
-            }
-        }
-
-        $workshop =  Workshop::create($validated);
-        
-        $notification = User::first();
-        $notification->notify(new NewNotification($workshop));
-
-        if(count($users)>0)  Mail::to($emails)->send(new newWorkshopEmailSender($workshop->id,$workshop->name));
-        
-        return redirect()->route('adminsuperadmin.showManageWorkshops');
->>>>>>> 6372d99e93101c42c5b89fd70f883f7709fabc64
     }
 
     /**
