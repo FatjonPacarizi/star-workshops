@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Workshop;
 
 use App\Models\City;
 use App\Models\Type;
+use App\Models\User;
 use App\Models\Country;
 use Livewire\Component;
 use App\Models\Category;
@@ -13,6 +14,8 @@ use App\Models\workshops_users;
 use App\Mail\newWorkshopEmailSender;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Notifications\NewNotification;
+use Illuminate\Support\Facades\Notification;
 
 class InsertWorkshop extends Component
 {
@@ -74,6 +77,9 @@ class InsertWorkshop extends Component
             }
     
             $workshop = Workshop::create($validatedData);
+
+            $users = User::all();
+            $notification = Notification::send($users,new NewNotification($workshop));
             
             if(count($users)>0)  Mail::to($emails)->send(new newWorkshopEmailSender($workshop->id,$workshop->name));
 
