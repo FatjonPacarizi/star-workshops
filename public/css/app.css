@@ -1302,6 +1302,9 @@ select {
 .float-right {
   float: right;
 }
+.float-left {
+  float: left;
+}
 .-m-4 {
   margin: -1rem;
 }
@@ -1370,6 +1373,10 @@ select {
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+}
+.mx-7 {
+  margin-left: 1.75rem;
+  margin-right: 1.75rem;
 }
 .my-10 {
   margin-top: 2.5rem;
@@ -1506,6 +1513,9 @@ select {
 }
 .mt-12 {
   margin-top: 3rem;
+}
+.mr-12 {
+  margin-right: 3rem;
 }
 .ml-14 {
   margin-left: 3.5rem;
@@ -1747,6 +1757,9 @@ select {
 }
 .flex-1 {
   flex: 1 1 0%;
+}
+.flex-none {
+  flex: none;
 }
 .flex-shrink-0 {
   flex-shrink: 0;
@@ -3665,6 +3678,16 @@ select {
 
   .lg\:flex-grow {
     flex-grow: 1;
+  }
+
+  .lg\:rounded-t-none {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+
+  .lg\:rounded-l {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
   }
 
   .lg\:px-8 {
