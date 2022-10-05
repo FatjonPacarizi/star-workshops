@@ -59,14 +59,24 @@
                 }
             });
         }
+        var closeTimeout;
         window.addEventListener('workshopUpdate', event => {
             initTiny();
-            document.getElementById("flash-msg").style.display = "block";
-            window.setTimeout( 
+            animateFlashMsg(-400,20,false);
+            closeTimeout = window.setTimeout( 
             function() {
-                document.getElementById("flash-msg").style.display = "none";
+              animateFlashMsg(20,-400,false);
             }, 2500);
         });
+
+        function animateFlashMsg(from, to, closedByBtn){
+          $("#flash-msg").css({
+                right: from
+              }).animate({
+                right:to
+              }, "slow");
+          if(closedByBtn) clearTimeout(closeTimeout);
+        }
       </script>
        @endpush
 
@@ -148,10 +158,7 @@
       <div class="mb-6  flex items-center">
         <label class="w-28 text-sm mx-5">Image</label>
         <input type="file" wire:model.defer="img_workshop" name="img_workshop" />
-
-        <img class="object-cover rounded" alt="hero"
-          src="{{$workshop->img_workshop ? asset('/storage/' . $workshop->img_workshop) : asset('/img/test.jpg')}}"
-          width="100">
+        <img class="object-cover rounded" alt="hero" src="{{$workshop->img_workshop ? asset('/storage/' . $workshop->img_workshop) : asset('/img/test.jpg')}}" width="100">
       </div>
       <div class="w-full p-6 flex items-center justify-end border-t border-gray-200">
         <a href="/workshops/manage" class="text-gray-400 mx-10" wire:loading.remove> Cancel </a>
@@ -165,10 +172,13 @@
       </div>
     </form>
   </div>
-  <div id = "flash-msg" class="hidden absolute top-1 right-0" >
+  <div id = "flash-msg" class="absolute top-1 -right-full z-40" >
     <div class = "flex justify-start w-72 items-center p-3 my-2 bg-white shadow rounded-l-md">
-      <i class="fa-solid fa-check rounded-full w-8 h-8 flex items-center justify-center bg-green-500 text-white mr-5"></i>
+      <i class="fa-solid fa-check rounded-full w-8 h-8 flex items-center justify-center bg-green-400 text-white mr-5"></i>
       <p>Workshop updated</p>
+      <button onClick = "animateFlashMsg(20,-400,true)" type="button" class="ml-auto text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 flex items-center justify-center h-8 w-8 " data-dismiss-target="#toast-success" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
     </div>
   </div>
 </div>
