@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\positions_users;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Landing;
 use App\Models\Workshop;
@@ -20,7 +21,8 @@ class LandingController extends Controller
         ->where('workshops.time','>=',$currentTime)
         ->orderBy('id','desc')->get();
 
-        $user = User::where('user_status', '==', 'user')->get()->first();
+       // $user = User::where('user_status', '==', 'user')->get()->first();
+        $user = positions_users::all()->where('position_id',2);
 
         return view('landing', ['upcomings' => $upcomings, 'newspage' => NewsPage::limit(3)->orderBy('id', 'DESC')->get(),'landing'=>Landing::all()->last(),'workshop'=>Workshop::all()->where('time','>=',$currentTime)->first(),'user'=>$user]);
     }

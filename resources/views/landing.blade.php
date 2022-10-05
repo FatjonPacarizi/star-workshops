@@ -12,7 +12,7 @@
       </div>
     </div>
     @if(Auth::check())
-    @if($user != Auth::user()->id)
+    @if(Auth::user()->id != $user[0]->user_id)
     <div class="min-w-32 bg-white min-h-32 p-1 mb-2 float-left font-medium">
       <div class="w-32 flex-none rounded-t lg:rounded-t-none lg:rounded-l text-center shadow-lg ">
           <div class="block rounded-t overflow-hidden  text-center text-black">
