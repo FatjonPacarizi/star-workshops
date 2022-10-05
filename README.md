@@ -1,7 +1,7 @@
 Project setup steps:
 --------------------
  1. composer install
- 2. Copy .env.example file and rename to .env
+ 2. Copy/Paste .env.example file and rename it to .env
  3. php artisan migrate:fresh --seed
  4. php artisan key:generate
  5. php artisan serve 
