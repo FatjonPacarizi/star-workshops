@@ -102,7 +102,7 @@
 
 @unless(count($streamings) == 0)
 <div class="overflow-x-auto">
-        <div class="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden">
+        <div class="min-w-screen min-h-fit bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden">
             <div class="w-full lg:w-5/6">
 
             
