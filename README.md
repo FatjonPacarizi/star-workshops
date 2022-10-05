@@ -6,6 +6,7 @@ Project setup steps:
  4. php artisan serve
 
 Chat setup steps:
+--------------------
 1. npm install
 2. composer update
 3. composer require beyondcode/laravel-websockets
@@ -13,6 +14,7 @@ Chat setup steps:
 5. php artisan migrate:fresh --seed 
 6. php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="config" 
 7. in .env file replace following lines
+
     BROADCAST_DRIVER=log    
             PUSHER_APP_ID=
             PUSHER_APP_KEY=
