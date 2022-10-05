@@ -1,9 +1,10 @@
 Project setup steps:
 --------------------
  1. composer install
- 2. php artisan key:generate
+ 2. Copy .env.example file and rename to .env
  3. php artisan migrate:fresh --seed
  4. php artisan serve
+ 5. php artisan key:generate
 
 Chat setup steps:
 --------------------
