@@ -18,7 +18,7 @@ Chat setup steps:
 
             BROADCAST_DRIVER=log    
             
-             #Replace with 
+            #Replace with 
             
             BROADCAST_DRIVER=pusher  
 
