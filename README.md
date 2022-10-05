@@ -32,7 +32,8 @@ Chat setup steps:
 Email setup steps:
 --------------------
 1. Mailtrap if you dont have an account [Sign Up](https://mailtrap.io/) . 
-2. ![image info](./public/img/23.png)
+2. After sign in, copy config files into project .env file . See an example below
+ ![image info](./public/img/mailtrapsetup.png)
 
 
 
