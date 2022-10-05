@@ -1,40 +1,34 @@
-<<<<<<< HEAD
-=======
-To enable chat with websocket-package do following steps: <br>
-php artisan migrate:fresh --seed  <br>
-php artisan serve  <br>
-php artisan websocket:serve   <br>
-nese(nuk e njeh komanden 'websocket')<br>
-{  <br>
-    in terminal:  <br>
-    composer update  <br>
-    composer require beyondcode/laravel-websockets  <br>
-    php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="migrations"  <br>
-    php artisan migrate:fresh --seed  <br>
-    php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="config"  <br>
-    php artisan websocket:serve   <br>
-} <br>
- <br>
-in .env file replace this lines <br>
-{
-       
+Project setup steps:
+--------------------
+ 1. composer install
+ 2. php artisan key:generate
+ 3. php artisan migrate:fresh --seed
+ 4. php artisan serve
 
-        BROADCAST_DRIVER=log    
-        PUSHER_APP_ID=
-        PUSHER_APP_KEY=
-        PUSHER_APP_SECRET=
+Chat setup steps:
+1. npm install
+2. composer update
+3. composer require beyondcode/laravel-websockets
+4. php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="migrations"
+5. php artisan migrate:fresh --seed 
+6. php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="config" 
+7. in .env file replace following lines
+    BROADCAST_DRIVER=log    
+            PUSHER_APP_ID=
+            PUSHER_APP_KEY=
+            PUSHER_APP_SECRET=
 
-        {{WITH}}
+            {{WITH}}
 
-        BROADCAST_DRIVER=pusher  
-        PUSHER_APP_ID=myID
-        PUSHER_APP_KEY=myKey
-        PUSHER_APP_SECRET=secret
-}
+            BROADCAST_DRIVER=pusher  
+            PUSHER_APP_ID=myID
+            PUSHER_APP_KEY=myKey
+            PUSHER_APP_SECRET=secret
+8. npm run dev
+9. php artisan websocket:serve
 
-finaly: npm run dev <br>
 
->>>>>>> 214a71a8fc302e071ae0f52a3480a3332ed2ea09
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
