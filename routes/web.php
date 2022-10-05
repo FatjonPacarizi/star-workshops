@@ -46,11 +46,7 @@ Route::get('/chat', [chatController::class, 'index']);
 Route::get('/chat/send', [chatController::class, 'send'])->name('send');
 
 Route::get('/members', [WorkshopController::class, 'showMembers']);
-<<<<<<< HEAD
 Route::get('/members/single-member/{id}',[WorkshopController::class,'singleMembers'])->name('single-member');
-=======
-Route::get('/members/{id}', [WorkshopController::class, 'singleMembers'])->name('single-member');
->>>>>>> a1cd35348543d4a1a84b0efc2aad8366a4cf061e
 Route::get('/aside/{id}',[StreamingController::class,'streamingview']);
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
 Route::get('/newspage', [NewsPageController::class, 'index']);
