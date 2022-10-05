@@ -37,12 +37,12 @@
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
-        var show_typing;
+        var hideHyping;
         Echo.private('<?php echo "workshop.".$workshop_id ?>')
             .listen('MessageEvent', (e) => {
                 
                 if(e.is_typing)  {
-                    clearTimeout( show_typing )
+                    clearTimeout( hideHyping )
                     showTyping();
                 }
                 else{
@@ -109,7 +109,7 @@
 
             function showTyping() { 
                 document.getElementById("t").style.display = "block";
-                show_typing = window.setTimeout( 
+                hideHyping = window.setTimeout( 
                 function() {
                     document.getElementById("t").style.display = "none";
                 }, 2500);
