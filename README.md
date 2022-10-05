@@ -20,7 +20,7 @@ Chat setup steps:
             PUSHER_APP_KEY=
             PUSHER_APP_SECRET=
 
-            Replace with 
+            #Replace with 
 
             BROADCAST_DRIVER=pusher  
             PUSHER_APP_ID=myID
