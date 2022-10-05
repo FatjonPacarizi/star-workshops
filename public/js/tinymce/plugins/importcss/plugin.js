@@ -1,5 +1,5 @@
 /**
- * TinyMCE version 6.2.0 (2022-09-08)
+ * TinyMCE version 6.1.2 (2022-07-29)
  */
 
 (function () {
@@ -163,10 +163,9 @@
       const selectors = [];
       const contentCSSUrls = {};
       const append = (styleSheet, imported) => {
-        let href = styleSheet.href;
-        let rules;
+        let href = styleSheet.href, rules;
         href = removeCacheSuffix(href);
-        if (!href || fileFilter && !fileFilter(href, imported) || isSkinContentCss(editor, href)) {
+        if (!href || !fileFilter(href, imported) || isSkinContentCss(editor, href)) {
           return;
         }
         global.each(styleSheet.imports, styleSheet => {
@@ -203,7 +202,7 @@
       return selectors;
     };
     const defaultConvertSelectorToFormat = (editor, selectorText) => {
-      let format = {};
+      let format;
       const selector = /^(?:([a-z0-9\-_]+))?(\.[a-z0-9_\-\.]+)$/i.exec(selectorText);
       if (!selector) {
         return;
@@ -263,11 +262,10 @@
     };
     const convertSelectorToFormat = (editor, plugin, selector, group) => {
       let selectorConverter;
-      const converter = getSelectorConverter(editor);
       if (group && group.selector_converter) {
         selectorConverter = group.selector_converter;
-      } else if (converter) {
-        selectorConverter = converter;
+      } else if (getSelectorConverter(editor)) {
+        selectorConverter = getSelectorConverter(editor);
       } else {
         selectorConverter = () => {
           return defaultConvertSelectorToFormat(editor, selector);

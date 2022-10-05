@@ -121,8 +121,6 @@ Route::group(['middleware' => 'auth'], function () {
             //Show app infos edit
             Route::get('/appinformations', [InformationController::class, 'index'])->name('ShowAppInfos');
 
-            //Edit app Infos
-            Route::put('/appinformations/{id}/edit', [InformationController::class, 'update']);
 
             Route::get('/calendar',[WorkshopController::class,'calendar'])->name('calendar');
         }
@@ -157,30 +155,11 @@ Route::group(['middleware' => 'auth'], function () {
             //Show insert workshop page
             Route::get('/workshops/manage/insert', [WorkshopController::class, 'create'])->name('showInsert');
 
-            //Insert workshop
-            Route::post('/workshops/manage', [WorkshopController::class, 'store'])->name('storeWorkshop');
-
             //Show workshops page
             Route::get('/workshops/manage', [WorkshopController::class, 'showWorkshopManage'])->name('showManageWorkshops');
 
             //Show update workshop
             Route::get('workshops/manage/{workshop}/edit', [WorkshopController::class, 'edit']);
-
-            //Update a workshop
-            Route::put('workshops/manage/{id}', [WorkshopController::class, 'update']);
-
-            //Start a workshop
-            Route::put('workshops/manage/{id}/startworkshop', [WorkshopController::class, 'startWorkshop']);
-            
-             //End a workshop
-            Route::put('workshops/manage/{id}/endworkshop', [WorkshopController::class, 'endWorkshop']);
-
-            //Delete a workshop
-            Route::delete('/workshops/manage/{workshop}', [WorkshopController::class, 'destroy']);
-            Route::delete('/forcedelete/{id}', [WorkshopController::class, 'forceDelete']);
-
-            //Restore a workshop
-            Route::post('/workshops/manage/{id}/restore', [WorkshopController::class, 'restore'])->name('workshop.restore');
 
             //Show workshop participants
             Route::get('/workshops/manage/participants/{workshopid}', [WorkshopController::class, 'showParticipants'])->name('showParticipants');
