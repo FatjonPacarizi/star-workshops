@@ -15,7 +15,7 @@ Chat setup steps:
 6. php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="config" 
 7. in .env file replace following lines
 
-    BROADCAST_DRIVER=log    
+            BROADCAST_DRIVER=log    
             PUSHER_APP_ID=
             PUSHER_APP_KEY=
             PUSHER_APP_SECRET=
