@@ -17,13 +17,18 @@ Chat setup steps:
 7. in .env file replace following lines
 
             BROADCAST_DRIVER=log    
+            
+             #Replace with 
+            
+            BROADCAST_DRIVER=pusher  
+
+
             PUSHER_APP_ID=
             PUSHER_APP_KEY=
             PUSHER_APP_SECRET=
 
             #Replace with 
-
-            BROADCAST_DRIVER=pusher  
+           
             PUSHER_APP_ID=myID
             PUSHER_APP_KEY=myKey
             PUSHER_APP_SECRET=secret
