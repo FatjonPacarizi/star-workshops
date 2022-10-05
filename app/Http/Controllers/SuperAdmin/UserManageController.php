@@ -19,7 +19,7 @@ class UserManageController extends Controller
 
     public function edit($id)
     {
-        return view('editUser', ['user' => User::find($id), 'positions' => Positions::all()]);
+        return view('editUser', ['user' => User::find($id)]);
     }
 
     public function update($id)
