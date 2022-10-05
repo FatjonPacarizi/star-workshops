@@ -4,7 +4,8 @@ Project setup steps:
  2. Copy/Paste .env.example file and rename it to .env
  3. php artisan migrate:fresh --seed
  4. php artisan key:generate
- 5. php artisan serve 
+ 5. php artisan storage:link
+ 6. php artisan serve 
 
 Chat setup steps:
 --------------------
