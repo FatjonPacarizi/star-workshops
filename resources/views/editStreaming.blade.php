@@ -5,7 +5,7 @@
 <div class="w-full  p-6 px-10 flex ">
   <div class="w-full bg-white   shadow-md rounded-xl  ">
     <div class="w-full flex items-center  border-b border-gray-200 mb-4">
-      <a href="/streaminglive/{{$workshops->id}}" ><i class="fa-solid fa-arrow-left mx-4"></i></a>
+      <a href="" ><i class="fa-solid fa-arrow-left mx-4"></i></a>
       <h1 class="p-3 text-black  font-medium  ">Streaming Update</h1>
     </div>
     <form method="POST" action="/update-streaming/{{$streaming->id}}" enctype="multipart/form-data">
@@ -66,7 +66,7 @@
       </script>
 
       <div class="w-full p-4 flex justify-end border-t border-gray-200">
-        <a href="/streaminglive/{{$workshops->id}}" class="p-3 text-gray-400 mx-10"> Cancel </a>
+        <a href="" class="p-3 text-gray-400 mx-10"> Cancel </a>
         <button class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600">Update Streaming</button>
       </div>
 
