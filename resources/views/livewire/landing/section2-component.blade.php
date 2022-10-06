@@ -71,13 +71,15 @@
         <p>Section 2 updated</p>
         </div>
     </div>
+    <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
     @push('scripts')
       <script>
-        initTiny();
-        function initTiny(){
+
+         initTiny1();
+            initTiny2();
+        function initTiny1(){
             tinymce.init({
             selector: '#paragraf_1',
-            selector: '#paragraf_2', // Replace this CSS selector to match the placeholder element for TinyMCE
             height: 300,
             plugins: [
                 'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
@@ -98,17 +100,8 @@
                 }
             });
         }
-        window.addEventListener('section2Update', event => {
-            initTiny();
-            document.getElementById("flash-msg").style.display = "block";
-            window.setTimeout( 
-            function() {
-                document.getElementById("flash-msg").style.display = "none";
-            }, 2500);
-            });
-
-            initTiny();
-            function initTiny(){
+       
+            function initTiny2(){
                 tinymce.init({
                 selector: '#paragraf_2', // Replace this CSS selector to match the placeholder element for TinyMCE
                 height: 300,
@@ -131,7 +124,17 @@
                     }
                 });
             }
-            <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
+            window.addEventListener('section2Update', event => {
+            initTiny1();
+            initTiny2();
+            document.getElementById("flash-msg").style.display = "block";
+            window.setTimeout( 
+            function() {
+                document.getElementById("flash-msg").style.display = "none";
+            }, 2500);
+            });
+
+          
       </script>
 @endpush
 </div>
