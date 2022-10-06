@@ -10,14 +10,14 @@ class Section7Component extends Component
     public $heading;
     public $paragraf_1;
     public $button;
-    public $section3;
+    public $section7;
 
 
     public function mount(){
-        $this->section3 = Landing::where('section_id','section3')->first();
-        $this->heading = $this->section3->heading;
-        $this->paragraf_1 = $this->section3->paragraf_1;
-        $this->button = $this->section3->button;
+        $this->section7 = Landing::where('section_id','section7')->first();
+        $this->heading = $this->section7->heading;
+        $this->paragraf_1 = $this->section7->paragraf_1;
+        $this->button = $this->section7->button;
         
     }
     public function render()
@@ -34,8 +34,8 @@ class Section7Component extends Component
             'button' => 'required',
           ]);
           
-          $landing = Landing::find($id);
-          $landing->update($validated);
+          
+          $this->section7->update($validated);
 
           $this->dispatchBrowserEvent('section7Update');
     }
