@@ -54,10 +54,10 @@
                                 @php
                                 $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
                                 if(request()->user()->user_status == 'superadmin')
-                                $pending = App\Models\workshop::where('workshops.time','>',$date->format("Y-m-d h:i:sa"))->get();
+                                $pending = \App\Models\Workshop::where('workshops.time','>',$date->format("Y-m-d h:i:sa"))->get();
                                 else{
 
-                                $pending = App\Models\workshop::where(['workshops.author'=> Auth::id()])->where('workshops.time','>',$date->format("Y-m-d h:i:sa"))->get();
+                                $pending = \App\Models\Workshop::where(['workshops.author'=> Auth::id()])->where('workshops.time','>',$date->format("Y-m-d h:i:sa"))->get();
                                 }
                                 @endphp
                                 @if(count($pending)>0)
