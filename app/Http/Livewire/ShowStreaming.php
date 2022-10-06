@@ -23,9 +23,8 @@ class ShowStreaming extends Component
         $sort = "ASC";
         if($this->sortby != null) $sort =  $this->sortby;
 
-        $streaming = Streaming::where('title','like','%'.$this->search.'%')->orderBy('id',$sort)->paginate($page);
-        
-        return view('livewire.show-streaming',['streaming'=>$streaming]);
+
+        return view('livewire.show-streaming',['streaming'=>Streaming::where('title','like','%'.$this->search.'%')->orderBy('id',$sort)->paginate($page)]);
     }
 
    

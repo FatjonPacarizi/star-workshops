@@ -1,4 +1,4 @@
-<div class="w-full  p-6 px-10 flex relative">
+<div class="w-full  p-6 px-10 flex ">
   <div class="w-full bg-white shadow-md rounded-xl  ">
     <div class="w-full flex items-center  border-b border-gray-200 mb-4">
       <a href="/users/manage"><i class="fa-solid fa-arrow-left mx-4"></i></a>
@@ -84,22 +84,34 @@
       </div>
     </form>
   </div>
-
-  <div id = "flash-msg" class="hidden absolute -top-5 -right-0" >
-    <div class = "flex justify-start w-72 items-center p-3 my-2 bg-white shadow rounded-l-md">
-      <i class="fa-solid fa-check rounded-full w-8 h-8 flex items-center justify-center bg-green-500 text-white mr-5"></i>
+  <div id="flash-msg2" class="absolute top-5 -right-full z-40">
+    <div class="flex justify-start w-72 items-center p-3 my-2 bg-white shadow rounded-l-md">
+      <i class="fa-solid fa-check rounded-full w-8 h-8 flex items-center justify-center bg-green-400 text-white mr-5"></i>
       <p>User updated</p>
+      <button onClick="animateFlashMsg(20,-400,true)" type="button"
+        class="ml-auto text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 flex items-center justify-center h-8 w-8 "
+        data-dismiss-target="#toast-success" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
     </div>
   </div>
-<script>
- window.addEventListener('userUpdated', event => {
-    document.getElementById("flash-msg").style.display = "block";
-    window.setTimeout( 
-    function() {
-        document.getElementById("flash-msg").style.display = "none";
-    }, 2500);
-});
-</script>
+  <script>
+    var closeTimeout;
+    window.addEventListener('userUpdated', event => {
+          animateFlashMsg(-400,20,false);
+            closeTimeout = window.setTimeout( 
+            function() {
+              animateFlashMsg(20,-400,false);
+            }, 2500);
+        });
 
-
+        function animateFlashMsg(from, to, closedByBtn){
+          $("#flash-msg2").css({
+                right: from
+              }).animate({
+                right:to
+              }, "slow");
+          if(closedByBtn) clearTimeout(closeTimeout);
+        }
+  </script>
 </div>

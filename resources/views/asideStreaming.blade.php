@@ -18,12 +18,7 @@
 </head>
 <body>
 <div class="w-3/12 h-screen overflow-y-scroll border border-red-700 bg-gray-200">
-  <div class=" border-2 h-fit pl-4 border-red-700">
-    <h1 >{{$streaming->workshop->name}}</h1>
-  </div>
-  
-  <div class="flex flex-col">
-    
+  <div class="flex flex-col"> 
   <div class="bg-gray-200 pt-4 pb-4"> 
       <div class="border-2 h-fit pl-4 border-red-700 hover:bg-red-200 pt-2 pb-2">
         Intro

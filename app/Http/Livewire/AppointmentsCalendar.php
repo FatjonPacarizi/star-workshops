@@ -10,6 +10,9 @@ class AppointmentsCalendar extends LivewireCalendar
 {
     public function events() : Collection{
 
+        $this->gridStartsAt->shiftTimezone(config('app.timezone'));
+        $this->gridEndsAt->shiftTimezone(config('app.timezone'));
+
         return Workshop::whereNotNull('time')
            ->get()
            ->map(function ($workshop) {
