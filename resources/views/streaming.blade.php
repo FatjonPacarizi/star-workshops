@@ -1,5 +1,6 @@
 @extends('layouts.landinglayouts')
 @section('content')
+@if($streaming->status == 'free')
 <section class="flex flex-wrap justify-center relative bg-[#f2f2f2]">
     <div class="flex flex-wrap lg:mx-4 pt-12 pb-16 justify-center w-4/5">
         <div class="flex flex-col items-center mt-16">
@@ -12,15 +13,10 @@
                 </div>
             </div>
         </section>
-
-
 <iframe class="w-6/12 aspect-video ..." src="{{$streaming->url}}"></iframe>
-
 </div>
 </div>
 <hr>
-
-
 <div class="antialiased mx-auto max-w-screen-sm">
 <div class="max-w-lg shadow-md mt-8">
   <form action="/comment-add" id="comment-form" method="POST" class="w-full p-4">
@@ -35,6 +31,7 @@
     <button class="px-3 py-2 text-sm text-blue-100 bg-blue-600 rounded">Comment</button>
   </form>
   </div>
+  @unless(count($comments) == 0)
   <h3 class="mb-4 text-lg font-semibold text-gray-900">Comments</h3>
   <div class="space-y-4">
   @foreach($comments as $comment)
@@ -57,7 +54,19 @@
       </div>  
     </div>@endforeach<br>
     {{$comments->links()}}
-  </div>
+  </div>@endunless
 </div>
 </section>
+@else
+<section class="flex flex-wrap justify-center relative bg-[#f2f2f2]">
+    <div class="flex flex-wrap lg:mx-4 p-12 mb-72 justify-center w-4/5">
+        <div class="flex flex-col items-center mt-12">
+            <h1 class="text-6xl font-bold text-red-500 mt-4"><i class="fa-solid fa-circle-play text-red-600"></i> {{$streaming->title}} </h1>
+            <h1 class="text-6xl font-bold text-grey-500 mt-6 mb-10">   Lecture content locked </h1>
+            <p class="mb-2">If you're already enrolled,<a href="{{ route('login') }}" class="text-blue-700"> you'll need to login.</a></p>
+            <h1> Get back to workshop: <b>Apply to enroll this course</b> </h1>
+        </div>
+    </div>
+</section>
+@endif
 @endsection

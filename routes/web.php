@@ -38,15 +38,13 @@ Route::get('abouts', [AboutController::class, 'contact']);
 Route::get('/about', [AboutController::class, 'index']);
 Route::view('/userprofile', 'userprofile');
 Route::view('/workshop', 'workshop');
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
 
 Route::get('/chat', [chatController::class, 'index']);
 Route::get('/chat/send', [chatController::class, 'send'])->name('send');
 
 Route::get('/members', [WorkshopController::class, 'showMembers']);
-Route::get('/members/{id}', [WorkshopController::class, 'singleMembers'])->name('single-member'); 
+Route::get('/members/single-member/{id}',[WorkshopController::class,'singleMembers'])->name('single-member');
+Route::get('/aside/{id}',[StreamingController::class,'streamingview']);
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
 Route::get('/newspage', [NewsPageController::class, 'index']);
 Route::get('/newspage/{id}', [NewsPageController::class, 'show'])->name('single-news');
@@ -63,6 +61,9 @@ Route::get('/streaming/{id}',[StreamingController::class,'index'])->name('stream
 Route::get('/workshops', [WorkshopController::class, 'index'])->name('workshops');
 
 Route::post('/send', [App\Http\Controllers\MailController::class, 'send'])->name('emailsend');
+
+Route::get('/notification', [UserManageController::class,'showNotificaton']);
+Route::get('/markAsRead',[UserManageController::class, 'markAsRead']);
 
 Route::middleware([
     'auth:sanctum',
@@ -118,8 +119,6 @@ Route::group(['middleware' => 'auth'], function () {
             //Show app infos edit
             Route::get('/appinformations', [InformationController::class, 'index'])->name('ShowAppInfos');
 
-            //Edit app Infos
-            Route::put('/appinformations/{id}/edit', [InformationController::class, 'update']);
 
             Route::get('/calendar',[WorkshopController::class,'calendar'])->name('calendar');
         }
@@ -154,30 +153,11 @@ Route::group(['middleware' => 'auth'], function () {
             //Show insert workshop page
             Route::get('/workshops/manage/insert', [WorkshopController::class, 'create'])->name('showInsert');
 
-            //Insert workshop
-            Route::post('/workshops/manage', [WorkshopController::class, 'store'])->name('storeWorkshop');
-
             //Show workshops page
             Route::get('/workshops/manage', [WorkshopController::class, 'showWorkshopManage'])->name('showManageWorkshops');
 
             //Show update workshop
-            Route::get('workshops/manage/{id}/{participants}/edit', [WorkshopController::class, 'edit']);
-
-            //Update a workshop
-            Route::put('workshops/manage/{id}', [WorkshopController::class, 'update']);
-
-            //Start a workshop
-            Route::put('workshops/manage/{id}/startworkshop', [WorkshopController::class, 'startWorkshop']);
-            
-             //End a workshop
-            Route::put('workshops/manage/{id}/endworkshop', [WorkshopController::class, 'endWorkshop']);
-
-            //Delete a workshop
-            Route::delete('/workshops/manage/{workshop}', [WorkshopController::class, 'destroy']);
-            Route::delete('/forcedelete/{id}', [WorkshopController::class, 'forceDelete']);
-
-            //Restore a workshop
-            Route::post('/workshops/manage/{id}/restore', [WorkshopController::class, 'restore'])->name('workshop.restore');
+            Route::get('workshops/manage/{workshop}/edit', [WorkshopController::class, 'edit']);
 
             //Show workshop participants
             Route::get('/workshops/manage/participants/{workshopid}', [WorkshopController::class, 'showParticipants'])->name('showParticipants');
@@ -193,12 +173,15 @@ Route::group(['middleware' => 'auth'], function () {
             //Delete workshop Participant
             Route::delete('/participants/{workshopid}/{participantID}', [WorkshopController::class, 'deleteParticipant'])->name('deleteParticipant');
 
-            Route::get('/streaminglive/{id}',[StreamingController::class, 'show']);
-            Route::get('/streaminglive/insert/{id}',[StreamingController::class, 'insert']);
-            Route::post('/add-streaming', [StreamingController::class, 'store']);
+            Route::get('/workshops/manage/streaminglive/{id}',[StreamingController::class, 'show'])->name('showStreaming');
+            Route::get('/streaminglive/insert/{id}',[StreamingController::class, 'insert'])->name('insertStreaming');
+            Route::post('/streaminglive/add-streaming', [StreamingController::class, 'store']);
             Route::get('/streaminglive/edit/{id}',[StreamingController::class, 'edit']);
-            Route::put('/update-streaming/{id}',[StreamingController::class,'update'])->name('updateStreaming');
+            Route::put('/update-streaming/{id}',[StreamingController::class,'update']);
             Route::delete('/streaming/delete/{id}', [StreamingController::class, 'destroy']);
+            Route::get('change-status/{id}', [StreamingController::class, 'changeStatus'])->name('change');
+
+           
 
             Route::post('/comment-add',[CommentController::class,'store']);
             Route::delete('/comment/delete/{comment}',[CommentController::class,'destroy']);

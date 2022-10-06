@@ -43,7 +43,7 @@
                 <p class="text-xs pl-3 py-2 text-gray-400 ">Manage Workshop</p>
               </li>
               <li><a
-                  href="/workshops/manage/{{$pastsWorkshop->id}}/{{$pastsWorkshop->limited_participants ? $pastsWorkshop->limited_participants : 'null'}}/edit"
+                  href="/workshops/manage/{{$pastsWorkshop->id}}/edit"
                   class="py-1 px-3 border-b block hover:bg-indigo-100 ">
                   <i class="fa-solid fa-pen mr-1 fa-sm"></i>Edit</a>
               <li>
@@ -66,6 +66,10 @@
                   <i class="fa-solid fa-user-plus text-gray-400 fa-sm"></i> Add Participant
                 </a>
               </li>
+              <li>
+              <a class="py-1 px-3 block hover:bg-indigo-100 " href="/workshops/manage/streaminglive/{{$pastsWorkshop->id}}">
+              <i class="fa-solid fa-video text-gray-400 fa-sm"></i> Streaming</a>
+            </li>
             </ul>
           </div>
         </td>

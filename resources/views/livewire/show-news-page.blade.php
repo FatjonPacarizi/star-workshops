@@ -1,4 +1,4 @@
-    <div class = "flex flex-col  items-center">
+<div class = "flex flex-col  items-center">
     <div class="flex flex-wrap  -m-4">
         @foreach($newspages as $newspage)
         
@@ -24,8 +24,10 @@
         @endforeach
            
       </div>
+
       <div class="flex justfy-center pt-6 flex flex-col items-center mb-10"> 
         <div wire:loading.remove class = "h-12">{{ $newspages->links() }}</div>
+
         <div class="w-full flex justify-center ">
             <div role="status" wire:loading>
               <svg aria-hidden="true" class="mr-2 w-8 h-12 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,7 +36,6 @@
               </svg>
               <span class="sr-only">Loading...</span>
           </div>
-          </div>
+        </div>
     </div>
-    </div>
-    </div>
+</div>

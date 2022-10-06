@@ -66,7 +66,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-010-09 13:53:08',
+                'time' => '2022-10-09 13:53', // do not put seconds here
                 'created_at' => '2022-01-09 12:14:19',
             ], [
                 'name' => 'Become a Certified HTML, CSS, JavaScript Web Developer',
@@ -112,7 +112,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-10-09 12:14:19',
+                'time' => '2022-10-09 12:14', // do not put seconds here
                 'created_at' => '2022-02-09 12:14:19',
             ], [
                 'name' => '1 Hour JavaScript',
@@ -158,7 +158,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '2',
                 'filedlink' => 'Workshop',
-                'time' => '2022-10-09 12:14:19',
+                'time' => '2022-10-09 12:14', // do not put seconds here
                 'created_at' => '2022-02-09 12:14:19',
             ],
             [
@@ -205,7 +205,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-10-09 12:14:19',
+                'time' => '2022-10-09 12:14', // do not put seconds here
                 'created_at' => '2022-02-09 12:14:19',
             ],
             [
@@ -252,7 +252,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-09-09 12:14:19',
+                'time' => '2022-09-09 12:14', // do not put seconds here
                 'created_at' => '2022-03-09 12:14:19',
             ],
             [
@@ -299,7 +299,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-10-09 12:14:19',
+                'time' => '2022-10-09 12:14', // do not put seconds here
                 'created_at' => '2022-04-09 12:14:19',
             ],
             [
@@ -346,7 +346,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-10-09 12:14:19',
+                'time' => '2022-10-09 12:14', // do not put seconds here
                 'created_at' => '2022-04-09 12:14:19',
             ],
             [
@@ -393,7 +393,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-10-09 12:14:19',
+                'time' => '2022-10-09 12:14', // do not put seconds here
                 'created_at' => '2022-04-09 12:14:19',
             ],
             [
@@ -440,7 +440,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-10-09 12:14:19',
+                'time' => '2022-10-09 12:14', // do not put seconds here
                 'created_at' => '2022-04-09 12:14:19',
             ],
             [
@@ -486,7 +486,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-10-09 12:14:19',
+                'time' => '2022-10-09 12:14', // do not put seconds here
                 'created_at' => '2022-05-09 12:14:19',
             ],
             [
@@ -533,7 +533,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-10-09 12:14:19',
+                'time' => '2022-10-09 12:14', // do not put seconds here
                 'created_at' => '2022-06-09 12:14:19',
             ], [
                 'name' => 'The Complete JavaScript Course 2022: From Zero to Expert!',
@@ -579,7 +579,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-08-09 12:14:19',
+                'time' => '2022-08-09 12:14', // do not put seconds here
                 'created_at' => '2022-06-09 12:14:19',
 
             ], [
@@ -626,7 +626,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-08-09 12:14:19',
+                'time' => '2022-08-09 12:14', // do not put seconds here
                 'created_at' => '2022-07-09 12:14:19',
 
             ], [
@@ -673,7 +673,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-08-09 12:14:19',
+                'time' => '2022-08-09 12:14', // do not put seconds here
                 'created_at' => '2022-07-09 12:14:19',
 
             ], [
@@ -720,7 +720,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-08-09 12:14:19',
+                'time' => '2022-08-09 12:14', // do not put seconds here
                 'created_at' => '2022-08-09 12:14:19',
             ], [
                 'name' => 'HTML and CSS for Beginners - Build a Website & Launch ONLINE',
@@ -766,7 +766,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-08-09 12:14:19',
+                'time' => '2022-08-09 12:14', // do not put seconds here
                 'created_at' => '2022-08-09 12:14:19',
             ], [
                 'name' => 'The Complete ASP.NET MVC 5 Course',
@@ -812,7 +812,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-08-09 12:14:19',
+                'time' => '2022-08-09 12:14', // do not put seconds here
                 'created_at' => '2022-08-09 12:14:19',
             ],
             [
@@ -858,7 +858,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-08-09 12:14:19',
+                'time' => '2022-08-09 12:14', // do not put seconds here
                 'created_at' => '2022-09-09 12:14:19',
             ],
             [
@@ -905,7 +905,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-08-09 12:14:19',
+                'time' => '2022-08-09 12:14', // do not put seconds here
                 'created_at' => '2022-09-09 12:14:19',
             ],
             [
@@ -952,7 +952,7 @@ class WorkshopSeeder extends Seeder
                 'city_id' => '1',
                 'category_id' => '1',
                 'filedlink' => 'Workshop',
-                'time' => '2022-08-09 12:14:19',
+                'time' => '2022-08-09 12:14', // do not put seconds here
                 'created_at' => '2022-09-09 12:14:19',
             ],
             

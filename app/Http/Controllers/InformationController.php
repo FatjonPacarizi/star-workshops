@@ -17,25 +17,4 @@ class InformationController extends Controller
     {
         return view('AppInfos', ['informations' => Informations::all()->last()]);
     }
-
-    public function update(UpdateInformationRequest $request, $id)
-    {
-        $validated = $request->validated();
-
-        $appInfo =  Informations::find($id);
-
-        if (request()->hasFile('logo_name')) {
-            $validated['logo_name'] = request()->file('logo_name')->store('logos', 'public');
-            $oldImg = $appInfo->logo_name;
-        }
-
-        Informations::find($id)->update($validated);
-
-        // delete old img only when db update is succesful
-        if (request()->hasFile('logo_name')) {
-            Storage::delete('/public/' . $oldImg);
-        }
-
-        return back();
-    }
 }
