@@ -17,19 +17,22 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>
-<div class="w-3/12 h-screen overflow-y-scroll border border-red-700 bg-gray-200">
-  <div class="flex flex-col"> 
-  <div class="bg-gray-200 pt-4 pb-4"> 
-      <div class="border-2 h-fit pl-4 border-red-700 hover:bg-red-200 pt-2 pb-2">
-        Intro
+
+<div class="flex flex-fixed w-full h-screen l border 0 bg-gray-100">
+
+  <div class="w-3/12 overflow-y-scrol bg-gray-200">
+    <div class="bg-gray-200 pt-4 pb-4"> 
+      <h1>{{$streamings->workshop_id}}</h1>
+      <div class="h-fit pl-4 pt-2 pb-2">
+        Introduction
       </div>
-      <ul class="w-full">
-        @foreach($streaming as $str)
+      <ul class="w-full"> 
+        @foreach($streamings as $str)
         @if($str->status == 'free')
-        <li class="border-2 h-fit pl-4 border-red-700 hover:bg-red-200 pt-2 pb-2">
+        <li class="h-fit pl-4 hover:bg-red-500 pt-2 pb-2">
           <a class="" href="/streaming/{{$str->id}}">
               <span class=""><i class="fa-solid fa-tv"></i>
-               {{$str->title}}
+               {{$str->title}} 
               </span>
           </a>
         </li>
@@ -37,26 +40,32 @@
         @endforeach
       </ul>
     </div>
+
     <div class="bg-gray-200 pt-4 pb-4"> 
-      <div class="border-2 h-fit pl-4 border-red-700 hover:bg-red-200 pt-2 pb-2">
+      <div class="border-2 h-fit pl-4 pt-2 pb-2">
         Advance Course
       </div>
       <ul class="w-full">
-        @foreach($streaming as $str)
-        @if($str->status == 'paid')
-        <li class="border-2 h-fit pl-4 border-red-700 hover:bg-red-200 pt-2 pb-2">
+      @foreach($streamings as $str)
+        @if($str->status == 'free')   
+        <li class="border-2 h-fit pl-4 hover:bg-red-500 pt-2 pb-2">
           <a class="" href="/streaming/{{$str->id}}">
               <span class=""><i class="fa-solid fa-tv"></i>
-               {{$str->title}}
+              {{$str->title}}
               </span>
           </a>
         </li>
         @endif
         @endforeach
-        </li>
-      </ul>
-    </div>  
+      </ul> 
+    </div> 
   </div>
+
+  <div class="w-9/12 overflow-y-scroll">
+      @yield('content')
+  </div>
+
 </div>
+
 </body>
 </html>

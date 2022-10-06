@@ -18,9 +18,10 @@ class StreamingController extends Controller
 
         $workshop_user = workshops_users::all();
         $streaming = Streaming::find($id);
+        $streamings = Streaming::all()->where('workshop_id',$id);
         $comments = Comment::latest('created_at')->where('streaming_id',$id)->paginate(3);
 
-        return view('streaming',['streaming'=>$streaming,'comments'=>$comments,'workshop_user'=>$workshop_user]);
+        return view('streaming',['streaming'=>$streaming,'streamings'=>$streamings,'comments'=>$comments,'workshop_user'=>$workshop_user]);
     }
 
     public function show($id){
@@ -83,11 +84,8 @@ class StreamingController extends Controller
         return redirect()->back();
     }
 
-    public function streamingview($id){
+    public function streamingview(){
 
-        $streaming = Streaming::all()->where('workshop_id',$id);
-
-        return view('asideStreaming',['streaming'=>$streaming]);
+        return view('asideStreaming');
     }
-
 }

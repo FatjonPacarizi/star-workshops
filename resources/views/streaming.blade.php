@@ -1,22 +1,28 @@
-@extends('layouts.landinglayouts')
+@extends('asideStreaming')
 @section('content')
 @if($streaming->status == 'free')
 <section class="flex flex-wrap justify-center relative bg-[#f2f2f2]">
     <div class="flex flex-wrap lg:mx-4 pt-12 pb-16 justify-center w-4/5">
         <div class="flex flex-col items-center mt-16">
             <h1 class="text-6xl font-bold text-red-500">{{$streaming->title}} </h1>
+        </div>
+    </div>
+</section>
+<section class="flex flex-wrap justify-center relative bg-[#f2f2f2]">
+    <div class="container mx-auto px-5 py-12  ">
+        <div class="lg:flex-grow lg:px-24 md:px-4 md:items-start md:text-left ">
+             {!! $streaming->description !!}
+        </div>
+    </div>
+</section>
+<section class="flex flex-wrap justify-center relative bg-[#f2f2f2]">
+    <div class="flex flex-wrap lg:mx-4 pt-12 pb-16 justify-center w-4/5">
+              <iframe class="w-6/12 aspect-video ..." src="{{$streaming->url}}"></iframe>
+    </div>
+</section>
 
-        <section class="flex flex-wrap justify-center relative bg-[#f2f2f2]">
-            <div class="container mx-auto px-5 py-12  ">
-                <div class="lg:flex-grow lg:px-24 md:px-4 md:items-start md:text-left ">
-                    {!! $streaming->description !!}
-                </div>
-            </div>
-        </section>
-<iframe class="w-6/12 aspect-video ..." src="{{$streaming->url}}"></iframe>
-</div>
-</div>
 <hr>
+
 <div class="antialiased mx-auto max-w-screen-sm">
 <div class="max-w-lg shadow-md mt-8">
   <form action="/comment-add" id="comment-form" method="POST" class="w-full p-4">
@@ -41,6 +47,7 @@
       </div>
         <div class="flex-1 border rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
         <strong>{{$comment->name}}</strong> <span class="text-xs text-gray-400">{{$comment->created_at->diffForHumans()}}</span>
+       @if(Auth::check())
         @if($comment->user_id == Auth::user()->id)
         <form method="POST" action="/comment/delete/{{$comment->id}}" class="inline flex justify-end">
               @csrf
@@ -50,6 +57,7 @@
               </button>
         </form>  
         @endif
+        @endif
         <p class="text-sm">{{$comment->comment}}</p>
       </div>  
     </div>@endforeach<br>
@@ -57,6 +65,8 @@
   </div>@endunless
 </div>
 </section>
+
+
 @else
 <section class="flex flex-wrap justify-center relative bg-[#f2f2f2]">
     <div class="flex flex-wrap lg:mx-4 p-12 mb-72 justify-center w-4/5">
