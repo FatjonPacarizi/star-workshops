@@ -34,7 +34,7 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Asantibanez\\LivewireCalendar": "vendor/asantibanez/livewire-calendar/src/"
+            "Asantibanez\\LivewireCalendar\\": "vendor/asantibanez/livewire-calendar/src/"
         }
     },
     "autoload-dev": {
