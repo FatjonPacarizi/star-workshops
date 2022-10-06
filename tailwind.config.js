@@ -7,7 +7,7 @@ module.exports = {
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
-        './vendor/asantibanez/livewire-calendar/resources/view/**/*.blade.php'
+        './vendor/asantibanez/livewire-calendar/resources/view/**/*.blade.php',
     ],
 
     theme: {
@@ -18,7 +18,7 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
-            
+
         },
     },
 
