@@ -5,7 +5,7 @@
                 <div class="shrink-0 flex items-center ">
                     <i class="fa-solid fa-bars"></i>
                 </div>
-                <p class="text-gray-500 ml-5">Pages / <a class="text-black"
+                <p class="text-gray-500 ml-5"><a href="/dashboard">Dashboard / </a><a class="text-black"
                         href="/{{Request::segment(1)}}/{{Request::segment(2)}}">{{ucfirst(Request::segment(1))}}</a></p>
             </div>
             <div class="hidden sm:flex sm:items-center sm:ml-6">
