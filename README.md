@@ -11,11 +11,7 @@ Chat setup steps:
 --------------------
 1. npm install
 2. composer update
-3. composer require beyondcode/laravel-websockets
-4. php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="migrations"
-5. php artisan migrate:fresh --seed 
-6. php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="config" 
-7. in .env file replace following lines
+3. in .env file replace following lines
 
             BROADCAST_DRIVER=log    
             
@@ -33,8 +29,8 @@ Chat setup steps:
             PUSHER_APP_ID=myID
             PUSHER_APP_KEY=myKey
             PUSHER_APP_SECRET=secret
-8. npm run dev
-9. php artisan websocket:serve
+4. npm run dev
+5. php artisan websocket:serve
 
 Email setup steps:
 --------------------
