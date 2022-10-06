@@ -11,10 +11,13 @@ class Landing extends Model
     protected $table = 'landings';
     protected $fillable = [
        
-        'title',
+        'section_id',
         'heading',
-        'paragraf',
-        'image',
+        'paragraf_1',
+        'paragraf_2',
         'button',
+        'img_1',
+        'img_2',
+        'img_3',
     ];
 }
