@@ -1,7 +1,7 @@
 @extends('layouts.landinglayouts')
 @section('content')
 
-<section class="text-white body-font bg-red-700 ">
+<section class="text-white body-font bg-red-700 mt-10">
     <div class="mx-auto flex px-5 py-24 md:flex-row flex-col md:px-16  lg:px-24 items-center">
         <div class="lg:flex-grow md:w-1/2  flex flex-col md:items-start md:text-left ">
             <a href="{{route('workshops')}}" class="inline-flex border-0 text-black  text-sm hover:text-white">
@@ -86,7 +86,6 @@
         @auth
             @can('is_super_admin')
                     @livewire('chat-component', ['workshop' => $workshop])
-                  {{-- <livewire:chat-component  :workshop = "{{$workshop}}"/> --}}
                 @else
                     @if(auth()->user()->user_status == 'admin' && $workshop->author == auth()->user()->id) 
                         @livewire('chat-component', ['workshop' => $workshop])
@@ -101,43 +100,67 @@
     </div>
 </section>
 
-
-
+@unless(count($streamings) == 0)
 <div class="overflow-x-auto">
-    <div
-        class="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden">
-        <div class="w-full lg:w-5/6">
-            <h1>Intruduction</h1>
-            <div class="bg-white shadow-md rounded my-6">
-                <table class="min-w-max w-full table-auto">
-                    <thead>
-                        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                            <th class="py-3 px-6 text-left">Title</th>
+        <div class="min-w-screen min-h-fit bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden">
+            <div class="w-full lg:w-5/6">
 
-                            <th class="py-3 px-6 text-center">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-600 text-sm font-light">
+            
+                <div class="bg-white shadow-md rounded my-6">
+                    <table class="min-w-max w-full table-auto">
+                        <thead>
+                            <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                                <th class="py-3 px-6 text-left">Intruduction</th>
+                                <th class="py-3 px-6 text-center"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600 text-sm font-light">
                         @foreach($streamings as $str)
-                        <tr class="border-b border-gray-200 hover:bg-gray-100">
-                            <td class="py-3 px-6 text-left whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <span class="font-medium"><a href={{route('streaming',$str->id)}}>{{$str->title
-                                            }}</a></span>
-                                </div>
-                            </td>
+                        @if($str->status == 'free')
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <span class="font-medium"><a href={{route('streaming',$str->id)}}><i class="fa-solid fa-circle-play text-red-600"></i>  {{$str->title }}</a></span>
+                                    </div>
+                                </td>
+                       
+                                <td class="py-3 px-3 text-center"><i class="fa fa-youtube-play"></i>
+                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs"><a href={{route('streaming',$str->id)}}>Preview</a></span>
+                                </td>
+                            </tr> @endif
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                            
+                    <div class="bg-white shadow-md rounded my-6">
+                    <table class="min-w-max w-full table-auto">
+                        <thead>
+                            <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                                <th class="py-3 px-6 text-left">Advance Course</th>
+                                <th class="py-3 px-6 text-center"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600 text-sm font-light">
+                            @foreach($streamings as $str)
+                            @if($str->status == 'paid')
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <span class="font-medium"><a href={{route('streaming',$str->id)}}> <i class="fa-solid fa-circle-play text-red-600"></i>  {{$str->title }}</a></span>
+                                    </div>
+                                </td>
+                       
+                                <td class="py-3 px-6 text-center"><i class="fa fa-youtube-play"></i>
+                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs"><a href={{route('streaming',$str->id)}}> Preview</a></span>
+                                </td>
+                            </tr> @endif
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
 
-                            <td class="py-3 px-6 text-center"><i class="fa fa-youtube-play"></i>
-                                <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs"><a
-                                        href={{route('streaming',$str->id)}}>Preview</a></span>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
-</div>
-</div>
+</div>@endunless
 @endsection

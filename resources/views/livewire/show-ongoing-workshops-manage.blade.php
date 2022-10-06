@@ -44,7 +44,7 @@
                 <p class="text-xs pl-3 p-2 text-gray-400 ">Manage Workshop</p>
               </li>
               <li><a
-                  href="/workshops/manage/{{$ongoingWorkshop->id}}/{{$ongoingWorkshop->limited_participants ? $ongoingWorkshop->limited_participants : 'null'}}/edit"
+                  href="/workshops/manage/{{$ongoingWorkshop->id}}/edit"
                   class="py-1 px-3 border-b block hover:bg-indigo-100 ">
                   <i class="fa-solid fa-pen mr-1 fa-sm"></i>Edit</a>
               </li>
@@ -77,10 +77,9 @@
                 </a>
               </li>
               <li>
-                <a class="py-1 px-3 block hover:bg-indigo-100 " href="/streaminglive/{{$ongoingWorkshop->id}}">
-                  <i class="fa-solid fa-video-plus text-gray-400 fa-sm"></i> Streaming
-                </a>
-              </li>
+              <a class="py-1 px-3 block hover:bg-indigo-100 " href="/workshops/manage/streaminglive/{{$ongoingWorkshop->id}}">
+              <i class="fa-solid fa-video text-gray-400 fa-sm"></i> Streaming</a>
+            </li>
             </ul>
           </div>
         </td>

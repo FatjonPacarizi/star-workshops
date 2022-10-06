@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Positions;
 use App\Models\positions_users;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use App\Notifications\NewNotification;
+use Session;
 
 class UserManageController extends Controller
 {
@@ -16,7 +19,7 @@ class UserManageController extends Controller
 
     public function edit($id)
     {
-        return view('editUser', ['user' => User::find($id), 'positions' => Positions::all()]);
+        return view('editUser', ['user' => User::find($id)]);
     }
 
     public function update($id)
@@ -51,5 +54,16 @@ class UserManageController extends Controller
         $user->delete();
 
         return redirect('/users/manage');
+    }
+
+    public function showNotificaton()
+    {
+        $notifications = auth()->user()->unreadNotifications;
+    }
+
+    public function markAsRead()
+    {
+        auth()->user()->unreadNotifications->markAsRead();
+        return redirect()->back();
     }
 }

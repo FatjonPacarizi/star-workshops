@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Storage;
 use ParagonIE\ConstantTime\Base64UrlSafe;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
+use App\Notifications\NewNotification;
+use Session;
 
 class WorkshopController extends Controller
 {
@@ -40,7 +42,13 @@ class WorkshopController extends Controller
      */
 
     public function showMembers(){
+        
         return view('workshopMembers',['staffMembers' => User::has('members')->get()]);
+    }
+    public function singleMembers($id){
+        $staffMembers = User::find($id);
+        return view('single-member', ['staffMembers' => $staffMembers]);
+   
     }
     public function create()
     {
@@ -57,34 +65,9 @@ class WorkshopController extends Controller
      * @param  \App\Http\Requests\StoreWorkshopRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreWorkshopRequest $request)
+    public function store()
     {
-        $validated = $request->validated();
-        $validated['author'] = Auth::id();
-
-        if(request()->hasFile('img_workshop')) {
-         
-            $validated['img_workshop'] = request()->file('img_workshop')->store('workshopsImg','public');
-        }
-
-        $workshop_ids =  Workshop::where('category_id',$request->input('category_id'))->get() ->map(function ($item) {
-            return $item->id;
-        });
-
-        $users = workshops_users::whereIn('workshop_id',$workshop_ids)->get();
-
-        $emails = array();
-        for($i=0;$i<count($users);$i++){
-            if (!in_array($users[$i]->user->email, $emails)){
-                $emails[$i] = $users[$i]->user->email;
-            }
-        }
-
-        $workshop =  Workshop::create($validated);
-
-        if(count($users)>0)  Mail::to($emails)->send(new newWorkshopEmailSender($workshop->id,$workshop->name));
-        
-        return redirect()->route('adminsuperadmin.showManageWorkshops');
+    
     }
 
     /**
@@ -97,6 +80,8 @@ class WorkshopController extends Controller
     {   
             
             $streamings = Streaming::all()->where('workshop_id',$workshop->id);
+
+            $workshop_user = workshops_users::all();
 
             $upcoming = false;
             if ($workshop->workshop_endTime == null) $upcoming = true;
@@ -133,7 +118,8 @@ class WorkshopController extends Controller
                                     'already_applied' => $already_applied,
                                     'application_status' => $application_status,
                                     'upcoming' => $upcoming,
-                                    'streamings'=>$streamings]);
+                                    'streamings'=>$streamings,
+                                     'workshop_user'=>$workshop_user]);
     }
 
 
@@ -148,21 +134,12 @@ class WorkshopController extends Controller
      * @param  \App\Models\Workshop  $workshop
      * @return \Illuminate\Http\Response
      */
-    public function edit($id,$participants)
-    {
-        $workshop = Workshop::find($id);
-
-        
-       
+    public function edit(Workshop $workshop)
+    {   
         //Secure
         if( $workshop->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
            
-        return view('editWorkshop', ['workshop'=>$workshop,
-                                    'participants'=>$participants,
-                                    'countries'=>Country::all(),
-                                    'cities'=>City::all(),
-                                    'types'=>Type::all(),
-                                    'categories'=>Category::all()]);
+        return view('editWorkshop', ['workshop'=>$workshop]);
     }
 
     /**
