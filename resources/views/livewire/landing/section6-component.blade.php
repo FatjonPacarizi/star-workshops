@@ -7,7 +7,7 @@
         @endif
 
         <div class="mb-6 flex items-center">
-                <label class="w-28 text-sm mx-5" for="">Heading</label>
+                <label class="w-28 text-sm mx-5">Heading</label>
                 <div class="w-full mx-5">
                     <input type="text" name="heading" wire:model.defer="heading" class="border border-gray-200 rounded p-1 w-full "/>
                     @error('heading')
@@ -15,19 +15,19 @@
                     @enderror
                 </div>
             </div>
-            <div class="mb-6 flex items-center">
-                <label class="w-28 text-sm mx-5" for="">Paragraf 1</label>
+            <div class="mb-6 flex items-center" wire:ignore>
+                <label class="w-28 text-sm mx-5">Paragraf 1</label>
                 <div class="w-full mx-5">
-                    <textarea name="paragraf_1" wire:model.defer="paragraf_1" class="border border-gray-200 rounded p-1 w-full "></textarea>          
+                    <textarea name="paragraf_1" wire:model.defer="paragraf_1" id="paragraf_1" class="border border-gray-200 rounded p-1 w-full "></textarea>          
                     @error('paragraf_1')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
                 </div>
             </div>
-            <div class="mb-6 flex items-center">
-                <label class="w-28 text-sm mx-5" for="">Paragraf 2</label>
+            <div class="mb-6 flex items-center" wire:ignore>
+                <label class="w-28 text-sm mx-5">Paragraf 2</label>
                 <div class="w-full mx-5">
-                    <textarea name="paragraf_2" wire:model.defer="paragraf_2" class="border border-gray-200 rounded p-1 w-full "></textarea>          
+                    <textarea name="paragraf_2" wire:model.defer="paragraf_2" id="paragraf_2_2" class="border border-gray-200 rounded p-1 w-full "></textarea>          
                     @error('paragraf_2')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
@@ -52,4 +52,69 @@
                 <button wire:click.prevent = 'update({{$section6->id}})' class="rounded-lg py-2 px-6 text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white hover:border-blue-400 duration-300">Update </button>
             </div>
     </div>
+    <div id = "flash-msg6" class="hidden absolute top-0 right-0" >
+        <div class = "flex justify-start w-72 items-center p-3 my-2 bg-white shadow rounded-l-md">
+        <i class="fa-solid fa-check rounded-full w-8 h-8 flex items-center justify-center bg-green-500 text-white mr-5"></i>
+        <p>Section 2 updated</p>
+        </div>
+    </div>
+    @push('scripts')
+    <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
+      <script>
+        initTiny();
+        function initTiny(){
+            tinymce.init({
+            selector: '#paragraf_2_2', // Replace this CSS selector to match the placeholder element for TinyMCE
+            height: 300,
+            plugins: [
+                'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+                'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media',
+                'table', 'emoticons', 'template', 'help'
+            ],
+            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+                'forecolor backcolor emoticons | help',
+            menubar: 'file edit view insert format tools table help',
+            setup: function (editor) {
+                    editor.on('init change', function () {
+                        editor.save();
+                    });
+                    editor.on('change', function (e) {
+                        @this.set('paragraf_2', editor.getContent());
+                    });
+                }
+            });
+
+            tinymce.init({
+            selector: '#paragraf_2', // Replace this CSS selector to match the placeholder element for TinyMCE
+            height: 300,
+            plugins: [
+                'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+                'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media',
+                'table', 'emoticons', 'template', 'help'
+            ],
+            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+                'forecolor backcolor emoticons | help',
+            menubar: 'file edit view insert format tools table help',
+            setup: function (editor) {
+                    editor.on('init change', function () {
+                        editor.save();
+                    });
+                    editor.on('change', function (e) {
+                        @this.set('paragraf_2', editor.getContent());
+                    });
+                }
+            });
+        }
+        window.addEventListener('section6Update', event => {
+            initTiny();
+            document.getElementById("flash-msg6").style.display = "block";
+            window.setTimeout( 
+            function() {
+                document.getElementById("flash-msg6").style.display = "none";
+            }, 2500);
+            });
+      </script>
+@endpush
 </div>
