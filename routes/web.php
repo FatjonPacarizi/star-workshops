@@ -38,9 +38,6 @@ Route::get('abouts', [AboutController::class, 'contact']);
 Route::get('/about', [AboutController::class, 'index']);
 Route::view('/userprofile', 'userprofile');
 Route::view('/workshop', 'workshop');
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
 
 Route::get('/chat', [chatController::class, 'index']);
 Route::get('/chat/send', [chatController::class, 'send'])->name('send');
