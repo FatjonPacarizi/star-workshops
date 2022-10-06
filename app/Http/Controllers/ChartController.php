@@ -16,15 +16,14 @@ class ChartController extends Controller
             ->groupBy(DB::raw("Month(created_at)"))
             ->pluck('count');
 
-         $users = User::select(DB::raw("COUNT(*) as count"))
-            ->whereYear('created_at', date('Y'))
-            ->groupBy(DB::raw("Month(created_at)"))
-            ->pluck('count');
 
+        return view('/dashboard', compact('workshops'));
 
-        return view('/dashboard', compact('workshops'),compact('users'));
+        $users = User::select(DB::raw("COUNT(*) as count"))
+        ->whereYear('created_at', date('Y'))
+        ->groupBy(DB::raw("Month(created_at)"))
+        ->pluck('count');
 
-
-
+        return view('/dashboard', compact('users'));
     }
 }
