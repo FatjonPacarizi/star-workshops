@@ -5,11 +5,11 @@
         @if (session('status'))
         <h6>{{ session('status') }}</h6>
         @endif
-
+        <form wire:submit.prevent="update(Object.fromEntries(new FormData($event.target)))">
         <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Heading</label>
                 <div class="w-full mx-5">
-                    <input type="text" name="heading" wire:model.defer="heading" class="border border-gray-200 rounded p-1 w-full "/>
+                    <input type="text" name="heading" value = {{$section8->heading}} class="border border-gray-200 rounded p-1 w-full "/>
                     @error('heading')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
@@ -18,7 +18,7 @@
             <div class="mb-6 flex items-center" wire:ignore>
                 <label class="w-28 text-sm mx-5" for="">Paragraf</label>
                 <div class="w-full mx-5">
-                    <textarea name="paragraf_1" wire:model.defer="paragraf_1" id="paragraf_1s8" class="border border-gray-200 rounded p-1 w-full "></textarea>          
+                    <textarea name="paragraf_1"  id="paragraf_1" class="border border-gray-200 rounded p-1 w-full ">{!! $section8->paragraf_1 !!}</textarea>          
                     @error('paragraf_1')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
@@ -28,7 +28,7 @@
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Button Link</label>
                 <div class="w-full mx-5">
-                    <input type="text" name="button" wire:model.defer="button" class="border border-gray-200 rounded p-1 w-full ">
+                    <input type="text" name="button"  value = {{$section8->button}}  class="border border-gray-200 rounded p-1 w-full ">
                     @error('button')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
@@ -38,7 +38,7 @@
             <div class="mb-6  flex items-center">
                 <label class="w-28 text-sm mx-5">Image 1</label>
                 <div class="w-full mx-9">
-                    <input type="file" name="image" wire:model.defer = "img_1"/>
+                    <input type="file" name="image" wire:model.defer = "img_1" />
                     @error('image')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
@@ -71,23 +71,25 @@
                         <span class="sr-only">Loading...</span>
                     </div>
 
-                    <button wire:click.prevent = 'update()' class="rounded-lg py-2 px-6 text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white hover:border-blue-400 duration-300">Update</button>
+                    <button  class="rounded-lg py-2 px-6 text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white hover:border-blue-400 duration-300">Update</button>
             </div>
     </div>
     <div id = "flash-msg8" class="hidden absolute top-12 right-0" >
         <div class = "flex justify-start w-72 items-center p-3 my-2 bg-white shadow rounded-l-md">
         <i class="fa-solid fa-check rounded-full w-8 h-8 flex items-center justify-center bg-green-500 text-white mr-5"></i>
-        <p>Section 7 updated</p>
+        <p>Section 8 updated</p>
         </div>
     </div>
+</form>
 @push('scripts')
     <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
       <script>
         initTiny();
         function initTiny(){
             tinymce.init({
-            selector: '#paragraf_1s8', // Replace this CSS selector to match the placeholder element for TinyMCE
+            selector: 'textarea', // Replace this CSS selector to match the placeholder element for TinyMCE
             height: 300,
+            inline: false,
             plugins: [
                 'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
                 'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media',
@@ -100,9 +102,6 @@
             setup: function (editor) {
                     editor.on('init change', function () {
                         editor.save();
-                    });
-                    editor.on('change', function (e) {
-                        @this.set('paragraf_1', editor.getContent());
                     });
                 }
             });

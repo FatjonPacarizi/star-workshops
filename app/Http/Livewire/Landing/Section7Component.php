@@ -26,8 +26,9 @@ class Section7Component extends Component
         ['section7'=>$this->section7]);
     }
 
-    public function update($id)
+    public function update($formData)
     {
+        //dd($formData);
         $validated = $this->validate([
             'heading' => 'required',
             'paragraf_1' => 'required',
@@ -35,7 +36,7 @@ class Section7Component extends Component
           ]);
           
           
-          $this->section7->update($validated);
+          $this->section7->update($formData);
 
           $this->dispatchBrowserEvent('section7Update');
     }

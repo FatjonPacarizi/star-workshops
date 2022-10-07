@@ -28,21 +28,16 @@ class Section8Component extends Component
     public function render()
     {
         return view('livewire.landing.section8-component',
-        ['section8s8'=>$this->section8]);
+        ['section8'=>$this->section8]);
     }
 
-    public function update()
+    public function update($formData)
     {
-        $validated = $this->validate([
-            'heading' => 'required',
-            'paragraf_1' => 'required',
-            'button' => 'required',
-          ]);
           if($this->img_1 != null){
 
             $file_name =  $this->img_1->store('section8img','public');
 
-            $validated['img_1'] = $file_name;
+            $formData['img_1'] = $file_name;
 
             $oldsection8img = $this->section8->img_1;
         }
@@ -50,12 +45,12 @@ class Section8Component extends Component
 
             $file_name =  $this->img_2->store('section8img','public');
 
-            $validated['img_2'] = $file_name;
+            $formData['img_2'] = $file_name;
 
             $oldsection8img2 = $this->section8->img_2;
         }
 
-            $this->section8->update($validated);
+            $this->section8->update($formData);
 
             // delete old img only when db update is succesful
             if($this->img_1 != null){
@@ -68,5 +63,4 @@ class Section8Component extends Component
 
           $this->dispatchBrowserEvent('section8Update');
     }
-
-    }
+}
