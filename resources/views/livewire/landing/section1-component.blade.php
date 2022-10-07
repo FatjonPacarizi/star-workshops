@@ -1,6 +1,4 @@
-<div class="w-full bg-white rounded-xl shadow-md py-4 mt-5">
-    <h1 class="p-3 text-black font-medium ml-2 ">Landing Managment</h1>
-    <div class="w-full  p-6 px-10 flex ">
+<div class="w-full  p-6 px-10 flex ">
         <div class="w-full bg-white">
         <div class="w-full flex items-center mb-4">
         </div>
@@ -52,51 +50,50 @@
                         </div>
 
                         
-                    <button wire:click.prevent = 'update({{$section1->id}})' class="rounded-lg py-2 px-6 text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white hover:border-blue-400 duration-300">Update </button>
+                    <button wire:click.prevent = 'update()' class="rounded-lg py-2 px-6 text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white hover:border-blue-400 duration-300">Update </button>
                 </div>
         </div>
-    </div>
-    <div id = "flash-msg" class="hidden absolute top-12 right-0" >
-        <div class = "flex justify-start w-72 items-center p-3 my-2 bg-white shadow rounded-l-md">
-        <i class="fa-solid fa-check rounded-full w-8 h-8 flex items-center justify-center bg-green-500 text-white mr-5"></i>
-        <p>Section 1 updated</p>
+        <div id = "flash-msg" class="hidden absolute top-12 right-0" >
+            <div class = "flex justify-start w-72 items-center p-3 my-2 bg-white shadow rounded-l-md">
+            <i class="fa-solid fa-check rounded-full w-8 h-8 flex items-center justify-center bg-green-500 text-white mr-5"></i>
+            <p>Section 1 updated</p>
+            </div>
         </div>
-    </div>
-    @push('scripts')
-    <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
-      <script>
-        initTiny();
-        function initTiny(){
-            tinymce.init({
-            selector: '#paragraf_1', // Replace this CSS selector to match the placeholder element for TinyMCE
-            height: 300,
-            plugins: [
-                'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
-                'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media',
-                'table', 'emoticons', 'template', 'help'
-            ],
-            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
-                'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
-                'forecolor backcolor emoticons | help',
-            menubar: 'file edit view insert format tools table help',
-            setup: function (editor) {
-                    editor.on('init change', function () {
-                        editor.save();
-                    });
-                    editor.on('change', function (e) {
-                        @this.set('paragraf_1', editor.getContent());
-                    });
-                }
-            });
-        }
-        window.addEventListener('section1Update', event => {
+        @push('scripts')
+        <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
+          <script>
             initTiny();
-            document.getElementById("flash-msg").style.display = "block";
-            window.setTimeout( 
-            function() {
-                document.getElementById("flash-msg").style.display = "none";
-            }, 2500);
-            });
-      </script>
-@endpush
-</div>
+            function initTiny(){
+                tinymce.init({
+                selector: '#paragraf_1', // Replace this CSS selector to match the placeholder element for TinyMCE
+                height: 300,
+                plugins: [
+                    'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+                    'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media',
+                    'table', 'emoticons', 'template', 'help'
+                ],
+                toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                    'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+                    'forecolor backcolor emoticons | help',
+                menubar: 'file edit view insert format tools table help',
+                setup: function (editor) {
+                        editor.on('init change', function () {
+                            editor.save();
+                        });
+                        editor.on('change', function (e) {
+                            @this.set('paragraf_1', editor.getContent());
+                        });
+                    }
+                });
+            }
+            window.addEventListener('section1Update', event => {
+                initTiny();
+                document.getElementById("flash-msg").style.display = "block";
+                window.setTimeout( 
+                function() {
+                    document.getElementById("flash-msg").style.display = "none";
+                }, 2500);
+                });
+          </script>
+    @endpush
+    </div>
