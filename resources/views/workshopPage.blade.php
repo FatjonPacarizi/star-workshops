@@ -120,12 +120,12 @@
                             <tr class="border-b border-gray-200 hover:bg-gray-100">
                                 <td class="py-3 px-6 text-left whitespace-nowrap">
                                     <div class="flex items-center">
-                                        <span class="font-medium"><a href={{route('streaming',$str->id)}}><i class="fa-solid fa-circle-play text-red-600"></i>  {{$str->title }}</a></span>
+                                        <span class="font-medium"><a href="/workshop/{{$workshop->id}}/streaming/{{$str->id}}" ><i class="fa-solid fa-circle-play text-red-600"></i>  {{$str->title }}</a></span>
                                     </div>
                                 </td>
                        
                                 <td class="py-3 px-3 text-center"><i class="fa fa-youtube-play"></i>
-                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs"><a href={{route('streaming',$str->id)}}>Preview</a></span>
+                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs"><a href="/workshop/{{$workshop->id}}/streaming/{{$str->id}}"  >Preview</a></span>
                                 </td>
                             </tr> @endif
                             @endforeach
@@ -147,12 +147,12 @@
                             <tr class="border-b border-gray-200 hover:bg-gray-100">
                                 <td class="py-3 px-6 text-left whitespace-nowrap">
                                     <div class="flex items-center">
-                                        <span class="font-medium"><a href={{route('streaming',$str->id)}}> <i class="fa-solid fa-circle-play text-red-600"></i>  {{$str->title }}</a></span>
+                                        <span class="font-medium"><a href="/workshop/{{$workshop->id}}/streaming/{{$str->id}}" > <i class="fa-solid fa-circle-play text-red-600"></i>  {{$str->title }}</a></span>
                                     </div>
                                 </td>
                        
                                 <td class="py-3 px-6 text-center"><i class="fa fa-youtube-play"></i>
-                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs"><a href={{route('streaming',$str->id)}}> Preview</a></span>
+                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs"><a href="/workshop/{{$workshop->id}}/streaming/{{$str->id}}"> Preview</a></span>
                                 </td>
                             </tr> @endif
                             @endforeach

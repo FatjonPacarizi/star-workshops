@@ -19,19 +19,19 @@
 <body>
 
 <div class="flex flex-fixed w-full h-screen l border 0 bg-gray-100">
+  <div class="w-3/12 bg-gray-200">
+    <h1 class="text-center pt-2"><a href="/workshop/{{$workshops->id}}"><i class="fa-solid fa-square-caret-left"></i>  {{$streaming->workshop->name}}</a></h1>
 
-  <div class="w-3/12 overflow-y-scrol bg-gray-200">
     <div class="bg-gray-200 pt-4 pb-4"> 
-      <h1>{{$streamings->workshop_id}}</h1>
       <div class="h-fit pl-4 pt-2 pb-2">
         Introduction
       </div>
       <ul class="w-full"> 
         @foreach($streamings as $str)
-        @if($str->status == 'free')
-        <li class="h-fit pl-4 hover:bg-red-500 pt-2 pb-2">
-          <a class="" href="/streaming/{{$str->id}}">
-              <span class=""><i class="fa-solid fa-tv"></i>
+        @if($str->status == 'free') 
+        <li class="h-fit pl-4 hover:bg-red-300 pt-2 pb-2">   
+          <a class="" href="/workshop/{{$workshops->id}}/streaming/{{$str->id}}">
+              <span class="">@if($str->url != 'Null')<i class="fa-solid fa-tv"></i>@else<i class="fa-solid fa-align-left"></i>@endif
                {{$str->title}} 
               </span>
           </a>
@@ -40,17 +40,17 @@
         @endforeach
       </ul>
     </div>
-
+    <div class="my-4 bg-black-600 h-[1px]"></div>
     <div class="bg-gray-200 pt-4 pb-4"> 
       <div class="border-2 h-fit pl-4 pt-2 pb-2">
         Advance Course
       </div>
       <ul class="w-full">
       @foreach($streamings as $str)
-        @if($str->status == 'free')   
-        <li class="border-2 h-fit pl-4 hover:bg-red-500 pt-2 pb-2">
-          <a class="" href="/streaming/{{$str->id}}">
-              <span class=""><i class="fa-solid fa-tv"></i>
+        @if($str->status == 'paid')   
+        <li class="border-2 h-fit pl-4 hover:bg-red-300 pt-2 pb-2">
+          <a class="" href="/workshop/{{$workshops->id}}/streaming/{{$str->id}}">
+              <span class="">@if($str->url != 'Null')<i class="fa-solid fa-tv"></i>@else<i class="fa-solid fa-align-left"></i>@endif
               {{$str->title}}
               </span>
           </a>
@@ -66,6 +66,5 @@
   </div>
 
 </div>
-
 </body>
 </html>

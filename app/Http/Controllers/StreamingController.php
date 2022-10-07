@@ -14,14 +14,15 @@ use App\Models\workshops_users;
 class StreamingController extends Controller
 {
     
-    public function index($id){
+    public function index($workshopid,$id){
 
-        $workshop_user = workshops_users::all();
+        $workshop_users = workshops_users::all();
         $streaming = Streaming::find($id);
-        $streamings = Streaming::all()->where('workshop_id',$id);
+        $workshops = Workshop::find($workshopid);
+        $streamings = Streaming::all()->where('workshop_id','=',$workshopid);
         $comments = Comment::latest('created_at')->where('streaming_id',$id)->paginate(3);
 
-        return view('streaming',['streaming'=>$streaming,'streamings'=>$streamings,'comments'=>$comments,'workshop_user'=>$workshop_user]);
+        return view('streaming',['workshops'=>$workshops,'streaming'=>$streaming,'streamings'=>$streamings,'comments'=>$comments,'workshop_users'=>$workshop_users]);
     }
 
     public function show($id){

@@ -34,7 +34,7 @@ class LandingController extends Controller
         'section6'=>Landing::where('section_id','section6')->first(),
         'section7'=>Landing::where('section_id','section7')->first(),
         'section8'=>Landing::where('section_id','section8')->first(),
-        'user'=>$user]);
+        'user'=>$user,'workshop'=>Workshop::all()->where('time','>=',$currentTime)->first()]);
     }
 
     public function landing()
