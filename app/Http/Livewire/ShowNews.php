@@ -21,7 +21,7 @@ class ShowNews extends Component
         $page = 8;
         if($this->perpage != null) $page =  $this->perpage;
 
-        $sort = "ASC";
+        $sort = "DESC";
         if($this->sortby != null) $sort =  $this->sortby;
 
 
