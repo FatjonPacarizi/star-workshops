@@ -31,13 +31,19 @@ class Section8Component extends Component
         ['section8'=>$this->section8]);
     }
 
-    public function update($formData)
+    public function update()
     {
+        $validated = $this->validate([
+            'heading' => 'required',
+            'paragraf_1' => 'required',
+            'button' => 'required',
+          ]);
+
           if($this->img_1 != null){
 
             $file_name =  $this->img_1->store('section8img','public');
 
-            $formData['img_1'] = $file_name;
+            $validated['img_1'] = $file_name;
 
             $oldsection8img = $this->section8->img_1;
         }
@@ -45,12 +51,12 @@ class Section8Component extends Component
 
             $file_name =  $this->img_2->store('section8img','public');
 
-            $formData['img_2'] = $file_name;
+            $validated['img_2'] = $file_name;
 
             $oldsection8img2 = $this->section8->img_2;
         }
 
-            $this->section8->update($formData);
+            $this->section8->update($validated);
 
             // delete old img only when db update is succesful
             if($this->img_1 != null){
