@@ -39,7 +39,8 @@ class LandingController extends Controller
 
     public function landing()
     {
-        return view('landings.edit', ['landing' => Landing::all()]);
+        $sections = Landing::orderBy('section_id','ASC')->get();
+        return view('landings.edit', ['sections' => Landing::all()]);
     }
 
     public function update(UpdateLandingRequest $request, $id)
@@ -51,9 +52,9 @@ class LandingController extends Controller
         return redirect('/landings')->with('status', 'Landing Updated Successfully');
     }
     public function edit($id){
-            $landing = Landing::find($id);
+            $section = Landing::where('id',$id)->first();
 
-            return view('landings.editlandings',['landing' => $landing]);
+            return view('landings.editsection',['section' => $section]);
 
     }
 }

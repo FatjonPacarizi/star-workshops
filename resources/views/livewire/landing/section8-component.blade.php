@@ -1,3 +1,9 @@
+<div class="w-full p-10">
+    <div class="w-full bg-white shadow-md  rounded-xl">
+        <div class="flex items-center border-b border-gray-200">
+        <a href="{{ route('superadmin.showlandings') }}"><i class="fa-solid fa-arrow-left mx-4"></i></a>
+       <h1 class="p-3 text-black font-medium ml-2 ">Section 8 Edit</h1>
+    </div>
 <div class="w-full  p-6 px-10 flex ">
     <div class="w-full bg-white">
       <div class="w-full flex items-center mb-4">
@@ -5,7 +11,6 @@
         @if (session('status'))
         <h6>{{ session('status') }}</h6>
         @endif
-
         <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Heading</label>
                 <div class="w-full mx-5">
@@ -15,10 +20,10 @@
                     @enderror
                 </div>
             </div>
-            <div class="mb-6 flex items-center">
+            <div class="mb-6 flex items-center" wire:ignore>
                 <label class="w-28 text-sm mx-5" for="">Paragraf</label>
                 <div class="w-full mx-5">
-                    <textarea name="paragraf_1" wire:model.defer="paragraf_1" class="border border-gray-200 rounded p-1 w-full "></textarea>          
+                    <textarea name="paragraf_1" wire:model.defer="paragraf_1"  id="paragraf_1" class="border border-gray-200 rounded p-1 w-full "></textarea>          
                     @error('paragraf_1')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
@@ -28,33 +33,33 @@
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Button Link</label>
                 <div class="w-full mx-5">
-                    <input type="text" name="button" wire:model.defer="button" class="border border-gray-200 rounded p-1 w-full ">
+                    <input type="text" name="button"  wire:model.defer="button"  class="border border-gray-200 rounded p-1 w-full ">
                     @error('button')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
                 </div>
             </div>
-        
+        {{-- {{dd($section8s8)}} --}}
             <div class="mb-6  flex items-center">
                 <label class="w-28 text-sm mx-5">Image 1</label>
                 <div class="w-full mx-9">
-                    <input type="file" name="image" />
+                    <input type="file" name="image" wire:model.defer = "img_1" />
                     @error('image')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
                  </div>
-                <img class="object-cover mx-5 rounded" alt="Image" src="{{$section8->img_1 ? asset('/storage/' . $section8->img_1) : asset('/img/section8_defaultimg1.png')}}" width="100">
-            </div>
+                 <img class="object-cover mx-5 rounded" alt="Image" src="{{$section8->img_1 ? asset('/storage/' . $section8->img_1) : asset('/img/section8_defaultimg1.png')}}" width="100">
+                </div>
 
             <div class="mb-6  flex items-center">
                 <label class="w-28 text-sm mx-5">Image 2</label>
                 <div class="w-full mx-9">
-                    <input type="file" name="image" />
+                    <input type="file" name="image" wire:model.defer = "img_2"/>
                     @error('image')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
                  </div>
-                <img class="object-cover mx-5 rounded" alt="Image" src="{{$section8->img_1 ? asset('/storage/' . $section8->img_1) : asset('/img/section8_defaultimg2.png')}}" width="100">
+                <img class="object-cover mx-5 rounded" alt="Image" src="{{$section8->img_2 ? asset('/storage/' . $section8->img_2) : asset('/img/section8_defaultimg2.png')}}" width="100">
             </div>
             
             <div class="w-full p-4 flex justify-end">
@@ -71,7 +76,65 @@
                         <span class="sr-only">Loading...</span>
                     </div>
 
-                    <button wire:click.prevent = 'update({{$section8->id}})' class="rounded-lg py-2 px-6 text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white hover:border-blue-400 duration-300">Update</button>
+                    <button wire:click.prevent = 'update()'  class="rounded-lg py-2 px-6 text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white hover:border-blue-400 duration-300">Update</button>
             </div>
     </div>
+    <div id = "flash-msg8" class="absolute top-1 -right-full z-40" >
+        <div class = "flex justify-start w-72 items-center p-3 my-2 bg-white shadow rounded-l-md">
+          <i class="fa-solid fa-check rounded-full w-8 h-8 flex items-center justify-center bg-green-400 text-white mr-5"></i>
+          <p>Section 8 Updated</p>
+          <button onClick = "animateFlashMsg(20,-400,true)" type="button" class="ml-auto text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 flex items-center justify-center h-8 w-8 " data-dismiss-target="#toast-success" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+</div>
+@push('scripts')
+    <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
+      <script>
+        initTiny();
+        function initTiny(){
+            tinymce.init({
+            selector: 'textarea', // Replace this CSS selector to match the placeholder element for TinyMCE
+            height: 300,
+            inline: false,
+            plugins: [
+                'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+                'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media',
+                'table', 'emoticons', 'template', 'help'
+            ],
+            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+                'forecolor backcolor emoticons | help',
+            menubar: 'file edit view insert format tools table help',
+            setup: function (editor) {
+                    editor.on('init change', function () {
+                        editor.save();
+                    });
+                    editor.on('change', function (e) {
+                        @this.set('paragraf_1', editor.getContent());
+                    });
+                }
+            });
+        }
+        var closeTimeout;
+                window.addEventListener('section8Update', event => {
+                    initTiny();
+                    animateFlashMsg(-400,20,false);
+                    closeTimeout = window.setTimeout( 
+                    function() {
+                    animateFlashMsg(20,-400,false);
+                    }, 2500);
+                });
+
+                function animateFlashMsg(from, to, closedByBtn){
+                $("#flash-msg8").css({
+                        right: from
+                    }).animate({
+                        right:to
+                    }, "slow");
+                if(closedByBtn) clearTimeout(closeTimeout);
+                }
+      </script>
+@endpush
 </div>

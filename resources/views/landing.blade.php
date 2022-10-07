@@ -52,7 +52,7 @@
       <p class="mb-8 leading-relaxed">{!! $section2->paragraf_1 !!}</p>
       <div class="grid grid-cols-1 gap-6 w-full">
         <div class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
-          <img class="object-cover w-full" alt="Map" src="{{$section2->img_1 ? asset('/storage/' . $section1->img_1) : asset('/img/section2_defaultimg .jpg')}}" />
+          <img class="object-cover w-full" alt="Map" src="{{$section2->img_1 ? asset('/storage/' . $section1->img_1) : asset('/img/section2_defaultimg .png')}}" />
           <div class="absolute inset-0 inset-y-32">
             <h4 class="mb-3 text-7xl font-semibold tracking-tight">{!! $section2->paragraf_2 !!}</h4>
           </div>
