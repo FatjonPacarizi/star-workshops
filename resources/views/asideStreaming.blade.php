@@ -31,7 +31,7 @@
         @if($str->status == 'free') 
         <li class="h-fit pl-4 hover:bg-red-300 pt-2 pb-2">   
           <a class="" href="/workshop/{{$workshops->id}}/streaming/{{$str->id}}">
-              <span class="">@if($str->url != 'Null')<i class="fa-solid fa-tv"></i>@else<i class="fa-solid fa-align-left"></i>@endif
+              <span class="">@if($str->url != '')<i class="fa-solid fa-tv"></i>@else<i class="fa-solid fa-align-left"></i>@endif
                {{$str->title}} 
               </span>
           </a>
@@ -40,17 +40,16 @@
         @endforeach
       </ul>
     </div>
-    <div class="my-4 bg-black-600 h-[1px]"></div>
-    <div class="bg-gray-200 pt-4 pb-4"> 
-      <div class="border-2 h-fit pl-4 pt-2 pb-2">
+    <div class="bg-gray-200 pb-4"> 
+      <div class="h-fit pl-4 pt-2 pb-2">
         Advance Course
       </div>
       <ul class="w-full">
       @foreach($streamings as $str)
         @if($str->status == 'paid')   
-        <li class="border-2 h-fit pl-4 hover:bg-red-300 pt-2 pb-2">
+        <li class="h-fit pl-4 hover:bg-red-300 pt-2 pb-2">
           <a class="" href="/workshop/{{$workshops->id}}/streaming/{{$str->id}}">
-              <span class="">@if($str->url != 'Null')<i class="fa-solid fa-tv"></i>@else<i class="fa-solid fa-align-left"></i>@endif
+              <span class="">@if($str->url != '')<i class="fa-solid fa-tv"></i>@else<i class="fa-solid fa-align-left"></i>@endif
               {{$str->title}}
               </span>
           </a>
