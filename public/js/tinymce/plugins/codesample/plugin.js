@@ -1,5 +1,5 @@
 /**
- * TinyMCE version 6.2.0 (2022-09-08)
+ * TinyMCE version 6.1.2 (2022-07-29)
  */
 
 (function () {
@@ -111,6 +111,8 @@
 
     const get$1 = (xs, i) => i >= 0 && i < xs.length ? Optional.some(xs[i]) : Optional.none();
     const head = xs => get$1(xs, 0);
+
+    const someIf = (b, a) => b ? Optional.some(a) : Optional.none();
 
     var global$1 = tinymce.util.Tools.resolve('tinymce.dom.DOMUtils');
 
@@ -2204,12 +2206,12 @@
     const get = editor => Global.Prism && useGlobalPrismJS(editor) ? Global.Prism : prismjs;
 
     const isCodeSample = elm => {
-      return isNonNullable(elm) && elm.nodeName === 'PRE' && elm.className.indexOf('language-') !== -1;
+      return elm && elm.nodeName === 'PRE' && elm.className.indexOf('language-') !== -1;
     };
 
     const getSelectedCodeSample = editor => {
       const node = editor.selection ? editor.selection.getNode() : null;
-      return isCodeSample(node) ? Optional.some(node) : Optional.none();
+      return someIf(isCodeSample(node), node);
     };
     const insertCodeSample = (editor, language, code) => {
       const dom = editor.dom;
@@ -2231,7 +2233,7 @@
     };
     const getCurrentCode = editor => {
       const node = getSelectedCodeSample(editor);
-      return node.bind(n => Optional.from(n.textContent)).getOr('');
+      return node.fold(constant(''), n => n.textContent);
     };
 
     const getLanguages = editor => {

@@ -8,7 +8,6 @@ use App\Models\Streaming;
 
 class ShowStreaming extends Component
 {
-
     use WithPagination;
     protected $listeners = ['reloadStreaming'];
     public $search;
@@ -23,10 +22,8 @@ class ShowStreaming extends Component
         $sort = "ASC";
         if($this->sortby != null) $sort =  $this->sortby;
 
-
-        return view('livewire.show-streaming',['streaming'=>Streaming::where('title','like','%'.$this->search.'%')->orderBy('id',$sort)->paginate($page)]);
+        return view('livewire.show-streaming',['streaming'=>Streaming::where('workshop_id',1)->where('title','like','%'.$this->search.'%')->orderBy('id',$sort)->paginate($page)]);
     }
-
    
     public function reloadStreaming($search,$perpage,$sortby){
 
@@ -34,5 +31,4 @@ class ShowStreaming extends Component
         $this->perpage = $perpage;
         $this->sortby = $sortby;
      }
-
 }
