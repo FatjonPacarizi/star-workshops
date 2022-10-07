@@ -15,10 +15,10 @@
                     @enderror
                 </div>
             </div>
-            <div class="mb-6 flex items-center">
+            <div class="mb-6 flex items-center" wire:ignore>
                 <label class="w-28 text-sm mx-5" for="">Paragraf</label>
                 <div class="w-full mx-5">
-                    <textarea name="paragraf_1" wire:model.defer="paragraf_1" class="border border-gray-200 rounded p-1 w-full "></textarea>          
+                    <textarea name="paragraf_1" wire:model.defer="paragraf_1" id="paragraf_1s8" class="border border-gray-200 rounded p-1 w-full "></textarea>          
                     @error('paragraf_1')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
@@ -34,7 +34,7 @@
                     @enderror
                 </div>
             </div>
-        
+        {{-- {{dd($section8s8)}} --}}
             <div class="mb-6  flex items-center">
                 <label class="w-28 text-sm mx-5">Image 1</label>
                 <div class="w-full mx-9">
@@ -43,8 +43,8 @@
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
                  </div>
-                <img class="object-cover mx-5 rounded" alt="Image" src="{{$section8->img_1 ? asset('/storage/' . $section8->img_1) : asset('/img/section8_defaultimg1.png')}}" width="100">
-            </div>
+                 <img class="object-cover mx-5 rounded" alt="Image" src="{{$section8->img_1 ? asset('/storage/' . $section8->img_1) : asset('/img/section8_defaultimg1.png')}}" width="100">
+                </div>
 
             <div class="mb-6  flex items-center">
                 <label class="w-28 text-sm mx-5">Image 2</label>
@@ -54,7 +54,7 @@
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
                  </div>
-                <img class="object-cover mx-5 rounded" alt="Image" src="{{$section8->img_1 ? asset('/storage/' . $section8->img_1) : asset('/img/section8_defaultimg2.png')}}" width="100">
+                <img class="object-cover mx-5 rounded" alt="Image" src="{{$section8->img_2 ? asset('/storage/' . $section8->img_2) : asset('/img/section8_defaultimg2.png')}}" width="100">
             </div>
             
             <div class="w-full p-4 flex justify-end">
@@ -74,4 +74,47 @@
                     <button wire:click.prevent = 'update({{$section8->id}})' class="rounded-lg py-2 px-6 text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white hover:border-blue-400 duration-300">Update</button>
             </div>
     </div>
+    <div id = "flash-msg8" class="hidden absolute top-12 right-0" >
+        <div class = "flex justify-start w-72 items-center p-3 my-2 bg-white shadow rounded-l-md">
+        <i class="fa-solid fa-check rounded-full w-8 h-8 flex items-center justify-center bg-green-500 text-white mr-5"></i>
+        <p>Section 7 updated</p>
+        </div>
+    </div>
+@push('scripts')
+    <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
+      <script>
+        initTiny();
+        function initTiny(){
+            tinymce.init({
+            selector: '#paragraf_1s8', // Replace this CSS selector to match the placeholder element for TinyMCE
+            height: 300,
+            plugins: [
+                'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+                'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media',
+                'table', 'emoticons', 'template', 'help'
+            ],
+            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+                'forecolor backcolor emoticons | help',
+            menubar: 'file edit view insert format tools table help',
+            setup: function (editor) {
+                    editor.on('init change', function () {
+                        editor.save();
+                    });
+                    editor.on('change', function (e) {
+                        @this.set('paragraf_1', editor.getContent());
+                    });
+                }
+            });
+        }
+        window.addEventListener('section8Update', event => {
+            initTiny();
+            document.getElementById("flash-msg8").style.display = "block";
+            window.setTimeout( 
+            function() {
+                document.getElementById("flash-msg8").style.display = "none";
+            }, 2500);
+            });
+      </script>
+@endpush
 </div>

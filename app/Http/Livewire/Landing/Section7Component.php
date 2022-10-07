@@ -23,7 +23,7 @@ class Section7Component extends Component
     public function render()
     {
         return view('livewire.landing.section7-component',
-        ['section7'=>Landing::where('section_id','section7')->first()]);
+        ['section7'=>$this->section7]);
     }
 
     public function update($id)

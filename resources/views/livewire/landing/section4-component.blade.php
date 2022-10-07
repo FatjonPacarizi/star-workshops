@@ -18,7 +18,7 @@
             <div class="mb-6 flex items-center" wire:ignore>
                 <label class="w-28 text-sm mx-5" for="">Paragraf</label>
                 <div class="w-full mx-5">
-                    <textarea name="paragraf_1" wire:model.defer="paragraf_1" id="paragraf_1" class="border border-gray-200 rounded p-1 w-full "></textarea>          
+                    <textarea name="paragraf_1" wire:model.defer="paragraf_1" id="paragraf_1s4" class="border border-gray-200 rounded p-1 w-full "></textarea>          
                     @error('paragraf_1')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
@@ -76,7 +76,7 @@
         initTiny();
         function initTiny(){
             tinymce.init({
-            selector: '#paragraf_1', // Replace this CSS selector to match the placeholder element for TinyMCE
+            selector: '#paragraf_1s4', // Replace this CSS selector to match the placeholder element for TinyMCE
             height: 300,
             plugins: [
                 'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
