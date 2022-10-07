@@ -38,7 +38,7 @@
             <div class="mb-6  flex items-center">
                 <label class="w-28 text-sm mx-5">Image 1</label>
                 <div class="w-full mx-9">
-                    <input type="file" name="image" />
+                    <input type="file" name="image" wire:model.defer = "img_1"/>
                     @error('image')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
@@ -49,7 +49,7 @@
             <div class="mb-6  flex items-center">
                 <label class="w-28 text-sm mx-5">Image 2</label>
                 <div class="w-full mx-9">
-                    <input type="file" name="image" />
+                    <input type="file" name="image" wire:model.defer = "img_2"/>
                     @error('image')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
@@ -71,7 +71,7 @@
                         <span class="sr-only">Loading...</span>
                     </div>
 
-                    <button wire:click.prevent = 'update({{$section8->id}})' class="rounded-lg py-2 px-6 text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white hover:border-blue-400 duration-300">Update</button>
+                    <button wire:click.prevent = 'update()' class="rounded-lg py-2 px-6 text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white hover:border-blue-400 duration-300">Update</button>
             </div>
     </div>
     <div id = "flash-msg8" class="hidden absolute top-12 right-0" >
