@@ -1,5 +1,5 @@
 /**
- * TinyMCE version 6.2.0 (2022-09-08)
+ * TinyMCE version 6.1.2 (2022-07-29)
  */
 
 (function () {
@@ -164,9 +164,11 @@
       r[i] = x;
     };
     const internalFilter = (obj, pred, onTrue, onFalse) => {
+      const r = {};
       each(obj, (x, i) => {
         (pred(x, i) ? onTrue : onFalse)(x, i);
       });
+      return r;
     };
     const filter = (obj, pred) => {
       const t = {};
@@ -431,8 +433,7 @@
         resolve(reader.result);
       };
       reader.onerror = () => {
-        var _a;
-        reject((_a = reader.error) === null || _a === void 0 ? void 0 : _a.message);
+        reject(reader.error.message);
       };
       reader.readAsDataURL(blob);
     });
@@ -469,16 +470,16 @@
       }
     };
     const getAttrib = (image, name) => {
-      var _a;
       if (image.hasAttribute(name)) {
-        return (_a = image.getAttribute(name)) !== null && _a !== void 0 ? _a : '';
+        return image.getAttribute(name);
       } else {
         return '';
       }
     };
+    const getStyle = (image, name) => image.style[name] ? image.style[name] : '';
     const hasCaption = image => image.parentNode !== null && image.parentNode.nodeName === 'FIGURE';
     const updateAttrib = (image, name, value) => {
-      if (value === '' || value === null) {
+      if (value === '') {
         image.removeAttribute(name);
       } else {
         image.setAttribute(name, value);
@@ -493,10 +494,8 @@
     };
     const removeFigure = image => {
       const figureElm = image.parentNode;
-      if (isNonNullable(figureElm)) {
-        DOM.insertAfter(image, figureElm);
-        DOM.remove(figureElm);
-      }
+      DOM.insertAfter(image, figureElm);
+      DOM.remove(figureElm);
     };
     const toggleCaption = image => {
       if (hasCaption(image)) {
@@ -516,9 +515,8 @@
       }
     };
     const setSize = (name, normalizeCss) => (image, name, value) => {
-      const styles = image.style;
-      if (styles[name]) {
-        styles[name] = addPixelSuffix(value);
+      if (image.style[name]) {
+        image.style[name] = addPixelSuffix(value);
         normalizeStyle(image, normalizeCss);
       } else {
         updateAttrib(image, name, value);
@@ -548,11 +546,8 @@
     const setBorderStyle = (image, value) => {
       image.style.borderStyle = value;
     };
-    const getBorderStyle = image => {
-      var _a;
-      return (_a = image.style.borderStyle) !== null && _a !== void 0 ? _a : '';
-    };
-    const isFigure = elm => isNonNullable(elm) && elm.nodeName === 'FIGURE';
+    const getBorderStyle = image => getStyle(image, 'borderStyle');
+    const isFigure = elm => elm.nodeName === 'FIGURE';
     const isImage = elm => elm.nodeName === 'IMG';
     const getIsDecorative = image => DOM.getAttrib(image, 'alt').length === 0 && DOM.getAttrib(image, 'role') === 'presentation';
     const getAlt = image => {
@@ -578,7 +573,6 @@
       isDecorative: false
     });
     const getStyleValue = (normalizeCss, data) => {
-      var _a;
       const image = document.createElement('img');
       updateAttrib(image, 'style', data.style);
       if (getHspace(image) || data.hspace !== '') {
@@ -593,7 +587,7 @@
       if (getBorderStyle(image) || data.borderStyle !== '') {
         setBorderStyle(image, data.borderStyle);
       }
-      return normalizeCss((_a = image.getAttribute('style')) !== null && _a !== void 0 ? _a : '');
+      return normalizeCss(image.getAttribute('style'));
     };
     const create = (normalizeCss, data) => {
       const image = document.createElement('img');
@@ -624,12 +618,12 @@
       hspace: getHspace(image),
       vspace: getVspace(image),
       border: getBorder(image),
-      borderStyle: getBorderStyle(image),
+      borderStyle: getStyle(image, 'borderStyle'),
       isDecorative: getIsDecorative(image)
     });
     const updateProp = (image, oldData, newData, name, set) => {
       if (newData[name] !== oldData[name]) {
-        set(image, name, String(newData[name]));
+        set(image, name, newData[name]);
       }
     };
     const setAlt = (image, alt, isDecorative) => {
@@ -693,12 +687,11 @@
       return imgElm;
     };
     const splitTextBlock = (editor, figure) => {
-      var _a;
       const dom = editor.dom;
       const textBlockElements = filter(editor.schema.getTextBlockElements(), (_, parentElm) => !editor.schema.isValidChild(parentElm, 'figure'));
       const textBlock = dom.getParent(figure.parentNode, node => hasNonNullableKey(textBlockElements, node.nodeName), editor.getBody());
       if (textBlock) {
-        return (_a = dom.split(textBlock, figure)) !== null && _a !== void 0 ? _a : figure;
+        return dom.split(textBlock, figure);
       } else {
         return figure;
       }
@@ -738,17 +731,15 @@
     };
     const writeImageDataToSelection = (editor, data) => {
       const image = getSelectedImage(editor);
-      if (image) {
-        write(css => normalizeCss$1(editor, css), data, image);
-        syncSrcAttr(editor, image);
-        if (isFigure(image.parentNode)) {
-          const figure = image.parentNode;
-          splitTextBlock(editor, figure);
-          editor.selection.select(image.parentNode);
-        } else {
-          editor.selection.select(image);
-          waitLoadImage(editor, data, image);
-        }
+      write(css => normalizeCss$1(editor, css), data, image);
+      syncSrcAttr(editor, image);
+      if (isFigure(image.parentNode)) {
+        const figure = image.parentNode;
+        splitTextBlock(editor, figure);
+        editor.selection.select(image.parentNode);
+      } else {
+        editor.selection.select(image);
+        waitLoadImage(editor, data, image);
       }
     };
     const sanitizeImageData = (editor, data) => {
@@ -944,7 +935,7 @@
     const AdvTab = { makeTab: makeTab$2 };
 
     const collect = editor => {
-      const urlListSanitizer = ListUtils.sanitizer(item => editor.convertURL(item.value || item.url || '', 'src'));
+      const urlListSanitizer = ListUtils.sanitizer(item => editor.convertURL(item.value || item.url, 'src'));
       const futureImageList = new Promise(completer => {
         createImageList(editor, imageList => {
           completer(urlListSanitizer(imageList).map(items => flatten([
@@ -1111,7 +1102,7 @@
     });
     const toImageData = (data, removeEmptyAlt) => ({
       src: data.src.value,
-      alt: (data.alt === null || data.alt.length === 0) && removeEmptyAlt ? null : data.alt,
+      alt: data.alt.length === 0 && removeEmptyAlt ? null : data.alt,
       title: data.title,
       width: data.dimensions.width,
       height: data.dimensions.height,
@@ -1355,16 +1346,13 @@
         }));
       }
     };
-    const createBlobCache = editor => (file, blobUri, dataUrl) => {
-      var _a;
-      return editor.editorUpload.blobCache.create({
-        blob: file,
-        blobUri,
-        name: (_a = file.name) === null || _a === void 0 ? void 0 : _a.replace(/\.[^\.]+$/, ''),
-        filename: file.name,
-        base64: dataUrl.split(',')[1]
-      });
-    };
+    const createBlobCache = editor => (file, blobUri, dataUrl) => editor.editorUpload.blobCache.create({
+      blob: file,
+      blobUri,
+      name: file.name ? file.name.replace(/\.[^\.]+$/, '') : null,
+      filename: file.name,
+      base64: dataUrl.split(',')[1]
+    });
     const addToBlobCache = editor => blobInfo => {
       editor.editorUpload.blobCache.add(blobInfo);
     };
@@ -1375,11 +1363,10 @@
     const parseStyle = editor => cssText => editor.dom.parseStyle(cssText);
     const serializeStyle = editor => (stylesArg, name) => editor.dom.serializeStyle(stylesArg, name);
     const uploadImage = editor => blobInfo => global$1(editor).upload([blobInfo], false).then(results => {
-      var _a;
       if (results.length === 0) {
         return Promise.reject('Failed to upload image');
       } else if (results[0].status === false) {
-        return Promise.reject((_a = results[0].error) === null || _a === void 0 ? void 0 : _a.message);
+        return Promise.reject(results[0].error.message);
       } else {
         return results[0];
       }
@@ -1434,7 +1421,7 @@
 
     const hasImageClass = node => {
       const className = node.attr('class');
-      return isNonNullable(className) && /\bimage\b/.test(className);
+      return className && /\bimage\b/.test(className);
     };
     const toggleContentEditableState = state => nodes => {
       let i = nodes.length;
