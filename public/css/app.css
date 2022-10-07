@@ -1592,9 +1592,6 @@ select {
 .h-screen {
   height: 100vh;
 }
-.h-\[1px\] {
-  height: 1px;
-}
 .h-72 {
   height: 18rem;
 }
@@ -2509,6 +2506,9 @@ select {
 }
 .text-right {
   text-align: right;
+}
+.text-justify {
+  text-align: justify;
 }
 .text-end {
   text-align: end;

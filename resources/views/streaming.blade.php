@@ -1,6 +1,6 @@
 @extends('asideStreaming')
 @section('content')
-@if($streaming->status == 'free')
+@if($streaming->status == 'free' || $streaming1)
 <section class="flex flex-wrap justify-center relative bg-[#f2f2f2]">
     <div class="flex flex-wrap lg:mx-4 pb-16 justify-center w-4/5">
         <div class="flex flex-col items-center mt-16">
@@ -17,7 +17,9 @@
 </section>
 <section class="flex flex-wrap justify-center relative bg-[#f2f2f2]">
     <div class="flex flex-wrap lg:mx-4 pt-12 pb-16 justify-center w-4/5">
+      @if($streaming->url != '')
               <iframe class="w-6/12 aspect-video ..." src="{{$streaming->url}}"></iframe>
+      @endif
     </div>
 </section>
 
@@ -55,11 +57,11 @@
               <button>
               <span class="text-xs text-gray-400 flex justify-end"><i class="fa-solid fa-trash-can text-red-400"></i></span>
               </button>
-        </form>  
+        </form>
         @endif
         @endif
         <p class="text-sm">{{$comment->comment}}</p>
-      </div>  
+      </div>
     </div>@endforeach<br>
     {{$comments->links()}}
   </div>@endunless
