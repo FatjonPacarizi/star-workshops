@@ -1,5 +1,5 @@
 <header>
-    <div class="fixed top-0 bg-white w-full z-40">
+    <div class="fixed shadow top-0 bg-white w-full z-40">
         <nav x-data="{ open: false }" class="flex justify-between items-center px-5 py-3">
 
 

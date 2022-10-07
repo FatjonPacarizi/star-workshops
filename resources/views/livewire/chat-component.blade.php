@@ -91,7 +91,7 @@
                     e.preventDefault();
                     send();
                 }
-                if( e.keyCode >= 48 && e.keyCode <= 90){
+                if( e.keyCode >= 48 && e.keyCode <= 90){//add shift, space
                     if(!im_typing) {@this.typing(); im_typing = true;}
                     else  { // Send typing every 2 second, not every keydown
                         if(!timeout_is_set){

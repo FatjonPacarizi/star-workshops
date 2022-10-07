@@ -39,4 +39,9 @@ class ChatComponent extends Component
     {
             event(new \App\Events\MessageEvent(null,null,null,null,true,$this->workshop->id));
     }
+    public function test($t)
+    {
+           dd($t);
+    }
+    
 }
