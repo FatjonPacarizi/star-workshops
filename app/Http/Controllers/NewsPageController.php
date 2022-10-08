@@ -6,6 +6,7 @@ use App\Models\NewsPage;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreNewsPageRequest;
 use App\Http\Requests\UpdateNewsPageRequest;
+use Illuminate\Support\Facades\Auth;
 
 class NewsPageController extends Controller
 {
@@ -18,6 +19,7 @@ class NewsPageController extends Controller
     public function  newspage()
     {
         return view('newspages.index');
+
     }
 
     public function create()
@@ -28,6 +30,7 @@ class NewsPageController extends Controller
     public function store(StoreNewsPageRequest $request)
     {
         $validated = $request->validated();
+        $validated['author'] = Auth::id();
 
         if (request()->hasFile('image')) {
             $validated['image'] = request()->file('image')->store('newsImgs', 'public');
@@ -35,7 +38,7 @@ class NewsPageController extends Controller
 
         newspage::create($validated);
 
-        return redirect('/news')->with('status', 'News added successfully');
+        return redirect('/news');
     }
 
     public function show($id)
@@ -52,6 +55,8 @@ class NewsPageController extends Controller
 
     public function update(UpdateNewsPageRequest $request, $id)
     {
+        $request->author = Auth::id();
+
         $validated = $request->validated();
 
         $newspage = Newspage::find($id);
@@ -67,7 +72,7 @@ class NewsPageController extends Controller
         if (request()->hasFile('image')) {
             Storage::delete('/public/' . $oldNewsImg);
         }
-        return redirect('/news')->with('status', 'News updated successfully');
+        return redirect('/news');
     }
 
     public function destroy($id)
@@ -75,6 +80,6 @@ class NewsPageController extends Controller
         $newspage = Newspage::find($id);
         Storage::delete('/public/' . $newspage->image);
         $newspage->delete();
-        return redirect('/news')->with('status', 'News deleted successfully');
+        return redirect('/news');
     }
 }

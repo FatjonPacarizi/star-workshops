@@ -4,10 +4,14 @@
 
 
 <section class=" body-font bg-white ">
-    <div class="relative flex items-center justify-center">
-        <p class="absolute text-7xl text-center text-white font-bold opacity-70">{{$about->title}} <span class="text-red-700"></span></p>
-        <img src="{{$about->image ? asset('/storage/' . $about->image) : asset('img/defultaboutimage.png') }}" alt="">
-    </div>
+
+
+    <div class="relative flex items-center justify-center ">
+
+       
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2934.1576688368827!2d21.154011000000004!3d42.658014099999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549ee5514d5483%3A0x5b8362656c47cff7!2sKosta%20Novakoviq%2C%20Prishtina!5e0!3m2!1sen!2s!4v1663744968362!5m2!1sen!2s" class="w-full " style="border:0;height: 500px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+     </div>
+
     <div class="w-full flex px-5 py-24 justify-center flex-wrap items-center">
         <div class="w-full  lg:w-2/5 lg:mr-20 md:p-2 flex flex-col  md:text-left items-center ">
             <div class="md:container md:mx-auto px-5 xl:px-0">
@@ -116,24 +120,4 @@
         </div>
     </section>
 </div>
-<button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed z-90 bottom-8 right-8 border-0 w-16 h-16 rounded-full bg-red-600 ring-2 ring-white text-white -rotate-90 text-5xl font-bold">&#10132;</button>
-<!-- Javascript code -->
-<script>
-    var toTopButton = document.getElementById("to-top-button");
-    // When the user scrolls down 200px from the top of the document, show the button
-    window.onscroll = function() {
-        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-            toTopButton.classList.remove("hidden");
-        } else {
-            toTopButton.classList.add("hidden");
-        }
-    }
-    // When the user clicks on the button, scroll to the top of the document
-    function goToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-</script>
 @endsection

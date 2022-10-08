@@ -20,20 +20,32 @@
             <a href="{{ url('change-status/'.$f->id)}}" class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">Deactive</a>
             @endif
           </td>
-          <td class = "flex items-center " >    
-             <a href="faq/{{$f->id}}/edit" class="bg-sky-500 text-white px-3 p-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
-              <i class="fa-solid fa-pen fa-md"></i>
-                  Edit
-              </a>
-            <form method="POST" action="faq/{{$f->id}}">
+          <td>
+          <div class=" relative flex items-center " x-data="{ open: false }">
+            <i class="fa-solid fa-ellipsis-vertical cursor-pointer w-3" @click="open = !open"></i>
+  
+            <ul id = "ongoingmenu" class="bg-white absolute top-0 mt-2 z-10 shadow-lg border border-gray-100 rounded-lg w-40 py-1 "
+              x-show="open" @click.outside="open = false">
+              <li>
+                <p class="text-xs pl-3 p-2 text-gray-400 ">Manage Faq</p>
+              </li>
+              <li><a 
+                  href="faq/{{$f->id}}/edit"
+                  class="py-1 px-3 border-b block hover:bg-indigo-100 ">
+                  <i class="fa-solid fa-pen mr-1 fa-sm"></i>Edit</a>
+              </li>
+              <form method="POST" action="faq/{{$f->id}}">
               @csrf
               @method('DELETE')
-              <button class="bg-red-500 text-white p-2 text-xs rounded mr-3 hover:bg-red-600">
+              <button class=" w-full text-left text-red-400 py-1 px-3 hover:bg-indigo-100 border-b">
                 <i class="fa-solid fa-trash-can  fa-md"></i>
                 Delete
               </button>
-            </form>         
-          </td>
+            </form>   
+
+            </ul>
+          </div>
+        </td>
           
         </tr>
         @empty

@@ -12,11 +12,15 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="  crossorigin="anonymous"></script>
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @livewireStyles
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="  crossorigin="anonymous"></script>
 </head>
 <body class="font-sans h-full antialiased  bg-[#F8F9FA]">
     <x-jet-banner />
@@ -50,10 +54,10 @@
                                 @php
                                 $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
                                 if(request()->user()->user_status == 'superadmin')
-                                $pending = App\Models\workshop::where('workshops.time','>',$date->format("Y-m-d h:i:sa"))->get();
+                                $pending = \App\Models\Workshop::where('workshops.time','>',$date->format("Y-m-d h:i:sa"))->get();
                                 else{
 
-                                $pending = App\Models\workshop::where(['workshops.author'=> Auth::id()])->where('workshops.time','>',$date->format("Y-m-d h:i:sa"))->get();
+                                $pending = \App\Models\Workshop::where(['workshops.author'=> Auth::id()])->where('workshops.time','>',$date->format("Y-m-d h:i:sa"))->get();
                                 }
                                 @endphp
                                 @if(count($pending)>0)
@@ -96,7 +100,7 @@
                                 <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'news' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}"> <i class="fa-regular fa-newspaper mx-1  fa-sm"></i></div>
                                 <span class="grow ml-3 text-gray-600">News</span>
                                 @php
-                                $news = App\Models\NewsPage::all();
+                                $news = App\Models\NewsPage::where(['author'=> Auth::id()])->get();
                                 @endphp
                                 <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-slate-400">{{count($news)}}</p>
 
@@ -108,6 +112,14 @@
                             <a href="{{ route('superadmin.ShowAppInfos') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::segment(1) == 'appinformations' ? 'bg-white shadow-lg font-medium' : ''}}">
                                 <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'appinformations' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="mdi mdi-format-list-checkbox mx-1"></i></div>
                                 <span class="grow ml-3 text-gray-600">App Informations</span>
+                            </a>
+                        </li>
+                        @endcan
+                        @can('is_super_admin')
+                        <li class="--set-active-tables-html">
+                            <a href="{{ route('superadmin.calendar') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::segment(1) == 'calendar' ? 'bg-white shadow-lg font-medium' : ''}}">
+                                <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'calendar'? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="fa-sharp fa-solid fa-calendar-days mx-2"></i></div>
+                                <span class="grow ml-3 text-gray-600">Calendar</span>
                             </a>
                         </li>
                         @endcan
@@ -125,8 +137,7 @@
                         @endcan      
                 </div>
             </aside>
-            <div class="w-full   overflow-y-scroll ">
-                
+            <div class="w-full overflow-y-scroll">
                 @include('navigation-menu',['link'=>1])
                 @yield('content')
             </div>
@@ -134,5 +145,6 @@
     </div>
     @stack('modals')
     @livewireScripts
+    @stack('scripts')
 </body>
 </html>

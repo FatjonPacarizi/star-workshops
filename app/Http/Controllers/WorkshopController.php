@@ -3,21 +3,25 @@
 namespace App\Http\Controllers;
 
 use PDF;
-use DateTime;
-use DateTimeZone;
 use App\Models\City;
 use App\Models\Type;
 use App\Models\User;
 use App\Models\Country;
 use App\Models\Category;
 use App\Models\Workshop;
+use App\Models\Streaming;
+use Illuminate\Support\Str;
 use App\Models\workshops_users;
+use App\Mail\newWorkshopEmailSender;
+use App\Models\streamings_workshops;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use ParagonIE\ConstantTime\Base64UrlSafe;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
-
-
+use App\Notifications\NewNotification;
+use Session;
 
 class WorkshopController extends Controller
 {
@@ -38,7 +42,13 @@ class WorkshopController extends Controller
      */
 
     public function showMembers(){
+        
         return view('workshopMembers',['staffMembers' => User::has('members')->get()]);
+    }
+    public function singleMembers($id){
+        $staffMembers = User::find($id);
+        return view('single-member', ['staffMembers' => $staffMembers]);
+   
     }
     public function create()
     {
@@ -55,19 +65,9 @@ class WorkshopController extends Controller
      * @param  \App\Http\Requests\StoreWorkshopRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreWorkshopRequest $request)
+    public function store()
     {
-        $validated = $request->validated();
-        $validated['author'] = Auth::id();
-
-        if(request()->hasFile('img_workshop')) {
-         
-            $validated['img_workshop'] = request()->file('img_workshop')->store('workshopsImg','public');
-        }
-        
-        Workshop::create($validated);
-        
-        return redirect()->route('adminsuperadmin.showManageWorkshops');
+    
     }
 
     /**
@@ -76,16 +76,17 @@ class WorkshopController extends Controller
      * @param  \App\Models\Workshop  $workshop
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {    
-            $workshop = Workshop::where('workshops.id',$id)->get();     
+    public function show(Workshop $workshop)
+    {   
+            
+            $streamings = Streaming::all()->where('workshop_id',$workshop->id);
+
+            $workshop_user = workshops_users::all();
 
             $upcoming = false;
-            $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
+            if ($workshop->workshop_endTime == null) $upcoming = true;
 
-            if (strtotime($workshop[0]->time) > strtotime($date->format("Y-m-d h:i:sa"))) $upcoming = true;
-
-            $application_status = workshops_users::select('application_status')->where(['workshop_id'=>$id,'user_id'=>Auth::id()])
+            $application_status = workshops_users::select('application_status')->where(['workshop_id'=>$workshop->id,'user_id'=>Auth::id()])
             ->get();
             
             $already_applied = false;
@@ -98,7 +99,7 @@ class WorkshopController extends Controller
                 $join->on("workshops.id", "=", "workshops_users.workshop_id");
             })
             ->select("workshops.id as id","workshops.limited_participants as limited_participants")
-            ->where("workshops_users.workshop_id",$id)
+            ->where("workshops_users.workshop_id",$workshop->id)
             ->get();
 
             $limitReached = false;
@@ -111,12 +112,14 @@ class WorkshopController extends Controller
             
             
 
-        return view('workshopPage',['workshop'=>$workshop[0],
+        return view('workshopPage',['workshop'=>$workshop,
                                     'limitReached' => $limitReached, 
                                     'participants' => $participants,
                                     'already_applied' => $already_applied,
                                     'application_status' => $application_status,
-                                    'upcoming' => $upcoming]);
+                                    'upcoming' => $upcoming,
+                                    'streamings'=>$streamings,
+                                     'workshop_user'=>$workshop_user]);
     }
 
 
@@ -131,19 +134,12 @@ class WorkshopController extends Controller
      * @param  \App\Models\Workshop  $workshop
      * @return \Illuminate\Http\Response
      */
-    public function edit($id,$participants)
-    {
-        $workshop = Workshop::find($id);
-       
+    public function edit(Workshop $workshop)
+    {   
         //Secure
         if( $workshop->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
            
-        return view('editWorkshop', ['workshop'=>$workshop,
-                                    'participants'=>$participants,
-                                    'countries'=>Country::all(),
-                                    'cities'=>City::all(),
-                                    'types'=>Type::all(),
-                                    'categories'=>Category::all()]);
+        return view('editWorkshop', ['workshop'=>$workshop]);
     }
 
     /**
@@ -182,24 +178,7 @@ class WorkshopController extends Controller
         
         return back();
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Workshop  $workshop
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Workshop $workshop)
-    {
-        Workshop::where('id',$workshop->id)->update(['deleted_from_id' => Auth::id()]);
-        $workshop->delete();
-        
-        return back()->with("tab",request('tab'));
-    }
-
-
     public function join($id){
-
         if(!Auth::check())
           return redirect()->route('login');
 
@@ -250,7 +229,7 @@ class WorkshopController extends Controller
         ->paginate(8,['*'], 'notapprovedParticipantsPage');
 
 
-        $pdf = PDF::loadView('managePDF', ['pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
+        $pdf = PDF::loadView('managePDF', ['workshopName'=>Workshop::select('name')->where('id',$workshopid)->get(),'pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
         return $pdf->stream('managePDF.pdf');
     }
 
@@ -275,18 +254,8 @@ class WorkshopController extends Controller
          return redirect()->back()->with("tab",request('tab'));
     }
 
-    public function restore($id){
-       
-        Workshop::onlyTrashed()->findOrFail($id)->restore();
+    public function calendar(){
 
-        return redirect()->back();
-    }
-
-    public function forceDelete($id){
-        $workshop = Workshop::onlyTrashed()->findOrFail($id);
-        Storage::delete('/public/' .$workshop->img_workshop);
-        $workshop->forceDelete();
-
-        return redirect()->back();
+        return view('calendar');
     }
 }

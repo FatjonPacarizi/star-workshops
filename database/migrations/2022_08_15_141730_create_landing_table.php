@@ -15,12 +15,15 @@ class CreateLandingTable extends Migration
     {
         Schema::create('landings', function (Blueprint $table) {
             $table->id();
-
-            
+            $table->string('section_id');
             $table->string('heading');
-            $table->text('paragraf');
-            $table->string('button');
-            $table->timestamps();
+            $table->text('paragraf_1')->nullable();
+            $table->text('paragraf_2')->nullable();
+            $table->string('button')->nullable();
+            $table->string('img_1')->nullable();
+            $table->string('img_2')->nullable();
+            $table->string('img_3')->nullable();
+            $table->timestamps(); 
         });
     }
 

@@ -1,64 +1,59 @@
 @extends('layouts.app')
-@section('content')
-<script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
-<div class="w-full  p-6 px-10 flex ">
-    <div class="w-full bg-white   shadow-md rounded-xl  ">
-      <div class="w-full flex items-center  border-b border-gray-200 mb-4">
-        <h1 class="p-3 text-black  font-medium  ">Landing Edit</h1>
-      </div>
-        @if (session('status'))
-        <h6>{{ session('status') }}</h6>
-        @endif
-      <form action="{{ url('update-landing/'.$landing->id) }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-        <div class="mb-6 flex items-center">
-                <label class="w-28 text-sm mx-5" for="">Section Title</label>
-                <div class="w-full mx-5">
-                    <input type="text" name="heading" value="{{$landing->heading}}" class="border border-gray-200 rounded p-1 w-full "/>
-                    @error('heading')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                    @enderror
-                </div>
+  @section('content')
+  <div class="w-full h-screen px-10  ">
+    <div class="w-full bg-white shadow-md  rounded-xl py-4 ">
+      <h1 class="p-3 text-black font-medium ml-2 ">Manage Landing</h1>
+    
+      <table class="w-full mx-auto" wire:loading.remove>
+        <tr class="text-gray-400 text-xs border-b">
+          <td class=" p-3 w-1/2">Section</td>
+          <td class=" p-3 w-1/3">Heading</td>
+          <td>Actions</td>
+        </tr>
+        @php 
+          $i = 1;
+        @endphp
+        @foreach($sections as $section)
+        @php 
+
+          $img = '/img/'.$section->section_id.'_defaultimg';
+          if($section->section_id == "section8")    $img = $img.'1.png';
+          else $img = $img.'.png';
+        @endphp
+        <tr class='border-t border-gray-200' style="border-top-width: 0.01em">
+          <td>
+            <div class="w-full h-full flex items-center pl-5 p-2">
+              <img class="w-10  rounded" alt="hero"
+                src="{{$section->img_1 ? asset('/storage/' . $section->img_1) : asset($img)}}" />
+              <div class="ml-3 ">
+                <h1 class="text-black">{{$section->section_id}}</h1>
+              </div>
             </div>
-            <div class="mb-6 flex items-center">
-                <label class="w-28 text-sm mx-5" for="">Description</label>
-                <div class="w-full mx-5">
-                    <textarea type="text"id=" descriptionparagraph"  name="paragraf" value="" class="border border-gray-200 rounded p-1 w-full mx-5">{{$landing->paragraf}}</textarea>
-                    @error('paragraf')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                    @enderror
-                </div>
+          </td>
+          <td>
+            <p class="text-xs text-gray-500">{{$section->heading}}</p>
+          </td>
+          <td>
+            <div class=" relative flex items-center " x-data="{ open: false }">
+              <i class="fa-solid fa-ellipsis-vertical cursor-pointer w-3" @click="open = !open"></i>
+    
+              <ul id = "menu" class="bg-white absolute top-0 mt-2 z-10 shadow-lg border border-gray-100 rounded-lg w-40 py-1 "
+                x-show="open" @click.outside="open = false">
+                <li>
+                  <p class="text-xs pl-3 p-2 text-gray-400 ">Manage Section</p>
+                </li>
+                <li><a
+                    href="/landingpage/manage/{{$section->id}}/edit"
+                    class="py-1 px-3 border-b block hover:bg-indigo-100 ">
+                    <i class="fa-solid fa-pen mr-1 fa-sm"></i>Edit</a>
+                </li>
+              </ul>
             </div>
-   
-        <script>
-                tinymce.init({
-                    selector: 'textarea', // Replace this CSS selector to match the placeholder element for TinyMCE
-                    height: 300,
-                    plugins: [
-                        'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
-                        'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media',
-                        'table', 'emoticons', 'template', 'help'
-                    ],
-                    toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
-                        'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
-                        'forecolor backcolor emoticons | help',
-                    menubar: 'file edit view insert format tools table help'
-                });
-            </script>
-        <div class="mb-6 flex items-center">
-                <label class="w-28 text-sm mx-5" for="">Button link</label>
-                <div class="w-full mx-5">
-                    <input type="text" name="button" value="{{$landing->button}}" class="border border-gray-200 rounded p-1 w-full ">                
-                    @error('button')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                    @enderror
-                </div>
-            </div>
-            <div class="w-full p-4 flex justify-end border-t border-gray-200">
-                <button type="submit" class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600">Update </button>
-            </div>
-        </form>
+          </td>
+        </tr>
+        @endforeach
+      </table>
+        
     </div>
-</div>
+      </div>
 @endsection

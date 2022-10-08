@@ -7,14 +7,18 @@ module.exports = {
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './vendor/asantibanez/livewire-calendar/resources/view/**/*.blade.php',
     ],
 
     theme: {
+        minWidth: {
+            '1/2': '50%',
+          },
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
-            
+
         },
     },
 

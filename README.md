@@ -1,3 +1,54 @@
+Project setup steps:
+--------------------
+ 1. composer install
+ 2. Copy/Paste .env.example file and rename it to .env
+ 3. php artisan migrate:fresh --seed
+ 4. php artisan key:generate
+ 5. php artisan storage:link
+ 6. php artisan serve 
+
+Chat setup steps:
+--------------------
+1. npm install
+2. composer update
+3. in .env file replace following lines
+
+            BROADCAST_DRIVER=log    
+            
+            #Replace with 
+            
+            BROADCAST_DRIVER=pusher  
+
+
+            PUSHER_APP_ID=
+            PUSHER_APP_KEY=
+            PUSHER_APP_SECRET=
+
+            #Replace with 
+           
+            PUSHER_APP_ID=myID
+            PUSHER_APP_KEY=myKey
+            PUSHER_APP_SECRET=secret
+4. npm run dev
+5. php artisan websocket:serve
+
+Email setup steps:
+--------------------
+1. Mailtrap if you dont have an account [Sign Up](https://mailtrap.io/) . 
+2. After sign in, copy config into project .env file . See an example below
+ ![image info](./public/img/mailtrapsetup.png)
+3. in .env file
+
+            MAIL_FROM_ADDRESS=null
+            
+            #Replace with 
+            
+            MAIL_FROM_ADDRESS=youremail@example.example
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">

@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ asset('img/icon.png') }}">
     @php
         $information = App\Models\Informations::all()->last();
@@ -17,6 +18,9 @@
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/vanillacss.css') }}">
+
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
 
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="  crossorigin="anonymous"></script>
@@ -37,24 +41,24 @@
 
     @livewireScripts
     
-    <button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed z-10 bottom-14 right-8 border-0 w-16 h-16 rounded-full bg-red-600 ring-2 ring-white text-white -rotate-90 text-5xl font-bold">&#10132;</button>
+<button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed z-90 bottom-14 right-8 border-0 w-16 h-16 rounded-full bg-red-600 ring-2 ring-white text-white -rotate-90 text-5xl font-bold">&#10132;</button>
 
-    <script>
-        var toTopButton = document.getElementById("to-top-button");
-        window.onscroll = function() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                toTopButton.classList.remove("hidden");
-            } else {
-                toTopButton.classList.add("hidden");
-            }
+<script>
+    var toTopButton = document.getElementById("to-top-button");
+    window.onscroll = function() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            toTopButton.classList.remove("hidden");
+        } else {
+            toTopButton.classList.add("hidden");
         }
-        function goToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-    </script>
+    }
+    function goToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+</script>
 </body>
 
 </html>

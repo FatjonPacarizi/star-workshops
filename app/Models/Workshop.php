@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Workshop extends Model
 {
@@ -19,6 +19,7 @@ class Workshop extends Model
         'limited_participants',
         'description',
         'author',
+        'workshop_token',
         'type_id',
         'country_id',
         'city_id',
@@ -48,8 +49,19 @@ class Workshop extends Model
         return $this->hasMany(workshops_users::class)
         ->where('application_status','pending');
    }
+  
+
+   public function category(){
+
+    return $this->hasOne(Category::class,'id','category_id');
+   }
 
     public function deletefrom(){
         return $this->belongsTo(User::class,'deleted_from_id'); 
+    }
+
+    public function streaming(){
+
+        return $this->belongsTo(Streaming::class,'id');
     }
 }

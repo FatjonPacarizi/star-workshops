@@ -17,7 +17,8 @@ class CreateNewsPagesTable extends Migration
         Schema::create('news_pages', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('author');
+            $table->bigInteger('author')->unsigned();
+            $table->foreign('author')->references('id')->on('users')->onDelete('cascade');
             $table->text('description');
             $table->dateTime('time');
             $table->string('image')->nullable();
