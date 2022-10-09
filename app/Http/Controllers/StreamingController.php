@@ -25,6 +25,7 @@ class StreamingController extends Controller
         $workshops = Workshop::find($workshopid);
         $streamings = Streaming::all()->where('workshop_id','=',$workshopid);
         $comments = Comment::latest('created_at')->where('streaming_id',$id)->simplepaginate(3);
+        
         return view('streaming',['workshops'=>$workshops,'streaming'=>$streaming,'streamings'=>$streamings,'comments'=>$comments,'streaming1'=>$streaming1]);
     }
 
