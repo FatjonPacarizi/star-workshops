@@ -38,7 +38,7 @@ class NewsPageController extends Controller
 
         newspage::create($validated);
 
-        return redirect('/news')->with('status', 'News added successfully');
+        return redirect('/news');
     }
 
     public function show($id)
@@ -72,7 +72,7 @@ class NewsPageController extends Controller
         if (request()->hasFile('image')) {
             Storage::delete('/public/' . $oldNewsImg);
         }
-        return redirect('/news')->with('status', 'News updated successfully');
+        return redirect('/news');
     }
 
     public function destroy($id)
@@ -80,6 +80,6 @@ class NewsPageController extends Controller
         $newspage = Newspage::find($id);
         Storage::delete('/public/' . $newspage->image);
         $newspage->delete();
-        return redirect('/news')->with('status', 'News deleted successfully');
+        return redirect('/news');
     }
 }

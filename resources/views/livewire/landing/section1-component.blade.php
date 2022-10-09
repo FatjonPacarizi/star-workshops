@@ -1,5 +1,9 @@
-<div class="w-full bg-white rounded-xl shadow-md py-4 mt-5">
-    <h1 class="p-3 text-black font-medium ml-2 ">Landing Managment</h1>
+<div class="w-full p-10">
+<div class="w-full bg-white shadow-md  rounded-xl">
+    <div class="flex items-center border-b border-gray-200">
+    <a href="{{ route('superadmin.showlandings') }}"><i class="fa-solid fa-arrow-left mx-4"></i></a>
+   <h1 class="p-3 text-black font-medium ml-2 ">Section 1 Edit</h1>
+</div>
     <div class="w-full  p-6 px-10 flex ">
         <div class="w-full bg-white">
         <div class="w-full flex items-center mb-4">
@@ -52,51 +56,74 @@
                         </div>
 
                         
-                    <button wire:click.prevent = 'update({{$section1->id}})' class="rounded-lg py-2 px-6 text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white hover:border-blue-400 duration-300">Update </button>
+                    <button wire:click.prevent = 'update()' class="rounded-lg py-2 px-6 text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:text-white hover:border-blue-400 duration-300">Update </button>
                 </div>
         </div>
+        <div id = "flash-msg" class="absolute top-1 -right-full z-40" >
+            <div class = "flex justify-start w-72 items-center p-3 my-2 bg-white shadow rounded-l-md">
+              <i class="fa-solid fa-check rounded-full w-8 h-8 flex items-center justify-center bg-green-400 text-white mr-5"></i>
+              <p>Section 1 Updated</p>
+              <button onClick = "animateFlashMsg(20,-400,true)" type="button" class="ml-auto text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 flex items-center justify-center h-8 w-8 " data-dismiss-target="#toast-success" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          </div>
     </div>
-    <div id = "flash-msg" class="hidden absolute top-12 right-0" >
-        <div class = "flex justify-start w-72 items-center p-3 my-2 bg-white shadow rounded-l-md">
-        <i class="fa-solid fa-check rounded-full w-8 h-8 flex items-center justify-center bg-green-500 text-white mr-5"></i>
-        <p>Section 1 updated</p>
-        </div>
-    </div>
-    @push('scripts')
-    <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
-      <script>
-        initTiny();
-        function initTiny(){
-            tinymce.init({
-            selector: '#paragraf_1', // Replace this CSS selector to match the placeholder element for TinyMCE
-            height: 300,
-            plugins: [
-                'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
-                'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media',
-                'table', 'emoticons', 'template', 'help'
-            ],
-            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
-                'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
-                'forecolor backcolor emoticons | help',
-            menubar: 'file edit view insert format tools table help',
-            setup: function (editor) {
-                    editor.on('init change', function () {
-                        editor.save();
-                    });
-                    editor.on('change', function (e) {
-                        @this.set('paragraf_1', editor.getContent());
-                    });
-                }
-            });
-        }
-        window.addEventListener('section1Update', event => {
+        @push('scripts')
+        <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
+          <script>
             initTiny();
-            document.getElementById("flash-msg").style.display = "block";
-            window.setTimeout( 
-            function() {
-                document.getElementById("flash-msg").style.display = "none";
-            }, 2500);
-            });
-      </script>
-@endpush
+            function initTiny(){
+                tinymce.init({
+                selector: '#paragraf_1', // Replace this CSS selector to match the placeholder element for TinyMCE
+                height: 300,
+                plugins: [
+                    'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+                    'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media',
+                    'table', 'emoticons', 'template', 'help'
+                ],
+                toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                    'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+                    'forecolor backcolor emoticons | help',
+                menubar: 'file edit view insert format tools table help',
+                setup: function (editor) {
+                        editor.on('init change', function () {
+                            editor.save();
+                        });
+                        editor.on('change', function (e) {
+                            @this.set('paragraf_1', editor.getContent());
+                        });
+                    }
+                });
+            }
+            window.addEventListener('section1Update', event => {
+                initTiny();
+                document.getElementById("flash-msg").style.display = "block";
+                window.setTimeout( 
+                function() {
+                    document.getElementById("flash-msg").style.display = "none";
+                }, 2500);
+                });
+
+                var closeTimeout;
+                window.addEventListener('section1Update', event => {
+                    initTiny();
+                    animateFlashMsg(-400,20,false);
+                    closeTimeout = window.setTimeout( 
+                    function() {
+                    animateFlashMsg(20,-400,false);
+                    }, 2500);
+                });
+
+                function animateFlashMsg(from, to, closedByBtn){
+                $("#flash-msg").css({
+                        right: from
+                    }).animate({
+                        right:to
+                    }, "slow");
+                if(closedByBtn) clearTimeout(closeTimeout);
+                }
+          </script>
+    @endpush
+    </div>
 </div>
