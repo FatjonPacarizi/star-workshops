@@ -49,7 +49,7 @@
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
                  </div>
-                <img class="object-cover mx-5 rounded" alt="Image" src="{{$section5->img_1 ? asset('/storage/' . $section5->img_1) : asset('/img/section5_defaultimg.jpg')}}" width="100">
+                <img class="object-cover mx-5 rounded" alt="Image" src="{{$section5->img_1 ? asset('/storage/' . $section5->img_1) : asset('/img/section5_defaultimg.png')}}" width="100">
             </div>
             
             <div class="w-full p-4 flex justify-end ">
