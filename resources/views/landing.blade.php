@@ -12,7 +12,7 @@
       </div>
     </div>
     @if(Auth::check())
-    @if(Auth::user()->id != $user[0]->user_id)
+    @if(Auth::user()->user_status == 'user')
     <div class="min-w-32 bg-white min-h-32 p-1 mb-2 float-left font-medium">
       <div class="w-32 flex-none rounded-t lg:rounded-t-none lg:rounded-l text-center shadow-lg ">
           <div class="block rounded-t overflow-hidden  text-center text-black">
@@ -31,8 +31,12 @@
             </div>
             <div class="pb-2 border-l border-r border-b rounded-b-lg text-center border-white bg-white ">
               <span class="text-xs leading-normal">
+              @if($workshop > '{{Carbon\Carbon::now()}}')
               {{$workshop->name}}<br>
               <p class="text-red-600"><b>{{\Carbon\Carbon::parse($workshop->time)->diffForHumans()}}</b></p>
+              @else 
+              <p>No data</p>
+              @endif
               </span>
             </div>
           </div>

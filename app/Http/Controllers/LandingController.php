@@ -20,10 +20,6 @@ class LandingController extends Controller
         $upcomings = Workshop::limit(6)
         ->where('workshops.time','>=',$currentTime)
         ->orderBy('id','desc')->get();
-
-          // $user = User::where('user_status', '==', 'user')->get()->first();
-          $user = positions_users::all()->where('position_id',2);
-
         
         return view('landing', ['upcomings' => $upcomings, 'newspage' => NewsPage::limit(3)->orderBy('id', 'DESC')->get(),
         'section1'=>Landing::where('section_id','section1')->first(),
@@ -34,7 +30,7 @@ class LandingController extends Controller
         'section6'=>Landing::where('section_id','section6')->first(),
         'section7'=>Landing::where('section_id','section7')->first(),
         'section8'=>Landing::where('section_id','section8')->first(),
-        'user'=>$user,'workshop'=>Workshop::all()->where('time','>=',$currentTime)->first()]);
+        'workshop'=>Workshop::all()->where('time','>=',$currentTime)->first()]);
     }
 
     public function landing()
