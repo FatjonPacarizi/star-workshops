@@ -35,7 +35,11 @@
              <div class=" flex items-center justify-between rounded-xl  p-4 bg-white" style = "box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 80px;">
                 <div class = "">
                     <p>Users statistics</p>
+<<<<<<< HEAD
                     <h2 class = "text-black text-xl font-bold flex items-center">{{$usersThisMonthRegistered}}  <span class = "text-xs text-green-400 ml-2 flex flex-wrap">+{{\Illuminate\Support\Str::limit($usersThisMonthRegistered/$users*100, 4, $end='')}}% more last 30 days</span></h2>
+=======
+                    <h2 class = "text-black text-xl font-bold flex items-center">{{$usersThisMonthRegistered}}  <span class = "text-xs text-green-400 ml-3 flex flex-wrap">+{{\Illuminate\Support\Str::limit($usersThisMonthRegistered/$users*100, 4, $end='')}}% more last 30 days</span></h2>
+>>>>>>> 7ecaceedc8ab5b5e5038de9321115213abf952c0
                 </div>
                 <div>
                     <div class="px-2 py-2.5 rounded-lg ml-2 text-white bg-gradient-to-r from-purple-500 to-pink-500 shadow-md">   
@@ -49,7 +53,11 @@
              <div class="flex items-center justify-between rounded-xl  p-4 bg-white" style = "box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 80px;">
                 <div class = "">
                     <p>Workshops statistics</p>
+<<<<<<< HEAD
                     <h2 class = "text-black text-xl font-bold flex items-center">{{$workshopsThisMonthRegistered}}  <span class = "text-xs text-green-400 ml-2 break-words">+{{\Illuminate\Support\Str::limit($workshopsThisMonthRegistered/$totalWorkshops*100, 4, $end='')}}% more last 30 days</span></h2>
+=======
+                    <h2 class = "text-black text-xl font-bold flex items-center">{{$workshopsThisMonthRegistered}}  <span class = "text-xs text-green-400 ml-3 break-words">+{{\Illuminate\Support\Str::limit($workshopsThisMonthRegistered/$totalWorkshops*100, 4, $end='')}}% more last 30 days</span></h2>
+>>>>>>> 7ecaceedc8ab5b5e5038de9321115213abf952c0
                 </div>
                 <div>
                     <div class="px-2 py-2.5 rounded-lg ml-2 text-white bg-gradient-to-r from-purple-500 to-pink-500 shadow-md">   
