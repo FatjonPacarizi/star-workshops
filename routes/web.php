@@ -20,6 +20,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\chatController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -149,7 +150,7 @@ Route::group(['middleware' => 'auth'], function () {
             // Add routes here for admin and superadmin
 
             //Show dashboard
-            Route::get('/dashboard', [ChartController::class, 'index'])->name('dashboard');
+            Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
             //Show insert workshop page
             Route::get('/workshops/manage/insert', [WorkshopController::class, 'create'])->name('showInsert');
 
