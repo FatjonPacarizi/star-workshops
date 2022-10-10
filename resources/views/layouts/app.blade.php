@@ -39,7 +39,7 @@
                         </a>
                       
                     </div>
-                    <a href="{{ route('adminsuperadmin.dashboard') }}" class="flex items-center p-2 mb-1  rounded-lg  {{Request::segment(1) == 'dashboard' ? 'bg-white shadow-lg font-medium' : ''}}" >
+                    <a href="{{ route('adminsuperadmin.dashboard') }}" class="flex items-center p-2 mb-1 mt-5 rounded-lg  {{Request::segment(1) == 'dashboard' ? 'bg-white shadow-lg font-medium' : ''}}" >
                       <div class="w-8 h-8 p-1 rounded-lg ml-2 flex justify-center items-center {{Request::segment(1) == 'dashboard' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white  shadow-md'}}">  <i class="mdi mdi-speedometer mx-1 "></i> </div>
                         <span class="grow ml-3 text-gray-600">Dashboard</span>
                     </a>
