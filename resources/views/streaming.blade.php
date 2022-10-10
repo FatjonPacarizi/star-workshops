@@ -1,6 +1,9 @@
 @extends('asideStreaming')
 @section('content')
 @if($streaming->status == 'free' || $streaming1)
+<div class="flex items-center p-2 space-x-4 justify-self-end">
+			<h3 class="text-lg font-semibold">Views:   {{$streaming->count}}</h3>
+</div>
 <section class="flex flex-wrap justify-center relative bg-[#f2f2f2]">
     <div class="flex flex-wrap lg:mx-4 pb-16 justify-center w-4/5">
         <div class="flex flex-col items-center mt-16">
@@ -74,7 +77,7 @@
             <h1 class="text-5xl font-bold text-red-500 mt-4"><i class="fa-solid fa-circle-play text-red-600"></i> {{$streaming->title}} </h1>
             <h1 class="text-4xl font-bold text-grey-500 mt-6 mb-10">   Lecture content locked </h1>
             <p class="mb-2">If you're already enrolled,<a href="{{ route('login') }}" class="text-blue-700"> you'll need to login.</a></p>
-            <h1> Get back to workshop: <b>Apply to enroll this course</b> </h1>
+            <h1> Get back to workshop: <a href="/workshop/{{$workshops->id}}"><b>Apply to enroll this course</b></a></h1>
         </div>
     </div>
 </section>

@@ -44,7 +44,7 @@ Route::get('/chat', [chatController::class, 'index']);
 Route::get('/chat/send', [chatController::class, 'send'])->name('send');
 
 Route::get('/members', [WorkshopController::class, 'showMembers']);
-Route::get('/members/single-member/{id}',[WorkshopController::class,'singleMembers'])->name('single-member');
+Route::get('/member/{id}',[WorkshopController::class,'singleMembers'])->name('single-member');
 Route::get('/aside',[StreamingController::class,'streamingview']);
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
 Route::get('/newspage', [NewsPageController::class, 'index']);
@@ -178,7 +178,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/streaminglive/insert/{id}',[StreamingController::class, 'insert'])->name('insertStreaming');
             Route::post('/streaminglive/add-streaming', [StreamingController::class, 'store']);
             Route::get('/streaminglive/edit/{id}',[StreamingController::class, 'edit']);
-            Route::put('/update-streaming/{id}',[StreamingController::class,'update']);
+            Route::put('/update-streaming/{id}',[StreamingController::class,'update'])->name('updateStreaming');
             Route::delete('/streaming/delete/{id}', [StreamingController::class, 'destroy']);
             Route::get('change-status/{id}', [StreamingController::class, 'changeStatus'])->name('change');
 

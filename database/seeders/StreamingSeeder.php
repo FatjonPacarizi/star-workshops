@@ -18,6 +18,7 @@ class StreamingSeeder extends Seeder
     {
         DB::table('streamings')->insert([
             [
+                'count' => 0,
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
@@ -26,6 +27,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '1',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
                 'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
@@ -33,6 +35,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '1',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Fonts & Colors',
                 'description' => '<h1>Setting the text color</h1>
                 <p>Control the text color of an element using the</p> <code>text-{color}</code> <p>utilities.</p>',
@@ -41,6 +44,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '1',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Margin, Padding & Borders',
                 'description' => '<p>As important as CSS margin, padding, and border are, most developers often struggle to understand this concept.</p>
                 <br>
@@ -60,6 +64,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '1',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Config',
                 'description' => '<h1>Configuration</h1>
                 <p>A guide to configuring and customizing your Tailwind installation.</p>
@@ -70,6 +75,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '1',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
@@ -78,6 +84,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '2',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
                 'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
@@ -85,6 +92,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '2',
             ],  
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Fonts & Colors',
                 'description' => '<h1>Setting the text color</h1>
                 <p>Control the text color of an element using the</p> <code>text-{color}</code> <p>utilities.</p>',
@@ -93,6 +101,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '2',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Margin, Padding & Borders',
                 'description' => '<p>As important as CSS margin, padding, and border are, most developers often struggle to understand this concept.</p>
                 <br>
@@ -112,6 +121,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '2',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Config',
                 'description' => '<h1>Configuration</h1>
                 <p>A guide to configuring and customizing your Tailwind installation.</p>
@@ -122,6 +132,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '2',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
@@ -130,6 +141,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '3',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
                 'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
@@ -137,6 +149,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '3',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Custom Fonts',
                 'description' => '<h1>Font Family</h1>
                 <p>Utilities for controlling the font family of an element.</p>
@@ -149,15 +162,16 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '3',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Using Flexbox',
                 'description' => '<h1>Flex</h1>
                  <p>Utilities for controlling how flex items both grow and shrink.</p>',
                 'url' => 'https://www.youtube.com/embed?v=WK6u8YDYqak&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=7',
                 'status' => 'paid',
                 'workshop_id' => '3',
-
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Responsive Classes',
                 'description' => '<h1>Responsive Design</h1>
                 <p>Using responsive utility variants to build adaptive user interfaces.</p>
@@ -170,6 +184,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '3',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
@@ -178,6 +193,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '4',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
                 'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
@@ -185,6 +201,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '4',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Custom Fonts',
                 'description' => '<h1>Font Family</h1>
                 <p>Utilities for controlling the font family of an element.</p>
@@ -197,6 +214,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '4',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Using Flexbox',
                 'description' => '<h1>Flex</h1>
                  <p>Utilities for controlling how flex items both grow and shrink.</p>',
@@ -205,6 +223,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '4',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Responsive Classes',
                 'description' => '<h1>Responsive Design</h1>
                 <p>Using responsive utility variants to build adaptive user interfaces.</p>
@@ -217,6 +236,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '4',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
@@ -225,6 +245,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '5',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
                 'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
@@ -232,6 +253,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '5',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Fonts & Colors',
                 'description' => '<h1>Setting the text color</h1>
                 <p>Control the text color of an element using the</p> <code>text-{color}</code> <p>utilities.</p>',
@@ -240,6 +262,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '5',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Margin, Padding & Borders',
                 'description' => '<p>As important as CSS margin, padding, and border are, most developers often struggle to understand this concept.</p>
                 <br>
@@ -259,6 +282,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '5',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Config',
                 'description' => '<h1>Configuration</h1>
                 <p>A guide to configuring and customizing your Tailwind installation.</p>
@@ -267,9 +291,9 @@ class StreamingSeeder extends Seeder
                 'url' => 'https://www.youtube.com/embed?v=6UVQlB1eo5A&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=5',
                 'status' => 'paid',
                 'workshop_id' => '5',
-
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
@@ -278,6 +302,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '6',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
                 'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
@@ -285,6 +310,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '6',
             ],  
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Fonts & Colors',
                 'description' => '<h1>Setting the text color</h1>
                 <p>Control the text color of an element using the</p> <code>text-{color}</code> <p>utilities.</p>',
@@ -293,6 +319,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '6',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Margin, Padding & Borders',
                 'description' => '<p>As important as CSS margin, padding, and border are, most developers often struggle to understand this concept.</p>
                 <br>
@@ -312,6 +339,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '6',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Config',
                 'description' => '<h1>Configuration</h1>
                 <p>A guide to configuring and customizing your Tailwind installation.</p>
@@ -322,6 +350,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '6',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
@@ -330,6 +359,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '7',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
                 'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
@@ -337,15 +367,16 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '7',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Fonts & Colors',
                 'description' => '<h1>Setting the text color</h1>
                 <p>Control the text color of an element using the</p> <code>text-{color}</code> <p>utilities.</p>',
                 'url' => 'https://www.youtube.com/embed?v=w0KZhi3DD-0&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=3',
                 'status' => 'paid',
                 'workshop_id' => '7',
-
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Margin, Padding & Borders',
                 'description' => '<p>As important as CSS margin, padding, and border are, most developers often struggle to understand this concept.</p>
                 <br>
@@ -363,9 +394,9 @@ class StreamingSeeder extends Seeder
                 'url' => 'https://www.youtube.com/embed?v=1g4W2U-l350&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=4',
                 'status' => 'paid',
                 'workshop_id' => '7',
-
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Config',
                 'description' => '<h1>Configuration</h1>
                 <p>A guide to configuring and customizing your Tailwind installation.</p>
@@ -374,9 +405,9 @@ class StreamingSeeder extends Seeder
                 'url' => 'https://www.youtube.com/embed?v=6UVQlB1eo5A&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=5',
                 'status' => 'paid',
                 'workshop_id' => '7',
-
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
@@ -385,6 +416,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '8',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
                 'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
@@ -392,6 +424,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '8',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Custom Fonts',
                 'description' => '<h1>Font Family</h1>
                 <p>Utilities for controlling the font family of an element.</p>
@@ -402,18 +435,18 @@ class StreamingSeeder extends Seeder
                 'url' => 'https://www.youtube.com/embed?v=arfDRUIZOiw&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=6',
                 'status' => 'paid',
                 'workshop_id' => '8',
-
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Using Flexbox',
                 'description' => '<h1>Flex</h1>
                  <p>Utilities for controlling how flex items both grow and shrink.</p>',
                 'url' => 'https://www.youtube.com/embed?v=WK6u8YDYqak&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=7',
                 'status' => 'paid',
                 'workshop_id' => '8',
-
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Responsive Classes',
                 'description' => '<h1>Responsive Design</h1>
                 <p>Using responsive utility variants to build adaptive user interfaces.</p>
@@ -427,6 +460,7 @@ class StreamingSeeder extends Seeder
 
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
@@ -435,6 +469,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '9',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
                 'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
@@ -442,6 +477,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '9',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Responsive Classes',
                 'description' => '<h1>Responsive Design</h1>
                 <p>Using responsive utility variants to build adaptive user interfaces.</p>
@@ -454,6 +490,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '9',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Cards',
                 'description' => '<h1>Tailwind CSS Cards - Flowbite</h1>
                 <p>Get started with a large variety of Tailwind CSS card examples for your web project</p>',
@@ -462,6 +499,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '9',
             ],            
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Margin, Padding & Borders',
                 'description' => '<p>As important as CSS margin, padding, and border are, most developers often struggle to understand this concept.</p>
                 <br>
@@ -481,6 +519,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '9',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
@@ -489,6 +528,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '10',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
                 'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
@@ -496,6 +536,7 @@ class StreamingSeeder extends Seeder
                 'workshop_id' => '10',
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Cards',
                 'description' => '<h1>Tailwind CSS Cards - Flowbite</h1>
                 <p>Get started with a large variety of Tailwind CSS card examples for your web project</p>',
@@ -505,69 +546,70 @@ class StreamingSeeder extends Seeder
 
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
                 'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
                 'status' => 'paid',
                 'workshop_id' => '10',
-
             ], 
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
                 'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
                 'status' => 'paid',
                 'workshop_id' => '10',
-
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
                 'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
                 'status' => 'paid',
                 'workshop_id' => '11',
-
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
                 'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
                 'status' => 'paid',
                 'workshop_id' => '12',
-
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
                 'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
                 'status' => 'paid',
                 'workshop_id' => '13',
-
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
                 'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
                 'status' => 'paid',
                 'workshop_id' => '14',
-
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
                 'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
                 'status' => 'paid',
                 'workshop_id' => '15',
-
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
@@ -577,6 +619,7 @@ class StreamingSeeder extends Seeder
 
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
@@ -586,6 +629,7 @@ class StreamingSeeder extends Seeder
 
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
@@ -595,6 +639,7 @@ class StreamingSeeder extends Seeder
 
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
@@ -604,6 +649,7 @@ class StreamingSeeder extends Seeder
 
             ],
             [
+                'count' => 0,
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
