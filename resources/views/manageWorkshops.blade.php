@@ -30,7 +30,7 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
       <button onClick="changeURL('?upcomingWorkshopsPage={{$upcomingtab}}')" :class="tab === 0 ? active: inactive"
         class="px-5 h-8 flex items-center rounded-xl " @click="tab = 0">Upcoming</button>
       <button onClick="changeURL('?ongoingWorkshopsPage={{$ongoingtab}}')" :class="tab === 1 ? active: inactive"
-        class="px-5 h-8 flex items-center rounded-xl " @click="tab = 1">Ongoing</button>
+        class="px-5 h-8 flex items-center ml-1 rounded-xl " @click="tab = 1">Ongoing</button>
       <button onClick="changeURL('?pastsWorkshopsPage={{$pasttab}}')" :class="tab === 2 ? active: inactive"
         class="px-5 h-8 ml-1 rounded-xl" @click="tab = 2 ">Pasts</button>
       @can('is_super_admin')

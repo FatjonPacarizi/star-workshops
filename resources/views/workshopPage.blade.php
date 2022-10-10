@@ -56,7 +56,7 @@
                     @else
                     @if($workshop->workshop_startTime != null)
                     <a href="#" class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black flex items-center">
-                        <div class="bg-red-600 rounded mr-5 px-5 text-white font-bold">live</div> Join stream
+                        Join stream
                     </a>
                     @endif
                     @endif
