@@ -1736,6 +1736,9 @@ select {
 .w-8\/12 {
   width: 66.666667%;
 }
+.w-10\/12 {
+  width: 83.333333%;
+}
 .max-w-screen-xl {
   max-width: 1280px;
 }
@@ -2440,6 +2443,10 @@ select {
 .py-2\.5 {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
+}
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .pt-6 {
   padding-top: 1.5rem;
@@ -3737,6 +3744,11 @@ select {
 
   .xl\:pb-12 {
     padding-bottom: 3rem;
+  }
+
+  .xl\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .xl\:text-3xl {
