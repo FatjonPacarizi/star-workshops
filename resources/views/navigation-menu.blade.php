@@ -68,17 +68,23 @@
                                 <div class="block px-4 py-2 text-xs text-gray-400">
                                     {{ __('Notifications') }}
                                 </div>
-                                <div class="px-4 text-xs py-2">
+                                <div>
                                     @if (Auth::user()->unreadNotifications ->count() > 0 )
                                     @foreach(Auth::user()->unreadNotifications as $notification)
-                                    <p>Workshop <b> {{ $notification->data['name'] }} </b> has just added.</p>
-                                    <hr>
+                                    <p class="m-1 text-xs">Workshop <b> {{ $notification->data['name'] }} </b> has just added.</p>
+                                    <hr class="m-1">
                                     @endforeach
-                                    <a href="/markAsRead" class="text-red-600">
+                                    <a href="/markAsRead">
+                                        <p class="text-red-600 text-xs m-1 text-center">
                                         Mark all as read
+                                        </p>
                                     </a>
                                     @else
-                                    <p>There are no new notifications</p>
+                                    <p class="m-2 text-xs">There are no new notifications.</p>
+                                    <hr>
+                                    <p class="text-center m-1 text-xs text-sky-800">
+                                        <a href="/notification">View all notifications</a>
+                                    </p>
                                     @endif
                                 </div>
                             </x-slot>

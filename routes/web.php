@@ -63,7 +63,7 @@ Route::get('/workshops', [WorkshopController::class, 'index'])->name('workshops'
 
 Route::post('/send', [App\Http\Controllers\MailController::class, 'send'])->name('emailsend');
 
-Route::get('/notification', [UserManageController::class,'showNotificaton']);
+Route::get('/notification', [UserManageController::class,'showNotificaton'])->name('notifications');;
 Route::get('/markAsRead',[UserManageController::class, 'markAsRead']);
 
 Route::middleware([
