@@ -52,7 +52,7 @@
       <p class="mb-8 leading-relaxed">{!! $section2->paragraf_1 !!}</p>
       <div class="grid grid-cols-1 gap-6 w-full">
         <div class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
-          <img class="object-cover w-full" alt="Map" src="{{$section2->img_1 ? asset('/storage/' . $section1->img_1) : asset('/img/section2_defaultimg .png')}}" />
+          <img class="object-cover w-full" alt="Map" src="{{$section2->img_1 ? asset('/storage/' . $section1->img_1) : asset('/img/section2_defaultimg.png')}}" />
           <div class="absolute inset-0 inset-y-32">
             <h4 class="mb-3 text-7xl font-semibold tracking-tight">{!! $section2->paragraf_2 !!}</h4>
           </div>
@@ -77,7 +77,7 @@
       </div>
     </div>
     <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-      <img class="object-cover object-center rounded" alt="Workshops and Training" src="{{$section3->img_1 ? asset('/storage/' . $section3->img_1) : asset('/img/section3_defaultimg.jpg')}}">
+      <img class="object-cover object-center rounded" alt="Workshops and Training" src="{{$section3->img_1 ? asset('/storage/' . $section3->img_1) : asset('/img/section3_defaultimg.png')}}">
     </div>
   </div>
   <svg class="swirl w-full h-6 md:h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -151,7 +151,7 @@
     </div>
     <div class=" md:w-1/2 border relative  mt-10 md:mt-0 py-10  rounded-l-3xl bg-gray-200 md:pl-16 flex justify-end text-center">
       <div class="absolute w-2/3 rounded-l-3xl h-full right-0 top-0  bg-red-600 "></div>
-      <img class="w-11/12 object-cover object-center  rounded-l-3xl z-10" alt="Workshops and Training" src="{{$section5->img_1 ? asset('/storage/' . $section5->img_1) : asset('/img/section5_defaultimg.jpg')}}">
+      <img class="w-11/12 object-cover object-center  rounded-l-3xl z-10" alt="Workshops and Training" src="{{$section5->img_1 ? asset('/storage/' . $section5->img_1) : asset('/img/section5_defaultimg.png')}}">
     </div>
   </div>
  
