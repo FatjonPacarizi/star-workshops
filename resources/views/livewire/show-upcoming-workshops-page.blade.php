@@ -24,7 +24,7 @@
               </div>
             </div>
             @if($upcoming->workshop_startTime != null ) 
-              <div class="border border-red-400 rounded mr-5 px-5 text-red-400 font-bold">live</div>
+              <div class="border border-red-400 rounded mr-5 px-5 text-red-400 font-bold">Streaming</div>
             @endif
           </div>
           </a>
