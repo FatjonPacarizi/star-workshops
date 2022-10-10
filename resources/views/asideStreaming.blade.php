@@ -20,7 +20,7 @@
 
 <div class="flex flex-fixed w-full h-screen l border 0 bg-gray-100">
   <div class="w-3/12 bg-gray-200">
-    <h1 class="text-center pt-2"><a href="/workshop/{{$workshops->id}}"><i class="fa-solid fa-square-caret-left"></i>  {{$streaming->workshop->name}}</a></h1>
+    <h1 class="text-center pt-2"><a href="/workshop/{{$workshops->id}}"><i class="fa-solid fa-square-caret-left text-red-500"></i>  {{$streaming->workshop->name}}</a></h1>
 
     <div class="bg-gray-200 pt-4 pb-4"> 
       <div class="h-fit pl-4 pt-2 pb-2">
@@ -57,7 +57,7 @@
         @endif
         @endforeach
       </ul> 
-    </div> 
+    </div>
   </div>
 
   <div class="w-9/12 overflow-y-scroll">

@@ -21,6 +21,7 @@ class CreateStreamingsTable extends Migration
             $table->string('status')->default('paid');
             $table->bigInteger('workshop_id')->unsigned();
             $table->foreign('workshop_id')->references('id')->on('workshops')->onDelete('cascade');
+            $table->bigInteger('count')->default(0);
             $table->timestamps();
         });
     }

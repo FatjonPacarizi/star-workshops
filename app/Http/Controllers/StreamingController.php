@@ -20,8 +20,11 @@ class StreamingController extends Controller
         $streaming1 = false;
         if(count($workshop_users) > 0 )
             $streaming1 = true;
-
+         
         $streaming = Streaming::find($id);
+        if($streaming1 || $streaming->status == 'free'){
+            Streaming::find($id)->increment('count');
+        }        
         $workshops = Workshop::find($workshopid);
         $streamings = Streaming::all()->where('workshop_id','=',$workshopid);
         $comments = Comment::latest('created_at')->where('streaming_id',$id)->simplepaginate(3);
@@ -39,8 +42,9 @@ class StreamingController extends Controller
     public function insert($id){
 
         $workshops = Workshop::find($id);
+        $streaming = Streaming::find($id);
 
-        return view('insertStreaming',['workshops'=> $workshops]);
+        return view('insertStreaming',['workshops'=> $workshops,'streaming'=>$streaming]);
     }
 
     public function store(StoreStreamingRequest $request){
