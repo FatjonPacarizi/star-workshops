@@ -50,7 +50,7 @@
                     @enderror
                 </div>
                 <img class="object-cover mx-5 rounded" alt="Image"
-                    src="{{$section2->img_1 ? asset('/storage/' . $section2->img_1) : asset('/img/section2_defaultimg .jpg')}}"
+                    src="{{$section2->img_1 ? asset('/storage/' . $section2->img_1) : asset('/img/section2_defaultimg.png')}}"
                     width="100">
             </div>
 
