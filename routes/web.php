@@ -178,7 +178,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/streaminglive/insert/{id}',[StreamingController::class, 'insert'])->name('insertStreaming');
             Route::post('/streaminglive/add-streaming', [StreamingController::class, 'store']);
             Route::get('/streaminglive/edit/{id}',[StreamingController::class, 'edit']);
-            Route::put('/update-streaming/{id}',[StreamingController::class,'update']);
+            Route::put('/update-streaming/{id}',[StreamingController::class,'update'])->name('updateStreaming');
             Route::delete('/streaming/delete/{id}', [StreamingController::class, 'destroy']);
             Route::get('change-status/{id}', [StreamingController::class, 'changeStatus'])->name('change');
 
