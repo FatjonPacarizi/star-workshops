@@ -1,5 +1,5 @@
 /**
- * TinyMCE version 6.2.0 (2022-09-08)
+ * TinyMCE version 6.1.2 (2022-07-29)
  */
 
 (function () {
@@ -81,10 +81,7 @@
       });
       registerOption('template_preview_replace_values', { processor: 'object' });
       registerOption('template_replace_values', { processor: 'object' });
-      registerOption('templates', {
-        processor: value => isString(value) || isArrayOf(value, isObject) || isFunction(value),
-        default: []
-      });
+      registerOption('templates', { processor: value => isString(value) || isArrayOf(value, isObject) || isFunction(value) });
       registerOption('template_cdate_format', {
         processor: 'string',
         default: editor.translate('%Y-%m-%d')
@@ -322,10 +319,10 @@
       const dom = editor.dom;
       const sel = editor.selection.getContent();
       html = replaceTemplateValues(html, getTemplateReplaceValues(editor));
-      let el = dom.create('div', {}, html);
+      let el = dom.create('div', null, html);
       const n = dom.select('.mceTmpl', el);
       if (n && n.length > 0) {
-        el = dom.create('div');
+        el = dom.create('div', null);
         el.appendChild(n[0].cloneNode(true));
       }
       global$1.each(dom.select('*', el), n => {
