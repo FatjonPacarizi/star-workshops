@@ -1746,6 +1746,9 @@ select {
 .w-8\/12 {
   width: 66.666667%;
 }
+.w-64 {
+  width: 16rem;
+}
 .max-w-screen-xl {
   max-width: 1280px;
 }
@@ -2307,6 +2310,16 @@ select {
   --tw-gradient-to: rgb(168 85 247 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
+.from-red-500 {
+  --tw-gradient-from: #ef4444;
+  --tw-gradient-to: rgb(239 68 68 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-red-400 {
+  --tw-gradient-from: #f87171;
+  --tw-gradient-to: rgb(248 113 113 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
 .to-blue-600 {
   --tw-gradient-to: #2563eb;
 }
@@ -2318,6 +2331,12 @@ select {
 }
 .to-pink-500 {
   --tw-gradient-to: #ec4899;
+}
+.to-red-600 {
+  --tw-gradient-to: #dc2626;
+}
+.to-red-500 {
+  --tw-gradient-to: #ef4444;
 }
 .bg-cover {
   background-size: cover;
