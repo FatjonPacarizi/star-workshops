@@ -25,7 +25,6 @@ class StoreReplyRequest extends FormRequest
     {
         return [
         'comment_id'=>'required',
-        'name'=> 'required',
         'reply' => 'required',
         'user_id' => 'required',
         ];
