@@ -9,7 +9,7 @@
             <div class="my-5">
               <div class="flex items-center">
                 <i class="fa-solid fa-calendar-days text-gray-500 ml-5 mr-2 -mt-1"></i>
-                <h1 class="uppercase  font-extrabold text-transparent text-sm bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">{{\Carbon\Carbon::parse($past->time)->format('d-F-Y') }} - {{  \Carbon\Carbon::parse($past->workshop_endTime)->format('d-F-Y h:i:s')  }}</h1>
+                <h1 class="font-extrabold text-transparent text-sm bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">Ended at: {{  \Carbon\Carbon::parse($past->workshop_endTime)->format('d-F-Y h:i')  }}</h1>
                
               </div>
               <div class="flex items-center mt-2">

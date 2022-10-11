@@ -21,9 +21,9 @@
               active : 'bg-white shadow',
               inactive: ' hover:shadow '
              }">
-               
-                <div class="w-full flex mt-5 items-center">
-                  <a href="{{ route('adminsuperadmin.showManageWorkshops') }}" ><i class="fa-solid fa-arrow-left mr-5"></i></a>
+             <div class = "flex items-center mt-5">
+             <a href="{{ route('adminsuperadmin.showManageWorkshops') }}" ><i class="fa-solid fa-arrow-left mr-5"></i></a>
+             <div class="w-fit flex border border-gray-200 rounded-xl bg-gray-100 ">
                  
                   @php  
                   $pendingParticipantsTab = 1;
@@ -37,24 +37,24 @@
                 @endphp
 
                
-                <button  onClick = "changeURL('?approvedParticipantsPage={{$approvedParticipantsTab}}')"  :class = "tab === 0 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center" @click="tab = 0">Approved
+                <button  onClick = "changeURL('?approvedParticipantsPage={{$approvedParticipantsTab}}')"  :class = "tab === 0 ? active: inactive" class = "px-5 h-8 w-32 rounded-xl flex justify-center items-center text-xs rounded-xl" @click="tab = 0">APPROVED
                 @if(count($approvedParticipants)) 
-                  <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-red-400">{{count($approvedParticipants)}}</p>
+                  <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-slate-400">{{count($approvedParticipants)}}</p>
                   @endif
                 </button>
- <button onClick = "changeURL('?pendingParticipantsPage={{$pendingParticipantsTab}}')" :class = "tab === 1 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center" @click="tab = 1">
-                  Pending 
-                 
+                  <button onClick = "changeURL('?pendingParticipantsPage={{$pendingParticipantsTab}}')" :class = "tab === 1 ? active: inactive" class = "px-5 h-8 ml-1 w-32 rounded-xl flex justify-center items-center text-xs rounded-xl" @click="tab = 1">
+                    PENDING 
                   @if(count($pendingParticipants)) 
                   <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-red-400">{{count($pendingParticipants)}}</p>
                   @endif
                 </button>
-                <button  onClick = "changeURL('?notapprovedParticipantsPage={{$notapprovedParticipantsTab}}')"  :class = "tab === 2 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center" @click="tab = 2">Not Approved
+                <button  onClick = "changeURL('?notapprovedParticipantsPage={{$notapprovedParticipantsTab}}')"  :class = "tab === 2 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center text-xs rounded-xl" @click="tab = 2">NOT APPROVED
                 @if(count($notapprovedParticipants)) 
-                  <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-red-400">{{count($notapprovedParticipants)}}</p>
+                  <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-slate-400">{{count($notapprovedParticipants)}}</p>
                   @endif
                 </button>
               </div>
+             </div>
     <div class="w-full bg-white rounded-xl shadow-md py-4 mt-5">
       <h1 class="p-3 text-black font-medium ml-2 ">Workshop participants Managment</h1>
 

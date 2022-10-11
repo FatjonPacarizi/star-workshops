@@ -1305,17 +1305,17 @@ select {
 .-m-4 {
   margin: -1rem;
 }
+.m-1 {
+  margin: 0.25rem;
+}
+.m-2 {
+  margin: 0.5rem;
+}
 .m-auto {
   margin: auto;
 }
 .m-3 {
   margin: 0.75rem;
-}
-.m-2 {
-  margin: 0.5rem;
-}
-.m-1 {
-  margin: 0.25rem;
 }
 .mx-auto {
   margin-left: auto;
@@ -2764,6 +2764,10 @@ select {
 .text-transparent {
   color: transparent;
 }
+.text-sky-800 {
+  --tw-text-opacity: 1;
+  color: rgb(7 89 133 / var(--tw-text-opacity));
+}
 .text-red-700 {
   --tw-text-opacity: 1;
   color: rgb(185 28 28 / var(--tw-text-opacity));
@@ -2779,10 +2783,6 @@ select {
 .text-green-100 {
   --tw-text-opacity: 1;
   color: rgb(220 252 231 / var(--tw-text-opacity));
-}
-.text-sky-800 {
-  --tw-text-opacity: 1;
-  color: rgb(7 89 133 / var(--tw-text-opacity));
 }
 .text-purple-600 {
   --tw-text-opacity: 1;
