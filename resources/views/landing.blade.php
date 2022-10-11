@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="text-white body-font bg-red-600 bg-red-600 pt-24">
-  <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+  <div class="container mx-auto flex px-5 py-24 items-center justify-center">
     <div class="text-center lg:w-2/3 w-full">
       <h1 class="title-font sm:text-1xl text-1xl mb-4 font-medium text-white">{{$section1->heading}}</h1>
       <div class="mb-8 leading-relaxed text-white">{!! $section1->paragraf_1 !!}</div>
@@ -12,7 +12,7 @@
       </div>
     </div>
     @if(Auth::check())
-    @if(Auth::user()->id != $user[0]->user_id)
+    @if(Auth::user()->user_status == 'user')
     <div class="min-w-32 bg-white min-h-32 p-1 mb-2 float-left font-medium">
       <div class="w-32 flex-none rounded-t lg:rounded-t-none lg:rounded-l text-center shadow-lg ">
           <div class="block rounded-t overflow-hidden  text-center text-black">
@@ -31,8 +31,12 @@
             </div>
             <div class="pb-2 border-l border-r border-b rounded-b-lg text-center border-white bg-white ">
               <span class="text-xs leading-normal">
+              @if($workshop > '{{Carbon\Carbon::now()}}')
               {{$workshop->name}}<br>
               <p class="text-red-600"><b>{{\Carbon\Carbon::parse($workshop->time)->diffForHumans()}}</b></p>
+              @else 
+              <p>No data</p>
+              @endif
               </span>
             </div>
           </div>
@@ -52,7 +56,7 @@
       <p class="mb-8 leading-relaxed">{!! $section2->paragraf_1 !!}</p>
       <div class="grid grid-cols-1 gap-6 w-full">
         <div class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
-          <img class="object-cover w-full" alt="Map" src="{{$section2->img_1 ? asset('/storage/' . $section1->img_1) : asset('/img/section2_defaultimg .jpg')}}" />
+          <img class="object-cover w-full" alt="Map" src="{{$section2->img_1 ? asset('/storage/' . $section2->img_1) : asset('/img/section2_defaultimg.png')}}" >
           <div class="absolute inset-0 inset-y-32">
             <h4 class="mb-3 text-7xl font-semibold tracking-tight">{!! $section2->paragraf_2 !!}</h4>
           </div>
@@ -77,7 +81,7 @@
       </div>
     </div>
     <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-      <img class="object-cover object-center rounded" alt="Workshops and Training" src="{{$section3->img_1 ? asset('/storage/' . $section3->img_1) : asset('/img/section3_defaultimg.jpg')}}">
+      <img class="object-cover object-center rounded" alt="Workshops and Training" src="{{$section3->img_1 ? asset('/storage/' . $section3->img_1) : asset('/img/section3_defaultimg.png')}}">
     </div>
   </div>
   <svg class="swirl w-full h-6 md:h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -151,7 +155,7 @@
     </div>
     <div class=" md:w-1/2 border relative  mt-10 md:mt-0 py-10  rounded-l-3xl bg-gray-200 md:pl-16 flex justify-end text-center">
       <div class="absolute w-2/3 rounded-l-3xl h-full right-0 top-0  bg-red-600 "></div>
-      <img class="w-11/12 object-cover object-center  rounded-l-3xl z-10" alt="Workshops and Training" src="{{$section5->img_1 ? asset('/storage/' . $section5->img_1) : asset('/img/section5_defaultimg.jpg')}}">
+      <img class="w-11/12 object-cover object-center  rounded-l-3xl z-10" alt="Workshops and Training" src="{{$section5->img_1 ? asset('/storage/' . $section5->img_1) : asset('/img/section5_defaultimg.png')}}">
     </div>
   </div>
  

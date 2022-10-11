@@ -3,7 +3,7 @@
         <table class="w-full mx-4  font-thin" wire:loading.remove>
           <tr class="border-y border-gray-200 ">
             <td class="font-bold">Title</td>
-            <td class="font-bold">Workshop</td>
+            <td class="font-bold">Views</td>
             <td class="font-bold">Category</td>
             <td class="font-bold">Free/Paid</td>
             <td class="font-bold w-1/5 ">Actions</td>
@@ -11,9 +11,8 @@
      
         @forelse($streaming as $str)
         <tr class = 'border-b border-gray-200'>
-
           <td>  {{$str->title}}</td>
-          <td> {{$str->workshop->name}}</td>
+          <td> {{$str->count}}</td>
           <td> {{$str->workshop->category->name}} </td>
           <td class="text-items-center">
             @if($str->status != 'paid')

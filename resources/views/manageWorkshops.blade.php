@@ -6,17 +6,16 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
 <div class="w-full h-full px-5  flex flex-col  items-center ">
   @php
   $tab = 0;
-  if(session()->has('tab')) {$tab = session('tab'); }
-  else{
-  if(request()->has('pastsWorkshopsPage')) $tab = 1;
-  } if(request()->has('deletedWorkshopsPage')) $tab = 2;
+  if(request()->has('ongoingWorkshopsPage')) $tab = 1;
+  if(request()->has('pastsWorkshopsPage')) $tab = 2;
+  if(request()->has('deletedWorkshopsPage')) $tab = 3;
   @endphp
   <div class="w-full pb-4 relative" x-data="{
       tab:{{$tab}},
       active : 'bg-white shadow',
       inactive: ' hover:shadow '
      }">
-    <div class="flex absolute top-3 left-5">
+    <div class="flex border border-gray-200 rounded-xl bg-gray-100  absolute top-3 left-5">
       @php
       $upcomingtab = 1;
       $ongoingtab = 1;
@@ -27,14 +26,11 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
       if(request()->has('pastsWorkshopsPage')) $pasttab = request('pastsWorkshopsPage');
       if(request()->has('deletedWorkshopsPage')) $deleted = request('deletedWorkshopsPage');
       @endphp
-      <button onClick="changeURL('?upcomingWorkshopsPage={{$upcomingtab}}')" :class="tab === 0 ? active: inactive"
-        class="px-5 h-8 flex items-center rounded-xl " @click="tab = 0">Upcoming</button>
-      <button onClick="changeURL('?ongoingWorkshopsPage={{$ongoingtab}}')" :class="tab === 1 ? active: inactive"
-        class="px-5 h-8 flex items-center rounded-xl " @click="tab = 1">Ongoing</button>
-      <button onClick="changeURL('?pastsWorkshopsPage={{$pasttab}}')" :class="tab === 2 ? active: inactive"
-        class="px-5 h-8 ml-1 rounded-xl" @click="tab = 2 ">Pasts</button>
+      <button onClick="changeURL('?upcomingWorkshopsPage={{$upcomingtab}}')" :class="tab === 0 ? active: inactive" class="px-7 h-8 flex items-center text-xs rounded-xl " @click="tab = 0">UPCOMING</button>
+      <button onClick="changeURL('?ongoingWorkshopsPage={{$ongoingtab}}')" :class="tab === 1 ? active: inactive" class="px-7 h-8 flex items-center text-xs ml-1 rounded-xl " @click="tab = 1">ONGOING</button>
+      <button onClick="changeURL('?pastsWorkshopsPage={{$pasttab}}')" :class="tab === 2 ? active: inactive" class="px-7 h-8 ml-1 text-xs rounded-xl" @click="tab = 2 ">PASTS</button>
       @can('is_super_admin')
-      <button  onClick = "changeURL('?deletedWorkshopsPage={{$deleted}}')" :class = "tab === 3 ? active: inactive"  class="px-5 h-8 ml-1 rounded-xl"  @click="tab = 3 ">Deleted</button>
+      <button  onClick = "changeURL('?deletedWorkshopsPage={{$deleted}}')" :class = "tab === 3 ? active: inactive"  class="px-7 h-8 ml-1 rounded-xl text-xs"  @click="tab = 3 ">DELETED</button>
       @endcan
     </div>
     <div class="w-full">

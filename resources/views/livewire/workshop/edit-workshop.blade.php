@@ -3,7 +3,7 @@
   <div class="w-full bg-white   shadow-md rounded-xl  ">
     <div class="w-full flex items-center  border-b border-gray-200 mb-4">
       <a href="{{ route('adminsuperadmin.showManageWorkshops') }}"><i class="fa-solid fa-arrow-left mx-4"></i></a>
-      <h1 class="p-3 text-black  font-medium  ">Workshop Edit</h1>
+      <h1 class="p-3 text-black  font-medium">Workshop Edit</h1>
     </div>
     <form method="POST" wire:submit.prevent="update" enctype="multipart/form-data">
       @csrf

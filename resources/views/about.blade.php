@@ -14,8 +14,8 @@
 
     <div class="w-full flex px-5 py-24 justify-center flex-wrap items-center">
         <div class="w-full  lg:w-2/5 lg:mr-20 md:p-2 flex flex-col  md:text-left items-center ">
-            <div class="md:container md:mx-auto px-5 xl:px-0">
-                <h1 class="pb-8 xl:pb-12  text-3xl xl:text-4xl md:w-full text-center"> <span>
+            <div class="md:container md:mx-auto xl:px-0">
+                <h1 class="pb-8 xl:pb-12  text-2xl xl:text-3xl md:w-full "> <span>
                         <p><strong><span>{{$about->heading}}</span></strong></p>
                     </span> </h1>
             </div>

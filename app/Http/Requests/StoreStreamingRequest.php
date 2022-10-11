@@ -26,7 +26,6 @@ class StoreStreamingRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
-            'url' => 'required',
             'workshop_id'=>'required',
         ];
     }

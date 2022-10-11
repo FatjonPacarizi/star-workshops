@@ -13,14 +13,23 @@ use App\Models\workshops_users;
 
 class StreamingController extends Controller
 {
-    
-    public function index($id){
 
-        $workshop_user = workshops_users::all();
+    public function index($workshopid,$id){
+
+        $workshop_users = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>Auth::id(),'application_status'=>'approved'])->get();
+        $streaming1 = false;
+        if(count($workshop_users) > 0 )
+            $streaming1 = true;
+         
         $streaming = Streaming::find($id);
-        $comments = Comment::latest('created_at')->where('streaming_id',$id)->paginate(3);
-
-        return view('streaming',['streaming'=>$streaming,'comments'=>$comments,'workshop_user'=>$workshop_user]);
+        if($streaming1 || $streaming->status == 'free'){
+            Streaming::find($id)->increment('count');
+        }        
+        $workshops = Workshop::find($workshopid);
+        $streamings = Streaming::all()->where('workshop_id','=',$workshopid);
+        $comments = Comment::latest('created_at')->where('streaming_id',$id)->simplepaginate(3);
+        
+        return view('streaming',['workshops'=>$workshops,'streaming'=>$streaming,'streamings'=>$streamings,'comments'=>$comments,'streaming1'=>$streaming1]);
     }
 
     public function show($id){
@@ -33,8 +42,9 @@ class StreamingController extends Controller
     public function insert($id){
 
         $workshops = Workshop::find($id);
+        $streaming = Streaming::find($id);
 
-        return view('insertStreaming',['workshops'=> $workshops]);
+        return view('insertStreaming',['workshops'=> $workshops,'streaming'=>$streaming]);
     }
 
     public function store(StoreStreamingRequest $request){
@@ -44,7 +54,7 @@ class StreamingController extends Controller
 
         return redirect()->back();
     }
-    
+
     public function edit($id){
 
         $streaming = Streaming::find($id);
@@ -54,7 +64,7 @@ class StreamingController extends Controller
     }
 
     public function update(UpdateStreamingRequest $request, $id){
-        
+
         $validated = $request->validated();
         $streamings = Streaming::find($id);
         $streamings->update($validated);
@@ -83,11 +93,8 @@ class StreamingController extends Controller
         return redirect()->back();
     }
 
-    public function streamingview($id){
+    public function streamingview(){
 
-        $streaming = Streaming::all()->where('workshop_id',$id);
-
-        return view('asideStreaming',['streaming'=>$streaming]);
+        return view('asideStreaming');
     }
-
 }

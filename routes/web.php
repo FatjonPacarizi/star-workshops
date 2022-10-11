@@ -20,6 +20,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\chatController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,8 +44,8 @@ Route::get('/chat', [chatController::class, 'index']);
 Route::get('/chat/send', [chatController::class, 'send'])->name('send');
 
 Route::get('/members', [WorkshopController::class, 'showMembers']);
-Route::get('/members/single-member/{id}',[WorkshopController::class,'singleMembers'])->name('single-member');
-Route::get('/aside/{id}',[StreamingController::class,'streamingview']);
+Route::get('/member/{id}',[WorkshopController::class,'singleMembers'])->name('single-member');
+Route::get('/aside',[StreamingController::class,'streamingview']);
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
 Route::get('/newspage', [NewsPageController::class, 'index']);
 Route::get('/newspage/{id}', [NewsPageController::class, 'show'])->name('single-news');
@@ -57,12 +58,12 @@ Route::get('landings', [LandingController::class, 'landing']);
 Route::get('/workshops/{id}/join', [WorkshopController::class, 'join'])->name('workshop-join');
 Route::get('/workshop/{workshop}', [WorkshopController::class, 'show'])->name('single-workshop');
 
-Route::get('/streaming/{id}',[StreamingController::class,'index'])->name('streaming');
+Route::get('/workshop/{workshopid}/streaming/{id}',[StreamingController::class,'index'])->name('streaming');
 Route::get('/workshops', [WorkshopController::class, 'index'])->name('workshops');
 
 Route::post('/send', [App\Http\Controllers\MailController::class, 'send'])->name('emailsend');
 
-Route::get('/notification', [UserManageController::class,'showNotificaton']);
+Route::get('/notification', [UserManageController::class,'showNotificaton'])->name('notifications');;
 Route::get('/markAsRead',[UserManageController::class, 'markAsRead']);
 
 Route::middleware([
@@ -96,8 +97,8 @@ Route::group(['middleware' => 'auth'], function () {
             Route::put('update-about/{id}', [AboutController::class, 'update'])->name('aboutUpdate');
 
             Route::get('landingpage', [LandingController::class, 'landing'])->name('showlandings');
-            Route::get('add-landing', [LandingController::class, 'create']);
-            Route::post('add-landing', [LandingController::class, 'store']);
+            Route::get('landingpage/manage/{id}/edit', [LandingController::class, 'edit'])->name('editlandings');
+
             Route::get('edit-landing/{id}', [LandingController::class, 'edit']);
             Route::put('update-landing/{id}', [LandingController::class, 'update']);
 
@@ -149,7 +150,7 @@ Route::group(['middleware' => 'auth'], function () {
             // Add routes here for admin and superadmin
 
             //Show dashboard
-            Route::get('/dashboard', [ChartController::class, 'index'])->name('dashboard');
+            Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
             //Show insert workshop page
             Route::get('/workshops/manage/insert', [WorkshopController::class, 'create'])->name('showInsert');
 
@@ -177,7 +178,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/streaminglive/insert/{id}',[StreamingController::class, 'insert'])->name('insertStreaming');
             Route::post('/streaminglive/add-streaming', [StreamingController::class, 'store']);
             Route::get('/streaminglive/edit/{id}',[StreamingController::class, 'edit']);
-            Route::put('/update-streaming/{id}',[StreamingController::class,'update']);
+            Route::put('/update-streaming/{id}',[StreamingController::class,'update'])->name('updateStreaming');
             Route::delete('/streaming/delete/{id}', [StreamingController::class, 'destroy']);
             Route::get('change-status/{id}', [StreamingController::class, 'changeStatus'])->name('change');
 

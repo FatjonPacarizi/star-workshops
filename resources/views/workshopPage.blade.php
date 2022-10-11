@@ -15,59 +15,56 @@
                     <p class="mb-8 leading-relaxed">Author : {{$workshop->user->name}}</p>
 
                     @if($upcoming)
-                    @if($limitReached)
-                    <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">Limitaion for this event
-                        have been reached: {{$participants}} participants</p>
-                    @elseif($already_applied)
-                  
-                    @if($application_status[0]->application_status == 'pending')
-                    <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">
-                        @if(session()->has('message'))
-                        {{session('message')}}
-                        @else
-                        Your application is still pending
-                        @endif
-                    </p>
+                            @if($limitReached)
+                                <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">Limitaion for this event
+                                    have been reached: {{$participants}} participants</p>
+                            @elseif($already_applied)
+                                @if($application_status[0]->application_status == 'pending')
+                                    <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">
+                                        @if(session()->has('message'))
+                                            {{session('message')}}
+                                        @else
+                                            Your application is still pending
+                                        @endif
+                                    </p>
+                                @elseif($application_status[0]->application_status == 'notapproved')
+                                    <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">
+                                        Your application is not approved
+                                        <a class="text-sky-800 underline" href='/about'>Contact Us</a>
+                                    </p>
+                                @else {{--approved --}}
+                                    @if($workshop->workshop_startTime == null && $workshop->workshop_endTime == null) {{--Nese nuk ka fillu dhe nuk ka perfundu(mundet me bo end pa e bo start)--}}
+                                        <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">
+                                            This event will start: {{ $workshop->time}}
+                                        </p>
+                                    @else
+                                        @if($workshop->workshop_startTime != null) {{--nese ka startu--}}
+                                            <a href="#" class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black flex items-center">
+                                                <div class="bg-red-600 rounded mr-5 px-5 text-white font-bold">Straming</div> Join
+                                            </a>
+                                        @endif
+                                    @endif
+                                @endif
+                            @else
+                                @can('is_admin_or_superadmin')
+                                    @if($workshop->workshop_startTime == null && $workshop->workshop_endTime == null)
+                                        <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">This event will start: {{
+                                            $workshop->time}}</p>
+                                    @else
+                                        @if($workshop->workshop_startTime != null)
+                                            <a href="#" class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black flex items-center">
+                                                Join stream
+                                            </a>
+                                        @endif
+                                    @endif
 
-                    @elseif($application_status[0]->application_status == 'notapproved')
-                    <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">
-                        Your application is not approved
-                        <a class="text-sky-800 underline" href='/about'>Contact Us</a>
-                    </p>
-
+                                @else {{--user i thjeshte--}}
+                                    <a class="mb-8 px-5 py-2 bg-white rounded-md text-black"
+                                        href="/workshops/{{$workshop->id}}/join">Apply</a>
+                                @endcan
+                            @endif
                     @else
-                    @if($workshop->workshop_startTime == null && $workshop->workshop_endTime == null)
-                    <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">
-                        This event will start: {{ $workshop->time}}
-                    </p>
-                    @else
-                    @if($workshop->workshop_startTime != null)
-                    <a href="#" class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black flex items-center">
-                        <div class="bg-red-600 rounded mr-5 px-5 text-white font-bold">live</div> Join stream
-                    </a>
-                    @endif
-                    @endif
-                    @endif
-                    @else
-                    @can('is_admin_or_superadmin')
-                    @if($workshop->workshop_startTime == null && $workshop->workshop_endTime == null)
-                    <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">This event will start: {{
-                        $workshop->time}}</p>
-                    @else
-                    @if($workshop->workshop_startTime != null)
-                    <a href="#" class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black flex items-center">
-                        <div class="bg-red-600 rounded mr-5 px-5 text-white font-bold">live</div> Join stream
-                    </a>
-                    @endif
-                    @endif
-
-                    @else
-                    <a class="mb-8 px-5 py-2 bg-white rounded-md text-black"
-                        href="/workshops/{{$workshop->id}}/join">Apply</a>
-                    @endcan
-                    @endif
-                    @else
-                    <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">Applications for this event
+                      <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">Applications for this event
                         are closed</p>
                     @endif
         </div>
@@ -86,14 +83,14 @@
         @auth
             @can('is_super_admin')
                     @livewire('chat-component', ['workshop' => $workshop])
+            @else
+                @if(auth()->user()->user_status == 'admin' && $workshop->author == auth()->user()->id) 
+                    @livewire('chat-component', ['workshop' => $workshop])
                 @else
-                    @if(auth()->user()->user_status == 'admin' && $workshop->author == auth()->user()->id) 
+                    @if($already_applied && $application_status[0]->application_status == 'approved')
                         @livewire('chat-component', ['workshop' => $workshop])
-                    @else
-                        @if($already_applied && $application_status[0]->application_status == 'approved')
-                            @livewire('chat-component', ['workshop' => $workshop])
-                        @endif
                     @endif
+                @endif
             @endcan
         @endauth
         <p>{!! $workshop->description !!}</p>
@@ -120,12 +117,12 @@
                             <tr class="border-b border-gray-200 hover:bg-gray-100">
                                 <td class="py-3 px-6 text-left whitespace-nowrap">
                                     <div class="flex items-center">
-                                        <span class="font-medium"><a href={{route('streaming',$str->id)}}><i class="fa-solid fa-circle-play text-red-600"></i>  {{$str->title }}</a></span>
+                                        <span class="font-medium"><a href="/workshop/{{$workshop->id}}/streaming/{{$str->id}}" ><i class="fa-solid fa-circle-play text-red-600"></i>  {{$str->title }}</a></span>
                                     </div>
                                 </td>
                        
                                 <td class="py-3 px-3 text-center"><i class="fa fa-youtube-play"></i>
-                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs"><a href={{route('streaming',$str->id)}}>Preview</a></span>
+                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs"><a href="/workshop/{{$workshop->id}}/streaming/{{$str->id}}"  >Preview</a></span>
                                 </td>
                             </tr> @endif
                             @endforeach
@@ -147,12 +144,12 @@
                             <tr class="border-b border-gray-200 hover:bg-gray-100">
                                 <td class="py-3 px-6 text-left whitespace-nowrap">
                                     <div class="flex items-center">
-                                        <span class="font-medium"><a href={{route('streaming',$str->id)}}> <i class="fa-solid fa-circle-play text-red-600"></i>  {{$str->title }}</a></span>
+                                        <span class="font-medium"><a href="/workshop/{{$workshop->id}}/streaming/{{$str->id}}" > <i class="fa-solid fa-circle-play text-red-600"></i>  {{$str->title }}</a></span>
                                     </div>
                                 </td>
                        
                                 <td class="py-3 px-6 text-center"><i class="fa fa-youtube-play"></i>
-                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs"><a href={{route('streaming',$str->id)}}> Preview</a></span>
+                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs"><a href="/workshop/{{$workshop->id}}/streaming/{{$str->id}}"> Preview</a></span>
                                 </td>
                             </tr> @endif
                             @endforeach
