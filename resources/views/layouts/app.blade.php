@@ -39,8 +39,8 @@
                         </a>
                       
                     </div>
-                    <a href="{{ route('adminsuperadmin.dashboard') }}" class="flex items-center p-2 mb-1  rounded-lg  {{Request::segment(1) == 'dashboard' ? 'bg-white shadow-lg font-medium' : ''}}" >
-                      <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'dashboard' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white  shadow-md'}}">  <i class="mdi mdi-speedometer mx-1 "></i> </div>
+                    <a href="{{ route('adminsuperadmin.dashboard') }}" class="flex items-center p-2 mb-1 mt-5 rounded-lg  {{Request::segment(1) == 'dashboard' ? 'bg-white shadow-lg font-medium' : ''}}" >
+                      <div class="w-8 h-8 p-1 rounded-lg ml-2 flex justify-center items-center {{Request::segment(1) == 'dashboard' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white  shadow-md'}}">  <i class="mdi mdi-speedometer mx-1 "></i> </div>
                         <span class="grow ml-3 text-gray-600">Dashboard</span>
                     </a>
                     <p class="text-xs leading-4 p-3 ml-1 font-bold text-gray-400 uppercase ">System</p>
@@ -48,7 +48,7 @@
                         @can('is_admin_or_superadmin')
                         <li class="--set-active-tables-html">
                             <a href="{{ route('adminsuperadmin.showManageWorkshops') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::segment(1) == 'workshops' ? 'bg-white shadow-lg font-medium' : ''}}">
-                                <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'workshops' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="mdi mdi-widgets inline-flex mx-1"></i></div>
+                                <div class="w-8 h-8 p-1 rounded-lg ml-2 flex justify-center items-center {{Request::segment(1) == 'workshops' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="mdi mdi-widgets inline-flex mx-1"></i></div>
                                 <span class="grow ml-3 text-gray-600">Workshops</span>
 
                                 @php
@@ -69,7 +69,7 @@
                         @can('is_super_admin')
                         <li class="--set-active-tables-html">
                             <a href="{{ route('superadmin.showManageUsers') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::segment(1) == 'users' ? 'bg-white shadow-lg font-medium' : ''}}">
-                                <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'users' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">    <i class="mdi mdi-account-outline mx-1 "></i> </div>
+                                <div class="w-8 h-8 p-1 rounded-lg ml-2 flex justify-center items-center {{Request::segment(1) == 'users' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">    <i class="mdi mdi-account-outline mx-1 "></i> </div>
                                 <span class="grow ml-3 text-gray-600">Users</span>
                                 @php
                                 $users = App\Models\User::all();
@@ -81,7 +81,7 @@
                         @can('is_super_admin')
                         <li class="--set-active-tables-html">
                             <a href="{{ route('superadmin.showlandings') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::is('landingpage') ? 'bg-white shadow-lg font-medium' : ''}}">
-                                <div class="p-1 rounded-lg ml-2 {{Request::is('landingpage') ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}"><i class="fa-solid fa-house-chimney mx-1 fa-sm"></i></div>
+                                <div class="w-8 h-8 p-1 rounded-lg ml-2 flex justify-center items-center {{Request::is('landingpage') ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}"><i class="fa-solid fa-house-chimney mx-1 fa-sm"></i></div>
                                 <span class="grow  ml-3 text-gray-600">Landing Page</span>
                             </a>
                         </li>
@@ -89,7 +89,7 @@
                         @can('is_super_admin')
                         <li class="--set-active-tables-html">
                             <a href="{{ route('superadmin.showabouts') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::is('aboutus') ? 'bg-white shadow-lg font-medium' : ''}}">
-                                <div class="p-1 rounded-lg ml-2 {{Request::is('aboutus') ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}"> <i class="fa-solid fa-address-card mx-1  fa-sm"></i></div>
+                                <div class="w-8 h-8 p-1 rounded-lg ml-2 flex justify-center items-center {{Request::is('aboutus') ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}"> <i class="fa-solid fa-address-card mx-1  fa-sm"></i></div>
                                 <span class="grow  ml-3 text-gray-600">About Us</span>
                             </a>
                         </li>
@@ -97,7 +97,7 @@
                         @can('is_admin_or_superadmin')
                         <li class="--set-active-tables-html">
                             <a href="{{ route('adminsuperadmin.shownewspages') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::segment(1) == 'news' ? 'bg-white shadow-lg font-medium' : ''}}">
-                                <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'news' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}"> <i class="fa-regular fa-newspaper mx-1  fa-sm"></i></div>
+                                <div class="w-8 h-8 p-1 rounded-lg ml-2 flex justify-center items-center {{Request::segment(1) == 'news' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}"> <i class="fa-regular fa-newspaper mx-1  fa-sm"></i></div>
                                 <span class="grow ml-3 text-gray-600">News</span>
                                 @php
                                 $news = App\Models\NewsPage::where(['author'=> Auth::id()])->get();
@@ -110,7 +110,7 @@
                         @can('is_super_admin')
                         <li class="--set-active-tables-html">
                             <a href="{{ route('superadmin.ShowAppInfos') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::segment(1) == 'appinformations' ? 'bg-white shadow-lg font-medium' : ''}}">
-                                <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'appinformations' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="mdi mdi-format-list-checkbox mx-1"></i></div>
+                                <div class="w-8 h-8 p-1 rounded-lg ml-2 flex justify-center items-center {{Request::segment(1) == 'appinformations' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="mdi mdi-format-list-checkbox mx-1"></i></div>
                                 <span class="grow ml-3 text-gray-600">App Informations</span>
                             </a>
                         </li>
@@ -118,7 +118,7 @@
                         @can('is_super_admin')
                         <li class="--set-active-tables-html">
                             <a href="{{ route('superadmin.calendar') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::segment(1) == 'calendar' ? 'bg-white shadow-lg font-medium' : ''}}">
-                                <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'calendar'? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="fa-sharp fa-solid fa-calendar-days mx-2"></i></div>
+                                <div class="w-8 h-8 p-1 rounded-lg ml-2 flex justify-center items-center {{Request::segment(1) == 'calendar'? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="fa-sharp fa-solid fa-calendar-days "></i></div>
                                 <span class="grow ml-3 text-gray-600">Calendar</span>
                             </a>
                         </li>
@@ -126,7 +126,7 @@
                         @can('is_super_admin')
                         <li class="--set-active-tables-html">
                             <a href="{{ route('superadmin.faq') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::segment(1) == 'faq' ? 'bg-white shadow-lg font-medium' : ''}}">
-                                <div class="p-1 rounded-lg ml-2 {{Request::segment(1) == 'faq'? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="fa-solid fa-question mx-2"></i></div>
+                                <div class="w-8 h-8 p-1 rounded-lg ml-2 flex justify-center items-center {{Request::segment(1) == 'faq'? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">  <i class="fa-solid fa-question mx-2"></i></div>
                                 <span class="grow ml-3 text-gray-600">Faq</span>
                                 @php
                                 $faqs = App\Models\Faq::all();
