@@ -1314,6 +1314,9 @@ select {
 .m-2 {
   margin: 0.5rem;
 }
+.m-1 {
+  margin: 0.25rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1381,6 +1384,10 @@ select {
 .my-24 {
   margin-top: 6rem;
   margin-bottom: 6rem;
+}
+.mx-96 {
+  margin-left: 24rem;
+  margin-right: 24rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -2530,6 +2537,9 @@ select {
 }
 .pt-8 {
   padding-top: 2rem;
+}
+.pb-5 {
+  padding-bottom: 1.25rem;
 }
 .text-left {
   text-align: left;

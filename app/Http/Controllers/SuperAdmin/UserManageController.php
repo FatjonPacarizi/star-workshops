@@ -59,6 +59,7 @@ class UserManageController extends Controller
     public function showNotificaton()
     {
         $notifications = auth()->user()->unreadNotifications;
+        return view('notifications');
     }
 
     public function markAsRead()
