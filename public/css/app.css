@@ -1260,6 +1260,9 @@ select {
 .top-12 {
   top: 3rem;
 }
+.top-5 {
+  top: 1.25rem;
+}
 .left-2\.5 {
   left: 0.625rem;
 }
@@ -1277,9 +1280,6 @@ select {
 }
 .left-5 {
   left: 1.25rem;
-}
-.top-5 {
-  top: 1.25rem;
 }
 .z-0 {
   z-index: 0;
@@ -1304,6 +1304,9 @@ select {
 }
 .-m-4 {
   margin: -1rem;
+}
+.m-auto {
+  margin: auto;
 }
 .m-3 {
   margin: 0.75rem;
@@ -1343,6 +1346,10 @@ select {
   margin-left: 2.25rem;
   margin-right: 2.25rem;
 }
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
@@ -1350,10 +1357,6 @@ select {
 .mx-1 {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
-}
-.mx-10 {
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
 }
 .my-10 {
   margin-top: 2.5rem;
@@ -1363,6 +1366,10 @@ select {
   margin-left: -0.5rem;
   margin-right: -0.5rem;
 }
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
 .my-14 {
   margin-top: 3.5rem;
   margin-bottom: 3.5rem;
@@ -1370,10 +1377,6 @@ select {
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-}
-.my-auto {
-  margin-top: auto;
-  margin-bottom: auto;
 }
 .my-24 {
   margin-top: 6rem;
@@ -1502,6 +1505,9 @@ select {
 .-mt-px {
   margin-top: -1px;
 }
+.mt-24 {
+  margin-top: 6rem;
+}
 .-mt-2 {
   margin-top: -0.5rem;
 }
@@ -1510,9 +1516,6 @@ select {
 }
 .ml-14 {
   margin-left: 3.5rem;
-}
-.mt-24 {
-  margin-top: 6rem;
 }
 .block {
   display: block;
@@ -1588,6 +1591,12 @@ select {
   height: -moz-fit-content;
   height: fit-content;
 }
+.h-36 {
+  height: 9rem;
+}
+.h-72 {
+  height: 18rem;
+}
 .h-2\.5 {
   height: 0.625rem;
 }
@@ -1602,12 +1611,6 @@ select {
 }
 .h-80 {
   height: 20rem;
-}
-.h-72 {
-  height: 18rem;
-}
-.h-36 {
-  height: 9rem;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -1943,6 +1946,11 @@ select {
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1952,11 +1960,6 @@ select {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.75rem * var(--tw-space-x-reverse));
   margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
-}
-.space-x-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1rem * var(--tw-space-x-reverse));
-  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .justify-self-end {
   justify-self: end;
@@ -2218,6 +2221,9 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(242 242 242 / var(--tw-bg-opacity));
 }
+.bg-white\/70 {
+  background-color: rgb(255 255 255 / 0.7);
+}
 .bg-purple-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(233 213 255 / var(--tw-bg-opacity));
@@ -2257,9 +2263,6 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(22 163 74 / var(--tw-bg-opacity));
 }
-.bg-white\/70 {
-  background-color: rgb(255 255 255 / 0.7);
-}
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }
@@ -2287,14 +2290,14 @@ select {
   --tw-gradient-to: rgb(132 204 22 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
-.from-purple-500 {
-  --tw-gradient-from: #a855f7;
-  --tw-gradient-to: rgb(168 85 247 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
 .from-purple-700 {
   --tw-gradient-from: #7e22ce;
   --tw-gradient-to: rgb(126 34 206 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-purple-500 {
+  --tw-gradient-from: #a855f7;
+  --tw-gradient-to: rgb(168 85 247 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 .to-blue-600 {
@@ -2445,6 +2448,10 @@ select {
 .py-2\.5 {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
+}
+.px-7 {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
 }
 .pt-6 {
   padding-top: 1.5rem;
