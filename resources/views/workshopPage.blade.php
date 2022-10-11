@@ -15,59 +15,56 @@
                     <p class="mb-8 leading-relaxed">Author : {{$workshop->user->name}}</p>
 
                     @if($upcoming)
-                    @if($limitReached)
-                    <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">Limitaion for this event
-                        have been reached: {{$participants}} participants</p>
-                    @elseif($already_applied)
-                  
-                    @if($application_status[0]->application_status == 'pending')
-                    <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">
-                        @if(session()->has('message'))
-                        {{session('message')}}
-                        @else
-                        Your application is still pending
-                        @endif
-                    </p>
+                            @if($limitReached)
+                                <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">Limitaion for this event
+                                    have been reached: {{$participants}} participants</p>
+                            @elseif($already_applied)
+                                @if($application_status[0]->application_status == 'pending')
+                                    <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">
+                                        @if(session()->has('message'))
+                                            {{session('message')}}
+                                        @else
+                                            Your application is still pending
+                                        @endif
+                                    </p>
+                                @elseif($application_status[0]->application_status == 'notapproved')
+                                    <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">
+                                        Your application is not approved
+                                        <a class="text-sky-800 underline" href='/about'>Contact Us</a>
+                                    </p>
+                                @else {{--approved --}}
+                                    @if($workshop->workshop_startTime == null && $workshop->workshop_endTime == null) {{--Nese nuk ka fillu dhe nuk ka perfundu(mundet me bo end pa e bo start)--}}
+                                        <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">
+                                            This event will start: {{ $workshop->time}}
+                                        </p>
+                                    @else
+                                        @if($workshop->workshop_startTime != null) {{--nese ka startu--}}
+                                            <a href="#" class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black flex items-center">
+                                                <div class="bg-red-600 rounded mr-5 px-5 text-white font-bold">Straming</div> Join
+                                            </a>
+                                        @endif
+                                    @endif
+                                @endif
+                            @else
+                                @can('is_admin_or_superadmin')
+                                    @if($workshop->workshop_startTime == null && $workshop->workshop_endTime == null)
+                                        <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">This event will start: {{
+                                            $workshop->time}}</p>
+                                    @else
+                                        @if($workshop->workshop_startTime != null)
+                                            <a href="#" class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black flex items-center">
+                                                Join stream
+                                            </a>
+                                        @endif
+                                    @endif
 
-                    @elseif($application_status[0]->application_status == 'notapproved')
-                    <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">
-                        Your application is not approved
-                        <a class="text-sky-800 underline" href='/about'>Contact Us</a>
-                    </p>
-
+                                @else {{--user i thjeshte--}}
+                                    <a class="mb-8 px-5 py-2 bg-white rounded-md text-black"
+                                        href="/workshops/{{$workshop->id}}/join">Apply</a>
+                                @endcan
+                            @endif
                     @else
-                    @if($workshop->workshop_startTime == null && $workshop->workshop_endTime == null)
-                    <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">
-                        This event will start: {{ $workshop->time}}
-                    </p>
-                    @else
-                    @if($workshop->workshop_startTime != null)
-                    <a href="#" class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black flex items-center">
-                        <div class="bg-red-600 rounded mr-5 px-5 text-white font-bold">live</div> Join stream
-                    </a>
-                    @endif
-                    @endif
-                    @endif
-                    @else
-                    @can('is_admin_or_superadmin')
-                    @if($workshop->workshop_startTime == null && $workshop->workshop_endTime == null)
-                    <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">This event will start: {{
-                        $workshop->time}}</p>
-                    @else
-                    @if($workshop->workshop_startTime != null)
-                    <a href="#" class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black flex items-center">
-                        Join stream
-                    </a>
-                    @endif
-                    @endif
-
-                    @else
-                    <a class="mb-8 px-5 py-2 bg-white rounded-md text-black"
-                        href="/workshops/{{$workshop->id}}/join">Apply</a>
-                    @endcan
-                    @endif
-                    @else
-                    <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">Applications for this event
+                      <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">Applications for this event
                         are closed</p>
                     @endif
         </div>
@@ -86,14 +83,14 @@
         @auth
             @can('is_super_admin')
                     @livewire('chat-component', ['workshop' => $workshop])
+            @else
+                @if(auth()->user()->user_status == 'admin' && $workshop->author == auth()->user()->id) 
+                    @livewire('chat-component', ['workshop' => $workshop])
                 @else
-                    @if(auth()->user()->user_status == 'admin' && $workshop->author == auth()->user()->id) 
+                    @if($already_applied && $application_status[0]->application_status == 'approved')
                         @livewire('chat-component', ['workshop' => $workshop])
-                    @else
-                        @if($already_applied && $application_status[0]->application_status == 'approved')
-                            @livewire('chat-component', ['workshop' => $workshop])
-                        @endif
                     @endif
+                @endif
             @endcan
         @endauth
         <p>{!! $workshop->description !!}</p>
