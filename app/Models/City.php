@@ -9,4 +9,15 @@ class City extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'postalcode',
+        'country_id'
+     ];
+
+     public function country(){
+        return $this->hasOne(Country::class,'id','country_id');
+    }
+    
+
 }

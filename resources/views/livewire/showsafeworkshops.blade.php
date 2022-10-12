@@ -6,7 +6,7 @@
       <td class="p-3 w-1/3">Workshop Name</td>
       <td>Workshop deleted</td>
       <td>Author</td>
-      <td class="font-bold">Delete From</td>
+      <td>Delete From</td>
       <td class="w-72 ">Actions</td>
     </tr>
     @foreach($workshops1 as $workshop1)

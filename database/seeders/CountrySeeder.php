@@ -28,12 +28,18 @@ class CountrySeeder extends Seeder
                 'region'  => 'Eastern Europe',
             ],[
                 'name'      => 'England',
-                'language'     => 'English',
+                'language'     => 'Shqip',
                 'region'  => 'Eastern Europe',
             ],
             [
                 'name'      => 'Germany',
-                'language'     => 'German',
+                'language'     => 'Shqip',
+                'region'  => 'Eastern Europe',
+            
+            ],
+            [
+                'name'      => 'Italy',
+                'language'     => 'Shqip',
                 'region'  => 'Eastern Europe',
             
             ]
