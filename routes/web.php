@@ -120,8 +120,11 @@ Route::group(['middleware' => 'auth'], function () {
             //Show app infos edit
             Route::get('/appinformations', [InformationController::class, 'index'])->name('ShowAppInfos');
 
-
             Route::get('/calendar',[WorkshopController::class,'calendar'])->name('calendar');
+            
+             //Show workshops settings
+             Route::get('/workshopSettings/manage', [WorkshopController::class, 'showWorkshopSettings'])->name('showWorkshopSettings');
+ 
         }
     );
 

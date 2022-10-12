@@ -14,6 +14,7 @@ use App\Models\Workshop;
 use App\Models\Landing;
 use App\Models\NewsPage;
 use App\Models\Streaming;
+use App\Models\Workshop_Page;
 use App\Models\Comment;
 use Illuminate\Database\Seeder;
 use Database\Seeders\InformationSeeder;
@@ -29,8 +30,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             CategorySeeder::class,
-            CitySeeder::class,
             CountrySeeder::class,
+            CitySeeder::class,
             FaqSeeder::class,
             FeedbackSeeder::class,
             TypeSeeder::class,
@@ -45,6 +46,7 @@ class DatabaseSeeder extends Seeder
             NewsPageSeeder::class,
             MessageSeeder::class,
             StreamingSeeder::class,
+            WorkshopPageSeeder::class
             CommentSeeder::class
         ]);
 
