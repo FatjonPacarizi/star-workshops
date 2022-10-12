@@ -20,7 +20,7 @@ class CommentSeeder extends Seeder
         DB::table('comments')->insert([
             [
                 'name'=>'Gramos Shala',
-                'comment'=>'Hi, I love your lecture on Tailwind CSS.',
+                'comment'=>'Thank you. Very useful.',
                 'user_id'=> '9',
                 'streaming_id'=>'1',
                 'created_at'=>'2022-10-11 09:41:46',
@@ -41,7 +41,7 @@ class CommentSeeder extends Seeder
             ],
             [
                 'name'=>'Albina Ahmeti',
-                'comment'=>'Can t wait - this course looks cool :) thank you again',
+                'comment'=>'Hi, can you have next course for advance CSS?',
                 'user_id'=>'5',
                 'streaming_id'=>'1',
                 'created_at'=>'2022-10-11 09:41:46',
