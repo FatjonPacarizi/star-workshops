@@ -43,7 +43,7 @@
   </form>
   </div>
   @unless(count($comments) == 0)
-  <h3 class="mb-4 text-lg font-semibold text-gray-900">Comments</h3>
+  <h3 class="mb-4 text-lg font-semibold text-gray-900 mt-4">{{$comments->count()}} comments</h3>
   <div class="space-y-4">
   @foreach($comments as $comment)
     <div class="flex">
