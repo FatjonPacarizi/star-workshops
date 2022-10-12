@@ -115,7 +115,7 @@ Route::group(['middleware' => 'auth'], function () {
             //Delete FAQ
             Route::delete('faq/{faq}', [FaqController::class, 'destroy']);
             //Status changed Deactive or Active
-            Route::get('change-status/{id}', [FaqController::class, 'changeStatus'])->name('change');
+            Route::get('/faq/status/{id}', [FaqController::class, 'changeStatus'])->name('change');
 
             //Show app infos edit
             Route::get('/appinformations', [InformationController::class, 'index'])->name('ShowAppInfos');
@@ -180,7 +180,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/streaminglive/edit/{id}',[StreamingController::class, 'edit']);
             Route::put('/update-streaming/{id}',[StreamingController::class,'update'])->name('updateStreaming');
             Route::delete('/streaming/delete/{id}', [StreamingController::class, 'destroy']);
-            Route::get('change-status/{id}', [StreamingController::class, 'changeStatus'])->name('change');
+            Route::get('change-status/{id}', [StreamingController::class, 'changeStatus']);
 
            
 
