@@ -1,5 +1,5 @@
 /**
- * TinyMCE version 6.2.0 (2022-09-08)
+ * TinyMCE version 6.1.2 (2022-07-29)
  */
 
 (function () {
@@ -274,14 +274,13 @@
           }
         }
       }
-      data.source = data.source || data.src || '';
+      data.source = data.source || data.src || data.data;
       data.altsource = data.altsource || '';
       data.poster = data.poster || '';
       return data;
     };
 
     const guess = url => {
-      var _a;
       const mimes = {
         mp3: 'audio/mpeg',
         m4a: 'audio/x-m4a',
@@ -291,8 +290,9 @@
         ogg: 'video/ogg',
         swf: 'application/x-shockwave-flash'
       };
-      const fileEnd = (_a = url.toLowerCase().split('.').pop()) !== null && _a !== void 0 ? _a : '';
-      return get$1(mimes, fileEnd).getOr('');
+      const fileEnd = url.toLowerCase().split('.').pop();
+      const mime = mimes[fileEnd];
+      return mime ? mime : '';
     };
 
     var global$2 = tinymce.util.Tools.resolve('tinymce.html.Node');
@@ -311,12 +311,8 @@
     const updateEphoxEmbed = (data, node) => {
       const style = node.attr('style');
       const styleMap = style ? DOM.parseStyle(style) : {};
-      if (isNonNullable(data.width)) {
-        styleMap['max-width'] = addPx(data.width);
-      }
-      if (isNonNullable(data.height)) {
-        styleMap['max-height'] = addPx(data.height);
-      }
+      styleMap['max-width'] = addPx(data.width);
+      styleMap['max-height'] = addPx(data.height);
       node.attr('style', DOM.serializeStyle(styleMap));
     };
     const sources = [
@@ -478,10 +474,8 @@
       const protocol = getProtocol(url);
       const match = pattern.regex.exec(url);
       let newUrl = protocol + pattern.url;
-      if (isNonNullable(match)) {
-        for (let i = 0; i < match.length; i++) {
-          newUrl = newUrl.replace('$' + i, () => match[i] ? match[i] : '');
-        }
+      for (let i = 0; i < match.length; i++) {
+        newUrl = newUrl.replace('$' + i, () => match[i] ? match[i] : '');
       }
       return newUrl.replace(/\?$/, '');
     };
@@ -528,10 +522,9 @@
       return '<script src="' + data.source + '"></script>';
     };
     const dataToHtml = (editor, dataIn) => {
-      var _a;
       const data = global$5.extend({}, dataIn);
       if (!data.source) {
-        global$5.extend(data, htmlToData((_a = data.embed) !== null && _a !== void 0 ? _a : '', editor.schema));
+        global$5.extend(data, htmlToData(data.embed, editor.schema));
         if (!data.source) {
           return '';
         }
@@ -663,7 +656,7 @@
       return dimensions;
     };
     const unwrap = (data, sourceInput) => {
-      const metaData = sourceInput && sourceInput !== 'dimensions' ? extractMeta(sourceInput, data).getOr({}) : {};
+      const metaData = sourceInput ? extractMeta(sourceInput, data).getOr({}) : {};
       const get = getValue(data, metaData, sourceInput);
       return {
         ...get('source'),
@@ -737,8 +730,7 @@
       editor.nodeChanged();
     };
     const submitForm = (prevData, newData, editor) => {
-      var _a;
-      newData.embed = updateHtml((_a = newData.embed) !== null && _a !== void 0 ? _a : '', newData, false, editor.schema);
+      newData.embed = updateHtml(newData.embed, newData, false, editor.schema);
       if (newData.embed && (prevData.source === newData.source || isCached(newData.source))) {
         handleInsert(editor, newData.embed);
       } else {
@@ -762,9 +754,8 @@
         }
       };
       const handleEmbed = api => {
-        var _a;
         const data = unwrap(api.getData());
-        const dataFromEmbed = htmlToData((_a = data.embed) !== null && _a !== void 0 ? _a : '', editor.schema);
+        const dataFromEmbed = htmlToData(data.embed, editor.schema);
         api.setData(wrap(dataFromEmbed));
       };
       const handleUpdate = (api, sourceInput) => {
@@ -944,7 +935,6 @@
       return placeHolder;
     };
     const createPreviewNode = (editor, node) => {
-      var _a;
       const name = node.name;
       const previewWrapper = new global$2('span', 1);
       previewWrapper.attr({
@@ -954,7 +944,7 @@
         'class': 'mce-preview-object mce-object-' + name
       });
       retainAttributesAndInnerHtml(editor, node, previewWrapper);
-      const styles = editor.dom.parseStyle((_a = node.attr('style')) !== null && _a !== void 0 ? _a : '');
+      const styles = editor.dom.parseStyle(node.attr('style'));
       const previewNode = new global$2(name, 1);
       setDimensions(node, previewNode, styles);
       previewNode.attr({
@@ -992,8 +982,7 @@
       return previewWrapper;
     };
     const retainAttributesAndInnerHtml = (editor, sourceNode, targetNode) => {
-      var _a;
-      const attribs = (_a = sourceNode.attributes) !== null && _a !== void 0 ? _a : [];
+      const attribs = sourceNode.attributes;
       let ai = attribs.length;
       while (ai--) {
         const attrName = attribs[ai].name;
@@ -1016,12 +1005,11 @@
     };
     const isPageEmbedWrapper = node => {
       const nodeClass = node.attr('class');
-      return isString(nodeClass) && /\btiny-pageembed\b/.test(nodeClass);
+      return nodeClass && /\btiny-pageembed\b/.test(nodeClass);
     };
     const isWithinEmbedWrapper = node => {
-      let tempNode = node;
-      while (tempNode = tempNode.parent) {
-        if (tempNode.attr('data-ephox-embed-iri') || isPageEmbedWrapper(tempNode)) {
+      while (node = node.parent) {
+        if (node.attr('data-ephox-embed-iri') || isPageEmbedWrapper(node)) {
           return true;
         }
       }
@@ -1064,16 +1052,13 @@
         });
         each({ embed: ['wmode'] }, (attrs, name) => {
           const rule = schema.getElementRule(name);
-          if (rule) {
-            each$1(attrs, attr => {
-              rule.attributes[attr] = {};
-              rule.attributesOrder.push(attr);
-            });
-          }
+          each$1(attrs, attr => {
+            rule.attributes[attr] = {};
+            rule.attributesOrder.push(attr);
+          });
         });
         parser.addNodeFilter('iframe,video,audio,object,embed,script', placeHolderConverter(editor));
         serializer.addAttributeFilter('data-mce-object', (nodes, name) => {
-          var _a;
           let i = nodes.length;
           while (i--) {
             const node = nodes[i];
@@ -1084,7 +1069,7 @@
             const realElm = new global$2(realElmName, 1);
             if (realElmName !== 'audio' && realElmName !== 'script') {
               const className = node.attr('class');
-              if (className && className.indexOf('mce-preview-object') !== -1 && node.firstChild) {
+              if (className && className.indexOf('mce-preview-object') !== -1) {
                 realElm.attr({
                   width: node.firstChild.attr('width'),
                   height: node.firstChild.attr('height')
@@ -1097,7 +1082,7 @@
               }
             }
             realElm.attr({ style: node.attr('style') });
-            const attribs = (_a = node.attributes) !== null && _a !== void 0 ? _a : [];
+            const attribs = node.attributes;
             let ai = attribs.length;
             while (ai--) {
               const attrName = attribs[ai].name;
