@@ -256,7 +256,6 @@ class CommentSeeder extends Seeder
                 'streaming_id'=>'23',
                 'created_at'=>'2022-10-11 09:41:46',
             ],
-
             [
                 'name'=>'Gramos Shala',
                 'comment'=>'Hi, I love your lecture on Tailwind CSS.',
@@ -299,7 +298,6 @@ class CommentSeeder extends Seeder
                 'streaming_id'=>'23',
                 'created_at'=>'2022-10-11 09:41:46',
             ],
-
             [
                 'name'=>'Gramos Shala',
                 'comment'=>'Hi, I love your lecture on Tailwind CSS.',
@@ -342,7 +340,6 @@ class CommentSeeder extends Seeder
                 'streaming_id'=>'29',
                 'created_at'=>'2022-10-11 09:41:46',
             ],
-
             [
                 'name'=>'Gramos Shala',
                 'comment'=>'Hi, I love your lecture on Tailwind CSS.',
@@ -385,7 +382,6 @@ class CommentSeeder extends Seeder
                 'streaming_id'=>'35',
                 'created_at'=>'2022-10-11 09:41:46',
             ],
-
             [
                 'name'=>'Gramos Shala',
                 'comment'=>'Hi, I love your lecture on Tailwind CSS.',
@@ -428,7 +424,6 @@ class CommentSeeder extends Seeder
                 'streaming_id'=>'41',
                 'created_at'=>'2022-10-11 09:41:46',
             ],
-
             [
                 'name'=>'Gramos Shala',
                 'comment'=>'Hi, I love your lecture on Tailwind CSS.',
@@ -471,7 +466,6 @@ class CommentSeeder extends Seeder
                 'streaming_id'=>'47',
                 'created_at'=>'2022-10-11 09:41:46',
             ],
-
             [
                 'name'=>'Gramos Shala',
                 'comment'=>'Hi, I love your lecture on Tailwind CSS.',
