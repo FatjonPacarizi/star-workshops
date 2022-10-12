@@ -46,14 +46,6 @@ class Positions_Users_Seeder extends Seeder
             'user_id' => 8,
             'position_id'=> 2,
         ],
-        [
-            'user_id' => 9,
-            'position_id'=> 2,
-        ],
-        [
-            'user_id' => 10,
-            'position_id'=> 2,
-        ],
     ]);
 
     }
