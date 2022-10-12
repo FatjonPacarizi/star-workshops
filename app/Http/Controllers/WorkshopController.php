@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Storage;
 use ParagonIE\ConstantTime\Base64UrlSafe;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Http\Requests\UpdateWorkshopRequest;
+use App\Models\Workshop_Page;
 use App\Notifications\NewNotification;
 use Session;
 
@@ -32,7 +33,7 @@ class WorkshopController extends Controller
      */
     public function index()
     {
-        return view('workshops');
+        return view('workshops',['workshopPageData'=>Workshop_Page::first()]);
     }
 
     /**
@@ -257,5 +258,8 @@ class WorkshopController extends Controller
     public function calendar(){
 
         return view('calendar');
+    }
+    public function showWorkshopSettings(){
+        return view('workshopSettings');
     }
 }

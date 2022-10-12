@@ -134,10 +134,20 @@
                                 <p class="w-4 h-4 text-xs flex justify-center items-center rounded-full bg-slate-400">{{count($faqs)}}</p>
                             </a>
                         </li>
-                        @endcan      
+                        @endcan     
+                        @can('is_super_admin')
+                        <li class="--set-active-tables-html">
+                            <a href="{{ route('superadmin.showWorkshopSettings') }}" class="flex items-center p-2 mb-1 rounded-lg  {{Request::segment(1) == 'workshopSettings' ? 'bg-white shadow-lg font-medium' : ''}}">
+                                <div class="w-8 h-8 p-1 rounded-lg ml-2 flex justify-center items-center {{Request::segment(1) == 'workshopSettings' ? 'text-white bg-[#CB0C9F] shadow-md' : 'bg-white text-black shadow-md'}}">
+                                    <i class="fa-solid fa-gear fa-sm"></i>
+                                </div>
+                                <span class="grow ml-3 text-gray-600">Workshop</span>
+                            </a>
+                        </li>
+                        @endcan 
                 </div>
             </aside>
-            <div class="w-full overflow-y-scroll">
+            <div class="w-full overflow-y-scroll relative">
                 @include('navigation-menu',['link'=>1])
                 @yield('content')
             </div>
