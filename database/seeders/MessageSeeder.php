@@ -21,7 +21,7 @@ class MessageSeeder extends Seeder
                 'message' => 'hello im author',
             ],
             [
-                'sender_id' => 10,
+                'sender_id' => 8,
                 'workshop_id' => 3,
                 'message' => 'hello',
             ],
@@ -35,7 +35,7 @@ class MessageSeeder extends Seeder
                 'workshop_id' => 1,
                 'message' => '321',
             ],[
-                'sender_id' => 10,
+                'sender_id' => 8,
                 'workshop_id' => 1,
                 'message' => 'its working',
             ]
