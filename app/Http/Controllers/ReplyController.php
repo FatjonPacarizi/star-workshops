@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Reply;
+use App\Http\Requests\StoreReplyRequest;
 
 class ReplyController extends Controller
 {
-    public function store(Requset $request){
+    public function store(StoreReplyRequest $request){
         
         if(Auth::check()) {
             Reply::create([
@@ -27,13 +29,11 @@ class ReplyController extends Controller
         if(Auth::check()){
             $reply = Reply::where(['id'=>$id,'user_id'=>Auth::user()->id]);
             if($reply->delete()){
-                return 1;
+                return redirect()->back();
             }else{
-                return 2;
+                return redirect()->back();
             }
-        }else{
-
+            return redirect()->back()->with('error','Somthing wrong');
         }
-        return 3;
     }
 }

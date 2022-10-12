@@ -5,10 +5,7 @@
     <div class="flex flex-wrap lg:mx-4 pt-16 pb-16 justify-center w-4/5">
         <div class="flex flex-col items-center mt-16">
             <h1 class="text-6xl font-bold text-red-500">Meet the Team</h1>
-            <h1 class="my-5 w-full md:w-3/4 ml-4 lg:w-1/2 text-xl">Our work is overseen by a board of directors that is
-                chaired by William H. Tobey.
-                Our staff consist of a small, dedicated team of international professionals who support WorkShops’
-                mission and vision and who work tirelessly to achieve WINS’ goals.
+            <h1 class="my-5 w-full md:w-3/4 ml-4 lg:w-1/2 text-xl text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
             </h1>
         </div>
         @foreach ($staffMembers as $staffMember)

@@ -15,10 +15,10 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
         <td>Applied On</td>
       </tr>
       @foreach($pendingParticipants as $pendingParticipant)
-      <tr style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">
+      <tr style="padding: 8px; text-align: left; font-size: 14px; border-bottom: 1px solid #ddd;">
         <td>{{$pendingParticipant->user->name}}</td>
         <td>{{$pendingParticipant->user->email}}</td>
-        <td><a href="#"> {{$pendingParticipant->created_at}}</a></td>
+        <td>{{$pendingParticipant->created_at}}</td>
       </tr>
       @endforeach
     </table>
@@ -39,10 +39,10 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
       </tr>
 
       @foreach($approvedParticipants as $approvedParticipant)
-      <tr style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">
+      <tr style="padding: 8px; text-align: left; font-size: 14px; border-bottom: 1px solid #ddd;">
         <td>{{$approvedParticipant->user->name}}</td>
         <td>{{$approvedParticipant->user->email}}</td>
-        <td><a href="#"> {{$approvedParticipant->created_at}}</a></td>
+        <td>{{$approvedParticipant->created_at}}</td>
       </tr>
       @endforeach
     </table>
@@ -63,10 +63,10 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
       </tr>
 
       @foreach($notapprovedParticipants as $notapprovedParticipant)
-      <tr style="padding: 8px; text-align: left; border-bottom: 1px solid #ddd;">
+      <tr style="padding: 8px; text-align: left; font-size: 14px; border-bottom: 1px solid #ddd;">
         <td>{{$notapprovedParticipant->user->name}}</td>
         <td>{{$notapprovedParticipant->user->email}}</td>
-        <td><a href="#"> {{$notapprovedParticipant->created_at}}</a></td>
+        <td>{{$notapprovedParticipant->created_at}}</td>
       </tr>
       @endforeach
     </table>

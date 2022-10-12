@@ -231,7 +231,7 @@ class WorkshopController extends Controller
 
 
         $pdf = PDF::loadView('managePDF', ['workshopName'=>Workshop::select('name')->where('id',$workshopid)->get(),'pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
-        return $pdf->stream('managePDF.pdf');
+        return $pdf->download('Workshop.pdf');
     }
 
     public function approveParticipant($workshopid,$participantantID){
