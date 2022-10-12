@@ -40,7 +40,7 @@ class WorkshopsUsersSeeder extends Seeder
 
         ];
         foreach($workshop_participants as $participant){
-            Workshops_Users::create($participant);
+            workshops_users::create($participant);
         }
     }
 }

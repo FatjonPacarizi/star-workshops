@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Streaming;
+use App\Models\Workshop;
 
 class ShowStreaming extends Component
 {
@@ -22,7 +23,11 @@ class ShowStreaming extends Component
         $sort = "ASC";
         if($this->sortby != null) $sort =  $this->sortby;
 
-        return view('livewire.show-streaming',['streaming'=>Streaming::where('workshop_id',1)->where('title','like','%'.$this->search.'%')->orderBy('id',$sort)->paginate($page)]);
+        $workshops = Workshop::all()->first();
+
+        $streaming = Streaming::where('workshop_id',$workshops->id)->where('title','like','%'.$this->search.'%')->orderBy('id',$sort)->paginate($page);
+
+        return view('livewire.show-streaming',['streaming'=>$streaming]);
     }
    
     public function reloadStreaming($search,$perpage,$sortby){
