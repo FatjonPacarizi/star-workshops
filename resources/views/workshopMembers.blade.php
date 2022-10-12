@@ -6,9 +6,9 @@
         <div class="flex flex-col items-center mt-16">
             <h1 class="text-6xl font-bold text-red-500">Meet the Team</h1>
             <h1 class="my-5 w-full md:w-3/4 ml-4 lg:w-1/2 text-xl">Our work is overseen by a board of directors that is
-                chaired by William H. Tobey.
+                chaired by Fatjon Paçarizi.
                 Our staff consist of a small, dedicated team of international professionals who support WorkShops’
-                mission and vision and who work tirelessly to achieve WINS’ goals.
+                mission and vision and who work tirelessly to achieve Starlabs’ goals.
             </h1>
         </div>
         @foreach ($staffMembers as $staffMember)
