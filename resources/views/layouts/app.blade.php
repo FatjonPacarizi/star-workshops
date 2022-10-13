@@ -147,7 +147,7 @@
                         @endcan 
                 </div>
             </aside>
-            <div class="w-full overflow-y-scroll relative">
+            <div class="w-full overflow-y-scroll">
                 @include('navigation-menu',['link'=>1])
                 @yield('content')
             </div>
