@@ -186,11 +186,8 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('change-status/{id}', [StreamingController::class, 'changeStatus']);
 
            
-
             Route::post('/comment-add',[CommentController::class,'store']);
             Route::delete('/comment/delete/{comment}',[CommentController::class,'destroy']);
-            Route::post('/reply-add',[ReplyController::class,'store']);
-            Route::delete('/reply/delete/{id}',[ReplyController::class,'destroy']);
 
             
             Route::get('/pdf/{workshopid}', [WorkshopController::class,  'showPDF'])->name('showPDF');
