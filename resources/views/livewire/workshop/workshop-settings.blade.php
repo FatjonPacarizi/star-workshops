@@ -1,4 +1,4 @@
-<div id="root" class="px-10 absolute  w-full bottom-0 top-20 right-0 left-0 flex justify-between mt-5">
+<div id="root" class="px-10 absolute  w-full bottom-0 top-5 right-0 left-0 flex justify-between">
     <div class="w-1/2  px-3 ">
         <div class="relative">
             <div class="relative">
