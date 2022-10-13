@@ -28,7 +28,7 @@
                 @auth
 
                 <div class="relative">
-                    <div class="flex items-center">
+                    <div class="flex items-center" id = "notif">
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button>
@@ -138,7 +138,12 @@
             </div>
         </nav>
     </div>
-</header>
-<script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
-</script>
+    <script>
+        Echo.channel('notification')
+            .listen('NotificationEvent', (e) => {
+                $("#notif").load(window.location.href + " #notif");
+            });
+        </script>
+</header>
