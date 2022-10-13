@@ -25,22 +25,11 @@ class CommentController extends Controller
         }
     }
 
-    public function destroy(Comment $comment){
+    public function destroy($comment){
+        
+        $comment = Comment::find($comment);
+        $comment->delete();
 
-        if(Auth::check()){
-
-            $reply = Reply::where(['comment_id'=>$comment->id]);
-            $comment = Comment::where(['user_id'=>Auth::user()->id, 'id'=>$comment->id]);
-            if($reply->count() > 0 && $comment->count() > 0 ) {
-                $reply->delete();
-                $comment->delete();
-                return redirect()->back();
-            }else if($comment->count() > 0 && $comment !== Auth::id()){
-                $comment->delete();
-                return redirect()->back();
-            }else{
-                return redirect()->back()->with('error','Somthing wrong');
-            }
-        }
+         return redirect()->back();
     }
 }
