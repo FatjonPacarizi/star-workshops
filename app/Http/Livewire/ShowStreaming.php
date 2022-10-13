@@ -13,6 +13,7 @@ class ShowStreaming extends Component
     public $search;
     public $perpage;
     public $sortby;
+    public $workshop;
 
     public function render()
     {
@@ -22,7 +23,7 @@ class ShowStreaming extends Component
         $sort = "ASC";
         if($this->sortby != null) $sort =  $this->sortby;
 
-        return view('livewire.show-streaming',['streaming'=>Streaming::where('workshop_id',1)->where('title','like','%'.$this->search.'%')->orderBy('id',$sort)->paginate($page)]);
+        return view('livewire.show-streaming',['streaming'=>Streaming::where('workshop_id',$this->workshop->id)->where('title','like','%'.$this->search.'%')->orderBy('id',$sort)->paginate($page)]);
     }
    
     public function reloadStreaming($search,$perpage,$sortby){

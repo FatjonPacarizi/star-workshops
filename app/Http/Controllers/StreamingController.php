@@ -34,9 +34,9 @@ class StreamingController extends Controller
 
     public function show($id){
 
-       $workshops = Workshop::find($id);
+       $workshop = Workshop::find($id);
 
-       return view('manageStreaming',['workshops'=>$workshops]);
+       return view('manageStreaming',['workshop'=>$workshop]);
     }
 
     public function insert($id){
