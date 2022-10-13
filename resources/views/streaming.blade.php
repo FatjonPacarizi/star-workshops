@@ -53,7 +53,7 @@
         <div class="flex-1 border rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
         <strong>{{$comment->name}}</strong> <span class="text-xs text-gray-400">{{$comment->created_at->diffForHumans()}}</span>
        @if(Auth::check())
-        @if($comment->user_id == Auth::user()->id)
+        @if($comment->user_id == Auth::user()->id || Auth::user()->user_status == 'superadmin')
         <form method="POST" action="/comment/delete/{{$comment->id}}" class="inline flex justify-end">
               @csrf
               @method('DELETE')
