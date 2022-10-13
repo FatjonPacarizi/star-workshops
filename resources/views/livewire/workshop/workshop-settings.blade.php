@@ -22,50 +22,12 @@
                 <div class="h-fit  bg-white shadow-md relative rounded-xl py-2 ">
                     <div class="flex items-center justify-between">
                         <h1 class="p-2 text-black text-sm">Workshop Categories</h1>
-                        <button onClick="showModal('insertCategory',-400,0)"><i
+                        <button onClick="showHideModal('insertCategory',-400,0)"><i
                                 class="fa-solid fa-plus mr-3 text-gray-600"></i></button>
                     </div>
-                    <table id="citiesTable" class="w-full mx-auto">
-                        <tr class="text-gray-400 text-xs px-2">
-                            <td class="w-9/12 pl-5 py-2">Category</td>
-                            <td>Actions</td>
-                        </tr>
-                        @foreach ($categories as $category)
-                        <tr class="border-t border-gray-200" style="border-top-width: 0.01em">
-                            <form wire:submit.prevent="updateCategory(Object.fromEntries(new FormData($event.target)))">
-                                <td class="pl-5 py-1 text-gray-600">
-                                    <input class=" w-full text-slate-900 h-8 text-sm border-none border-b focus:ring-0"
-                                        type="text" name="category" value='{{$category->name}}' />
-                                    <input type="hidden" name="categoryId" value={{$category->id}}>
-                                </td>
-                                <td>
-                                    <button onClick="showLoading('Category')" type="submit"><i class="fa-solid fa-floppy-disk"></i></button>
-                                    <button onClick="showLoading('Category')"
-                                        wire:click="deleteCategory('{{$category->id}}')"><i
-                                            class="fa-solid fa-trash-can text-red-400 ml-2 fa-sm"></i></button>
-                                </td>
-                            </form>
-                        </tr>
-                        @endforeach
-                    </table>
-                    <div id="insertCategory" class="hidden absolute -top-full z-40">
-                        <div
-                            class="flex justify-start w-full items-center p-3 my-2 bg-white shadow rounded-md relative">
-                            <button onClick="showModal('insertCategory',20,-400)" type="button"
-                                class="absolute right-3 top-3 text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 flex items-center justify-center h-8 w-8 "
-                                data-dismiss-target="#toast-success" aria-label="Close">
-                                <i class="fa-solid fa-xmark"></i>
-                            </button>
-                            <form wire:submit.prevent="insertCategory(Object.fromEntries(new FormData($event.target)))">
-                                <p class="py-1 ">Insert Category</p>
-                                <input
-                                    class=" w-10/12 border border-gray-400 rounded text-slate-900 h-8 text-sm focus:ring-0"
-                                    type="text" name="category" />
-                                <button onClick="showLoading('Category')"
-                                    class="bg-sky-500 px-3 py-1 mx-auto mt-2 text-xs rounded text-white"
-                                    type="submit">insert</button>
-                            </form>
-                        </div>
+                    @livewire('workshop.settings.show-categories')
+                    <div id="insertCategory" class="hidden w-full absolute -top-full z-40">
+                        @livewire('workshop.settings.insert-categories')
                     </div>
                 </div>
             </div>
@@ -75,48 +37,12 @@
                 <div class=" bg-white shadow-md relative rounded-xl py-2">
                     <div class="flex items-center justify-between">
                         <h1 class="p-2 text-black text-sm">Workshop Types</h1>
-                        <button onClick="showModal('insertType',-400,0)"><i
+                        <button onClick="showHideModal('insertType',-400,0)"><i
                                 class="fa-solid fa-plus mr-3 text-gray-600"></i></button>
                     </div>
-                    <table id="citiesTable" class="w-full mx-auto ">
-                        <tr class="text-gray-400 text-xs px-2">
-                            <td class="w-9/12 pl-5 py-2">Type</td>
-                            <td>Actions</td>
-                        </tr>
-                        @foreach ($types as $type)
-                        <tr class="border-t border-gray-200" style="border-top-width: 0.01em">
-                            <form wire:submit.prevent="updateType(Object.fromEntries(new FormData($event.target)))">
-                                <td class="pl-5 py-1 text-gray-600">
-                                    <input class=" w-full text-slate-900 h-8 text-sm border-none border-b focus:ring-0"
-                                        type="text" name="type" value='{{$type->name}}' />
-                                    <input type="hidden" name="typeId" value={{$type->id}}>
-                                </td>
-                                <td>
-                                    <button onClick="showLoading('Type')" type="submit"><i class="fa-solid fa-floppy-disk"></i></button>
-                                    <button onClick="showLoading('Type')" wire:click="deleteType('{{$type->id}}')"><i
-                                            class="fa-solid fa-trash-can text-red-400 ml-2 fa-sm"></i></button>
-                                </td>
-                            </form>
-                        </tr>
-                        @endforeach
-                    </table>
-                    <div id="insertType" class="hidden absolute -top-full z-40">
-                        <div
-                            class="flex justify-start w-full items-center p-3 my-2 bg-white shadow rounded-md relative">
-                            <button onClick="showModal('insertType',20,-400)" type="button"
-                                class="absolute right-3 top-3 text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 flex items-center justify-center h-8 w-8 "
-                                data-dismiss-target="#toast-success" aria-label="Close">
-                                <i class="fa-solid fa-xmark"></i>
-                            </button>
-                            <form wire:submit.prevent="insertType(Object.fromEntries(new FormData($event.target)))">
-                                <p class="py-1 ">Insert Type</p>
-                                <input
-                                    class=" w-10/12 border border-gray-400 rounded text-slate-900 h-8 text-sm focus:ring-0"
-                                    type="text" name="type" />
-                                <button class="bg-sky-500 px-3 py-1 mx-auto mt-2 text-xs rounded text-white"
-                                    type="submit">insert</button>
-                            </form>
-                        </div>
+                    @livewire('workshop.settings.show-types')
+                    <div id="insertType" class="hidden w-full absolute -top-full z-40">
+                      @livewire('workshop.settings.insert-types')
                     </div>
                 </div>
             </div>
@@ -129,10 +55,10 @@
         <div class="bg-white shadow-md relative rounded-xl py-2 ">
             <div class="flex items-center justify-between">
                 <h1 class="p-2 text-black text-sm">Workshop countries</h1>
-                <button onClick="showModal('insertCountry',-600,0)"><i
+                <button onClick="showHideModal('insertCountry',-600,0)"><i
                         class="fa-solid fa-plus mr-3 text-gray-600"></i></button>
             </div>
-            @livewire('workshop.settings.edit-country')
+            @livewire('workshop.settings.show-countries')
             <div id="insertCountry" class="hidden w-full absolute -top-full z-40">
                 @livewire('workshop.settings.insert-country')
             </div>
@@ -141,33 +67,17 @@
         <div class=" bg-white shadow-md relative rounded-xl py-2 mt-5">
             <div class="flex items-center justify-between">
                 <h1 class="p-2 text-black text-sm">Workshop Cities</h1>
-                <button onClick="showModal('insertCity',-100,0)"><i
+                <button onClick="showHideModal('insertCity',-100,0)"><i
                         class="fa-solid fa-plus mr-3 text-gray-600"></i></button>
             </div>
-            @livewire('workshop.settings.edit-city')
+            @livewire('workshop.settings.show-cities')
             <div id="insertCity" class="hidden w-full absolute -top-full z-40">
                 @livewire('workshop.settings.insert-city')
             </div>
         </div>
     </div>
     <script>
-        window.addEventListener('countryEvent', event => {
-           document.getElementById("CountryLoading").style.display = "none";
-
-        });
-        window.addEventListener('cityEvent', event => {
-           document.getElementById("CityLoading").style.display = "none";
-           $("#root").load(window.location.href + " #root" );
-        });
-        window.addEventListener('typeEvent', event => {
-           document.getElementById("TypeLoading").style.display = "none";
-
-        });
-        window.addEventListener('categoryEvent', event => {
-           document.getElementById("CategoryLoading").style.display = "none";
-
-        });
-        function showModal(id,from, to){
+        function showHideModal(id,from, to){
             document.getElementById(id).style.display = "block";
             $("#"+id).css({
                 top: from

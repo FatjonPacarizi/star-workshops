@@ -29,6 +29,6 @@ class InsertCity extends Component
 
         $this->dispatchBrowserEvent('cityInserted');
 
-        $this->emitTo('workshop.settings.edit-city', '$refresh');
+        $this->emitTo('workshop.settings.show-cities', '$refresh');
     }
 }

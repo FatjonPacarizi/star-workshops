@@ -3,7 +3,7 @@
         <nav x-data="{ open: false }">
             <div class="flex justify-between items-center px-5 py-3">
                 <div class="flex items-center">
-                    <button id="mobile-menu-button" class="text-gray-700 w-10 h-10 mr-2 relative focus:outline-none bg-white outline-none  md:block lg:hidden" @click="open = !open">
+                    <button id="mobile-menu-button" class="text-gray-700 w-10 h-10 mr-2 relative focus:outline-none bg-white outline-none  md:block lg:hidden" onClick = "openMobMenu()" @click="open = !open">
                         <div class=" w-5">
                             <span aria-hidden="true" class="absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'rotate-45': open,' -translate-y-1.5': !open }"></span>
                             <span aria-hidden="true" class="absolute  h-0.5 w-5 bg-current   transform transition duration-500 ease-in-out" :class="{'opacity-0': open } "></span>
@@ -12,7 +12,7 @@
                     </button>
                     <a href="{{ route('landing' ) }}">
                         @php
-                        $information = App\Models\Informations::all()->last();
+                             $information = App\Models\Informations::all()->last();
                         @endphp
                         <img class="h-8 md:h10 md:m-3 mr-0  " alt="Logo" src="{{$information->logo_name ? asset('/storage/' . $information->logo_name) : asset('/img/Logo.png')}}">
                     </a>
@@ -127,23 +127,24 @@
                 @endif
                 @endauth
             </div>
-            <div class="z-40" x-show="open" @click.outside="open = false">
+            <div id = "mob-menu" class="z-40 hidden">
                 <ul class="bg-white text-black w-full">
                     <li><a href="{{route('workshops')}}" class="font-bold block text-sm flex justify-center py-4 text-sm  hover-2" aria-current="page">WORKSHOPS</a></li>
                     <li><a href="/newspage" class="font-bold block text-sm flex justify-center py-4 text-sm hover-2">NEWS</a></li>
                     <li><a href="/members" class="font-bold block text-sm flex justify-center py-4 text-sm hover-2">MEMBERS</a></li>
-                    <li><a href="/about" class="font-bold block text-sm flex justify-center py-4 text-sm hover-2">ABOUT
-                            US</a></li>
+                    <li><a href="/about" class="font-bold block text-sm flex justify-center py-4 text-sm hover-2">ABOUT US</a></li>
                 </ul>
             </div>
         </nav>
-    </div>
-    <script src="{{ asset('js/app.js') }}"></script>
-
-    <script>
-        Echo.channel('notification')
-            .listen('NotificationEvent', (e) => {
-                $("#notif").load(window.location.href + " #notif");
-            });
+        <script>
+            Echo.channel('notification')
+                .listen('NotificationEvent', (e) => {
+                    $("#notif").load(window.location.href + " #notif");
+                });
+            
+            function openMobMenu(){
+                document.getElementById('mob-menu').classList.toggle("hidden");
+            }
         </script>
+    </div>
 </header>

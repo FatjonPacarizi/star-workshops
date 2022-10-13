@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Workshop\Settings;
 use App\Models\Country;
 use Livewire\Component;
 
-class EditCountry extends Component
+class ShowCountries extends Component
 {
     public $name;
     public $region;
@@ -16,7 +16,7 @@ class EditCountry extends Component
 
     public function render()
     {
-        return view('livewire.workshop.settings.edit-country',['countries'=>Country::all()]);
+        return view('livewire.workshop.settings.show-countries',['countries'=>Country::all()]);
     }
     public function show($id){
         $this->country = Country::find($id);
@@ -33,11 +33,11 @@ class EditCountry extends Component
         ]);
 
         $this->country->update($validatedData);
+        $this->dispatchBrowserEvent('countryUpdated');
 
-        $this->emitTo('livewire.workshop.workshop-settings', '$refresh');
     }
     public function deleteCountry($id){
         Country::where('id',$id)->delete();
-        $this->dispatchBrowserEvent('countryEvent');
     }
 }
+

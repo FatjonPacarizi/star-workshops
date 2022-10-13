@@ -1,52 +1,36 @@
 <div>
-    <table id="countriesTable" class="w-full mx-auto">
-        <tr class="text-gray-400 text-xs px-2">
-            <td class="w-1/4 pl-5 py-2">Country</td>
-            <td class="w-1/4 pl-5 py-2">Region</td>
-            <td class="w-1/3 pl-5 py-2">Language</td>
-            <td class="w-1/10">Actions</td>
-        </tr>
-        @foreach ($countries as $country)
-        <tr class="border-t border-gray-200" style="border-top-width: 0.01em">
-                <td class="pl-5 py-2 text-gray-600">
-                    {{$country->name}}
-                </td>
-                <td class="pl-5 py-2 text-gray-600">
-                    {{$country->region}}
-                </td>
-                <td class="pl-5 py-2 text-xs text-gray-600">
-                    {{$country->language}}
-                </td>
-                <td>
-                    <button wire:click = "show({{$country->id}})" onClick="showModal('editCountry',-400,0)"><i class="fa-solid fa-pen-to-square"></i></button>
-                    <button type = "button" wire:click="deleteCountry('{{$country->id}}')"><i
-                            class="fa-solid fa-trash-can text-red-400 ml-2 fa-sm"></i></button>
-                </td>
-        </tr>
-        @endforeach
-    </table>
-    <div id="editCountry" class="hidden w-full absolute -top-full z-40" wire:ignore>
+<table id="citiesTable" class="w-full mx-auto ">
+    <tr class="text-gray-400 text-xs px-2">
+        <td class="w-9/12 pl-5 py-2">Type</td>
+        <td>Actions</td>
+    </tr>
+    @foreach ($types as $type)
+    <tr class="border-t border-gray-200" style="border-top-width: 0.01em">
+            <td class="pl-5 py-1 text-gray-600">
+                {{$type->name}}
+            </td>
+            <td>
+                <button wire:click = "show({{$type->id}})"  onClick="showHideModal('editType',-400,0)"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button wire:click="deleteType('{{$type->id}}')"><i
+                        class="fa-solid fa-trash-can text-red-400 ml-2 fa-sm"></i></button>
+            </td>
+    </tr>
+    @endforeach
+</table>
+<div id="editType" class="hidden w-full absolute -top-full z-40" wire:ignore>
     <div class="w-full items-center p-3 my-2 bg-white shadow-lg rounded-md relative">
-    <button onClick="showModal('editCountry',20,-400)" type="button"
+    <button onClick="showHideModal('editType',20,-400)" type="button"
         class="absolute right-3 top-3 text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 flex items-center justify-center h-8 w-8 "
         data-dismiss-target="#toast-success" aria-label="Close">
         <i class="fa-solid fa-xmark"></i>
     </button>
-        <p class="py-1 ">Edit Country</p>
+        <p class="py-1 ">Edit Type</p>
         <div class="flex items-center">
-            <p class = "text-xs w-16">Country</p>
+            <p class = "text-xs w-16">Type</p>
             <input class=" w-10/12 border border-gray-400 rounded text-slate-900 h-8 text-sm focus:ring-0" type="text" wire:model.defer = "name" />
         </div>
-        <div class="flex items-center">
-            <p class = "text-xs w-16">Region</p>
-            <input class=" w-10/12 border border-gray-400 rounded text-slate-900 h-8 text-sm my-5 focus:ring-0" type="text" wire:model.defer = "region" />
-        </div>
-        <div class="flex items-center">
-            <p class = "text-xs w-16">Language</p>
-            <input class=" w-10/12 border border-gray-400 rounded text-slate-900 h-8 text-sm focus:ring-0" type="text" wire:model.defer = "language" />
-        </div>
         <div class="flex items-center w-fit mt-2 ">
-            <button wire:click = "update" class="bg-sky-500 px-3 py-1  text-xs rounded text-white self-end">Update</button>
+            <button wire:click = "updateType" class="bg-sky-500 px-3 py-1  text-xs rounded text-white self-end">Update</button>
             <div role="status" wire:loading>
                 <svg aria-hidden="true"
                     class="ml-2 w-4 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -62,4 +46,9 @@
         </div>
     </div>
     </div>
+    <script>
+        window.addEventListener('typeUpdated', event => {
+           showHideModal('editType',20,-400)
+       });
+   </script>
 </div>

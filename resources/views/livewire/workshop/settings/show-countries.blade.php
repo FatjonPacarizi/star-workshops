@@ -1,52 +1,49 @@
 <div>
     <table id="countriesTable" class="w-full mx-auto">
         <tr class="text-gray-400 text-xs px-2">
-            <td class="w-1/4 pl-5 py-2">City</td>
             <td class="w-1/4 pl-5 py-2">Country</td>
-            <td class="w-1/3 pl-5 py-2">Post Code</td>
+            <td class="w-1/4 pl-5 py-2">Region</td>
+            <td class="w-1/3 pl-5 py-2">Language</td>
             <td class="w-1/10">Actions</td>
         </tr>
-        @foreach ($cities as $city)
+        @foreach ($countries as $country)
         <tr class="border-t border-gray-200" style="border-top-width: 0.01em">
                 <td class="pl-5 py-2 text-gray-600">
-                    {{$city->name}}
+                    {{$country->name}}
                 </td>
                 <td class="pl-5 py-2 text-gray-600">
-                    {{$city->country->name}}
+                    {{$country->region}}
                 </td>
                 <td class="pl-5 py-2 text-xs text-gray-600">
-                    {{$city->postalcode}}
+                    {{$country->language}}
                 </td>
                 <td>
-                    <button wire:click = "show({{$city->id}})" onClick="showModal('editCity',-400,0)"><i class="fa-solid fa-pen-to-square"></i></button>
-                    <button type = "button" wire:click="deleteCity('{{$city->id}}')"><i
+                    <button wire:click = "show({{$country->id}})" onClick="showHideModal('editCountry',-400,0)"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button type = "button" wire:click="deleteCountry('{{$country->id}}')"><i
                             class="fa-solid fa-trash-can text-red-400 ml-2 fa-sm"></i></button>
                 </td>
         </tr>
         @endforeach
     </table>
-    <div id="editCity" class="hidden w-full absolute -top-full z-40" wire:ignore>
+    <div id="editCountry" class="hidden w-full absolute -top-full z-40" wire:ignore>
     <div class="w-full items-center p-3 my-2 bg-white shadow-lg rounded-md relative">
-    <button onClick="showModal('editCity',20,-400)" type="button"
+    <button onClick="showHideModal('editCountry',20,-400)" type="button"
         class="absolute right-3 top-3 text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 flex items-center justify-center h-8 w-8 "
         data-dismiss-target="#toast-success" aria-label="Close">
         <i class="fa-solid fa-xmark"></i>
     </button>
-        <p class="py-1 ">Edit City</p>
+        <p class="py-1 ">Edit Country</p>
         <div class="flex items-center">
-            <p class = "text-xs w-16">City</p>
+            <p class = "text-xs w-16">Country</p>
             <input class=" w-10/12 border border-gray-400 rounded text-slate-900 h-8 text-sm focus:ring-0" type="text" wire:model.defer = "name" />
         </div>
         <div class="flex items-center">
-            <p class = "text-xs w-16">Country</p>
-            <select class=" w-10/12 border border-gray-400 rounded text-slate-900  text-sm focus:ring-0 my-5" wire:model.defer="country_id">
-                @foreach ($countries as $country)
-                    <option  value={{$country->id}}>{{$country->name}}</option>
-                @endforeach
-            </select>        </div>
+            <p class = "text-xs w-16">Region</p>
+            <input class=" w-10/12 border border-gray-400 rounded text-slate-900 h-8 text-sm my-5 focus:ring-0" type="text" wire:model.defer = "region" />
+        </div>
         <div class="flex items-center">
-            <p class = "text-xs w-16">Post Code</p>
-            <input class=" w-10/12 border border-gray-400 rounded text-slate-900 h-8 text-sm focus:ring-0" type="text" wire:model.defer = "postalcode" />
+            <p class = "text-xs w-16">Language</p>
+            <input class=" w-10/12 border border-gray-400 rounded text-slate-900 h-8 text-sm focus:ring-0" type="text" wire:model.defer = "language" />
         </div>
         <div class="flex items-center w-fit mt-2 ">
             <button wire:click = "update" class="bg-sky-500 px-3 py-1  text-xs rounded text-white self-end">Update</button>
@@ -65,4 +62,9 @@
         </div>
     </div>
     </div>
+    <script>
+        window.addEventListener('countryUpdated', event => {
+           showHideModal('editCountry',20,-400)
+       });
+   </script>
 </div>
