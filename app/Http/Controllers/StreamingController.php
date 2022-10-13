@@ -55,9 +55,9 @@ class StreamingController extends Controller
         return redirect()->back();
     }
 
-    public function edit($id){
+    public function edit($id,$streaming){
 
-        $streaming = Streaming::find($id);
+        $streaming = Streaming::find($streaming);
         $workshops = Workshop::find($id);
 
         return view('editStreaming',['streaming'=>$streaming,'workshops'=> $workshops]);

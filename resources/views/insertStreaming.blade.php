@@ -28,7 +28,7 @@
       <div class="mb-6 flex items-center">
         <label class="w-28 text-sm mx-5">Title</label>
         <div class = "w-full mx-5">
-          <input type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Name" name="title" />
+          <input type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Title" name="title" />
           @error('name')
           <p class="text-red-500 text-xs mt-1">{{$message}}</p>
           @enderror

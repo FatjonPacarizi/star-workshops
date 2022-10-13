@@ -5,7 +5,7 @@
 <div class="w-full  p-6 px-10 flex ">
   <div class="w-full bg-white   shadow-md rounded-xl  ">
     <div class="w-full flex items-center  border-b border-gray-200 mb-4">
-      <a href="/workshops/manage/streaminglive/{{$streaming->id}}" ><i class="fa-solid fa-arrow-left mx-4"></i></a>
+      <a href="/workshops/manage/streaminglive/{{$workshops->id}}" ><i class="fa-solid fa-arrow-left mx-4"></i></a>
       <h1 class="p-3 text-black  font-medium  ">Streaming Update</h1>
     </div>
     <form method="POST" action="/update-streaming/{{$streaming->id}}" enctype="multipart/form-data">

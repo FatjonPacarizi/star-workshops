@@ -180,7 +180,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/workshops/manage/streaminglive/{id}',[StreamingController::class, 'show'])->name('showStreaming');
             Route::get('/streaminglive/insert/{id}',[StreamingController::class, 'insert'])->name('insertStreaming');
             Route::post('/streaminglive/add-streaming', [StreamingController::class, 'store']);
-            Route::get('/streaminglive/edit/{id}',[StreamingController::class, 'edit']);
+            Route::get('/streaminglive/edit/{id}/{streaming}',[StreamingController::class, 'edit']);
             Route::put('/update-streaming/{id}',[StreamingController::class,'update'])->name('updateStreaming');
             Route::delete('/streaming/delete/{id}', [StreamingController::class, 'destroy']);
             Route::get('change-status/{id}', [StreamingController::class, 'changeStatus']);
