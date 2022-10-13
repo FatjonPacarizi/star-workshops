@@ -184,12 +184,10 @@ Route::group(['middleware' => 'auth'], function () {
             Route::put('/update-streaming/{id}',[StreamingController::class,'update'])->name('updateStreaming');
             Route::delete('/streaming/delete/{id}', [StreamingController::class, 'destroy']);
             Route::get('change-status/{id}', [StreamingController::class, 'changeStatus']);
-
-           
+     
             Route::post('/comment-add',[CommentController::class,'store']);
             Route::delete('/comment/delete/{comment}',[CommentController::class,'destroy']);
 
-            
             Route::get('/pdf/{workshopid}', [WorkshopController::class,  'showPDF'])->name('showPDF');
                     
             Route::get('/workshops/manage/addparticipant/{workshopid}',[WorkshopUsersController::class,'showUser'])->name('showUser');
