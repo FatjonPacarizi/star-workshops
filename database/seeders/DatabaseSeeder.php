@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
             NewsPageSeeder::class,
             MessageSeeder::class,
             StreamingSeeder::class,
-            WorkshopPageSeeder::class
+            WorkshopPageSeeder::class,
             CommentSeeder::class
         ]);
 
