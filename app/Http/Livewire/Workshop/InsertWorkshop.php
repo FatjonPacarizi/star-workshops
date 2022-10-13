@@ -80,6 +80,9 @@ class InsertWorkshop extends Component
 
             $users = User::all();
             $notification = Notification::send($users,new NewNotification($workshop));
+
+            event(new \App\Events\NotificationEvent());
+
             
             if(count($users)>0)  Mail::to($emails)->send(new newWorkshopEmailSender($workshop->id,$workshop->name));
 

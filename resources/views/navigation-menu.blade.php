@@ -51,7 +51,7 @@
 
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
-                    <div class="flex items-center">
+                    <div class="flex items-center" id = "notif">
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button>
@@ -239,4 +239,13 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>
+
+    <script>
+        Echo.channel('notification')
+            .listen('NotificationEvent', (e) => {
+                
+                $("#notif").load(window.location.href + " #notif");
+            });
+        </script>
 </nav>
