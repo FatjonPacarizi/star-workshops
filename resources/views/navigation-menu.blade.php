@@ -5,7 +5,7 @@
                 <div class="shrink-0 flex items-center ">
                     <i class="fa-solid fa-bars"></i>
                 </div>
-                <p class="text-gray-500 ml-5">Pages / <a class="text-black" href="/{{Request::segment(1)}}/{{Request::segment(2)}}">{{ucfirst(Request::segment(1))}}</a></p>
+                <p class="text-gray-500 ml-5"><a href="/dashboard">Dashboard /</a> <a class="text-black" href="/{{Request::segment(1)}}/{{Request::segment(2)}}">{{ucfirst(Request::segment(1))}}</a></p>
             </div>
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
@@ -51,7 +51,7 @@
 
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
-                    <div class="flex items-center" id = "notif">
+                    <div class="flex items-center" id="notif">
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button>
@@ -76,7 +76,7 @@
                                     @endforeach
                                     <a href="/markAsRead">
                                         <p class="text-red-600 text-xs m-1 text-center">
-                                        Mark all as read
+                                            Mark all as read
                                         </p>
                                     </a>
                                     @else
@@ -244,8 +244,8 @@
     <script>
         Echo.channel('notification')
             .listen('NotificationEvent', (e) => {
-                
+
                 $("#notif").load(window.location.href + " #notif");
             });
-        </script>
+    </script>
 </nav>
