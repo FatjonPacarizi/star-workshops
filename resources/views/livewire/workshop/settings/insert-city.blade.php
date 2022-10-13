@@ -1,5 +1,5 @@
 <div class=" w-full items-center p-3 my-2 bg-white shadow rounded-md relative">
-    <button onClick="showModal('insertCity',20,-400)" type="button"
+    <button onClick="showHideModal('insertCity',20,-400)" type="button"
         class="absolute right-3 top-3 text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 flex items-center justify-center h-8 w-8 "
         data-dismiss-target="#toast-success" aria-label="Close">
         <i class="fa-solid fa-xmark"></i>
@@ -30,7 +30,7 @@
     </div>
     <script>
          window.addEventListener('cityInserted', event => {
-            showModal('insertCity',20,-400)
+            showHideModal('insertCity',20,-400)
         });
     </script>
 </div>

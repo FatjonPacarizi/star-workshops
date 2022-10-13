@@ -32,37 +32,8 @@ class WorkshopSettings extends Component
     public function render()
     {
         return view('livewire.workshop.workshop-settings',[
-            'types'=>Type::all(),
-            'categories'=>Category::all(),
             'workshopPageData'=>$this->workshopPage]);
     }
-   
-    public function deleteType($id){
-        Type::where('id',$id)->delete();
-        $this->dispatchBrowserEvent('typeEvent');
-    }
-    public function updateType($formData){
-        Type::where('id',$formData['typeId'])->update(['name'=>$formData['type']]);
-        $this->dispatchBrowserEvent('typeEvent');
-    }
-    public function insertType($formData){
-        Type::create(['name'=>$formData['type']]);
-        $this->dispatchBrowserEvent('typeEvent');
-    }
-
-    public function deleteCategory($id){
-        Category::where('id',$id)->delete();
-        $this->dispatchBrowserEvent('categoryEvent');
-    }
-    public function updateCategory($formData){
-        Category::where('id',$formData['categoryId'])->update(['name'=>$formData['category']]);
-        $this->dispatchBrowserEvent('categoryEvent');
-    }
-    public function insertCategory($formData){
-        Category::create(['name'=>$formData['category']]);
-        $this->dispatchBrowserEvent('categoryEvent');
-    }
-
     public function updateWorkshopData()
     {
         $validated = $this->validate([

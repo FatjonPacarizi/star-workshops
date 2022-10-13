@@ -1,24 +1,15 @@
-<div class="w-full items-center p-3 my-2 bg-white shadow-lg rounded-md relative">
-    <button onClick="showHideModal('insertCountry',20,-400)" type="button"
-        class="absolute right-3 top-3 text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 flex items-center justify-center h-8 w-8 "
-        data-dismiss-target="#toast-success" aria-label="Close">
-        <i class="fa-solid fa-xmark"></i>
-    </button>
-        <p class="py-1 ">Insert Country</p>
-        <div class="flex items-center">
-            <p class = "text-xs w-16">Country</p>
-            <input class=" w-10/12 border border-gray-400 rounded text-slate-900 h-8 text-sm focus:ring-0" type="text" wire:model.defer = "name" />
-        </div>
-        <div class="flex items-center">
-            <p class = "text-xs w-16">Region</p>
-            <input class=" w-10/12 border border-gray-400 rounded text-slate-900 h-8 text-sm my-5 focus:ring-0" type="text" wire:model.defer = "region" />
-        </div>
-        <div class="flex items-center">
-            <p class = "text-xs w-16">Language</p>
-            <input class=" w-10/12 border border-gray-400 rounded text-slate-900 h-8 text-sm focus:ring-0" type="text" wire:model.defer = "language" />
-        </div>
+<div class=" w-full items-center p-3 my-2 bg-white shadow rounded-md relative">
+<button onClick="showHideModal('insertCategory',20,-400)" type="button"
+    class="absolute right-3 top-3 text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 flex items-center justify-center h-8 w-8 "
+    data-dismiss-target="#toast-success" aria-label="Close">
+    <i class="fa-solid fa-xmark"></i>
+</button>
+    <p class="py-1 ">Insert Category</p>
+    <input
+        class=" w-10/12 border border-gray-400 rounded text-slate-900 h-8 text-sm focus:ring-0"  type="text" wire:model.defer="name" />
+   
         <div class="flex items-center w-fit mt-2 ">
-            <button wire:click = "insert" class="bg-sky-500 px-3 py-1  text-xs rounded text-white self-end">insert</button>
+            <button wire:click = "insertCategory" class="bg-sky-500 px-3 py-1 mx-auto mt-2 text-xs rounded text-white">insert</button>
             <div role="status" wire:loading>
                 <svg aria-hidden="true"
                     class="ml-2 w-4 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -33,8 +24,8 @@
             </div>
         </div>
         <script>
-            window.addEventListener('countryInserted', event => {
-               showHideModal('insertCountry',20,-400)
-           });
-       </script>
+             window.addEventListener('categoryInserted', event => {
+                showHideModal('insertCategory',20,-400)
+            });
+        </script>
 </div>

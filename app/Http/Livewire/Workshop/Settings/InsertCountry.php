@@ -25,6 +25,6 @@ class InsertCountry extends Component
 
         $this->dispatchBrowserEvent('countryInserted');
 
-        $this->emitTo('workshop.settings.edit-country', '$refresh');
+        $this->emitTo('workshop.settings.show-countries', '$refresh');
     }
 }

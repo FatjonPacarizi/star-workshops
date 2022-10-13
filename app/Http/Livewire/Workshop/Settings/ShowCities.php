@@ -6,7 +6,7 @@ use App\Models\City;
 use App\Models\Country;
 use Livewire\Component;
 
-class EditCity extends Component
+class ShowCities extends Component
 {
     public $name;
     public $country_id;
@@ -17,7 +17,7 @@ class EditCity extends Component
 
     public function render()
     {
-        return view('livewire.workshop.settings.edit-city',[
+        return view('livewire.workshop.settings.show-cities',[
             'countries'=>Country::all(),
             'cities'=>City::all(),
         ]);
@@ -37,11 +37,9 @@ class EditCity extends Component
         ]);
 
         $this->city->update($validatedData);
-
-        $this->emitTo('livewire.workshop.workshop-settings', '$refresh');
+        $this->dispatchBrowserEvent('cityUpdated');
     }
     public function deleteCity($id){
         City::where('id',$id)->delete();
-        $this->dispatchBrowserEvent('cityEvent');
     }
 }
