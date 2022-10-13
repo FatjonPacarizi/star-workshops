@@ -27,7 +27,7 @@ class StreamingController extends Controller
         }        
         $workshops = Workshop::find($workshopid);
         $streamings = Streaming::all()->where('workshop_id','=',$workshopid);
-        $comments = Comment::latest('created_at')->where('streaming_id',$id)->simplepaginate(3);
+        $comments = Comment::latest('created_at')->where('streaming_id',$id)->simplepaginate(6);
         
         return view('streaming',['workshops'=>$workshops,'streaming'=>$streaming,'streamings'=>$streamings,'comments'=>$comments,'streaming1'=>$streaming1]);
     }
@@ -55,9 +55,9 @@ class StreamingController extends Controller
         return redirect()->back();
     }
 
-    public function edit($id){
+    public function edit($id,$streaming){
 
-        $streaming = Streaming::find($id);
+        $streaming = Streaming::find($streaming);
         $workshops = Workshop::find($id);
 
         return view('editStreaming',['streaming'=>$streaming,'workshops'=> $workshops]);

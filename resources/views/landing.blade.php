@@ -35,7 +35,7 @@
               {{$workshop->name}}<br>
               <p class="text-red-600"><b>{{\Carbon\Carbon::parse($workshop->time)->diffForHumans()}}</b></p>
               @else 
-              <p>No data</p>
+              <p>No Upcoming Workshops</p>
               @endif
               </span>
             </div>

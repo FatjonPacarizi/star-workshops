@@ -9,7 +9,7 @@
     </div>
 </section>
 
-<section class="text-black body-font bg-gray-100 pb-5">
+<section class="h-screen text-black body-font bg-gray-100 pb-5">
     <div class="border-2 border-gray-200 bg-white shadow-xl rounded-lg mx-96">
         <a href="#">
             @foreach(Auth::user()->notifications as $notification)

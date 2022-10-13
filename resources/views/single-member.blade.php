@@ -1,6 +1,6 @@
 @extends('layouts.landinglayouts')
 @section('content')
-<section class="w-full text-white body-font">
+<section class="w-full h-screen text-white body-font">
   <div class=" w-full flex flex-wrap  py-24 justify-between items-center ">
     <div class=" md:w-1/2 lg:px-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center text-black ">
       <h1 class="title-font sm:text-4xl text-3xl m-2 mb-4 font-medium ">{{ $staffMembers->name }}

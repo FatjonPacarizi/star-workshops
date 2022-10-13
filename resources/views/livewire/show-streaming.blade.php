@@ -22,7 +22,7 @@
             @endif
           </td>
           <td class = "flex items-center " >    
-             <a href="/streaminglive/edit/{{$str->id}}" class="bg-sky-500 text-white px-3 p-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
+             <a href="/streaminglive/edit/{{$workshop->id}}/{{$str->id}}" class="bg-sky-500 text-white px-3 p-2  text-xs rounded mr-3 my-2 hover:bg-sky-600">
               <i class="fa-solid fa-pen fa-md"></i>
                   Edit
               </a>

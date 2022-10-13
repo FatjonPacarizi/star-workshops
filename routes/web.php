@@ -180,19 +180,14 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/workshops/manage/streaminglive/{id}',[StreamingController::class, 'show'])->name('showStreaming');
             Route::get('/streaminglive/insert/{id}',[StreamingController::class, 'insert'])->name('insertStreaming');
             Route::post('/streaminglive/add-streaming', [StreamingController::class, 'store']);
-            Route::get('/streaminglive/edit/{id}',[StreamingController::class, 'edit']);
+            Route::get('/streaminglive/edit/{id}/{streaming}',[StreamingController::class, 'edit']);
             Route::put('/update-streaming/{id}',[StreamingController::class,'update'])->name('updateStreaming');
             Route::delete('/streaming/delete/{id}', [StreamingController::class, 'destroy']);
             Route::get('change-status/{id}', [StreamingController::class, 'changeStatus']);
-
-           
-
+     
             Route::post('/comment-add',[CommentController::class,'store']);
             Route::delete('/comment/delete/{comment}',[CommentController::class,'destroy']);
-            Route::post('/reply-add',[ReplyController::class,'store']);
-            Route::delete('/reply/delete/{id}',[ReplyController::class,'destroy']);
 
-            
             Route::get('/pdf/{workshopid}', [WorkshopController::class,  'showPDF'])->name('showPDF');
                     
             Route::get('/workshops/manage/addparticipant/{workshopid}',[WorkshopUsersController::class,'showUser'])->name('showUser');
