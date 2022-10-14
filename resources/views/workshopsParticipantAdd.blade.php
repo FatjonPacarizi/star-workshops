@@ -31,7 +31,7 @@
             <option value="">Select An Option</option>
             @foreach($users as $user)
             @if($user->user_status == 'user')
-              <option value="{{$user->id}}">{{ $user->name }}</option>
+              <option value="{{$user->id}}">{{ $user->name }} - {{$user->email}}</option>
             @endif
             @endforeach
           </select>
