@@ -41,7 +41,7 @@
     </div>
     <button class="px-3 py-2 text-sm text-blue-100 bg-blue-600 rounded">Comment</button>
   </form>
-  </div>
+</div>
   @unless(count($comments) == 0)
   <h3 class="mb-4 text-lg font-semibold text-gray-900 mt-4">{{$comments->count()}} comments</h3>
   <div class="space-y-4">

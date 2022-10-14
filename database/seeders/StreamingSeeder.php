@@ -79,7 +79,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
-                'url' => 'https://www.youtube.com/embed?v=bxmDnn7lrnk&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw',
+                'url' => '',
                 'status' => 'free',
                 'workshop_id' => '2',
             ],
@@ -116,7 +116,7 @@ class StreamingSeeder extends Seeder
                 <li>Tailwind CSS margin</li>
                 <li>Tailwind CSS border</li>
                 <p>Project using these properties</p>',
-                'url' => 'https://www.youtube.com/embed?v=1g4W2U-l350&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=4',
+                'url' => '',
                 'status' => 'paid',
                 'workshop_id' => '2',
             ],
@@ -136,7 +136,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
-                'url' => 'https://www.youtube.com/embed?v=bxmDnn7lrnk&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw',
+                'url' => '',
                 'status' => 'free',
                 'workshop_id' => '3',
             ],
@@ -188,7 +188,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
-                'url' => 'https://www.youtube.com/embed?v=bxmDnn7lrnk&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw',
+                'url' => '',
                 'status' => 'free',
                 'workshop_id' => '4',
             ],
@@ -240,7 +240,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
-                'url' => 'https://www.youtube.com/embed?v=bxmDnn7lrnk&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw',
+                'url' => '',
                 'status' => 'free',
                 'workshop_id' => '5',
             ],
@@ -277,7 +277,7 @@ class StreamingSeeder extends Seeder
                 <li>Tailwind CSS margin</li>
                 <li>Tailwind CSS border</li>
                 <p>Project using these properties</p>',
-                'url' => 'https://www.youtube.com/embed?v=1g4W2U-l350&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=4',
+                'url' => '',
                 'status' => 'paid',
                 'workshop_id' => '5',
             ],

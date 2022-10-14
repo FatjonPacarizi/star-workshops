@@ -16,16 +16,17 @@ class StreamingController extends Controller
 
     public function index($workshopid,$id){
 
+        $workshops = Workshop::find($workshopid);
         $workshop_users = workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>Auth::id(),'application_status'=>'approved'])->get();
         $streaming1 = false;
-        if(count($workshop_users) > 0 )
+        if(Auth::check())
+        if(count($workshop_users) > 0 || Auth::user()->user_status == 'superadmin' || $workshops->author == Auth::user()->id)
             $streaming1 = true;
-         
+
         $streaming = Streaming::find($id);
         if($streaming1 || $streaming->status == 'free'){
             Streaming::find($id)->increment('count');
         }        
-        $workshops = Workshop::find($workshopid);
         $streamings = Streaming::all()->where('workshop_id','=',$workshopid);
         $comments = Comment::latest('created_at')->where('streaming_id',$id)->simplepaginate(6);
         
