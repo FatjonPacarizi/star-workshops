@@ -94,11 +94,11 @@
                                     {{ __('Manage Account') }}
                                 </div>
                                 @can('is_admin_or_superadmin')
-                                <x-jet-dropdown-link href="{{ ('dashboard') }}">
+                                <x-jet-dropdown-link href="{{ ('/dashboard') }}">
                                     {{ __('Dashboard') }}
                                 </x-jet-dropdown-link>
                                 @endcan
-                                <x-jet-dropdown-link href="{{ ('userprofile') }}">
+                                <x-jet-dropdown-link href="{{ ('/userprofile') }}">
                                     {{ __('Profile') }}
                                 </x-jet-dropdown-link>
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

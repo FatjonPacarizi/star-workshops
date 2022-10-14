@@ -1365,6 +1365,10 @@ select {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
 }
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
@@ -1400,10 +1404,6 @@ select {
 .my-24 {
   margin-top: 6rem;
   margin-bottom: 6rem;
-}
-.my-1 {
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -3503,6 +3503,10 @@ select {
     }
   }
 
+  .md\:absolute {
+    position: absolute;
+  }
+
   .md\:col-span-2 {
     grid-column: span 2 / span 2;
   }
@@ -3604,6 +3608,10 @@ select {
     gap: 1.5rem;
   }
 
+  .md\:border {
+    border-width: 1px;
+  }
+
   .md\:border-t-0 {
     border-top-width: 0px;
   }
@@ -3644,6 +3652,10 @@ select {
   }
 }
 @media (min-width: 1024px) {
+
+  .lg\:absolute {
+    position: absolute;
+  }
 
   .lg\:col-span-4 {
     grid-column: span 4 / span 4;
@@ -3752,6 +3764,10 @@ select {
     border-bottom-left-radius: 0.25rem;
   }
 
+  .lg\:border {
+    border-width: 1px;
+  }
+
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -3760,6 +3776,11 @@ select {
   .lg\:px-24 {
     padding-left: 6rem;
     padding-right: 6rem;
+  }
+
+  .lg\:px-7 {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
   }
 
   .lg\:pl-24 {
@@ -3778,8 +3799,27 @@ select {
     font-size: 3rem;
     line-height: 1;
   }
+
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .lg\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .lg\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 @media (min-width: 1280px) {
+
+  .xl\:absolute {
+    position: absolute;
+  }
 
   .xl\:w-1\/2 {
     width: 50%;
@@ -3787,6 +3827,14 @@ select {
 
   .xl\:w-2\/4 {
     width: 50%;
+  }
+
+  .xl\:w-2\/3 {
+    width: 66.666667%;
+  }
+
+  .xl\:justify-end {
+    justify-content: flex-end;
   }
 
   .xl\:px-0 {
