@@ -46,6 +46,8 @@ Route::get('/chat/send', [chatController::class, 'send'])->name('send');
 Route::get('/members', [WorkshopController::class, 'showMembers']);
 Route::get('/member/{id}',[WorkshopController::class,'singleMembers'])->name('single-member');
 Route::get('/aside',[StreamingController::class,'streamingview']);
+Route::post('/comment-add',[CommentController::class,'store']);
+Route::delete('/comment/delete/{comment}',[CommentController::class,'destroy']);
 Route::get('/test', [usersController::class, 'getUsersByStaffPosition']);
 Route::get('/newspage', [NewsPageController::class, 'index']);
 Route::get('/newspage/{id}', [NewsPageController::class, 'show'])->name('single-news');
@@ -184,9 +186,6 @@ Route::group(['middleware' => 'auth'], function () {
             Route::put('/update-streaming/{id}',[StreamingController::class,'update'])->name('updateStreaming');
             Route::delete('/streaming/delete/{id}', [StreamingController::class, 'destroy']);
             Route::get('change-status/{id}', [StreamingController::class, 'changeStatus']);
-     
-            Route::post('/comment-add',[CommentController::class,'store']);
-            Route::delete('/comment/delete/{comment}',[CommentController::class,'destroy']);
 
             Route::get('/pdf/{workshopid}', [WorkshopController::class,  'showPDF'])->name('showPDF');
                     

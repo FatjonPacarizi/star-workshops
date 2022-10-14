@@ -33,7 +33,7 @@ class CommentSeeder extends Seeder
                 'created_at'=>'2022-10-11 09:41:46',
             ],
             [
-                'name'=>'Almir Pinduki',
+                'name'=>'Almir Pinduk',
                 'comment'=>'Can t wait - this course looks cool :) thank you again',
                 'user_id'=>'4',
                 'streaming_id'=>'1',
@@ -82,7 +82,7 @@ class CommentSeeder extends Seeder
                 'created_at'=>'2022-10-11 09:41:46',
             ],
             [
-                'name'=>'Almir Pinduki',
+                'name'=>'Almir Pinduk',
                 'comment'=>'Can t wait - this course looks cool :) thank you again',
                 'user_id'=>'4',
                 'streaming_id'=>'5',
@@ -131,7 +131,7 @@ class CommentSeeder extends Seeder
                 'created_at'=>'2022-10-11 09:41:46',
             ],
             [
-                'name'=>'Almir Pinduki',
+                'name'=>'Almir Pinduk',
                 'comment'=>'Can t wait - this course looks cool :) thank you again',
                 'user_id'=>'4',
                 'streaming_id'=>'8',
@@ -180,7 +180,7 @@ class CommentSeeder extends Seeder
                 'created_at'=>'2022-10-11 09:41:46',
             ],
             [
-                'name'=>'Almir Pinduki',
+                'name'=>'Almir Pinduk',
                 'comment'=>'Can t wait - this course looks cool :) thank you again',
                 'user_id'=>'4',
                 'streaming_id'=>'13',
@@ -222,7 +222,7 @@ class CommentSeeder extends Seeder
                 'created_at'=>'2022-10-11 09:41:46',
             ],
             [
-                'name'=>'Almir Pinduki',
+                'name'=>'Almir Pinduk',
                 'comment'=>'Can t wait - this course looks cool :) thank you again',
                 'user_id'=>'4',
                 'streaming_id'=>'19',
@@ -264,7 +264,7 @@ class CommentSeeder extends Seeder
                 'created_at'=>'2022-10-11 09:41:46',
             ],
             [
-                'name'=>'Almir Pinduki',
+                'name'=>'Almir Pinduk',
                 'comment'=>'Can t wait - this course looks cool :) thank you again',
                 'user_id'=>'4',
                 'streaming_id'=>'19',
@@ -306,7 +306,7 @@ class CommentSeeder extends Seeder
                 'created_at'=>'2022-10-11 09:41:46',
             ],
             [
-                'name'=>'Almir Pinduki',
+                'name'=>'Almir Pinduk',
                 'comment'=>'Can t wait - this course looks cool :) thank you again',
                 'user_id'=>'4',
                 'streaming_id'=>'25',
@@ -348,7 +348,7 @@ class CommentSeeder extends Seeder
                 'created_at'=>'2022-10-11 09:41:46',
             ],
             [
-                'name'=>'Almir Pinduki',
+                'name'=>'Almir Pinduk',
                 'comment'=>'Can t wait - this course looks cool :) thank you again',
                 'user_id'=>'4',
                 'streaming_id'=>'31',
@@ -390,7 +390,7 @@ class CommentSeeder extends Seeder
                 'created_at'=>'2022-10-11 09:41:46',
             ],
             [
-                'name'=>'Almir Pinduki',
+                'name'=>'Almir Pinduk',
                 'comment'=>'Can t wait - this course looks cool :) thank you again',
                 'user_id'=>'4',
                 'streaming_id'=>'37',
@@ -432,7 +432,7 @@ class CommentSeeder extends Seeder
                 'created_at'=>'2022-10-11 09:41:46',
             ],
             [
-                'name'=>'Almir Pinduki',
+                'name'=>'Almir Pinduk',
                 'comment'=>'Can t wait - this course looks cool :) thank you again',
                 'user_id'=>'4',
                 'streaming_id'=>'43',
@@ -474,7 +474,7 @@ class CommentSeeder extends Seeder
                 'created_at'=>'2022-10-11 09:41:46',
             ],
             [
-                'name'=>'Almir Pinduki',
+                'name'=>'Almir Pinduk',
                 'comment'=>'Can t wait - this course looks cool :) thank you again',
                 'user_id'=>'4',
                 'streaming_id'=>'49',
