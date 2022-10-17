@@ -77,136 +77,83 @@
             </div>
 
         </div>
-        @php
-
-        $data = array(0,0,0,0,0,0,0,0,0,0,0,0);
+       @php
+    
+        $months = array();
         $i=0;
         foreach ($lineChart as $item) {
-        switch ($item->month_name) {
-        case 'January':
-        $data[0] = $item->count;
-        break;
-
-        case 'February':
-        $data[1] = $item->count;
-        break;
-
-        case 'March':
-        $data[2] = $item->count;
-        break;
-
-        case 'April':
-        $data[3] = $item->count;
-        break;
-
-        case 'May':
-        $data[4] = $item->count;
-        break;
-
-        case 'June':
-        $data[5] = $item->count;
-        break;
-        case 'July':
-        $data[6] = $item->count;
-        break;
-        case 'August':
-        $data[7] = $item->count;
-        break;
-        case 'September':
-        $data[8] = $item->count;
-        break;
-        case 'October':
-        $data[9] = $item->count;
-        break;
-
-        default:
-        $data[10] = $item->count;
-        break;
-        }
-        $data[$i] = $item->count;
-        $i++;
-        echo $item;
-        }
+            if (!in_array($item->createdAt, $months)){
+                    $months[$i] = $item->createdAt;
+            }
+            $i++;
+      //  echo $item;
+    }
+   
 
         @endphp
-        <div class="line-chart">
-            <div class="aspect-ratio">
-                <canvas id="chart"></canvas>
-            </div>
-        </div>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+       <div class="container">
+         <canvas id="examChart"></canvas>
+       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <script type="text/javascript">
-        var chart    = document.getElementById('chart').getContext('2d'),
-    gradient = chart.createLinearGradient(0, 0, 0, 450);
+     var ctx = document.getElementById("examChart").getContext("2d");
 
-gradient.addColorStop(0, 'rgba(255, 0,0, 0.5)');
-gradient.addColorStop(0.5, 'rgba(255, 0, 0, 0.25)');
-gradient.addColorStop(1, 'rgba(255, 0, 0, 0)');
-
-
-var data  = {
-    labels: [ 'January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October' ],
+var myChart = new Chart(ctx, {
+  type: 'line',
+  options: {
+    scales: {
+      xAxes: [{
+        type: 'time',
+        time: {
+            unit: 'month'
+      }
+      }]
+    }
+  },
+  data: {
+    labels: getPreviousMonths(),
     datasets: [{
-			label: 'Custom Label Name',
-			backgroundColor: gradient,
-			pointBackgroundColor: 'white',
-			borderWidth: 1,
-			borderColor: '#911215',
-			data: "<?php foreach ($data as $item) {echo $item;} ?>"
+      label: 'Demo',
+      data: [{
+          t: '2022-01-15T13:03:00Z',
+          y: 1
+        },
+        {
+          t: '2022-03-25T13:02:00Z',
+          y: 14
+        },
+        {
+          t: '2022-10-25T14:12:00Z',
+          y: 10
+        }
+      ],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 1
     }]
-};
-
-
-var options = {
-	responsive: true,
-	maintainAspectRatio: true,
-	animation: {
-		easing: 'easeInOutQuad',
-		duration: 520
-	},
-	scales: {
-		xAxes: [{
-			gridLines: {
-				color: 'rgba(200, 200, 200, 0.05)',
-				lineWidth: 1
-			}
-		}],
-		yAxes: [{
-			gridLines: {
-				color: 'rgba(200, 200, 200, 0.08)',
-				lineWidth: 1
-			}
-		}]
-	},
-	elements: {
-		line: {
-			tension: 0.4
-		}
-	},
-	legend: {
-		display: false
-	},
-	point: {
-		backgroundColor: 'white'
-	},
-	tooltips: {
-		titleFontFamily: 'Open Sans',
-		backgroundColor: 'rgba(0,0,0,0.3)',
-		titleFontColor: 'red',
-		caretSize: 5,
-		cornerRadius: 2,
-		xPadding: 10,
-		yPadding: 10
-	}
-};
-
-
-var chartInstance = new Chart(chart, {
-    type: 'line',
-    data: data,
-		options: options
+  }
 });
+function getPreviousMonths() {
+  var months = [];
+  months = Array.apply(0, Array(10)).map(function(_,i){return moment().month(i).toISOString()})
+  return months;
+}
     </script>
 </div>
 </div>
