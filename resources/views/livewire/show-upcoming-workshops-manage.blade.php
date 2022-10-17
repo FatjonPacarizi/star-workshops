@@ -3,7 +3,7 @@
 
   <table class="w-full mx-auto" wire:loading.remove>
     <tr class="text-gray-400 text-xs border-b">
-      <td class=" p-3 w-1/2">Workshop</td>
+      <td class=" p-3 lg:w-1/2 w-2/5">Workshop</td>
       <td class="w-1/6">Limited Participants</td>
       <td style="width:18%;">Workshop time</td>
       <td>Actions</td>
@@ -18,7 +18,7 @@
           <img class="w-10  rounded" alt="hero"
             src="{{$upcomingWorkshop->img_workshop ? asset('/storage/' . $upcomingWorkshop->img_workshop) : asset('/img/test.jpg')}}" />
           <div class="ml-3 ">
-            <h1 class="text-black">{{\Illuminate\Support\Str::limit($upcomingWorkshop->name, 45, $end='...') }}</h1>
+            <h1 class="text-black lg:text-base text-xs">{{\Illuminate\Support\Str::limit($upcomingWorkshop->name, 45, $end='...') }}</h1>
             <p class="text-xs text-gray-500">{{$upcomingWorkshop->country->name}}, {{$upcomingWorkshop->city->name}}</p>
           </div>
         </div>

@@ -3,7 +3,7 @@
 
 <section class="text-white body-font bg-red-700 mt-10">
     <div class="mx-auto flex px-5 py-24 md:flex-row flex-col md:px-16  lg:px-24 items-center">
-        <div class="lg:flex-grow md:w-1/2  flex flex-col md:items-start md:text-left ">
+        <div class="w-10/12 lg:flex-grow md:w-1/2  flex flex-col md:items-start md:text-left ">
             <a href="{{route('workshops')}}" class="inline-flex border-0 text-black  text-sm hover:text-white">
                 < BACK TO EVENTS</a>
                     <h1 class="title-font text-3xl md:text-4xl my-4 font-medium text-white lg:text-5xl ">
@@ -79,7 +79,7 @@
 
 
 <section class=" body-font bg-white my-14 px-5  md:px-16  lg:px-24">
-    <div>
+    <div class = "min-h-[32rem]">
         @auth
             @can('is_super_admin')
                     @livewire('chat-component', ['workshop' => $workshop])

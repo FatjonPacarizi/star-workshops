@@ -77,7 +77,7 @@
       </h1>
       <p class="mb-8 leading-relaxed">{!! $section3->paragraf_1 !!}</p>
       <div class="flex justify-center">
-        <button class="ml-4 mb-2 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg"><a href="{{$section3->button}}">Find out more</a></button>
+        <button class="my-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg"><a href="{{$section3->button}}">Find out more</a></button>
       </div>
     </div>
     <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
@@ -99,7 +99,7 @@
       </h1>
       <p class="mb-8 leading-relaxed">{!! $section4->paragraf_1 !!}</p>
       <div class="flex justify-center">
-        <button class="inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg hover:bg-red-800 duration-300"><a href="{{$section4->button}}">Find out more<a></button>
+        <button class="my-4 inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg hover:bg-red-800 duration-300"><a href="{{$section4->button}}">Find out more<a></button>
       </div>
     </div>
   </div>
@@ -146,11 +146,11 @@
 <section class="w-full text-white body-font">
   <div class=" w-full flex flex-wrap  py-24 justify-between items-center ">
     <div class=" md:w-1/2 lg:px-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center text-black ">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium ">{{$section5->heading}}
+      <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium ">{{$section5->heading}}
       </h1>
       <p class="mb-8 leading-relaxed">{!!$section5->paragraf_1!!}</p>
       <div class="flex justify-center">
-        <button class="ml-4 mb-2 inline-flex text-white  border-0 py-2 px-6 focus:outline-none bg-red-600 hover:bg-red-700 rounded-full text-lg"><a href="{{$section5->button}}">Find out more</a></button>
+        <button class="my-4 inline-flex text-white  border-0 py-2 px-6 focus:outline-none bg-red-600 hover:bg-red-700 rounded-full text-lg"><a href="{{$section5->button}}">Find out more</a></button>
       </div>
     </div>
     <div class=" md:w-1/2 border relative  mt-10 md:mt-0 py-10  rounded-l-3xl bg-gray-200 md:pl-16 flex justify-end text-center">
@@ -189,7 +189,7 @@
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-red-600">{{$section7->heading}}</h1>
       <p class="mb-8 leading-relaxed">{!!$section7->paragraf_1!!}</p>
       <div class="flex justify-center">
-        <button class="inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg hover:bg-red-800 duration-300"><a href="{{$section7->button}}">View all courses</a></button>
+        <button class="my-4 inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg hover:bg-red-800 duration-300"><a href="{{$section7->button}}">View all courses</a></button>
       </div>
     </div>
   </div>
@@ -204,12 +204,12 @@
     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
       <img class="object-cover object-center rounded" alt="Star Workshops Scholarships" src="{{$section8->img_1 ? asset('/storage/' . $section8->img_1) : asset('/img/section8_defaultimg1.png')}}">
     </div>
-    <div class="lg:flex-grow md:w-1/2 lg:pl-18 md:pl-68 flex flex-col md:items-start md:text-left items-center text-center">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">{{$section8->heading}}
+    <div class="lg:flex-grow md:w-1/2 lg:pl-18 md:pl-68 flex flex-col  md:text-left items-center text-center">
+      <h1 class="w-full title-font sm:text-4xl text-3xl mb-4 font-medium text-white">{{$section8->heading}}
       </h1>
       <p class="mb-8 leading-relaxed">{!!$section8->paragraf_1!!}</p>
       <div class="flex justify-center">
-        <button class="ml-4 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg"><a href="{!!$section7->button!!}">Learn more</a></button>
+        <button class="my-4 inline-flex text-red-600 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-full text-lg"><a href="{!!$section7->button!!}">Learn more</a></button>
       </div>
     </div>
     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">

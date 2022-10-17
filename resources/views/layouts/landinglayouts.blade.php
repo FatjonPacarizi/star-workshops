@@ -40,7 +40,8 @@
 
     @livewireScripts
     
-<button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed z-10 bottom-14 right-8 border-0 w-16 h-16 rounded-full bg-red-600 ring-2 ring-white text-white -rotate-90 text-5xl font-bold">&#10132;</button>
+{{-- <button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed z-10 bottom-14 right-8 border-0 w-16 h-16 rounded-full bg-red-600 ring-2 ring-white text-white -rotate-90 text-5xl font-bold">&#10132;</button> --}}
+<button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed z-10 bottom-14 right-8 border-0 w-10 h-10 rounded bg-red-600 ring-2 ring-white text-white font-bold flex items-center justify-center"><i class="fa-solid fa-arrow-up"></i></button>
 
 <script>
     var toTopButton = document.getElementById("to-top-button");
