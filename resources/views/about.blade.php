@@ -19,7 +19,7 @@
                         <p><strong><span>{{$about->heading}}</span></strong></p>
                     </span> </h1>
             </div>
-            <p>{{$about->paragraph}}</p>
+            <p>{!! $about->paragraph !!}</p>
             <div class="flex justify-center">
                 <a href="{{$about->button}}"> <button style="margin-top: 20px;margin-left: -4px;" class="ml-4 inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg">Find out more</button>
                 </a>

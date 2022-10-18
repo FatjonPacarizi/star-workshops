@@ -24,15 +24,10 @@ class aboutController extends Controller
         $validated = $request->validated();
         $about =  About::find($id);
 
-        if (request()->hasFile('image')) {
-            $validated['image'] = request()->file('image')->store('AboutsImg', 'public');
-            $oldImg = $about->image;
-        }
+        
         $about->update($validated);
         // delete old img only when db update is succesful
-        if (request()->hasFile('image')) {
-            Storage::delete('/public/' . $oldImg);
-        }
+     
 
         return back();
     }
