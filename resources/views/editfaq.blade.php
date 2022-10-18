@@ -17,7 +17,7 @@
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
         @enderror
       </div>
-      <div class="mb-6  flex items-center">
+      <div class="mb-6  flex items-center sm:items-center">
         <label class="w-28 text-sm mx-5">Answer</label>
         <input type="text" class="border border-gray-200 rounded p-1 w-full mx-5" name="answer" placeholder="Answer"
           value="{{$faq->answer}}" />
