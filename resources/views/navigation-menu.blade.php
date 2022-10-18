@@ -55,9 +55,9 @@
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button>
-                                    <i class="fa-regular fa-bell mx-5 "></i>
+                                    <i class="fa-regular fa-bell mr-5 "></i>
                                     @if(count(Auth::user()->unreadNotifications) > 0)
-                                    <p class="w-4 h-4 text-xs mr-3 text-white absolute top-0 right-0 flex justify-center items-center rounded-full bg-red-400">
+                                    <p class="w-4 h-4 text-xs mr-2 text-white absolute top-0 right-0 flex justify-center items-center rounded-full bg-red-400">
                                         {{count(Auth::user()->unreadNotifications)}}
                                     </p>
                                     @endif

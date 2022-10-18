@@ -35,6 +35,7 @@ class UsersSeeder extends Seeder
             'facebook' => 'https://www.facebook.com/starlabs.dev',
             'instagram' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
             'github' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
+            'created_at' => "2022-01-14 15:44:13"
         
         ],
         [
@@ -48,6 +49,7 @@ class UsersSeeder extends Seeder
             'facebook' => 'https://www.facebook.com/starlabs.dev',
             'instagram' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
             'github' => 'https://github.com/AlbinaAhmeti',
+            'created_at' => "2022-01-14 15:44:13"
         ],
         [
             'name' => 'Almir Pinduk',
@@ -60,6 +62,7 @@ class UsersSeeder extends Seeder
             'facebook' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
             'instagram' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
             'github' => 'https://github.com/AlmirPinduku',
+            'created_at' => "2022-06-14 15:44:13"
         ],
         [
             'name' => 'Ardit Shaqiri',
@@ -72,6 +75,7 @@ class UsersSeeder extends Seeder
             'facebook' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
             'instagram' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
             'github' => 'https://github.com/arditshaqiri',
+            'created_at' => "2022-08-14 15:44:13"
         ],
         [
             'name' => 'Blenard Hasani',
@@ -84,6 +88,7 @@ class UsersSeeder extends Seeder
             'facebook' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
             'instagram' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
             'github' => 'https://github.com/BlenardHasani',
+            'created_at' => "2022-08-14 15:44:13"
         ],
         [
             'name' => 'Gramos Shala',
@@ -96,6 +101,7 @@ class UsersSeeder extends Seeder
             'facebook' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
             'instagram' => 'https://www.instagram.com/starlabs.dev/?fbclid=IwAR3wldNXhzIQwX-1K8Q-gSPB5mDozBuNUrf9rUh9lyysXeDbKcCkanwFPRY',
             'github' => 'https://github.com/gramosshala',
+            'created_at' => "2022-10-14 15:44:13"
         ],
         [
             'name' => 'Granit Salihu',
@@ -108,6 +114,7 @@ class UsersSeeder extends Seeder
             'facebook' => 'https://www.facebook.com/uqk.smir',
             'instagram' => 'https://www.instagram.com/granits.ss/',
             'github' => 'https://github.com/granitsalihu1',
+            'created_at' => "2022-10-14 15:44:13"
         ],
     ];
     
