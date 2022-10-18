@@ -55,9 +55,9 @@
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button>
-                                    <i class="fa-regular fa-bell mx-5 "></i>
+                                    <i class="fa-regular fa-bell mr-5 "></i>
                                     @if(count(Auth::user()->unreadNotifications) > 0)
-                                    <p class="w-4 h-4 text-xs mr-3 text-white absolute top-0 right-0 flex justify-center items-center rounded-full bg-red-400">
+                                    <p class="w-4 h-4 text-xs mr-2 text-white absolute top-0 right-0 flex justify-center items-center rounded-full bg-red-400">
                                         {{count(Auth::user()->unreadNotifications)}}
                                     </p>
                                     @endif
@@ -148,6 +148,45 @@
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
+            <div class="flex items-center" id="notif">
+                <x-jet-dropdown align="right" width="48">
+                    <x-slot name="trigger">
+                        <button>
+                            <i class="fa-regular fa-bell mr-5 "></i>
+                            @if(count(Auth::user()->unreadNotifications) > 0)
+                            <p class="w-4 h-4 text-xs mr-2 text-white absolute top-0 right-0 flex justify-center items-center rounded-full bg-red-400">
+                                {{count(Auth::user()->unreadNotifications)}}
+                            </p>
+                            @endif
+                        </button>
+                    </x-slot>
+
+                    <x-slot name="content">
+                        <div class="block px-4 py-2 text-xs text-gray-400">
+                            {{ __('Notifications') }}
+                        </div>
+                        <div>
+                            @if (Auth::user()->unreadNotifications ->count() > 0 )
+                            @foreach(Auth::user()->unreadNotifications as $notification)
+                            <p class="m-1 text-xs">Workshop <b> {{ $notification->data['name'] }} </b> has just added.</p>
+                            <hr class="m-1">
+                            @endforeach
+                            <a href="/markAsRead">
+                                <p class="text-red-600 text-xs m-1 text-center">
+                                    Mark all as read
+                                </p>
+                            </a>
+                            @else
+                            <p class="m-2 text-xs">There are no new notifications.</p>
+                            <hr>
+                            <p class="text-center m-1 text-xs text-sky-800">
+                                <a href="/notification">View all notifications</a>
+                            </p>
+                            @endif
+                        </div>
+                    </x-slot>
+                </x-jet-dropdown>
+            </div>
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -158,8 +197,11 @@
         </div>
     </div>
 
+    
+
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+        
         <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('adminsuperadmin.dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
