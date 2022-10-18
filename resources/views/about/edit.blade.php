@@ -13,15 +13,7 @@
       <form action="{{ url('update-about/'.$about->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        <div class="mb-6 flex items-center">
-                <label class="w-28 text-sm mx-5" for="">Page Title</label>
-                <div class="w-full mx-5">
-                    <input type="text" name="title" value="{{$about->title}}" class="border border-gray-200 rounded p-1 w-full "/>
-                    @error('title')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                    @enderror
-                </div>
-            </div>
+    
             <div class="mb-6 flex items-center">
                 <label class="w-28 text-sm mx-5" for="">Section Title</label>
                 <div class="w-full mx-5">
@@ -64,16 +56,6 @@
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
                 </div>
-            </div>
-            <div class="mb-6  flex items-center">
-                <label class="w-28 text-sm mx-5">Section Image</label>
-                <div class="w-full mx-9">
-                    <input type="file" name="image" />
-                    @error('image')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                    @enderror
-                 </div>
-                <img class="object-cover mx-5 rounded" alt="Image" src="{{$about->image ? asset('/storage/' . $about->image) : asset('/img/defultaboutimage.png')}}" width="100">
             </div>
             <div class="w-full p-4 flex justify-end border-t border-gray-200">
                 <button type="submit" class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600">Update </button>
