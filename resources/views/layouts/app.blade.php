@@ -24,11 +24,11 @@
 </head>
 <body class="font-sans h-full antialiased  bg-[#F8F9FA]">
     <x-jet-banner />
-    <div class="h-full  ">
+    <div class="h-full">
         <!-- Page Content -->
-        <div class="w-full h-screen flex fixed  ">
-            <aside class=" w-80 px-2">
-                <div class="menu is-menu-main h-full px-5">
+        <div class="w-full h-screen flex fixed ">
+            <aside x-data="{ open: false }" class="absolute top-1 h-screen -left-80 z-40 w-80 px-2 bg-white lg:bg-inherit lg:static  " id="aside">
+                <div class="relative menu is-menu-main h-full px-5 ">
                     <div class="p-2 py-1 mb-2 border-b">
                         {{-- Soft UI Dashboard --}}
                         <a href="/" class = "">
@@ -37,6 +37,22 @@
                             @endphp
                                 <img class="block h-20 p-5 w-auto" alt="Logo" src="{{$information->logo_name ? asset('/storage/' . $information->logo_name) : asset('/img/Logo.png')}}">
                         </a>
+                        
+
+                        <button id="mobile-menu-button" class="text-gray-700 w-10 h-10 absolute top-2 -right-12 lg:hidden  focus:outline-none outline-none  md:block " onClick="toggleAside()" @click="open = !open">
+                            <div class=" w-5">
+                                <span aria-hidden="true" class="absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'rotate-45': open,' -translate-y-1.5': !open }"></span>
+                                <span aria-hidden="true" class="absolute  h-0.5 w-5 bg-current   transform transition duration-500 ease-in-out" :class="{'opacity-0': open } "></span>
+                                <span aria-hidden="true" class="absolute  h-0.5 w-5 bg-current transform  transition duration-500 ease-in-out" :class="{'-rotate-45': open, ' translate-y-1.5': !open}"></span>
+                            </div>
+                        </button>
+
+                       <script>
+                        function toggleAside(){
+                            var element = document.getElementById("aside");
+                            element.classList.toggle("-left-0");
+                          }
+                        </script>
                       
                     </div>
                     <a href="{{ route('adminsuperadmin.dashboard') }}" class="flex items-center p-2 mb-1 mt-5 rounded-lg  {{Request::segment(1) == 'dashboard' ? 'bg-white shadow-lg font-medium' : ''}}" >

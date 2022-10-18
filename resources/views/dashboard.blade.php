@@ -2,8 +2,8 @@
 @section('content')
 <div class="w-full flex justify-left items-left">
     <div class="w-full p-6  h-fit">
-        <div class="flex items-center  justify-around mb-4">
-            <div class="w-1/4 px-3">
+        <div class="flex sm:items-center flex-col sm:flex-row justify-around mb-4">
+            <div class="sm:w-1/4 px-3 py-2">
             <div class="flex items-center justify-between rounded-xl  p-4 bg-white" style = "box-shadow: rgba(0, 0, 0, 0.1) 50px 20px 100px;">
                 <div class = "">
                     <p>Users</p>
@@ -17,7 +17,7 @@
                 </div>
              </div>
             </div>
-            <div class="w-1/4 px-3">
+            <div class="sm:w-1/4 px-3 py-2">
                 <div class=" flex items-center justify-between rounded-xl  p-4 bg-white" style = "box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 80px;">
                    <div class = "">
                        <p>Workshops</p>
@@ -31,7 +31,7 @@
                    </div>
                 </div>
                 </div>
-             <div class="w-1/4 px-3">
+             <div class="sm:w-1/4 px-3 py-2">
              <div class=" flex items-center justify-between rounded-xl  p-4 bg-white" style = "box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 80px;">
                 <div class = "">
                     <p>Users statistics</p>
@@ -45,7 +45,7 @@
                 </div>
              </div>
              </div>
-             <div class="w-1/4 px-3">
+             <div class="sm:w-1/4 px-3 py-2">
              <div class="flex items-center justify-between rounded-xl  p-4 bg-white" style = "box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 80px;">
                 <div class = "">
                     <p>Workshops statistics</p>
