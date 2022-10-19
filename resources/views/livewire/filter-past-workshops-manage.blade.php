@@ -10,7 +10,7 @@
     </select>
     </div>
     <div class = "flex flex-col items-center w-1/3  md:w-fit mx-2">
-        <select  wire:model="sortby"  wire:change = "filter" class="w-full text-slate-900 rounded-xl mb-3 text-xs border-b border-gray-100 ml-4 focus:ring-0 " >
+        <select  wire:model="sortby"  wire:change = "filter" class="w-full text-slate-900 rounded-xl mb-3 text-xs border-b border-gray-200 ml-4 focus:ring-0 " >
             <option value = "DESC">DESC</option>
             <option value = "ASC">ASC</option>
         </select>

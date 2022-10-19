@@ -8,7 +8,7 @@
       @csrf
       @method('PUT')
       <div class="mb-6 flex flex-col md:flex-row md:items-center">
-        <label class="w-28 text-sm mx-5">Name</label>
+        <label class="w-28 text-sm mx-3 md:mx-5">Name</label>
         <input type="text" class="border border-gray-200 rounded p-1 w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5" placeholder="Name" name="name"
           wire:model.defer="name" />
         @error('name')
@@ -17,7 +17,7 @@
       </div>
 
       <div class="mb-6 flex flex-col md:flex-row md:items-center">
-        <label class="w-28 text-sm mx-5">Email</label>
+        <label class="w-28 text-sm mx-3 md:mx-5">Email</label>
         <input type="text" class="border border-gray-200 rounded p-1 w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5" name="email" placeholder="Email"
           wire:model.defer="email" />
 
@@ -27,7 +27,7 @@
       </div>
 
       <div class="mb-6 flex flex-col md:flex-row md:items-center h-36">
-        <label class="w-28 text-sm mx-5">Description</label>
+        <label class="w-28 text-sm mx-3 md:mx-5">Description</label>
         <textarea class="border border-gray-200 rounded p-1 w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5 h-full" name="description"
           placeholder="Null by default" wire:model.defer="description"></textarea>
 
@@ -36,7 +36,7 @@
         @enderror
       </div>
       <div class="mb-6 flex flex-col md:flex-row md:items-center">
-        <label class="w-28 text-sm mx-5 ">Position</label>
+        <label class="w-28 text-sm mx-3 md:mx-5 ">Position</label>
         <select class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5 rounded border border-gray-200 p-1" name='position_id'
           wire:model.defer="position_id">
           @foreach($positions as $position)
@@ -50,7 +50,7 @@
 
 
       <div class="mb-6 flex flex-col md:flex-row md:items-center">
-        <label class="w-28 text-sm mx-5 ">User Status</label>
+        <label class="w-28 text-sm mx-3 md:mx-5 ">User Status</label>
         @if($user->user_status != 'superadmin')
         <select class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5 rounded border border-gray-200 p-1" name='user_status'
           wire:model.defer="user_status">
