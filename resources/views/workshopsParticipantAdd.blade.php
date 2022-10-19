@@ -24,7 +24,7 @@
           @enderror
         </div>
       </div>
-      <div class="mb-6 flex items-center">
+      <div class="mb-6 sm:flex items-center">
         <label class="w-28 text-sm mx-5">Participants Name</label>
         <div class = "w-full mx-5">
           <select id='myselect'class="border border-gray-200 rounded p-1 w-full" name="user_id" single>
@@ -47,7 +47,7 @@
             allowClear: true
           });
       </script>
-      <div class="w-full p-4 flex justify-end border-t border-gray-200">
+      <div class="w-full p-4 flex justify-end sm:justify-end border-t border-gray-200">
         <a href="http://127.0.0.1:8000/workshops/manage" class="p-3 text-gray-400 mx-10"> Cancel </a>
         <button class="rounded py-2 px-4 bg-sky-500 text-white hover:bg-sky-600">Insert Participant</button>
       </div>

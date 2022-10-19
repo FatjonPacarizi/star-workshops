@@ -1,13 +1,13 @@
 @extends('layouts.app')
   @section('content')
-  <div class="w-full h-screen px-10  ">
+  <div class="w-full h-screen ">
     <div class="w-full bg-white shadow-md  rounded-xl py-4 ">
-      <h1 class="p-3 text-black font-medium ml-2 ">Manage Landing</h1>
+      <h1 class="p-3 text-black font-medium ml-2 flex justify-start sm:justify-start">Manage Landing</h1>
     
-      <table class="w-full mx-auto" wire:loading.remove>
+      <table class="w-full " wire:loading.remove>
         <tr class="text-gray-400 text-xs border-b">
           <td class=" p-3 w-1/2">Section</td>
-          <td class=" p-3 w-1/3">Heading</td>
+          <td class=" p-3 w-1/3 ">Heading</td>
           <td>Actions</td>
         </tr>
         @php 
@@ -31,20 +31,22 @@
             </div>
           </td>
           <td>
-            <p class="text-xs text-gray-500">{{$section->heading}}</p>
+            <div class="w-full h-full flex items-center pl-2">
+              <p class="text-xs text-gray-500">{{$section->heading}}</p>
+            </div>
           </td>
           <td>
-            <div class=" relative flex items-center " x-data="{ open: false }">
+            <div class=" relative flex items-center w-full h-full pl-2" x-data="{ open: false }">
               <i class="fa-solid fa-ellipsis-vertical cursor-pointer w-3" @click="open = !open"></i>
     
-              <ul id = "menu" class="bg-white absolute top-0 mt-2 z-10 shadow-lg border border-gray-100 rounded-lg w-40 py-1 "
+              <ul id = "menu" class="bg-white absolute -left-40 top-2 z-10 shadow-lg border border-gray-100 rounded-lg w-40 py-1 "
                 x-show="open" @click.outside="open = false">
                 <li>
                   <p class="text-xs pl-3 p-2 text-gray-400 ">Manage Section</p>
                 </li>
                 <li><a
                     href="/landingpage/manage/{{$section->id}}/edit"
-                    class="py-1 px-3 border-b block hover:bg-indigo-100 ">
+                    class="py-1 px-3 block hover:bg-indigo-100 ">
                     <i class="fa-solid fa-pen mr-1 fa-sm"></i>Edit</a>
                 </li>
               </ul>

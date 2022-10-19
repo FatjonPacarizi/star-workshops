@@ -45,7 +45,7 @@
                                         @endif
                                     @endif
                                 @endif
-                            @else
+                            @else {{--  limit not reached, not applyed yet --}}
                                 @can('is_admin_or_superadmin')
                                     @if($workshop->workshop_startTime == null && $workshop->workshop_endTime == null)
                                         <p class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black">This event will start: {{

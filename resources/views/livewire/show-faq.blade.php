@@ -1,5 +1,5 @@
 <div>
-<div class="w-full flex justify-center">
+<div class="w-full flex justify-center sm:justify-center">
         <table class="w-full mx-4  font-thin" wire:loading.remove>
           <tr class="border-y border-gray-200 ">
             <td class="font-bold p-3 ">#</td>

@@ -12,10 +12,8 @@ class About extends Model
 
      protected $fillable = [
 
-        'title',
         'heading',
         'paragraph',
         'button',
-        'image',
     ];
 }
