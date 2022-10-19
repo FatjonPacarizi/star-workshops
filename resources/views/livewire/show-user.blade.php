@@ -1,5 +1,5 @@
 <div>
-  <div class="w-full flex justify-center">
+  <div class="lg:w-full w-[700px] flex justify-center">
     <table class="w-full" wire:loading.remove>
       <tr class="text-gray-400 text-xs border-b">
         <td class="font-bold pl-5">Name</td>
