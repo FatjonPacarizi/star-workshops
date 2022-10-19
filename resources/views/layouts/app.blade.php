@@ -47,7 +47,6 @@
                                 <span aria-hidden="true" class="absolute  h-0.5 w-5 bg-current transform  transition duration-500 ease-in-out" :class="{'-rotate-45': open, ' translate-y-1.5': !open}"></span>
                             </div>
                         </button>
-
                        <script>
                         function toggleAside(){
                             var element = document.getElementById("aside");

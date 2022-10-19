@@ -39,7 +39,7 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
           <a href="{{route('adminsuperadmin.showInsert')}}" class = " bg-white w-8 h-8 rounded-lg flex items-center justify-center border border-gray-200 text-gray-400 hover:shadow mr-2 "><i class="fa-solid fa-plus font-thin text-2xl"></i></a>
           <livewire:filter-upcoming-workshops-manage>
         </div>
-        <div class="lg:w-full shadow-md  rounded-xl overflow-x-scroll">
+        <div class="lg:w-full shadow-md  rounded-xl overflow-auto ">
           <livewire:show-upcoming-workshops-manage />
         </div>
       </div>
@@ -48,13 +48,13 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
           <a href="{{route('adminsuperadmin.showInsert')}}" class = " bg-white w-8 h-8 rounded-lg flex items-center justify-center border border-gray-200 text-gray-400 hover:shadow mr-2 "><i class="fa-solid fa-plus font-thin text-2xl"></i></a>
           <livewire:filter-ongoing-workshops-manage>
         </div>
-        <div class="lg:w-full shadow-md  rounded-xl overflow-x-scroll">
+        <div class="lg:w-full shadow-md  rounded-xl overflow-x-auto">
         <livewire:show-ongoing-workshops-manage />
         </div>
       </div>
       <div class="w-full md:px-5 pt-3" x-show="tab === 2">
         <livewire:filter-past-workshops-manage>
-          <div class="lg:w-full shadow-md  rounded-xl overflow-x-scroll">
+          <div class="lg:w-full shadow-md  rounded-xl overflow-x-auto">
           <livewire:show-past-workshops-manage />
           </div>
       </div>
@@ -62,7 +62,7 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
       @can('is_super_admin')
       <div class="w-full md:px-5 pt-3" x-show="tab === 3">
         <livewire:filtersafeworkshops/>
-        <div class="lg:w-full shadow-md  rounded-xl overflow-x-scroll">
+        <div class="lg:w-full shadow-md  rounded-xl overflow-x-auto">
         <livewire:showsafeworkshops/>
         </div>
       </div>

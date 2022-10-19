@@ -74,7 +74,7 @@
           </div>
         </td>
         <td>
-          <a href={{ route('adminsuperadmin.showParticipants',$pastsWorkshop->id)}} class="w-fit px-3 py-2
+          <a href={{ route('adminsuperadmin.showParticipants',$pastsWorkshop)}} class="w-fit px-3 py-2
             text-left flex items-center relative ">
             <i class="fa-solid fa-user fa-md text-gray-400"></i>
             @if(count($pastsWorkshop->pendingParticipants) > 0)
