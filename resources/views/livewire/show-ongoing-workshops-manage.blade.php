@@ -1,4 +1,4 @@
-<div class="w-full bg-white shadow-md  rounded-xl py-4 ">
+<div class="lg:w-full w-[1000px] overflow-x-scroll bg-white shadow-md  rounded-xl py-4 ">
     <h1 class="p-3 text-black font-medium ml-2 ">Manage workshops</h1>
   
     <table class="w-full mx-auto" wire:loading.remove>
