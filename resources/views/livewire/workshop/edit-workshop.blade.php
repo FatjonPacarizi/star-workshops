@@ -1,4 +1,4 @@
-<div class="w-full  p-6 px-10 flex ">
+<div class="w-full  p-6 px-5 md:px-10 flex ">
     <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
   <div class="w-full bg-white   shadow-md rounded-xl  ">
     <div class="w-full flex items-center  border-b border-gray-200 mb-4">
@@ -8,9 +8,9 @@
     <form method="POST" wire:submit.prevent="update" enctype="multipart/form-data">
       @csrf
       @method('PUT')
-      <div class="mb-6 flex items-center">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5">Name</label>
-        <div class="w-full mx-5">
+        <div class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
           <input type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Name" wire:model.defer="name"
             />
           @error('name')
@@ -18,9 +18,9 @@
           @enderror
         </div>
       </div>
-      <div class="mb-6 flex items-center">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5">Participants Limit</label>
-        <div class="w-full mx-5">
+        <div class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
           <input type="number" class="border border-gray-200 rounded p-1 w-full" placeholder="Limit participants"
             name="limited_participants" wire:model.defer="limited_participants" />
           @error('limited_participants')
@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <div class="mb-6 flex items-center" wire:ignore>
+      <div class="mb-6 flex flex-col md:flex-row md:items-center" wire:ignore>
         <label class="w-28 text-sm mx-5" for="">Description</label>
         <textarea type="text" id = "description"  name = "description" wire:model.defer="description"  class="border border-gray-200 rounded p-1 w-full ">{{$workshop->description}}</textarea>
       </div>
@@ -80,9 +80,9 @@
       </script>
        @endpush
 
-      <div class="mb-6  flex items-center">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5 ">Country</label>
-        <div class="w-full mx-5">
+        <div class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
           <select class="w-full rounded border border-gray-200 p-1" name='country_id' wire:model.defer="country_id">
             @foreach($countries as $country)
             <option value =
@@ -94,9 +94,9 @@
           @enderror
         </div>
       </div>
-      <div class="mb-6  flex items-center">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5 ">City</label>
-        <div class="w-full mx-5">
+        <div class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
           <select class="w-full rounded border border-gray-200 p-1" name='city_id' wire:model.defer="city_id">
             @foreach($cities as $city)
             <option value = '{{$city->id}}'>{{$city->name}}
@@ -108,9 +108,9 @@
           @enderror
         </div>
       </div>
-      <div class="mb-6  flex items-center">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5 ">Type</label>
-        <div class="w-full mx-5">
+        <div class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
           <select class="w-full  rounded border border-gray-200 p-1" name='type_id' wire:model.defer="type_id">
             @foreach($types as $type)
             <option value = '{{$type->id}}'>{{$type->name}}</option>
@@ -121,9 +121,9 @@
           @enderror
         </div>
       </div>
-      <div class="mb-6  flex items-center">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5 ">Categories</label>
-        <div class="w-full mx-5">
+        <div class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
           <select class="w-full rounded border border-gray-200 p-1" name='category_id' wire:model.defer="category_id">
             @foreach($categories as $category)
             <option  value = '{{$category->id}}'>{{$category->name}}</option>
@@ -134,9 +134,9 @@
           @enderror
         </div>
       </div>
-      <div class="mb-6  flex items-center">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5">Time</label>
-        <div class="mx-1">
+        <div class="mx-5 md:mx-1">
           <input type="datetime-local" name="time" wire:model.defer="time" class="border border-gray-300 rounded p-1 "/>
           @error('time')
           <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -146,19 +146,19 @@
          <p class = "ml-3 text-red-500">Ended at : {{$workshop->workshop_endTime}}</p> 
         @endif
       </div>
-      <div class="mb-6 flex items-center">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5">Link</label>
-        <div class="w-full mx-5">
+        <div class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
           <input type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Link" name="filedlink" wire:model.defer="filedlink"/>
           @error('filedlink')
           <p class="text-red-500 text-xs mt-1">{{$message}}</p>
           @enderror
         </div>
       </div>
-      <div class="mb-6  flex items-center">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5">Image</label>
-        <input type="file" wire:model.defer="img_workshop" name="img_workshop" />
-        <img class="object-cover rounded" alt="hero" src="{{$workshop->img_workshop ? asset('/storage/' . $workshop->img_workshop) : asset('/img/test.jpg')}}" width="100">
+        <input class = "mx-5 md:mx-1" type="file" wire:model.defer="img_workshop" name="img_workshop" />
+        <img class="object-cover rounded m-5 md:m-1" alt="hero" src="{{$workshop->img_workshop ? asset('/storage/' . $workshop->img_workshop) : asset('/img/test.jpg')}}" width="100">
       </div>
       <div class="w-full p-6 flex items-center justify-end border-t border-gray-200">
         <a href="/workshops/manage" class="text-gray-400 mx-10" wire:loading.remove> Cancel </a>
@@ -176,7 +176,7 @@
     <div class = "flex justify-start w-72 items-center p-3 my-2 bg-white shadow rounded-l-md">
       <i class="fa-solid fa-check rounded-full w-8 h-8 flex items-center justify-center bg-green-400 text-white mr-5"></i>
       <p>Workshop updated</p>
-      <button onClick = "animateFlashMsg(20,-400,true)" type="button" class="ml-auto text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 flex items-center justify-center h-8 w-8 " data-dismiss-target="#toast-success" aria-label="Close">
+      <button onClick = "animateFlashMsg(20,-400,true)" type="button" class="ml-auto text-gray-400 text-sm md:text-md hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 flex items-center justify-center h-8 w-8 " data-dismiss-target="#toast-success" aria-label="Close">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>

@@ -34,7 +34,7 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
       @endcan
     </div>
     <div class="w-full">
-      <div class="w-full px-5 pt-3" x-show="tab === 0">
+      <div class="w-full px-5 pt-3 " x-show="tab === 0">
         <div class = "flex xl:justify-end justify-between">
           <a href="{{route('adminsuperadmin.showInsert')}}" class = " bg-white w-8 h-8 rounded-lg flex items-center justify-center border border-gray-200 text-gray-400 hover:shadow mr-2 "><i class="fa-solid fa-plus font-thin text-2xl"></i></a>
           <livewire:filter-upcoming-workshops-manage>
