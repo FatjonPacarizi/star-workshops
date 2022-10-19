@@ -7,7 +7,7 @@
                 </div>
                 <p class="text-gray-500 ml-5"><a href="/dashboard">Dashboard /</a> <a class="text-black" href="/{{Request::segment(1)}}/{{Request::segment(2)}}">{{ucfirst(Request::segment(1))}}</a></p>
             </div>
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class=" flex items-center sm:ml-6">
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="60">
@@ -96,8 +96,8 @@
                                 <div class="flex items-center">
                                     <button class="flex items-center text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
                                         <img class="h-8 w-8 rounded-full object-cover shadow" src="{{Auth::user()->profile_photo_path ? asset('/storage/' . Auth::user()->profile_photo_path) : asset('img/defaultuserphoto.png') }}" alt="{{ Auth::user()->name}}" />
-                                        <h1 class="mx-2 font-bold">{{ Auth::user()->name}}</h1>
-                                        <i class="fa-solid fa-caret-down mr-3"></i>
+                                        <h1 class="md:block hidden mx-2 font-bold">{{ Auth::user()->name}}</h1>
+                                        <i class="md:block hidden fa-solid fa-caret-down mr-3"></i>
                                     </button>
                                 </div>
                                 @else
