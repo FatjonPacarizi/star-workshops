@@ -52,6 +52,8 @@
                         function toggleAside(){
                             var element = document.getElementById("aside");
                             element.classList.toggle("-left-0");
+                            var element = document.getElementById("mobile-menu-button");
+                            element.classList.toggle("right-1");
                           }
                         </script>
                       
