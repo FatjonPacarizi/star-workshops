@@ -12,7 +12,7 @@ module.exports = {
 
     theme: {
         minWidth: {
-            '1/2': '50%',
+            '1/19': '45%',
           },
         extend: {
             fontFamily: {

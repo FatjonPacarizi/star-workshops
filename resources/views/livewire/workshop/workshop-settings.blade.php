@@ -1,5 +1,5 @@
-<div id="root" class="px-10 absolute  w-full bottom-0 top-5 right-0 left-0 flex justify-between">
-    <div class="w-1/2  px-3 ">
+<div id="root" class="px-5 md:px-10 absolute  w-full bottom-0 top-5 right-0 left-0 flex flex-wrap justify-between">
+    <div class="w-full md:w-1/2  md:px-3 ">
         <div class="relative">
             <div class="relative">
                 <img class="inline-block w-full rounded relative"
@@ -16,9 +16,9 @@
                 class="bg-sky-500 text-white px-3 py-1 ml-5 hover:bg-sky-600 rounded">save</button>
         </div>
 
-        <div class=" flex h-2/5 mt-5">
+        <div class=" flex flex-wrap mt-5">
             {{-- Categories --}}
-            <div class="w-1/2  pr-3">
+            <div class="w-full md:w-1/2 mb-5 md:pr-3">
                 <div class="h-fit  bg-white shadow-md relative rounded-xl py-2 ">
                     <div class="flex items-center justify-between">
                         <h1 class="p-2 text-black text-sm">Workshop Categories</h1>
@@ -33,7 +33,7 @@
             </div>
 
             {{-- Types --}}
-            <div class="w-1/2 max-h-full px-3">
+            <div class="w-full md:w-1/2 mb-5 md:px-3">
                 <div class=" bg-white shadow-md relative rounded-xl py-2">
                     <div class="flex items-center justify-between">
                         <h1 class="p-2 text-black text-sm">Workshop Types</h1>
@@ -51,7 +51,7 @@
         </div>
     </div>
     {{-- Countries --}}
-    <div class="w-1/2  px-3">
+    <div class="w-full md:w-1/2  md:px-3">
         <div class="bg-white shadow-md relative rounded-xl py-2 ">
             <div class="flex items-center justify-between">
                 <h1 class="p-2 text-black text-sm">Workshop countries</h1>

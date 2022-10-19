@@ -3,11 +3,11 @@
         <div class="flex justify-between h-16">
             <div class="flex  items-center">
                 <div class="shrink-0 flex items-center ">
-                    <i class="fa-solid fa-bars"></i>
+                   
                 </div>
                 <p class="text-gray-500 ml-5"><a href="/dashboard">Dashboard /</a> <a class="text-black" href="/{{Request::segment(1)}}/{{Request::segment(2)}}">{{ucfirst(Request::segment(1))}}</a></p>
             </div>
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class=" flex items-center sm:ml-6">
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="60">
@@ -55,9 +55,9 @@
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button>
-                                    <i class="fa-regular fa-bell mx-5 "></i>
+                                    <i class="fa-regular fa-bell mr-5 "></i>
                                     @if(count(Auth::user()->unreadNotifications) > 0)
-                                    <p class="w-4 h-4 text-xs mr-3 text-white absolute top-0 right-0 flex justify-center items-center rounded-full bg-red-400">
+                                    <p class="w-4 h-4 text-xs mr-2 text-white absolute top-0 right-0 flex justify-center items-center rounded-full bg-red-400">
                                         {{count(Auth::user()->unreadNotifications)}}
                                     </p>
                                     @endif
@@ -96,8 +96,8 @@
                                 <div class="flex items-center">
                                     <button class="flex items-center text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
                                         <img class="h-8 w-8 rounded-full object-cover shadow" src="{{Auth::user()->profile_photo_path ? asset('/storage/' . Auth::user()->profile_photo_path) : asset('img/defaultuserphoto.png') }}" alt="{{ Auth::user()->name}}" />
-                                        <h1 class="mx-2 font-bold">{{ Auth::user()->name}}</h1>
-                                        <i class="fa-solid fa-caret-down mr-3"></i>
+                                        <h1 class="md:block hidden mx-2 font-bold">{{ Auth::user()->name}}</h1>
+                                        <i class="md:block hidden fa-solid fa-caret-down mr-3"></i>
                                     </button>
                                 </div>
                                 @else
@@ -146,15 +146,6 @@
                 </div>
             </div>
 
-            <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
         </div>
     </div>
 

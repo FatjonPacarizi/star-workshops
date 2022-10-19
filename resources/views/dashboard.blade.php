@@ -2,8 +2,8 @@
 @section('content')
 <div class="w-full flex justify-left items-left">
   <div class="w-full p-6  h-fit">
-    <div class="flex items-center  justify-around mb-4">
-      <div class="w-1/4 px-3">
+    <div class="flex flex-wrap items-center  justify-around mb-4">
+      <div class="w-full md:w-1/2 lg:w-1/4 mb-5 px-3">
         <div class="flex items-center justify-between rounded-xl  p-4 bg-white"
           style="box-shadow: rgba(0, 0, 0, 0.1) 50px 20px 100px;">
           <div class="">
@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <div class="w-1/4 px-3">
+      <div class="w-full md:w-1/2 lg:w-1/4 mb-5 px-3">
         <div class=" flex items-center justify-between rounded-xl  p-4 bg-white"
           style="box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 80px;">
           <div class="">
@@ -35,7 +35,7 @@
           </div>
         </div>
       </div>
-      <div class="w-1/4 px-3">
+      <div class="w-full md:w-1/2 lg:w-1/4 mb-5 px-3">
         <div class=" flex items-center justify-between rounded-xl  p-4 bg-white"
           style="box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 80px;">
           <div class="">
@@ -52,7 +52,7 @@
           </div>
         </div>
       </div>
-      <div class="w-1/4 px-3">
+      <div class="w-full md:w-1/2 lg:w-1/4 mb-5 px-3">
         <div class="flex items-center justify-between rounded-xl  p-4 bg-white"
           style="box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 80px;">
           <div class="">
@@ -77,65 +77,56 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 
     @php
-    
-    if ($last_month_workshops == 0 ||  $last_month_users == 0 || $last_month_partipants == 0){
-        $last_month = array();
-        $last_month['y'] = 0;
-        $last_month['month_name'] = date('M');
-        $last_month['x'] = \Carbon\Carbon::now()->format('Y-m-d h:i:s');
-
-        if($last_month_workshops == 0) array_push($workshopChart,$last_month );
-        if($last_month_partipants == 0) array_push($partipantsChart,$last_month );
-        if($last_month_users == 0){
-          $last_month['profile_photo_url'] = '';
-          array_push($usersChart,$last_month );
-        }
+    if ($last_month_workshops == 0 || $last_month_users == 0 || $last_month_partipants == 0){
+    $last_month = array();
+    $last_month['y'] = 0;
+    $last_month['month_name'] = date('M');
+    $last_month['x'] = \Carbon\Carbon::now()->format('Y-m-d h:i:s');
+    if($last_month_workshops == 0) array_push($workshopChart,$last_month );
+    if($last_month_partipants == 0) array_push($partipantsChart,$last_month );
+    if($last_month_users == 0){
+    $last_month['profile_photo_url'] = '';
+    array_push($usersChart,$last_month );
     }
-
-    if ($first_month_workshops == 0 ||  $first_month_users == 0 || $first_month_partipants == 0){
-        $first_month = array();
-        $first_month['y'] = 0;
-        $first_month['month_name'] = "Jan";
-        $first_month['x'] = "2022-01-01 01:14:19";
-
-        if($first_month_workshops == 0) array_unshift($workshopChart,$first_month );
-        if($first_month_partipants == 0) array_unshift($partipantsChart,$first_month );
-        if($first_month_users == 0){
-          $first_month['profile_photo_url'] = '';
-          array_unshift($usersChart,$first_month );
-        }
+    }
+    if ($first_month_workshops == 0 || $first_month_users == 0 || $first_month_partipants == 0){
+    $first_month = array();
+    $first_month['y'] = 0;
+    $first_month['month_name'] = "Jan";
+    $first_month['x'] = "2022-01-01 01:14:19";
+    if($first_month_workshops == 0) array_unshift($workshopChart,$first_month );
+    if($first_month_partipants == 0) array_unshift($partipantsChart,$first_month );
+    if($first_month_users == 0){
+    $first_month['profile_photo_url'] = '';
+    array_unshift($usersChart,$first_month );
+    }
     }
     @endphp
-    <div class="flex">
-    <div class="container mt-10 bg-white rounded-lg shadow mx-3 px-4">
-      <canvas id="workshopChart"></canvas>
+    <div class="flex flex-wrap">
+      <div class="w-full md:w-1/2 container mt-10 px-3">
+        <div class="w-full bg-white rounded-lg shadow">
+          <canvas class = "inline-block" id="workshopChart"></canvas>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 container mt-10 px-3">
+        <div class="w-full bg-white rounded-lg shadow">
+          <canvas id="usersChart"></canvas>
+        </div>
+      </div>
     </div>
-    <div class="container mt-10 bg-white rounded-lg shadow mx-3 px-4">
-      <canvas id="usersChart"></canvas>
-    </div>
-  </div>
   </div>
   <script type="text/javascript">
-
-<?php $js_array = json_encode($workshopChart); echo "var newWorkshops_array = ". $js_array . ";\n"; ?>
+    <?php $js_array = json_encode($workshopChart); echo "var newWorkshops_array = ". $js_array . ";\n"; ?>
 <?php $js_array = json_encode($partipantsChart); echo "var newParticipants_array = ". $js_array . ";\n";?>
-
-
     var workshopChart = document.getElementById("workshopChart").getContext("2d");
-
     var gradientStroke1 = workshopChart.createLinearGradient(0, 230, 0, 50);
-
     gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
     gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
     gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
-
     var gradientStroke2 = workshopChart.createLinearGradient(0, 230, 0, 50);
-
     gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
     gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
     gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
-
-    workshopChart.canvas.parentNode.style.width = "48%";
     workshopChart.canvas.parentNode.style.height = "300px";
 var myChart = new Chart(workshopChart, {
   type: 'line',
@@ -172,40 +163,35 @@ var myChart = new Chart(workshopChart, {
       label: 'New workshops by month',
       data: newWorkshops_array,
       tension: 0.4,
-            borderWidth: 0,
-            pointRadius: 0,
-            borderColor: "#cb0c9f",
-            borderWidth: 3,
-            backgroundColor: gradientStroke1,
-            fill: true,
+      borderWidth: 0,
+      pointRadius: 0,
+      borderColor: "#cb0c9f",
+      borderWidth: 3,
+      backgroundColor: gradientStroke1,
+      fill: true,
       borderWidth: 1
     },
     {
       label: 'New participants by month',
       data: newParticipants_array,
       tension: 0.4,
-            borderWidth: 0,
-            pointRadius: 0,
-            borderColor: "#3A416F",
-            borderWidth: 3,
-            backgroundColor: gradientStroke2,
-            fill: true,
-
+      borderWidth: 0,
+      pointRadius: 0,
+      borderColor: "#3A416F",
+      borderWidth: 3,
+      backgroundColor: gradientStroke2,
+      fill: true,
       borderWidth: 1
     }
   ]
   }
 });
-
 <?php $js_array = json_encode($usersChart); echo "var newUsers_array = ". $js_array . ";\n";?>
 var usersChart = document.getElementById("usersChart").getContext("2d");
 var gradientStroke1 = usersChart.createLinearGradient(0, 230, 0, 50);
-
 gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
 gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
 gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
-
-usersChart.canvas.parentNode.style.width = "48%";
 usersChart.canvas.parentNode.style.height = "300px";
 var myChart = new Chart(usersChart, {
   type: 'line',
@@ -223,16 +209,14 @@ var myChart = new Chart(usersChart, {
             unit: 'month',
             displayFormats: {
               month: 'MMM'
-            },
-            
+            },     
       }
       }],
       yAxes: [{
                 ticks: {
                   beginAtZero: true,
                   stepSize: 1
-                },
-               
+                }, 
             }]
     },
   },
@@ -242,12 +226,12 @@ var myChart = new Chart(usersChart, {
       label: 'New users by month',
       data: newUsers_array,
       tension: 0.4,
-            borderWidth: 0,
-            pointRadius: 0,
-            borderColor: "#cb0c9f",
-            borderWidth: 3,
-            backgroundColor: gradientStroke1,
-            fill: true,
+      borderWidth: 0,
+      pointRadius: 0,
+      borderColor: "#cb0c9f",
+      borderWidth: 3,
+      backgroundColor: gradientStroke1,
+      fill: true,
       borderWidth: 1
     }]
   }
