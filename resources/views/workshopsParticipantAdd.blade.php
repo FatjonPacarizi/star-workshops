@@ -24,7 +24,7 @@
           @enderror
         </div>
       </div>
-      <div class="mb-6 sm:flex items-center">
+      <div class="mb-6 flex items-center sm:items-center">
         <label class="w-28 text-sm mx-5">Participants Name</label>
         <div class = "w-full mx-5">
           <select id='myselect'class="border border-gray-200 rounded p-1 w-full" name="user_id" single>

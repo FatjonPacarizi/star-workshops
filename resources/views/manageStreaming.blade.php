@@ -6,8 +6,9 @@
     <livewire:filter-streaming />
   </div>
   <div class="w-full bg-white shadow-md rounded-xl  py-4 " >
-    <h1 class="p-3 text-black  font-medium ml-2 ">Manage Stream</h1>
+    <h1 class="p-3 text-black  font-medium sm:ml-2 ">Manage Stream</h1>
     @livewire('show-streaming',['workshop'=>$workshop])
+  </div>
 </div>
 @endsection
   {{-- box-shadow: rgba(149, 157, 165, 0.2) 0px 24px 30px; --}}
