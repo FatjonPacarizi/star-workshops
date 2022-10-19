@@ -3,7 +3,7 @@
 <div class="w-full flex justify-left items-left">
   <div class="w-full p-6  h-fit">
     <div class="flex flex-wrap items-center  justify-around mb-4">
-      <div class="w-11/12 md:w-1/2 lg:w-1/4 mb-5 px-3">
+      <div class="w-full md:w-1/2 lg:w-1/4 mb-5 px-3">
         <div class="flex items-center justify-between rounded-xl  p-4 bg-white"
           style="box-shadow: rgba(0, 0, 0, 0.1) 50px 20px 100px;">
           <div class="">
@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <div class="w-11/12 md:w-1/2 lg:w-1/4 mb-5 px-3">
+      <div class="w-full md:w-1/2 lg:w-1/4 mb-5 px-3">
         <div class=" flex items-center justify-between rounded-xl  p-4 bg-white"
           style="box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 80px;">
           <div class="">
@@ -35,7 +35,7 @@
           </div>
         </div>
       </div>
-      <div class="w-11/12 md:w-1/2 lg:w-1/4 mb-5 px-3">
+      <div class="w-full md:w-1/2 lg:w-1/4 mb-5 px-3">
         <div class=" flex items-center justify-between rounded-xl  p-4 bg-white"
           style="box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 80px;">
           <div class="">
@@ -52,7 +52,7 @@
           </div>
         </div>
       </div>
-      <div class="w-11/12 md:w-1/2 lg:w-1/4 mb-5 px-3">
+      <div class="w-full md:w-1/2 lg:w-1/4 mb-5 px-3">
         <div class="flex items-center justify-between rounded-xl  p-4 bg-white"
           style="box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 80px;">
           <div class="">
@@ -102,12 +102,16 @@
     }
     }
     @endphp
-    <div class="flex">
-      <div class="container mt-10 bg-white rounded-lg shadow mx-3 px-4">
-        <canvas id="workshopChart"></canvas>
+    <div class="flex flex-wrap">
+      <div class="w-full md:w-1/2 container mt-10 px-3">
+        <div class="w-full bg-white rounded-lg shadow">
+          <canvas class = "inline-block" id="workshopChart"></canvas>
+        </div>
       </div>
-      <div class="container mt-10 bg-white rounded-lg shadow mx-3 px-4">
-        <canvas id="usersChart"></canvas>
+      <div class="w-full md:w-1/2 container mt-10 px-3">
+        <div class="w-full bg-white rounded-lg shadow">
+          <canvas id="usersChart"></canvas>
+        </div>
       </div>
     </div>
   </div>
@@ -123,7 +127,6 @@
     gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
     gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
     gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
-    workshopChart.canvas.parentNode.style.width = "48%";
     workshopChart.canvas.parentNode.style.height = "300px";
 var myChart = new Chart(workshopChart, {
   type: 'line',
@@ -189,7 +192,6 @@ var gradientStroke1 = usersChart.createLinearGradient(0, 230, 0, 50);
 gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
 gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
 gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
-usersChart.canvas.parentNode.style.width = "48%";
 usersChart.canvas.parentNode.style.height = "300px";
 var myChart = new Chart(usersChart, {
   type: 'line',
