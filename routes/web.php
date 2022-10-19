@@ -18,7 +18,6 @@ use App\Http\Controllers\PDFController;
 use App\Http\Controllers\StreamingController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ReplyController;
-use App\Http\Controllers\ChartController;
 use App\Http\Controllers\chatController;
 use App\Http\Controllers\DashboardController;
 
