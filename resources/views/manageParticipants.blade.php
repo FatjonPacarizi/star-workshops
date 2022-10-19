@@ -58,7 +58,7 @@
     <div class="w-full bg-white rounded-xl shadow-md py-4 mt-5">
       <h1 class="p-3 text-black font-medium ml-2 ">Workshop participants Managment</h1>
               <div  class="lg:w-full overflow-x-scroll" x-show="tab === 1">
-                <div class="w-[800px]">
+                <div class="w-[1000px]">
                 <div class="flex items-center p-5 justify-between">
                   <p class = "text-left h-8 text-xl text-orange-400 w-2/4">Pending</p>
                   <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
@@ -128,7 +128,7 @@
               </div>
               </div>
               <div  class="lg:w-full overflow-x-scroll" x-show="tab === 0" id="modal">
-                <div class="w-[800px]">
+                <div class="w-[1000px]">
                 <div class="flex items-center p-5 justify-between">
                   <p class = "text-left h-8 text-xl text-green-400 w-2/4">Approved</p>
                   <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
@@ -189,7 +189,7 @@
                 </div>
               </div>
               <div class="lg:w-full overflow-x-scroll" x-show="tab === 2">
-                <div class="w-[800px]">
+                <div class="w-[1000px]">
                 <div class="flex items-center p-5 justify-between">
                   <p class = "text-left h-8 text-xl text-red-400 w-2/4">Not Approved</p>
                   <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
