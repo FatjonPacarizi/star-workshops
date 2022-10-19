@@ -1338,6 +1338,9 @@ select {
 .m-1 {
   margin: 0.25rem;
 }
+.m-5 {
+  margin: 1.25rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1421,10 +1424,6 @@ select {
 .my-24 {
   margin-top: 6rem;
   margin-bottom: 6rem;
-}
-.mx-6 {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -3431,16 +3430,16 @@ select {
     margin-left: 1.5rem;
   }
 
+  .sm\:ml-2 {
+    margin-left: 0.5rem;
+  }
+
   .sm\:ml-auto {
     margin-left: auto;
   }
 
   .sm\:mb-2 {
     margin-bottom: 0.5rem;
-  }
-
-  .sm\:ml-2 {
-    margin-left: 0.5rem;
   }
 
   .sm\:block {
@@ -3659,9 +3658,28 @@ select {
     margin: 0.75rem;
   }
 
+  .md\:m-1 {
+    margin: 0.25rem;
+  }
+
   .md\:mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .md\:mx-5 {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+
+  .md\:mx-9 {
+    margin-left: 2.25rem;
+    margin-right: 2.25rem;
+  }
+
+  .md\:mx-1 {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
   }
 
   .md\:mt-0 {
@@ -3744,6 +3762,10 @@ select {
     align-items: flex-start;
   }
 
+  .md\:items-center {
+    align-items: center;
+  }
+
   .md\:justify-end {
     justify-content: flex-end;
   }
@@ -3783,12 +3805,26 @@ select {
     padding-right: 1rem;
   }
 
+  .md\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .md\:px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
   .md\:pl-16 {
     padding-left: 4rem;
   }
 
   .md\:pr-16 {
     padding-right: 4rem;
+  }
+
+  .md\:pr-3 {
+    padding-right: 0.75rem;
   }
 
   .md\:text-left {

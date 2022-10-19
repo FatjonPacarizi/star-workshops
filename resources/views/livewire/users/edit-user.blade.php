@@ -1,4 +1,4 @@
-<div class="w-full  p-6 px-10 flex ">
+<div class="w-full  p-6 px-5 md:px-10 flex ">
   <div class="w-full bg-white shadow-md rounded-xl  ">
     <div class="w-full flex items-center  border-b border-gray-200 mb-4">
       <a href="/users/manage"><i class="fa-solid fa-arrow-left mx-4"></i></a>
@@ -7,18 +7,18 @@
     <form method="POST" wire:submit.prevent="update" enctype="multipart/form-data">
       @csrf
       @method('PUT')
-      <div class="mb-6 flex items-center">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5">Name</label>
-        <input type="text" class="border border-gray-200 rounded p-1 w-full mx-5" placeholder="Name" name="name"
+        <input type="text" class="border border-gray-200 rounded p-1 w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5" placeholder="Name" name="name"
           wire:model.defer="name" />
         @error('name')
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
         @enderror
       </div>
 
-      <div class="mb-6  flex items-center">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5">Email</label>
-        <input type="text" class="border border-gray-200 rounded p-1 w-full mx-5" name="email" placeholder="Email"
+        <input type="text" class="border border-gray-200 rounded p-1 w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5" name="email" placeholder="Email"
           wire:model.defer="email" />
 
         @error('email')
@@ -26,18 +26,18 @@
         @enderror
       </div>
 
-      <div class="mb-6  flex items-center h-36">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center h-36">
         <label class="w-28 text-sm mx-5">Description</label>
-        <textarea class="border border-gray-200 rounded p-1 w-full mx-5 h-full" name="description"
+        <textarea class="border border-gray-200 rounded p-1 w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5 h-full" name="description"
           placeholder="Null by default" wire:model.defer="description"></textarea>
 
         @error('description')
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
         @enderror
       </div>
-      <div class="mb-6  flex items-center">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5 ">Position</label>
-        <select class="w-full mx-5 rounded border border-gray-200 p-1" name='position_id'
+        <select class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5 rounded border border-gray-200 p-1" name='position_id'
           wire:model.defer="position_id">
           @foreach($positions as $position)
           <option value='{{$position->id}}'>{{$position->position}}</option>
@@ -49,10 +49,10 @@
       </div>
 
 
-      <div class="mb-6  flex items-center">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5 ">User Status</label>
         @if($user->user_status != 'superadmin')
-        <select class="w-full mx-5 rounded border border-gray-200 p-1" name='user_status'
+        <select class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5 rounded border border-gray-200 p-1" name='user_status'
           wire:model.defer="user_status">
           <option value='user' @if($user->user_status == 'user') selected @endif>User</option>
           <option value='admin' @if($user->user_status == 'admin') selected @endif>Admin</option>
