@@ -2,10 +2,10 @@
 @section('content')
 
 <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
-<div class="w-full  p-6 px-10 flex ">
+<div class="w-full p-4 px-6 flex ">
 
-    <div class="w-full bg-white   shadow-md rounded-xl  ">
-        <div class="w-full flex items-center  border-b border-gray-200 mb-4">
+    <div class="w-full bg-white shadow-md rounded-xl  ">
+        <div class="w-full flex items-center  border-b border-gray-200 mb-3">
             <a href="/news"><i class="fa-solid fa-arrow-left mx-4"></i></a>
             <h1 class="p-3 text-black  font-medium  ">News Edit</h1>
         </div>
@@ -15,8 +15,8 @@
         <form action="{{ url('update-news/'.$newspage->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div class="mb-6 flex items-center">
-                <label class="w-28 text-sm mx-5" for="">News Title</label>
+            <div class="mb-4 flex items-center">
+                <label class="w-28 text-sm mx-3 md:mx-5" for="">News Title</label>
                 <div class="w-full mx-5">
                     <input type="text" name="title" value="{{$newspage->title}}"
                         class="border border-gray-200 rounded p-1 w-full " />
@@ -25,8 +25,8 @@
                     @enderror
                 </div>
             </div>
-            <div class="mb-6 flex items-center">
-                <label class="w-28 text-sm mx-5" for="">Description</label>
+            <div class="mb-4 flex items-center">
+                <label class="w-28 text-sm mb-2 md:mb-0 mx-3 md:mx-5" for="">Description</label>
                 <div class="w-full mx-5">
                     <textarea type="text" name="description" value=""
                         class="border border-gray-200 rounded p-1 w-full mx-5">
@@ -51,13 +51,13 @@
                     menubar: 'file edit view insert format tools table help'
                 });
             </script>
-            <div class="mb-6  flex items-center">
-                <label class="w-28 text-sm mx-5">Date</label>
+            <div class="mb-4 flex items-center">
+                <label class="w-28 text-sm mx-3 md:mx-5">Date</label>
                 <input type="datetime-local" name="time" value="{{$newspage->time}}"
                     class="border border-gray-300 rounded p-1 mx-1" />
             </div>
-            <div class="mb-6  flex items-center">
-                <label class="w-28 text-sm mx-5">Image</label>
+            <div class="mb-3 flex items-center">
+                <label class="w-28 text-sm mb-2 md:mb-0 mx-3 md:mx-5">Image</label>
                 <div class="w-full mx-9">
                     <input type="file" name="image" />
                     @error('image')
