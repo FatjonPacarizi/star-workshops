@@ -1,5 +1,5 @@
 <div>
-<div class="w-full sm:flex justify-center">
+<div class="w-full flex justify-center">
     <table class="w-full mx-4  font-thin" wire:loading.remove>
         <tr class="border-y border-gray-200">
           <td class="font-bold">Title</td>
@@ -14,7 +14,7 @@
           <td>  {{$str->title}}</td>
           <td> {{$str->count}}</td>
           <td> {{$str->workshop->category->name}} </td>
-          <td class="flex items-center sm:items-center">
+          <td class="flex items-center ">
             @if($str->status != 'paid')
             <a href="{{ url('change-status/'.$str->id)}}" class="bg-green-500 text-white p-2 text-xs rounded mr-3 hover:bg-green-600">Free</a>
             @else
@@ -22,7 +22,7 @@
             @endif
           </td>
           <td>
-          <div class=" relative flex items-center sm:items-center" x-data="{ open: false }">
+          <div class=" relative flex items-center" x-data="{ open: false }">
             <i class="fa-solid fa-ellipsis-vertical cursor-pointer w-3" @click="open = !open"></i>
   
             <ul id = "ongoingmenu" class="bg-white absolute -left-40 top-2 z-10 shadow-lg border border-gray-100 rounded-lg w-40 py-1 "
