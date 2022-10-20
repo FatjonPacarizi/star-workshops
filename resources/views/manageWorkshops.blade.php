@@ -39,7 +39,7 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
           <a href="{{route('adminsuperadmin.showInsert')}}" class = " bg-white w-8 h-8 rounded-lg flex items-center justify-center border border-gray-200 text-gray-400 hover:shadow mr-2 "><i class="fa-solid fa-plus font-thin text-2xl"></i></a>
           <livewire:filter-upcoming-workshops-manage>
         </div>
-        <div class="lg:w-full shadow-md  rounded-xl overflow-x-scroll">
+        <div id = "upcoming" class="lg:w-full shadow-md bg-white rounded-xl overflow-auto">
           <livewire:show-upcoming-workshops-manage />
         </div>
       </div>
@@ -48,13 +48,13 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
           <a href="{{route('adminsuperadmin.showInsert')}}" class = " bg-white w-8 h-8 rounded-lg flex items-center justify-center border border-gray-200 text-gray-400 hover:shadow mr-2 "><i class="fa-solid fa-plus font-thin text-2xl"></i></a>
           <livewire:filter-ongoing-workshops-manage>
         </div>
-        <div class="lg:w-full shadow-md  rounded-xl overflow-x-scroll">
+        <div id = "ongoing" class="lg:w-full shadow-md bg-white rounded-xl overflow-auto">
         <livewire:show-ongoing-workshops-manage />
         </div>
       </div>
       <div class="w-full md:px-5 pt-3" x-show="tab === 2">
         <livewire:filter-past-workshops-manage>
-          <div class="lg:w-full shadow-md  rounded-xl overflow-x-scroll">
+          <div id = "pasts" class="lg:w-full shadow-md bg-white rounded-xl overflow-auto">
           <livewire:show-past-workshops-manage />
           </div>
       </div>
@@ -62,7 +62,7 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
       @can('is_super_admin')
       <div class="w-full md:px-5 pt-3" x-show="tab === 3">
         <livewire:filtersafeworkshops/>
-        <div class="lg:w-full shadow-md  rounded-xl overflow-x-scroll">
+        <div id = "deleted" class="lg:w-full shadow-md bg-white rounded-xl overflow-auto">
         <livewire:showsafeworkshops/>
         </div>
       </div>
@@ -77,6 +77,20 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
       var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + $param;
       window.history.pushState({path:newurl},'',newurl);
   }
+}
+function toogleOverflow(x) {
+    document.getElementById("upcoming").classList.toggle("overflow-auto");
+    document.getElementById("pasts").classList.toggle("overflow-auto");
+    document.getElementById("ongoing").classList.toggle("overflow-auto");
+    document.getElementById("deleted").classList.toggle("overflow-auto");
+}
+var x = window.matchMedia("(min-width: 1000px)");
+x.addListener(toogleOverflow); // Attach listener function on state changes
+if(window.screen.availWidth>1000){
+ document.getElementById("upcoming").classList.toggle("overflow-auto");
+ document.getElementById("pasts").classList.toggle("overflow-auto");
+ document.getElementById("ongoing").classList.toggle("overflow-auto");
+ document.getElementById("deleted").classList.toggle("overflow-auto");
 }
 </script>
 @endsection
