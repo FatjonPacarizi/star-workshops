@@ -28,7 +28,7 @@
     <div class="h-full">
         <!-- Page Content -->
         <div class="w-full h-screen flex fixed ">
-            <aside x-data="{ open: false }" class="absolute top-1 h-screen -left-80 z-40 w-80 px-2 bg-white lg:bg-inherit lg:static  " id="aside">
+            <aside x-data="{ open: false }" class="absolute top-0 h-screen -left-80 z-40 w-80 px-2 bg-white lg:bg-inherit lg:static shadow md:shadow-none" id="aside">
                 <div class="relative menu is-menu-main h-full px-5 ">
                     <div class="p-2 py-1 mb-2 border-b">
                         {{-- Soft UI Dashboard --}}
@@ -40,18 +40,19 @@
                         </a>
                         
 
-                        <button id="mobile-menu-button" class="text-gray-700 w-10 h-10 absolute top-2 -right-12 lg:hidden  focus:outline-none outline-none  md:block " onClick="toggleAside()" @click="open = !open">
+                        <button id="mobile-menu-button" class="text-gray-700 w-10 h-10 absolute top-3 -right-12 lg:hidden  focus:outline-none outline-none  md:block " onClick="toggleAside()" @click="open = !open">
                             <div class=" w-5">
                                 <span aria-hidden="true" class="absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'rotate-45': open,' -translate-y-1.5': !open }"></span>
                                 <span aria-hidden="true" class="absolute  h-0.5 w-5 bg-current   transform transition duration-500 ease-in-out" :class="{'opacity-0': open } "></span>
                                 <span aria-hidden="true" class="absolute  h-0.5 w-5 bg-current transform  transition duration-500 ease-in-out" :class="{'-rotate-45': open, ' translate-y-1.5': !open}"></span>
                             </div>
                         </button>
-
                        <script>
                         function toggleAside(){
                             var element = document.getElementById("aside");
                             element.classList.toggle("-left-0");
+                            var element = document.getElementById("mobile-menu-button");
+                            element.classList.toggle("right-1");
                           }
                         </script>
                       
