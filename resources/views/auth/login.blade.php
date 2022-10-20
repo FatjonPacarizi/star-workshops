@@ -32,10 +32,10 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center sm:justify-end justify-between mt-4">
 
                 @if (Route::has('register'))
-                <a class="pr-16 underline text-sm text-gray-600 hover:text-gray-900"  href="{{ route('register') }}">
+                <a class="pr-2 sm:pr-16 underline text-sm text-gray-600 hover:text-gray-900"  href="{{ route('register') }}">
                     {{ __('Register Here?') }}
                 </a>
                 @endif
