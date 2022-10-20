@@ -22,9 +22,7 @@ class StreamingController extends Controller
         if(Auth::check())
         if(count($workshop_users) > 0 || Auth::user()->user_status == 'superadmin' || $workshops->author == Auth::user()->id)
             $streaming1 = true;
-
         $streaming = Streaming::find($id);
-       // dd($streaming);
         if($streaming1 || $streaming->status == 'free'){
             Streaming::find($id)->increment('count');
         }        
