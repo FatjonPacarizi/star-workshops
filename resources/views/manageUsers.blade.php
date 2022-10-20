@@ -13,7 +13,7 @@
     }
     var x = window.matchMedia("(min-width: 1000px)");
     x.addListener(toogleOverflow); // Attach listener function on state changes
-    if(window.screen.availWidth>1000){
+    if(window.innerWidth>1000){
       document.getElementById("users").classList.toggle("overflow-auto");
     }
     </script>
