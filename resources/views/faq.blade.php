@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="w-full h-full px-10 flex flex-col  items-center">
+<div class="lg:w-full w-[1200px] h-full px-10">
   <div class="w-full flex justify-between items-center">
     <a href="/faq/create" class = " bg-white w-8 h-8 rounded-lg flex items-center justify-center border border-gray-200 text-gray-400 hover:shadow  "><i class="fa-solid fa-plus font-thin text-2xl"></i></a>
     <livewire:filter-faq/>

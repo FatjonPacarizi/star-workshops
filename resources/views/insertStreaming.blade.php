@@ -2,7 +2,7 @@
 @section('content')
 
 <script src="{{ asset('js/tinymce/tinymce.js') }}"></script>
-<div class="w-full  p-6 px-10 flex ">
+<div class="w-full  p-6 px-5 md:px-10 flex ">
   <div class="w-full bg-white   shadow-md rounded-xl  ">
     <div class="w-full flex items-center  border-b border-gray-200 mb-4">
       <a href="/workshops/manage/streaminglive/{{$streaming->id}}" ><i class="fa-solid fa-arrow-left mx-4"></i></a>
@@ -11,9 +11,9 @@
     <form method="POST" action="/streaminglive/add-streaming" enctype="multipart/form-data">
       @csrf
       
-    <div class="mb-6 flex items-center">
+    <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5">Workshop Name</label>
-        <div class = "w-full mx-5">
+        <div class = "w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
         <select class="border border-gray-200 rounded p-1 w-full" name="workshop_id">
             <option value = "{{$workshops->id}}">{{$workshops->name}}</option>
         </select>
@@ -25,9 +25,9 @@
 
           <input hidden type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Name" name="status" value="paid" />
 
-      <div class="mb-6 flex items-center">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5">Title</label>
-        <div class = "w-full mx-5">
+        <div class = "w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
           <input type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Title" name="title" />
           @error('name')
           <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -35,9 +35,9 @@
         </div>
       </div>
 
-      <div class="mb-6 flex items-center">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5">Video Url</label>
-        <div class = "w-full mx-5">
+        <div class = "w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
           <input type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Url" name="url"/>
           @error('url')
           <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -45,7 +45,7 @@
         </div>
       </div>
 
-      <div class="mb-6 flex items-center">
+      <div class="mb-6 flex flex-col md:flex-row md:items-center">
         <label class="w-28 text-sm mx-5" for="">Description</label>
         <textarea type="text" name="description" class="border border-gray-200 rounded p-1 w-full mx-5">{{old('description')}}</textarea>
       </div>

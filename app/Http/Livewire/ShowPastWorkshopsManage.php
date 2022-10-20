@@ -70,12 +70,16 @@ class ShowPastWorkshopsManage extends Component
           
         Workshop::where('id',$id)->update(['workshop_endTime' => $workshop_endTime]);
 
+        $this->dispatchBrowserEvent('hidemenu');
+
         $this->emitTo('show-ongoing-workshops-manage', '$refresh');
       }
 
       public function deleteWorkshop($id){
         Workshop::where('id',$id)->update(['deleted_from_id' => Auth::id()]);
         Workshop::find($id)->delete();
+
+        $this->dispatchBrowserEvent('hidemenu');
 
         $this->emitTo('showsafeworkshops', '$refresh');
     }

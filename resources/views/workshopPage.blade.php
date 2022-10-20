@@ -52,9 +52,18 @@
                                             $workshop->time}}</p>
                                     @else
                                         @if($workshop->workshop_startTime != null)
+                                            @php
+                                                $workshopFirstStreaming = \App\Models\Streaming::where('workshop_id',$workshop->id)->first();
+                                            @endphp    
+                                            @if($workshopFirstStreaming != null) 
+                                                <a href="/workshop/{{$workshop->id}}/streaming/{{$workshopFirstStreaming->id}}" class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black flex items-center">
+                                                    Show courses
+                                                </a>
+                                            @else   
                                             <a href="#" class="mb-8 leading-relaxed px-5 py-2 bg-white rounded-md text-black flex items-center">
-                                                Join stream
+                                                No courses found
                                             </a>
+                                            @endif
                                         @endif
                                     @endif
 
