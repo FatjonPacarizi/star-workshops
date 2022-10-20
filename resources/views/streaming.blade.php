@@ -1,35 +1,74 @@
 @extends('asideStreaming')
 @section('content')
 @if($streaming->status == 'free' || $streaming1)
-<div class="flex items-center p-2 space-x-4 justify-self-end">
-			<h3 class="text-lg font-semibold">Views:   {{$streaming->count}}</h3>
+<div class="flex items-center p-2 px-5 md:px-2 space-x-4 border md:justify-self-end justify-between">
+  <h1 class="text-center md:hidden"><a href="/workshop/{{$workshops->id}}"><i class="fa-solid fa-square-caret-left text-red-500"></i>  {{$streaming->workshop->name}}</a></h1>
+	<h3 class="text-lg font-semibold mx-5">Clicks:   {{$streaming->count}}</h3>
 </div>
 <section class="flex flex-wrap justify-center relative bg-[#f2f2f2]">
-    <div class="flex flex-wrap lg:mx-4 pb-16 justify-center w-4/5">
+    <div class="flex flex-wrap lg:mx-4 pb-10 justify-center w-4/5">
         <div class="flex flex-col items-center mt-16">
-            <h1 class="text-6xl font-bold text-red-500">{{$streaming->title}} </h1>
+            <h1 class="text-3xl md:text-5xl font-bold text-red-500">{{$streaming->title}} </h1>
         </div>
     </div>
 </section>
 <section class="flex flex-wrap justify-center relative bg-[#f2f2f2]">
-    <div class="container mx-auto px-5 py-12  ">
+    <div class="container mx-auto px-5 py-2  ">
         <div class="lg:flex-grow lg:px-24 md:px-4 md:items-start md:text-left ">
              {!! $streaming->description !!}
         </div>
     </div>
 </section>
 <section class="flex flex-wrap justify-center relative bg-[#f2f2f2]">
-    <div class="flex flex-wrap lg:mx-4 pt-12 pb-16 justify-center w-4/5">
+    <div class="flex flex-wrap lg:mx-4 pt-12 md:pb-16 justify-center w-full md:w-4/5">
       @if($streaming->url != '')
-              <iframe class="w-6/12 aspect-video ..." src="{{$streaming->url}}"></iframe>
-      @endif
+      <iframe class=  "w-full h-96 md:w-2/3" src="{{$streaming->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>      @endif
     </div>
 </section>
+<div class="w-full md:hidden bg-gray-200">
+  <div class="bg-gray-200 pt-4 pb-4"> 
+    <div class="h-fit pl-4 pt-2 pb-2">
+      Introduction
+    </div>
+    <ul class="w-full"> 
+      @foreach($streamings as $str)
+      @if($str->status == 'free') 
+      <a  href="/workshop/{{$workshops->id}}/streaming/{{$str->id}}">
+      <li class="h-fit {{Request::segment(4) == $str->id ? 'bg-gray-300 font-medium' : ''}} p-4  ">   
+            <span class="">@if($str->url != '')<i class="fa-solid fa-tv"></i>@else<i class="fa-solid fa-align-left"></i>@endif
+             {{$str->title}} 
+            </span>
+          </li>
+        </a>
+      @endif
+      @endforeach
+    </ul>
+  </div>
+  <div class="bg-gray-200 pb-4"> 
+    <div class="h-fit pl-4 pt-2 pb-2">
+      Advance Course
+    </div>
+    <ul class="w-full">
+    @foreach($streamings as $str)
+      @if($str->status == 'paid')   
+      <a  href="/workshop/{{$workshops->id}}/streaming/{{$str->id}}">
+      <li class="h-fit p-4  {{Request::segment(4) == $str->id ? 'bg-gray-300 font-medium' : ''}}">
+            <span>@if($str->url != '')<i class="fa-solid fa-tv"></i>@else<i class="fa-solid fa-align-left"></i>@endif
+            {{$str->title}}
+            </span>
+          </li>
+        </a>
+      @endif
+      @endforeach
+    </ul> 
+  </div>
+</div>
 
 <hr>
 
-<div class="antialiased mx-auto max-w-screen-sm">
-<div class="max-w-lg shadow-md mt-8">
+<div class="antialiased mx-auto flex flex-col items-center">
+<div class=" w-full lg:w-1/2 mt-8">
+  <div class="shadow-md">
   <form action="/comment-add" id="comment-form" method="POST" class="w-full p-4">
     @csrf
     <input type="hidden" name="streaming_id" value="{{$streaming->id}}" >
@@ -43,8 +82,8 @@
   </form>
 </div>
   @unless(count($comments) == 0)
-  <h3 class="mb-4 text-lg font-semibold text-gray-900 mt-4">{{$comments->count()}} comments</h3>
-  <div class="space-y-4">
+  <h3 class="mb-4 text-lg font-semibold text-gray-900 ml-5 mt-4">{{$comments->count()}} comments</h3>
+  <div class="space-y-4 mx-5">
   @foreach($comments as $comment)
     <div class="flex">
       <div class="flex-shrink-0 mr-3">
@@ -68,6 +107,7 @@
     </div>@endforeach<br>
     {{$comments->links()}}
   </div>@endunless
+</div>
 </div>
 </section>
 @else

@@ -74,6 +74,7 @@ class ShowUpcomingWorkshopsManage extends Component
       Workshop::where('id',$id)->update(['workshop_startTime' => $workshop_startTime]);
 
       $this->emitTo('show-ongoing-workshops-manage', '$refresh');
+
     }
 
     public function deleteWorkshop($id){

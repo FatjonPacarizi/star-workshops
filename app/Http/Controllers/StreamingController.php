@@ -22,7 +22,6 @@ class StreamingController extends Controller
         if(Auth::check())
         if(count($workshop_users) > 0 || Auth::user()->user_status == 'superadmin' || $workshops->author == Auth::user()->id)
             $streaming1 = true;
-
         $streaming = Streaming::find($id);
         if($streaming1 || $streaming->status == 'free'){
             Streaming::find($id)->increment('count');
@@ -36,6 +35,7 @@ class StreamingController extends Controller
     public function show($id){
 
        $workshop = Workshop::find($id);
+       if($workshop->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
 
        return view('manageStreaming',['workshop'=>$workshop]);
     }
@@ -43,6 +43,7 @@ class StreamingController extends Controller
     public function insert($id){
 
         $workshops = Workshop::find($id);
+        if($workshops->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
         $streaming = Streaming::find($id);
 
         return view('insertStreaming',['workshops'=> $workshops,'streaming'=>$streaming]);
@@ -60,6 +61,7 @@ class StreamingController extends Controller
 
         $streaming = Streaming::find($streaming);
         $workshops = Workshop::find($id);
+        if($streaming->workshop_id != $workshops->id || $workshops->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
 
         return view('editStreaming',['streaming'=>$streaming,'workshops'=> $workshops]);
     }

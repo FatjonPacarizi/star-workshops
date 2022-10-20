@@ -39,7 +39,7 @@
         <div class="relative  flex items-center" x-data="{ open: false }" style = "display:relative;">
           <i class="fa-solid fa-ellipsis-vertical cursor-pointer w-3" @click="open = !open"></i>
 
-          <ul id = "menu" class="bg-white mt-2 z-10 shadow-lg border border-gray-100 rounded-lg w-40 py-1 "
+          <ul  class="bg-white mt-2 z-10 shadow-lg border border-gray-100 rounded-lg w-40 py-1 "
             x-show="open" @click.outside="open = false" style = "position:absolute; top:0;z-index:1000;">
             <li>
               <p class="text-xs pl-3 p-2 text-gray-400 ">Manage Workshop</p>
@@ -50,7 +50,7 @@
                 <i class="fa-solid fa-pen mr-1 fa-sm"></i>Edit</a>
             </li>
             <li>
-                <button wire:click = 'deleteWorkshop({{$upcomingWorkshop->id}})' onClick = "hideupcomingmenu()" class="w-full text-left text-red-400 py-1 px-3 hover:bg-indigo-100 border-b">
+                <button wire:click = 'deleteWorkshop({{$upcomingWorkshop->id}})' @click="open = !open" class="w-full text-left text-red-400 py-1 px-3 hover:bg-indigo-100 border-b">
                   <i class="fa-solid fa-trash-can   fa-sm"></i> Delete
                 </button>
             </li>
@@ -62,7 +62,7 @@
             </li>
             <li class = "flex items-center px-3 py-1 border-b hover:bg-indigo-100">
               <i class="fa-regular fa-calendar-plus mr-1.5 text-green-300"></i>
-                <input wire:change = 'startWorkshop({{$upcomingWorkshop->id}})' type ="checkbox" onClick = "hideupcomingmenu()"  @if($upcomingWorkshop->workshop_startTime != null) checked  @endif class = "mr-2 rounded"/>
+                <input wire:change = 'startWorkshop({{$upcomingWorkshop->id}})' type ="checkbox" @click="open = !open"  @if($upcomingWorkshop->workshop_startTime != null) checked  @endif class = "mr-2 rounded"/>
                 Started
             </li>
             <li>
@@ -118,10 +118,4 @@
   </div>
   <div class=" p-3">{{ $upcomingWorkshops->links() }}</div>
 </div>
-
-<script>
-  function hideupcomingmenu(){
-    var x = document.getElementById("menu").style.display = "none";
-  }
-  </script>
 </div>
