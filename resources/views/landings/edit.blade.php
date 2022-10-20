@@ -1,6 +1,6 @@
 @extends('layouts.app')
   @section('content')
-  <div class="w-full h-screen ">
+  <div class="w-full h-screen py-6 px-6">
     <div class="w-full bg-white shadow-md  rounded-xl py-4 ">
       <h1 class="p-3 text-black font-medium ml-2 flex justify-start sm:justify-start">Manage Landing</h1>
     
