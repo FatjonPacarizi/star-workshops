@@ -30,7 +30,7 @@ class StreamingSeeder extends Seeder
                 'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
-                'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
+                'url' => 'https://www.youtube.com/embed/3ZMUgga6SsY',
                 'status' => 'free',
                 'workshop_id' => '1',
             ],
@@ -39,7 +39,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Fonts & Colors',
                 'description' => '<h1>Setting the text color</h1>
                 <p>Control the text color of an element using the</p> <code>text-{color}</code> <p>utilities.</p>',
-                'url' => 'https://www.youtube.com/embed?v=w0KZhi3DD-0&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=3',
+                'url' => 'https://www.youtube.com/embed/w0KZhi3DD-0',
                 'status' => 'paid',
                 'workshop_id' => '1',
             ],
@@ -70,7 +70,7 @@ class StreamingSeeder extends Seeder
                 <p>A guide to configuring and customizing your Tailwind installation.</p>
                 <br>
                 <p>Because Tailwind is a framework for building bespoke user interfaces, it has been designed from the ground up with customization in mind.</p>',
-                'url' => 'https://www.youtube.com/embed?v=6UVQlB1eo5A&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=5',
+                'url' => 'https://www.youtube.com/embed/6UVQlB1eo5A',
                 'status' => 'paid',
                 'workshop_id' => '1',
             ],
@@ -87,7 +87,7 @@ class StreamingSeeder extends Seeder
                 'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
-                'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
+                'url' => 'https://www.youtube.com/embed/3ZMUgga6SsY',
                 'status' => 'free',
                 'workshop_id' => '2',
             ],  
@@ -96,7 +96,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Fonts & Colors',
                 'description' => '<h1>Setting the text color</h1>
                 <p>Control the text color of an element using the</p> <code>text-{color}</code> <p>utilities.</p>',
-                'url' => 'https://www.youtube.com/embed?v=w0KZhi3DD-0&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=3',
+                'url' => 'https://www.youtube.com/embed/w0KZhi3DD-0',
                 'status' => 'paid',
                 'workshop_id' => '2',
             ],
@@ -127,7 +127,7 @@ class StreamingSeeder extends Seeder
                 <p>A guide to configuring and customizing your Tailwind installation.</p>
                 <br>
                 <p>Because Tailwind is a framework for building bespoke user interfaces, it has been designed from the ground up with customization in mind.</p>',
-                'url' => 'https://www.youtube.com/embed?v=6UVQlB1eo5A&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=5',
+                'url' => 'https://www.youtube.com/embed/6UVQlB1eo5A',
                 'status' => 'paid',
                 'workshop_id' => '2',
             ],
@@ -144,7 +144,7 @@ class StreamingSeeder extends Seeder
                 'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
-                'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
+                'url' => 'https://www.youtube.com/embed/3ZMUgga6SsY',
                 'status' => 'free',
                 'workshop_id' => '3',
             ],
@@ -157,7 +157,7 @@ class StreamingSeeder extends Seeder
                 <code>font-sans	font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
                 font-serif	font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
                 font-mono	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;</code>',
-                'url' => 'https://www.youtube.com/embed?v=arfDRUIZOiw&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=6',
+                'url' => 'https://www.youtube.com/embed/arfDRUIZOiw',
                 'status' => 'paid',
                 'workshop_id' => '3',
             ],
@@ -166,7 +166,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Using Flexbox',
                 'description' => '<h1>Flex</h1>
                  <p>Utilities for controlling how flex items both grow and shrink.</p>',
-                'url' => 'https://www.youtube.com/embed?v=WK6u8YDYqak&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=7',
+                'url' => 'https://www.youtube.com/embed/WK6u8YDYqak',
                 'status' => 'paid',
                 'workshop_id' => '3',
             ],
@@ -179,7 +179,7 @@ class StreamingSeeder extends Seeder
                 <p>Every utility class in Tailwind can be applied conditionally at different breakpoints, which makes it a piece of cake to build complex responsive interfaces without ever leaving your HTML.</p>
                 <br>
                 <p>There are five breakpoints by default, inspired by common device resolutions:</p>',
-                'url' => 'https://www.youtube.com/embed?v=VYFjvMfVv2o&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=8',
+                'url' => 'https://www.youtube.com/embed/VYFjvMfVv2o',
                 'status' => 'paid',
                 'workshop_id' => '3',
             ],
@@ -196,7 +196,7 @@ class StreamingSeeder extends Seeder
                 'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
-                'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
+                'url' => 'https://www.youtube.com/embed/3ZMUgga6SsY',
                 'status' => 'free',
                 'workshop_id' => '4',
             ],
@@ -209,7 +209,7 @@ class StreamingSeeder extends Seeder
                 <code>font-sans	font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
                 font-serif	font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
                 font-mono	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;</code>',
-                'url' => 'https://www.youtube.com/embed?v=arfDRUIZOiw&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=6',
+                'url' => 'https://www.youtube.com/embed/arfDRUIZOiw',
                 'status' => 'paid',
                 'workshop_id' => '4',
             ],
@@ -218,7 +218,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Using Flexbox',
                 'description' => '<h1>Flex</h1>
                  <p>Utilities for controlling how flex items both grow and shrink.</p>',
-                'url' => 'https://www.youtube.com/embed?v=WK6u8YDYqak&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=7',
+                'url' => 'https://www.youtube.com/embed/WK6u8YDYqak',
                 'status' => 'paid',
                 'workshop_id' => '4',
             ],
@@ -231,7 +231,7 @@ class StreamingSeeder extends Seeder
                 <p>Every utility class in Tailwind can be applied conditionally at different breakpoints, which makes it a piece of cake to build complex responsive interfaces without ever leaving your HTML.</p>
                 <br>
                 <p>There are five breakpoints by default, inspired by common device resolutions:</p>',
-                'url' => 'https://www.youtube.com/embed?v=VYFjvMfVv2o&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=8',
+                'url' => 'https://www.youtube.com/embed/VYFjvMfVv2o',
                 'status' => 'paid',
                 'workshop_id' => '4',
             ],
@@ -248,7 +248,7 @@ class StreamingSeeder extends Seeder
                 'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
-                'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
+                'url' => 'https://www.youtube.com/embed/3ZMUgga6SsY',
                 'status' => 'free',
                 'workshop_id' => '5',
             ],
@@ -257,7 +257,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Fonts & Colors',
                 'description' => '<h1>Setting the text color</h1>
                 <p>Control the text color of an element using the</p> <code>text-{color}</code> <p>utilities.</p>',
-                'url' => 'https://www.youtube.com/embed?v=w0KZhi3DD-0&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=3',
+                'url' => 'https://www.youtube.com/embed/w0KZhi3DD-0',
                 'status' => 'paid',
                 'workshop_id' => '5',
             ],
@@ -288,7 +288,7 @@ class StreamingSeeder extends Seeder
                 <p>A guide to configuring and customizing your Tailwind installation.</p>
                 <br>
                 <p>Because Tailwind is a framework for building bespoke user interfaces, it has been designed from the ground up with customization in mind.</p>',
-                'url' => 'https://www.youtube.com/embed?v=6UVQlB1eo5A&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=5',
+                'url' => 'https://www.youtube.com/embed/6UVQlB1eo5A',
                 'status' => 'paid',
                 'workshop_id' => '5',
             ],
@@ -297,7 +297,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
-                'url' => 'https://www.youtube.com/embed?v=bxmDnn7lrnk&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw',
+                'url' => 'https://www.youtube.com/embed/bxmDnn7lrnk',
                 'status' => 'free',
                 'workshop_id' => '6',
             ],
@@ -305,7 +305,7 @@ class StreamingSeeder extends Seeder
                 'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
-                'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
+                'url' => 'https://www.youtube.com/embed/3ZMUgga6SsY',
                 'status' => 'free',
                 'workshop_id' => '6',
             ],  
@@ -314,7 +314,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Fonts & Colors',
                 'description' => '<h1>Setting the text color</h1>
                 <p>Control the text color of an element using the</p> <code>text-{color}</code> <p>utilities.</p>',
-                'url' => 'https://www.youtube.com/embed?v=w0KZhi3DD-0&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=3',
+                'url' => 'https://www.youtube.com/embed/w0KZhi3DD-0',
                 'status' => 'paid',
                 'workshop_id' => '6',
             ],
@@ -334,7 +334,7 @@ class StreamingSeeder extends Seeder
                 <li>Tailwind CSS margin</li>
                 <li>Tailwind CSS border</li>
                 <p>Project using these properties</p>',
-                'url' => 'https://www.youtube.com/embed?v=1g4W2U-l350&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=4',
+                'url' => 'https://www.youtube.com/embed/1g4W2U-l350',
                 'status' => 'paid',
                 'workshop_id' => '6',
             ],
@@ -345,7 +345,7 @@ class StreamingSeeder extends Seeder
                 <p>A guide to configuring and customizing your Tailwind installation.</p>
                 <br>
                 <p>Because Tailwind is a framework for building bespoke user interfaces, it has been designed from the ground up with customization in mind.</p>',
-                'url' => 'https://www.youtube.com/embed?v=6UVQlB1eo5A&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=5',
+                'url' => 'https://www.youtube.com/embed/6UVQlB1eo5A',
                 'status' => 'paid',
                 'workshop_id' => '6',
             ],
@@ -354,7 +354,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
-                'url' => 'https://www.youtube.com/embed?v=bxmDnn7lrnk&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw',
+                'url' => 'https://www.youtube.com/embed/bxmDnn7lrnk',
                 'status' => 'free',
                 'workshop_id' => '7',
             ],
@@ -362,7 +362,7 @@ class StreamingSeeder extends Seeder
                 'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
-                'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
+                'url' => 'https://www.youtube.com/embed/3ZMUgga6SsY',
                 'status' => 'free',
                 'workshop_id' => '7',
             ],
@@ -371,7 +371,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Fonts & Colors',
                 'description' => '<h1>Setting the text color</h1>
                 <p>Control the text color of an element using the</p> <code>text-{color}</code> <p>utilities.</p>',
-                'url' => 'https://www.youtube.com/embed?v=w0KZhi3DD-0&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=3',
+                'url' => 'https://www.youtube.com/embed/w0KZhi3DD-0',
                 'status' => 'paid',
                 'workshop_id' => '7',
             ],
@@ -391,7 +391,7 @@ class StreamingSeeder extends Seeder
                 <li>Tailwind CSS margin</li>
                 <li>Tailwind CSS border</li>
                 <p>Project using these properties</p>',
-                'url' => 'https://www.youtube.com/embed?v=1g4W2U-l350&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=4',
+                'url' => 'https://www.youtube.com/embed/1g4W2U-l350',
                 'status' => 'paid',
                 'workshop_id' => '7',
             ],
@@ -402,7 +402,7 @@ class StreamingSeeder extends Seeder
                 <p>A guide to configuring and customizing your Tailwind installation.</p>
                 <br>
                 <p>Because Tailwind is a framework for building bespoke user interfaces, it has been designed from the ground up with customization in mind.</p>',
-                'url' => 'https://www.youtube.com/embed?v=6UVQlB1eo5A&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=5',
+                'url' => 'https://www.youtube.com/embed/6UVQlB1eo5A',
                 'status' => 'paid',
                 'workshop_id' => '7',
             ],
@@ -411,7 +411,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
-                'url' => 'https://www.youtube.com/embed?v=bxmDnn7lrnk&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw',
+                'url' => 'https://www.youtube.com/embed/bxmDnn7lrnk',
                 'status' => 'free',
                 'workshop_id' => '8',
             ],
@@ -419,7 +419,7 @@ class StreamingSeeder extends Seeder
                 'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
-                'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
+                'url' => 'https://www.youtube.com/embed/3ZMUgga6SsY',
                 'status' => 'free',
                 'workshop_id' => '8',
             ],
@@ -432,7 +432,7 @@ class StreamingSeeder extends Seeder
                 <code>font-sans	font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
                 font-serif	font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
                 font-mono	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;</code>',
-                'url' => 'https://www.youtube.com/embed?v=arfDRUIZOiw&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=6',
+                'url' => 'https://www.youtube.com/embed/arfDRUIZOiw',
                 'status' => 'paid',
                 'workshop_id' => '8',
             ],
@@ -441,7 +441,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Using Flexbox',
                 'description' => '<h1>Flex</h1>
                  <p>Utilities for controlling how flex items both grow and shrink.</p>',
-                'url' => 'https://www.youtube.com/embed?v=WK6u8YDYqak&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=7',
+                'url' => 'https://www.youtube.com/embed/WK6u8YDYqak',
                 'status' => 'paid',
                 'workshop_id' => '8',
             ],
@@ -454,7 +454,7 @@ class StreamingSeeder extends Seeder
                 <p>Every utility class in Tailwind can be applied conditionally at different breakpoints, which makes it a piece of cake to build complex responsive interfaces without ever leaving your HTML.</p>
                 <br>
                 <p>There are five breakpoints by default, inspired by common device resolutions:</p>',
-                'url' => 'https://www.youtube.com/embed?v=VYFjvMfVv2o&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=8',
+                'url' => 'https://www.youtube.com/embed/VYFjvMfVv2o',
                 'status' => 'paid',
                 'workshop_id' => '8',
 
@@ -464,7 +464,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
-                'url' => 'https://www.youtube.com/embed?v=bxmDnn7lrnk&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw',
+                'url' => 'https://www.youtube.com/embed/bxmDnn7lrnk',
                 'status' => 'free',
                 'workshop_id' => '9',
             ],
@@ -472,7 +472,7 @@ class StreamingSeeder extends Seeder
                 'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
-                'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
+                'url' => 'https://www.youtube.com/embed/3ZMUgga6SsY',
                 'status' => 'free',
                 'workshop_id' => '9',
             ],
@@ -485,7 +485,7 @@ class StreamingSeeder extends Seeder
                 <p>Every utility class in Tailwind can be applied conditionally at different breakpoints, which makes it a piece of cake to build complex responsive interfaces without ever leaving your HTML.</p>
                 <br>
                 <p>There are five breakpoints by default, inspired by common device resolutions:</p>',
-                'url' => 'https://www.youtube.com/embed?v=VYFjvMfVv2o&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=8',
+                'url' => 'https://www.youtube.com/embed/VYFjvMfVv2o',
                 'status' => 'paid',
                 'workshop_id' => '9',
             ],
@@ -494,7 +494,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Cards',
                 'description' => '<h1>Tailwind CSS Cards - Flowbite</h1>
                 <p>Get started with a large variety of Tailwind CSS card examples for your web project</p>',
-                'url' => 'https://www.youtube.com/watch?v=vqKie-xmcFs&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=9',
+                'url' => 'https://www.youtube.com/embed/vqKie-xmcFs',
                 'status' => 'paid',
                 'workshop_id' => '9',
             ],            
@@ -514,7 +514,7 @@ class StreamingSeeder extends Seeder
                 <li>Tailwind CSS margin</li>
                 <li>Tailwind CSS border</li>
                 <p>Project using these properties</p>',
-                'url' => 'https://www.youtube.com/embed?v=1g4W2U-l350&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=4',
+                'url' => 'https://www.youtube.com/embed/1g4W2U-l350',
                 'status' => 'paid',
                 'workshop_id' => '9',
             ],
@@ -523,7 +523,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind: Intro & Setup',
                 'description' => '<p>Tailwind CSS makes it quicker to write and maintain the code of your application. By using this utility-first framework, 
                  you dont have to write custom CSS to style your application. Instead, you can use utility classes to control the padding, margin, color, font, shadow, and more of your application.',
-                'url' => 'https://www.youtube.com/embed?v=bxmDnn7lrnk&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw',
+                'url' => 'https://www.youtube.com/embed/bxmDnn7lrnk',
                 'status' => 'free',
                 'workshop_id' => '10',
             ],
@@ -531,7 +531,7 @@ class StreamingSeeder extends Seeder
                 'count' => 0,
                 'title' => 'Tailwind:  HTML Template',
                 'description' => '',
-                'url' => 'https://www.youtube.com/embed?v=3ZMUgga6SsY&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=2',
+                'url' => 'https://www.youtube.com/embed/3ZMUgga6SsY',
                 'status' => 'free',
                 'workshop_id' => '10',
             ],
@@ -540,7 +540,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Cards',
                 'description' => '<h1>Tailwind CSS Cards - Flowbite</h1>
                 <p>Get started with a large variety of Tailwind CSS card examples for your web project</p>',
-                'url' => 'https://www.youtube.com/watch?v=vqKie-xmcFs&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=9',
+                'url' => 'https://www.youtube.com/embed/vqKie-xmcFs',
                 'status' => 'paid',
                 'workshop_id' => '10',
 
@@ -550,7 +550,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
-                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'url' => 'https://www.youtube.com/embed/cY0XJY98d3w',
                 'status' => 'paid',
                 'workshop_id' => '10',
             ], 
@@ -559,7 +559,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
-                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'url' => 'https://www.youtube.com/embed/cY0XJY98d3w',
                 'status' => 'paid',
                 'workshop_id' => '10',
             ],
@@ -568,7 +568,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
-                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'url' => 'https://www.youtube.com/embed/cY0XJY98d3w',
                 'status' => 'paid',
                 'workshop_id' => '11',
             ],
@@ -577,7 +577,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
-                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'url' => 'https://www.youtube.com/embed/cY0XJY98d3w',
                 'status' => 'paid',
                 'workshop_id' => '12',
             ],
@@ -586,7 +586,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
-                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'url' => 'https://www.youtube.com/embed/cY0XJY98d3w',
                 'status' => 'paid',
                 'workshop_id' => '13',
             ],
@@ -595,7 +595,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
-                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'url' => 'https://www.youtube.com/embed/cY0XJY98d3w',
                 'status' => 'paid',
                 'workshop_id' => '14',
             ],
@@ -604,7 +604,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
-                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'url' => 'https://www.youtube.com/embed/cY0XJY98d3w',
                 'status' => 'paid',
                 'workshop_id' => '15',
             ],
@@ -613,7 +613,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
-                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'url' => 'https://www.youtube.com/embed/cY0XJY98d3w',
                 'status' => 'paid',
                 'workshop_id' => '16',
 
@@ -623,7 +623,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
-                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'url' => 'https://www.youtube.com/embed/cY0XJY98d3w',
                 'status' => 'paid',
                 'workshop_id' => '17',
 
@@ -633,7 +633,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
-                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'url' => 'https://www.youtube.com/embed/cY0XJY98d3w',
                 'status' => 'paid',
                 'workshop_id' => '18',
 
@@ -643,7 +643,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
-                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'url' => 'https://www.youtube.com/embed/cY0XJY98d3w',
                 'status' => 'paid',
                 'workshop_id' => '19',
 
@@ -653,7 +653,7 @@ class StreamingSeeder extends Seeder
                 'title' => 'Tailwind:  Badges',
                 'description' => '<h1>Tailwind CSS Badges - Flowbite</h1>
                  <p>Use Tailwind CSS badges as elements to show counts or labels separately or inside other components</p>',
-                'url' => 'https://www.youtube.com/embed?v=cY0XJY98d3w&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=10',
+                'url' => 'https://www.youtube.com/embed/cY0XJY98d3w',
                 'status' => 'paid',
                 'workshop_id' => '20',
 
