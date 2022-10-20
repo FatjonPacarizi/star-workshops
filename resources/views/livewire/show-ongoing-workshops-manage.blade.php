@@ -1,6 +1,5 @@
-<div class="lg:w-full w-[1000px] overflow-x-scroll bg-white shadow-md  rounded-xl py-4 ">
-    <h1 class="p-3 text-black font-medium ml-2 ">Manage workshops</h1>
-  
+<div class="lg:w-full w-[1000px] py-4">
+  <h1 class="p-3 text-black font-medium ml-2 ">Manage workshops</h1>
     <table class="w-full mx-auto" wire:loading.remove>
       <tr class="text-gray-400 text-xs border-b">
         <td class=" p-3 w-1/2">Workshop</td>
@@ -84,7 +83,7 @@
           </div>
         </td>
         <td>
-          <a href={{ route('adminsuperadmin.showParticipants',$ongoingWorkshop->id)}} class="w-fit px-3 py-2
+          <a href={{ route('adminsuperadmin.showParticipants',$ongoingWorkshop)}} class="w-fit px-3 py-2
             text-left flex items-center relative ">
             <i class="fa-solid fa-user fa-md text-gray-400"></i>
   

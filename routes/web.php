@@ -165,7 +165,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('workshops/manage/{workshop}/edit', [WorkshopController::class, 'edit']);
 
             //Show workshop participants
-            Route::get('/workshops/manage/participants/{workshopid}', [WorkshopController::class, 'showParticipants'])->name('showParticipants');
+            Route::get('/workshops/manage/participants/{workshop}', [WorkshopController::class, 'showParticipants'])->name('showParticipants');
 
 
             //Approve participant

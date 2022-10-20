@@ -199,57 +199,71 @@ class WorkshopController extends Controller
         return redirect()->back()->with('message','Congratulations you have successfuly applied');
     }
 
-    public function showParticipants($workshopid){
+    public function showParticipants(Workshop $workshopid){
+         //Secure
+         if( $workshopid->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
+          
 
-
-        $pendingParticipants = workshops_users::where(["workshop_id" => $workshopid,"application_status" => "pending"])
+        $pendingParticipants = workshops_users::where(["workshop_id" => $workshopid->id,"application_status" => "pending"])
         ->paginate(8,['*'], 'pendingParticipantsPage');
 
         
-        $approvedParticipants = workshops_users::where(["workshop_id" => $workshopid,"application_status" => "approved"])
+        $approvedParticipants = workshops_users::where(["workshop_id" => $workshopid->id,"application_status" => "approved"])
         ->paginate(8,['*'], 'approvedParticipantsPage');
 
 
-        $notapprovedParticipants = workshops_users::where(["workshop_id" => $workshopid,"application_status" => "notapproved"])
+        $notapprovedParticipants = workshops_users::where(["workshop_id" => $workshopid->id,"application_status" => "notapproved"])
         ->paginate(8,['*'], 'notapprovedParticipantsPage');
 
-        return view('manageParticipants',['workshopName'=>Workshop::select('name')->where('id',$workshopid)->get(),'pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
+        return view('manageParticipants',['workshopName'=>$workshopid->name,'pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
     }
 
-    public function showPDF($workshopid){
+    public function showPDF(Workshop $workshopid){
+         //Secure
+         if( $workshopid->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
 
-        $pendingParticipants = workshops_users::where(["workshop_id" => $workshopid,"application_status" => "pending"])
+
+        $pendingParticipants = workshops_users::where(["workshop_id" => $workshopid->id,"application_status" => "pending"])
         ->paginate(8,['*'], 'pendingParticipantsPage');
 
         
-        $approvedParticipants = workshops_users::where(["workshop_id" => $workshopid,"application_status" => "approved"])
+        $approvedParticipants = workshops_users::where(["workshop_id" => $workshopid->id,"application_status" => "approved"])
         ->paginate(8,['*'], 'approvedParticipantsPage');
 
 
-        $notapprovedParticipants = workshops_users::where(["workshop_id" => $workshopid,"application_status" => "notapproved"])
+        $notapprovedParticipants = workshops_users::where(["workshop_id" => $workshopid->id,"application_status" => "notapproved"])
         ->paginate(8,['*'], 'notapprovedParticipantsPage');
 
 
-        $pdf = PDF::loadView('managePDF', ['workshopName'=>Workshop::select('name')->where('id',$workshopid)->get(),'pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
+        $pdf = PDF::loadView('managePDF', ['workshopName'=>$workshopid->name,'pendingParticipants'=>$pendingParticipants,'approvedParticipants'=>$approvedParticipants,'notapprovedParticipants'=>$notapprovedParticipants]);
         return $pdf->download('Workshop.pdf');
     }
 
     public function approveParticipant($workshopid,$participantantID){
-        
-        workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID])->update(['application_status' => 'approved']);
+         $workshop = Workshop::find($workshopid);
+         //Secure
+         if( $workshop->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
+
+         workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID])->update(['application_status' => 'approved']);
 
         return redirect()->back()->with("tab",request('tab'));
     }
 
     public function declineParticipant($workshopid,$participantantID){
-         
+         $workshop = Workshop::find($workshopid);
+         //Secure
+         if( $workshop->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
+
          workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID])->update(['application_status' => 'notapproved']);
 
          return redirect()->back()->with("tab",request('tab'));
     }
 
     public function deleteParticipant($workshopid,$participantantID){
-       
+         $workshop = Workshop::find($workshopid);
+         //Secure
+         if( $workshop->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
+
          workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID])->delete();
 
          return redirect()->back()->with("tab",request('tab'));

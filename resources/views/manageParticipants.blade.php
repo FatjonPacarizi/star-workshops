@@ -5,7 +5,7 @@
 
 @extends('layouts.app')
   @section('content')
-  <div class="w-full h-screen px-10  ">
+  <div class="w-full h-screen px-5 md:px-10  ">
 
             @php  
               $tab = 0;
@@ -21,8 +21,8 @@
               active : 'bg-white shadow',
               inactive: ' hover:shadow '
              }">
-             <div class = "flex items-center mt-5">
-             <a href="{{ route('adminsuperadmin.showManageWorkshops') }}" ><i class="fa-solid fa-arrow-left mr-5"></i></a>
+             <div class = "flex flex-wrap items-center mt-5">
+             <a href="{{ route('adminsuperadmin.showManageWorkshops') }}" ><i class="fa-solid fa-arrow-left m-2 md:mr-5"></i></a>
              <div class="w-fit flex border border-gray-200 rounded-xl bg-gray-100 ">
                  
                   @php  
@@ -37,18 +37,18 @@
                 @endphp
 
                
-                <button  onClick = "changeURL('?approvedParticipantsPage={{$approvedParticipantsTab}}')"  :class = "tab === 0 ? active: inactive" class = "px-5 h-8 w-32 rounded-xl flex justify-center items-center text-xs rounded-xl" @click="tab = 0">APPROVED
+                <button  onClick = "changeURL('?approvedParticipantsPage={{$approvedParticipantsTab}}')"  :class = "tab === 0 ? active: inactive" class = "px-5 h-8 md:w-32 rounded-xl flex justify-center items-center text-xs rounded-xl md:uppercase" @click="tab = 0">Approved
                 @if(count($approvedParticipants)) 
                   <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-slate-400">{{count($approvedParticipants)}}</p>
                   @endif
                 </button>
-                  <button onClick = "changeURL('?pendingParticipantsPage={{$pendingParticipantsTab}}')" :class = "tab === 1 ? active: inactive" class = "px-5 h-8 ml-1 w-32 rounded-xl flex justify-center items-center text-xs rounded-xl" @click="tab = 1">
-                    PENDING 
+                  <button onClick = "changeURL('?pendingParticipantsPage={{$pendingParticipantsTab}}')" :class = "tab === 1 ? active: inactive" class = "px-5 h-8 ml-1  md:w-32 rounded-xl flex justify-center items-center text-xs rounded-xl md:uppercase" @click="tab = 1">
+                    Pending 
                   @if(count($pendingParticipants)) 
                   <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-red-400">{{count($pendingParticipants)}}</p>
                   @endif
                 </button>
-                <button  onClick = "changeURL('?notapprovedParticipantsPage={{$notapprovedParticipantsTab}}')"  :class = "tab === 2 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center text-xs rounded-xl" @click="tab = 2">NOT APPROVED
+                <button  onClick = "changeURL('?notapprovedParticipantsPage={{$notapprovedParticipantsTab}}')"  :class = "tab === 2 ? active: inactive" class = "px-5 h-8 ml-1 rounded-xl flex items-center text-xs rounded-xl md:uppercase" @click="tab = 2">Not Approved
                 @if(count($notapprovedParticipants)) 
                   <p class="w-4 h-4 text-xs flex justify-center items-center text-white ml-2 rounded-full bg-slate-400">{{count($notapprovedParticipants)}}</p>
                   @endif
@@ -57,11 +57,11 @@
              </div>
     <div class="w-full bg-white rounded-xl shadow-md py-4 mt-5">
       <h1 class="p-3 text-black font-medium ml-2 ">Workshop participants Managment</h1>
-
-              <div  x-show="tab === 1">
+              <div  class="lg:w-full overflow-x-scroll" x-show="tab === 1">
+                <div class="w-[1000px]">
                 <div class="flex items-center p-5 justify-between">
                   <p class = "text-left h-8 text-xl text-orange-400 w-2/4">Pending</p>
-                  <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
+                  <p class = "w-1/2 font-bold text-end">{{$workshopName}}</p>
                 </div>
                 <table class="w-full ">
                   <tr class="text-gray-400 text-xs ">
@@ -126,10 +126,12 @@
                 {{ $pendingParticipants->links() }}
                 </div>
               </div>
-              <div x-show="tab === 0" id="modal">
+              </div>
+              <div  class="lg:w-full overflow-x-scroll" x-show="tab === 0" id="modal">
+                <div class="w-[800px]">
                 <div class="flex items-center p-5 justify-between">
                   <p class = "text-left h-8 text-xl text-green-400 w-2/4">Approved</p>
-                  <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
+                  <p class = "w-1/2 font-bold text-end">{{$workshopName}}</p>
                 </div>
                 <table class="w-full">
                   <tr class="text-gray-400 text-xs">
@@ -184,11 +186,13 @@
                <div class="p-3">
                   {{ $approvedParticipants->links() }}
               </div>
+                </div>
               </div>
-              <div x-show="tab === 2">
+              <div class="lg:w-full overflow-x-scroll" x-show="tab === 2">
+                <div class="w-[800px]">
                 <div class="flex items-center p-5 justify-between">
                   <p class = "text-left h-8 text-xl text-red-400 w-2/4">Not Approved</p>
-                  <p class = "w-1/2 font-bold text-end">{{$workshopName[0]->name}}</p>
+                  <p class = "w-1/2 font-bold text-end">{{$workshopName}}</p>
                 </div>
                 <table class="w-full">
                   <tr class="text-gray-400 text-xs">
@@ -243,6 +247,7 @@
             <div class="p-3">
                 {{ $notapprovedParticipants->links() }}
             </div>
+              </div>
               </div>
          </div>
         </div>

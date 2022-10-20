@@ -9,7 +9,7 @@
       @csrf
       @method('PUT')
       <div class="mb-6 flex flex-col md:flex-row md:items-center">
-        <label class="w-28 text-sm mx-5">Name</label>
+        <label class="w-28 text-sm mx-3 md:mx-5">Name</label>
         <div class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
           <input type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Name" wire:model.defer="name"
             />
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="mb-6 flex flex-col md:flex-row md:items-center">
-        <label class="w-28 text-sm mx-5">Participants Limit</label>
+        <label class="w-28 text-sm mx-3 md:mx-5">Participants Limit</label>
         <div class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
           <input type="number" class="border border-gray-200 rounded p-1 w-full" placeholder="Limit participants"
             name="limited_participants" wire:model.defer="limited_participants" />
@@ -30,7 +30,7 @@
       </div>
 
       <div class="mb-6 flex flex-col md:flex-row md:items-center" wire:ignore>
-        <label class="w-28 text-sm mx-5" for="">Description</label>
+        <label class="w-28 text-sm mb-2 md:mb-0 mx-3 md:mx-5" for="">Description</label>
         <textarea type="text" id = "description"  name = "description" wire:model.defer="description"  class="border border-gray-200 rounded p-1 w-full ">{{$workshop->description}}</textarea>
       </div>
       @push('scripts')
@@ -81,7 +81,7 @@
        @endpush
 
       <div class="mb-6 flex flex-col md:flex-row md:items-center">
-        <label class="w-28 text-sm mx-5 ">Country</label>
+        <label class="w-28 text-sm mx-3 md:mx-5 ">Country</label>
         <div class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
           <select class="w-full rounded border border-gray-200 p-1" name='country_id' wire:model.defer="country_id">
             @foreach($countries as $country)
@@ -95,7 +95,7 @@
         </div>
       </div>
       <div class="mb-6 flex flex-col md:flex-row md:items-center">
-        <label class="w-28 text-sm mx-5 ">City</label>
+        <label class="w-28 text-sm mx-3 md:mx-5 ">City</label>
         <div class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
           <select class="w-full rounded border border-gray-200 p-1" name='city_id' wire:model.defer="city_id">
             @foreach($cities as $city)
@@ -109,7 +109,7 @@
         </div>
       </div>
       <div class="mb-6 flex flex-col md:flex-row md:items-center">
-        <label class="w-28 text-sm mx-5 ">Type</label>
+        <label class="w-28 text-sm mx-3 md:mx-5 ">Type</label>
         <div class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
           <select class="w-full  rounded border border-gray-200 p-1" name='type_id' wire:model.defer="type_id">
             @foreach($types as $type)
@@ -122,7 +122,7 @@
         </div>
       </div>
       <div class="mb-6 flex flex-col md:flex-row md:items-center">
-        <label class="w-28 text-sm mx-5 ">Categories</label>
+        <label class="w-28 text-sm mx-3 md:mx-5 ">Categories</label>
         <div class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
           <select class="w-full rounded border border-gray-200 p-1" name='category_id' wire:model.defer="category_id">
             @foreach($categories as $category)
@@ -135,7 +135,7 @@
         </div>
       </div>
       <div class="mb-6 flex flex-col md:flex-row md:items-center">
-        <label class="w-28 text-sm mx-5">Time</label>
+        <label class="w-28 text-sm mx-3 md:mx-5">Time</label>
         <div class="mx-5 md:mx-1">
           <input type="datetime-local" name="time" wire:model.defer="time" class="border border-gray-300 rounded p-1 "/>
           @error('time')
@@ -147,7 +147,7 @@
         @endif
       </div>
       <div class="mb-6 flex flex-col md:flex-row md:items-center">
-        <label class="w-28 text-sm mx-5">Link</label>
+        <label class="w-28 text-sm mx-3 md:mx-5">Link</label>
         <div class="w-11/12 md:w-full mx-auto mt-2 md:mt-0 md:mx-5">
           <input type="text" class="border border-gray-200 rounded p-1 w-full" placeholder="Link" name="filedlink" wire:model.defer="filedlink"/>
           @error('filedlink')
@@ -156,7 +156,7 @@
         </div>
       </div>
       <div class="mb-6 flex flex-col md:flex-row md:items-center">
-        <label class="w-28 text-sm mx-5">Image</label>
+        <label class="w-28 text-sm mb-2 md:mb-0 mx-3 md:mx-5">Image</label>
         <input class = "mx-5 md:mx-1" type="file" wire:model.defer="img_workshop" name="img_workshop" />
         <img class="object-cover rounded m-5 md:m-1" alt="hero" src="{{$workshop->img_workshop ? asset('/storage/' . $workshop->img_workshop) : asset('/img/test.jpg')}}" width="100">
       </div>

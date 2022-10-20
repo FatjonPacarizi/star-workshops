@@ -1,11 +1,9 @@
 <nav x-data="{ open: false }">
     <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
-            <div class="flex  items-center">
-                <div class="shrink-0 flex items-center ">
-                   
-                </div>
-                <p class="text-gray-500 ml-5"><a href="/dashboard">Dashboard /</a> <a class="text-black" href="/{{Request::segment(1)}}/{{Request::segment(2)}}">{{ucfirst(Request::segment(1))}}</a></p>
+            <div class="flex  items-center ">
+                <i class="fa-solid fa-desktop hidden fa-sm ml-1 -mb-0.5 text-gray-400 lg:block"></i>
+                <p class="text-gray-500 mx-5  lg:ml-2"><a href="/dashboard">Dashboard /</a> <a class="text-black" href="/{{Request::segment(1)}}/{{Request::segment(2)}}">{{ucfirst(Request::segment(1))}}</a></p>
             </div>
             <div class=" flex items-center sm:ml-6">
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
