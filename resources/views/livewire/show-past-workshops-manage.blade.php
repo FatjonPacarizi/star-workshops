@@ -47,7 +47,7 @@
                   class="py-1 px-3 border-b block hover:bg-indigo-100 ">
                   <i class="fa-solid fa-pen mr-1 fa-sm"></i>Edit</a>
               <li>
-                <button wire:click = 'deleteWorkshop({{$pastsWorkshop->id}})' onClick = "hidepastmenu()" class="w-full text-left text-red-400 py-1 px-3 hover:bg-indigo-100 border-b">
+                <button wire:click = 'deleteWorkshop({{$pastsWorkshop->id}})'  @click="open = !open" class="w-full text-left text-red-400 py-1 px-3 hover:bg-indigo-100 border-b">
                   <i class="fa-solid fa-trash-can   fa-sm"></i> Delete
                 </button>
               </li>
@@ -57,7 +57,7 @@
             </li>
             <li class = "flex items-center px-3 py-1 border-b hover:bg-indigo-100">
               <i class="fa-regular fa-calendar-check mr-1.5 text-red-400"></i>
-              <input wire:change = 'endWorkshop({{$pastsWorkshop->id}})' type ="checkbox"  onClick = "hidepastmenu()" @if($pastsWorkshop->workshop_endTime != null) checked  @endif class = "mr-2 rounded"/>
+              <input wire:change = 'endWorkshop({{$pastsWorkshop->id}})' type ="checkbox"   @click="open = !open" @if($pastsWorkshop->workshop_endTime != null) checked  @endif class = "mr-2 rounded"/>
               Ended
             </li>
               <li>
