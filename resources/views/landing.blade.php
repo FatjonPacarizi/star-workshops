@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="text-white body-font bg-red-600 bg-red-600 pt-24">
-  <div class="container mx-auto flex px-5 py-24 items-center justify-center">
+  <div class="container mx-auto flex flex-col relative px-5 py-24 items-center justify-center">
     <div class="text-center lg:w-2/3 w-full">
       <h1 class="title-font sm:text-1xl text-1xl mb-4 font-medium text-white">{{$section1->heading}}</h1>
       <div class="mb-8 leading-relaxed text-white">{!! $section1->paragraf_1 !!}</div>
@@ -13,7 +13,7 @@
     </div>
     @if(Auth::check())
     @if(Auth::user()->user_status == 'user')
-    <div class="min-w-32 bg-white min-h-32 p-1 mb-2 float-left font-medium">
+    <div class="min-w-32 bg-white min-h-32 p-1 mt-5 lg:absolute right-10 mb-2 font-medium">
       <div class="w-32 flex-none rounded-t lg:rounded-t-none lg:rounded-l text-center shadow-lg ">
           <div class="block rounded-t overflow-hidden  text-center text-black">
             <div class="bg-red-500 text-white py-1">
