@@ -1,5 +1,5 @@
 <div>
-<div class="w-full flex justify-center">
+<div class="w-full flex justify-center sm:justify-center">
         <table class="w-full mx-4  font-thin" wire:loading.remove>
           <tr class="border-y border-gray-200 ">
             <td class="font-bold p-3 ">#</td>
@@ -24,7 +24,7 @@
           <div class=" relative flex items-center " x-data="{ open: false }">
             <i class="fa-solid fa-ellipsis-vertical cursor-pointer w-3" @click="open = !open"></i>
   
-            <ul id = "ongoingmenu" class="bg-white absolute top-0 mt-2 z-10 shadow-lg border border-gray-100 rounded-lg w-40 py-1 "
+            <ul id = "menu" class="bg-white absolute top-2 z-10 shadow-lg border border-gray-100 rounded-lg w-40 py-1 "
               x-show="open" @click.outside="open = false">
               <li>
                 <p class="text-xs pl-3 p-2 text-gray-400 ">Manage Faq</p>
