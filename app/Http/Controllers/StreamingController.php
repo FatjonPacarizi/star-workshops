@@ -24,6 +24,7 @@ class StreamingController extends Controller
             $streaming1 = true;
 
         $streaming = Streaming::find($id);
+       // dd($streaming);
         if($streaming1 || $streaming->status == 'free'){
             Streaming::find($id)->increment('count');
         }        
