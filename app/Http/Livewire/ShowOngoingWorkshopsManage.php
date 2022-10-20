@@ -83,7 +83,6 @@ class ShowOngoingWorkshopsManage extends Component
         $workshop = Workshop::find($id);
 
         if($workshop->workshop_endTime != null) $workshop_endTime = null;
-    
         
         Workshop::where('id',$id)->update(['workshop_endTime' => $workshop_endTime]);
 
