@@ -1,5 +1,5 @@
-<div class="lg:w-full w-[1000px] overflow-x-scroll bg-white shadow rounded-xl py-4 ">
-    <h1 class="p-3 text-black font-medium ml-2 ">Manage workshops</h1>
+<div class="lg:w-full w-[1000px] py-4">
+  <h1 class="p-3 text-black font-medium ml-2 ">Manage workshops</h1>
     <table class="w-full mx-auto" wire:loading.remove>
       <tr class="text-gray-400 text-xs">
         <td class=" p-3 w-1/2">Workshop</td>

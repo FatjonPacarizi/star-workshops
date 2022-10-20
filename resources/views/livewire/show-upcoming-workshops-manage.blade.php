@@ -1,4 +1,4 @@
-<div class="lg:w-full w-[1000px] bg-white py-4">
+<div class="lg:w-full w-[1000px] py-4">
   <div class="w-full">
   <h1 class="p-3 text-black font-medium ml-2 ">Manage workshops</h1>
 
@@ -39,8 +39,8 @@
         <div class="relative  flex items-center" x-data="{ open: false }" style = "display:relative;">
           <i class="fa-solid fa-ellipsis-vertical cursor-pointer w-3" @click="open = !open"></i>
 
-          <ul id = "menu" class="bg-white fixed left-0 top-0 mt-2 z-10 shadow-lg border border-gray-100 rounded-lg w-40 py-1 "
-            x-show="open" @click.outside="open = false">
+          <ul id = "menu" class="bg-white mt-2 z-10 shadow-lg border border-gray-100 rounded-lg w-40 py-1 "
+            x-show="open" @click.outside="open = false" style = "position:absolute; top:0;z-index:1000;">
             <li>
               <p class="text-xs pl-3 p-2 text-gray-400 ">Manage Workshop</p>
             </li>
