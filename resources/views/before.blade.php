@@ -1,4 +1,4 @@
-<div class="bg-gray-200 container flex justify-between mx-auto mb-1">
+<div class="bg-gray-200 flex justify-between mb-1">
   <div class="flex justify-start">
     <button type="button" wire:click="goToPreviousMonth" class="bg-gray-800 text-white rounded-l-md border-r border-gray-100 py-2 hover:bg-red-600 hover:text-white px-3">
       <div class="flex flex-row align-middle">

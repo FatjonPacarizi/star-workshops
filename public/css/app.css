@@ -1341,6 +1341,18 @@ select {
 .m-5 {
   margin: 1.25rem;
 }
+<<<<<<< HEAD
+=======
+.m-1 {
+  margin: 0.25rem;
+}
+.m-4 {
+  margin: 1rem;
+}
+.m-10 {
+  margin: 2.5rem;
+}
+>>>>>>> f95a8896ab29cc3fc847aab4435eef2cd2ff01e0
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1544,6 +1556,9 @@ select {
 .ml-auto {
   margin-left: auto;
 }
+.mt-20 {
+  margin-top: 5rem;
+}
 .mb-5 {
   margin-bottom: 1.25rem;
 }
@@ -1568,6 +1583,27 @@ select {
 .mt-24 {
   margin-top: 6rem;
 }
+<<<<<<< HEAD
+=======
+.-mt-40 {
+  margin-top: -10rem;
+}
+.mr-0 {
+  margin-right: 0px;
+}
+.mb-72 {
+  margin-bottom: 18rem;
+}
+.-mb-0\.5 {
+  margin-bottom: -0.125rem;
+}
+.-mb-0 {
+  margin-bottom: -0px;
+}
+.mr-12 {
+  margin-right: 3rem;
+}
+>>>>>>> f95a8896ab29cc3fc847aab4435eef2cd2ff01e0
 .block {
   display: block;
 }
@@ -3327,8 +3363,13 @@ select {
     margin-left: auto;
   }
 
+<<<<<<< HEAD
   .sm\:mb-2 {
     margin-bottom: 0.5rem;
+=======
+  .sm\:ml-2 {
+    margin-left: 0.5rem;
+>>>>>>> f95a8896ab29cc3fc847aab4435eef2cd2ff01e0
   }
 
   .sm\:block {
@@ -3410,6 +3451,10 @@ select {
 
   .sm\:justify-start {
     justify-content: flex-start;
+  }
+
+  .sm\:justify-end {
+    justify-content: flex-end;
   }
 
   .sm\:justify-center {
@@ -3569,6 +3614,11 @@ select {
   .md\:mx-1 {
     margin-left: 0.25rem;
     margin-right: 0.25rem;
+  }
+
+  .md\:mx-96 {
+    margin-left: 24rem;
+    margin-right: 24rem;
   }
 
   .md\:mt-0 {
@@ -3831,6 +3881,13 @@ select {
     margin-bottom: 0px;
   }
 
+<<<<<<< HEAD
+=======
+  .lg\:ml-2 {
+    margin-left: 0.5rem;
+  }
+
+>>>>>>> f95a8896ab29cc3fc847aab4435eef2cd2ff01e0
   .lg\:block {
     display: block;
   }

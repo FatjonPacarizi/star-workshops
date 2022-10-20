@@ -118,4 +118,13 @@
   </div>
   <div class=" p-3">{{ $upcomingWorkshops->links() }}</div>
 </div>
+<<<<<<< HEAD
+=======
+
+<script>
+  function hideupcomingmenu(){
+    var x = document.getElementById("menu").style.display = "none";
+  }
+  </script>
+>>>>>>> f95a8896ab29cc3fc847aab4435eef2cd2ff01e0
 </div>
