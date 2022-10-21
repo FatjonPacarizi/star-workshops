@@ -1,5 +1,5 @@
 /**
- * TinyMCE version 6.2.0 (2022-09-08)
+ * TinyMCE version 6.1.2 (2022-07-29)
  */
 
 (function () {
@@ -51,11 +51,6 @@
     };
 
     const noop = () => {
-    };
-    const constant = value => {
-      return () => {
-        return value;
-      };
     };
     const tripleEquals = (a, b) => {
       return a === b;
@@ -353,9 +348,11 @@
       r[i] = x;
     };
     const internalFilter = (obj, pred, onTrue, onFalse) => {
+      const r = {};
       each(obj, (x, i) => {
         (pred(x, i) ? onTrue : onFalse)(x, i);
       });
+      return r;
     };
     const filter = (obj, pred) => {
       const t = {};
@@ -369,17 +366,16 @@
 
     var global$2 = tinymce.util.Tools.resolve('tinymce.util.URI');
 
-    const isAnchor = elm => isNonNullable(elm) && elm.nodeName.toLowerCase() === 'a';
+    const isAnchor = elm => elm && elm.nodeName.toLowerCase() === 'a';
     const isLink = elm => isAnchor(elm) && !!getHref(elm);
     const collectNodesInRange = (rng, predicate) => {
       if (rng.collapsed) {
         return [];
       } else {
         const contents = rng.cloneContents();
-        const firstChild = contents.firstChild;
-        const walker = new global$3(firstChild, contents);
+        const walker = new global$3(contents.firstChild, contents);
         const elements = [];
-        let current = firstChild;
+        let current = contents.firstChild;
         do {
           if (predicate(current)) {
             elements.push(current);
@@ -390,8 +386,8 @@
     };
     const hasProtocol = url => /^\w+:/i.test(url);
     const getHref = elm => {
-      var _a, _b;
-      return (_b = (_a = elm.getAttribute('data-mce-href')) !== null && _a !== void 0 ? _a : elm.getAttribute('href')) !== null && _b !== void 0 ? _b : '';
+      const href = elm.getAttribute('data-mce-href');
+      return href ? href : elm.getAttribute('href');
     };
     const applyRelTargetRules = (rel, isUnsafe) => {
       const rules = ['noopener'];
@@ -409,14 +405,13 @@
     const getAnchorElement = (editor, selectedElm) => {
       selectedElm = selectedElm || editor.selection.getNode();
       if (isImageFigure(selectedElm)) {
-        return Optional.from(editor.dom.select('a[href]', selectedElm)[0]);
+        return editor.dom.select('a[href]', selectedElm)[0];
       } else {
-        return Optional.from(editor.dom.getParent(selectedElm, 'a[href]'));
+        return editor.dom.getParent(selectedElm, 'a[href]');
       }
     };
-    const isInAnchor = (editor, selectedElm) => getAnchorElement(editor, selectedElm).isSome();
     const getAnchorText = (selection, anchorElm) => {
-      const text = anchorElm.fold(() => selection.getContent({ format: 'text' }), anchorElm => anchorElm.innerText || anchorElm.textContent || '');
+      const text = anchorElm ? anchorElm.innerText || anchorElm.textContent : selection.getContent({ format: 'text' });
       return trimCaretContainers(text);
     };
     const hasLinks = elements => global$4.grep(elements, isLink).length > 0;
@@ -427,7 +422,7 @@
       const elements = collectNodesInRange(editor.selection.getRng(), isElement);
       return elements.length === 0;
     };
-    const isImageFigure = elm => isNonNullable(elm) && elm.nodeName === 'FIGURE' && /\bimage\b/i.test(elm.className);
+    const isImageFigure = elm => elm && elm.nodeName === 'FIGURE' && /\bimage\b/i.test(elm.className);
     const getLinkAttrs = data => {
       const attrs = [
         'title',
@@ -472,14 +467,13 @@
       editor.selection.select(anchorElm);
     };
     const createLink = (editor, selectedElm, text, linkAttrs) => {
-      const dom = editor.dom;
       if (isImageFigure(selectedElm)) {
-        linkImageFigure(dom, selectedElm, linkAttrs);
+        linkImageFigure(editor, selectedElm, linkAttrs);
       } else {
         text.fold(() => {
           editor.execCommand('mceInsertLink', false, linkAttrs);
         }, text => {
-          editor.insertContent(dom.createHTML('a', linkAttrs, dom.encode(text)));
+          editor.insertContent(editor.dom.createHTML('a', linkAttrs, editor.dom.encode(text)));
         });
       }
     };
@@ -491,12 +485,12 @@
         if (data.href === attachState.href) {
           attachState.attach();
         }
-        anchorElm.fold(() => {
-          createLink(editor, selectedElm, data.text, linkAttrs);
-        }, elm => {
+        if (anchorElm) {
           editor.focus();
-          updateLink(editor, elm, data.text, linkAttrs);
-        });
+          updateLink(editor, anchorElm, data.text, linkAttrs);
+        } else {
+          createLink(editor, selectedElm, data.text, linkAttrs);
+        }
       });
     };
     const unlinkSelection = editor => {
@@ -565,22 +559,20 @@
       editor.hasPlugin('rtc', true) ? editor.execCommand('unlink') : unlinkDomMutation(editor);
     };
     const unlinkImageFigure = (editor, fig) => {
-      var _a;
       const img = editor.dom.select('img', fig)[0];
       if (img) {
         const a = editor.dom.getParents(img, 'a[href]', fig)[0];
         if (a) {
-          (_a = a.parentNode) === null || _a === void 0 ? void 0 : _a.insertBefore(img, a);
+          a.parentNode.insertBefore(img, a);
           editor.dom.remove(a);
         }
       }
     };
-    const linkImageFigure = (dom, fig, attrs) => {
-      var _a;
-      const img = dom.select('img', fig)[0];
+    const linkImageFigure = (editor, fig, attrs) => {
+      const img = editor.dom.select('img', fig)[0];
       if (img) {
-        const a = dom.create('a', attrs);
-        (_a = img.parentNode) === null || _a === void 0 ? void 0 : _a.insertBefore(a, img);
+        const a = editor.dom.create('a', attrs);
+        img.parentNode.insertBefore(a, img);
         a.appendChild(img);
       }
     };
@@ -621,14 +613,8 @@
         text: initialData.text,
         title: initialData.title
       };
-      const getTitleFromUrlChange = url => {
-        var _a;
-        return someIf(persistentData.title.length <= 0, Optional.from((_a = url.meta) === null || _a === void 0 ? void 0 : _a.title).getOr(''));
-      };
-      const getTextFromUrlChange = url => {
-        var _a;
-        return someIf(persistentData.text.length <= 0, Optional.from((_a = url.meta) === null || _a === void 0 ? void 0 : _a.text).getOr(url.value));
-      };
+      const getTitleFromUrlChange = url => someIf(persistentData.title.length <= 0, Optional.from(url.meta.title).getOr(''));
+      const getTextFromUrlChange = url => someIf(persistentData.text.length <= 0, Optional.from(url.meta.text).getOr(url.value));
       const onUrlChange = data => {
         const text = getTextFromUrlChange(data.url);
         const title = getTitleFromUrlChange(data.url);
@@ -642,8 +628,8 @@
         }
       };
       const onCatalogChange = (data, change) => {
-        const catalog = findCatalog(linkCatalog, change).getOr([]);
-        return getDelta(persistentData.text, change, catalog, data);
+        const catalog = findCatalog(linkCatalog, change.name).getOr([]);
+        return getDelta(persistentData.text, change.name, catalog, data);
       };
       const onChange = (getData, change) => {
         const name = change.name;
@@ -653,7 +639,7 @@
             'anchor',
             'link'
           ], name)) {
-          return onCatalogChange(getData(), name);
+          return onCatalogChange(getData(), change);
         } else if (name === 'text' || name === 'title') {
           persistentData[name] = getData()[name];
           return Optional.none();
@@ -744,7 +730,7 @@
       }
     };
     const getLinks = editor => {
-      const extractor = item => editor.convertURL(item.value || item.url || '', 'href');
+      const extractor = item => editor.convertURL(item.value || item.url, 'href');
       const linkList = getLinkList(editor);
       return new Promise(resolve => {
         if (isString(linkList)) {
@@ -810,11 +796,11 @@
       const dom = editor.dom;
       const onlyText = isOnlyTextSelected(editor);
       const text = onlyText ? Optional.some(getAnchorText(editor.selection, anchor)) : Optional.none();
-      const url = anchor.bind(anchorElm => Optional.from(dom.getAttrib(anchorElm, 'href')));
-      const target = anchor.bind(anchorElm => Optional.from(dom.getAttrib(anchorElm, 'target')));
-      const rel = anchor.bind(anchorElm => nonEmptyAttr(dom, anchorElm, 'rel'));
-      const linkClass = anchor.bind(anchorElm => nonEmptyAttr(dom, anchorElm, 'class'));
-      const title = anchor.bind(anchorElm => nonEmptyAttr(dom, anchorElm, 'title'));
+      const url = anchor ? Optional.some(dom.getAttrib(anchor, 'href')) : Optional.none();
+      const target = anchor ? Optional.from(dom.getAttrib(anchor, 'target')) : Optional.none();
+      const rel = nonEmptyAttr(dom, anchor, 'rel');
+      const linkClass = nonEmptyAttr(dom, anchor, 'class');
+      const title = nonEmptyAttr(dom, anchor, 'title');
       return {
         url,
         text,
@@ -835,7 +821,7 @@
           anchor: AnchorListOptions.getAnchors(editor),
           link: links
         },
-        optNode: linkNode,
+        optNode: Optional.from(linkNode),
         flags: { titleEnabled: shouldShowLinkTitle(editor) }
       };
     });
@@ -1033,12 +1019,12 @@
       return () => editor.off('NodeChange', toggler);
     };
     const toggleActiveState = editor => api => {
-      const updateState = () => api.setActive(!editor.mode.isReadOnly() && isInAnchor(editor, editor.selection.getNode()));
+      const updateState = () => api.setActive(!editor.mode.isReadOnly() && getAnchorElement(editor, editor.selection.getNode()) !== null);
       updateState();
       return toggleState(editor, updateState);
     };
     const toggleEnabledState = editor => api => {
-      const updateState = () => api.setEnabled(isInAnchor(editor, editor.selection.getNode()));
+      const updateState = () => api.setEnabled(getAnchorElement(editor, editor.selection.getNode()) !== null);
       updateState();
       return toggleState(editor, updateState);
     };
@@ -1106,13 +1092,13 @@
       };
       const onSetupLink = buttonApi => {
         const node = editor.selection.getNode();
-        buttonApi.setEnabled(isInAnchor(editor, node));
+        buttonApi.setEnabled(getAnchorElement(editor, node) !== null);
         return noop;
       };
       const getLinkText = value => {
         const anchor = getAnchorElement(editor);
         const onlyText = isOnlyTextSelected(editor);
-        if (anchor.isNone() && onlyText) {
+        if (!anchor && onlyText) {
           const text = getAnchorText(editor.selection, anchor);
           return Optional.some(text.length > 0 ? text : value);
         } else {
@@ -1127,10 +1113,10 @@
           onSetup: toggleActiveState(editor)
         },
         label: 'Link',
-        predicate: node => hasContextToolbar(editor) && isInAnchor(editor, node),
+        predicate: node => !!getAnchorElement(editor, node) && hasContextToolbar(editor),
         initValue: () => {
           const elm = getAnchorElement(editor);
-          return elm.fold(constant(''), getHref);
+          return !!elm ? getHref(elm) : '';
         },
         commands: [
           {
@@ -1140,7 +1126,7 @@
             primary: true,
             onSetup: buttonApi => {
               const node = editor.selection.getNode();
-              buttonApi.setActive(isInAnchor(editor, node));
+              buttonApi.setActive(!!getAnchorElement(editor, node));
               return toggleActiveState(editor)(buttonApi);
             },
             onAction: formApi => {

@@ -47,20 +47,25 @@
                                 </div>
                                 <div>
                                     @if (Auth::user()->unreadNotifications ->count() > 0 )
-                                    @foreach(Auth::user()->unreadNotifications as $notification)
-                                    <p class="m-1 text-xs">Workshop <b> {{ $notification->data['name'] }} </b> has just added.</p>
-                                    <hr class="m-1">
-                                    @endforeach
-                                    <a href="/markAsRead">
-                                        <p class="text-red-600 text-xs m-1 text-center">Mark all as read
+                                        @foreach(Auth::user()->unreadNotifications as $notification)
+                                            @if($notification->type == "App\Notifications\NewNotification")
+                                                <p class="m-1 text-xs">Workshop <b> {{ $notification->data['name'] }} </b> has just added.</p>
+                                                <hr class="m-1">
+                                            @else
+                                                <p class="m-1 text-xs">New applicant <b> {{ $notification->data }} </b> pending</p>
+                                                <hr class="m-1">
+                                            @endif
+                                        @endforeach
+                                        <a href="/markAsRead">
+                                            <p class="text-red-600 text-xs m-1 text-center">Mark all as read
+                                            </p>
+                                        </a>
+                                        @else
+                                        <p class="m-2 text-xs">There are no new notifications.</p>
+                                        <hr>
+                                        <p class="text-center m-1 text-xs text-sky-800">
+                                            <a href="/notification">View all notifications</a>
                                         </p>
-                                    </a>
-                                    @else
-                                    <p class="m-2 text-xs">There are no new notifications.</p>
-                                    <hr>
-                                    <p class="text-center m-1 text-xs text-sky-800">
-                                        <a href="/notification">View all notifications</a>
-                                    </p>
                                     @endif
                                 </div>
                             </x-slot>
