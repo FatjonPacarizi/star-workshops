@@ -52,6 +52,7 @@
                                             </a>
                                             @endif
                                         @endif
+                                    @endif
                                 @endif
                             @else {{--  limit not reached, not applyed yet --}}
                                 @can('is_admin_or_superadmin')
