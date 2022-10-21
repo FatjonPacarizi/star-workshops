@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use PDF;
+use Session;
+use Carbon\Carbon;
 use App\Models\City;
 use App\Models\Type;
 use App\Models\User;
@@ -10,19 +12,15 @@ use App\Models\Country;
 use App\Models\Category;
 use App\Models\Workshop;
 use App\Models\Streaming;
-use Illuminate\Support\Str;
-use App\Models\workshops_users;
-use App\Mail\newWorkshopEmailSender;
-use App\Models\streamings_workshops;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
-use ParagonIE\ConstantTime\Base64UrlSafe;
-use App\Http\Requests\StoreWorkshopRequest;
-use App\Http\Requests\UpdateWorkshopRequest;
 use App\Models\Workshop_Page;
-use App\Notifications\NewNotification;
-use Session;
+use App\Models\workshops_users;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\UpdateWorkshopRequest;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\participantRequestNotification;
 
 class WorkshopController extends Controller
 {
@@ -89,13 +87,12 @@ class WorkshopController extends Controller
 
             $application_status = workshops_users::select('application_status')->where(['workshop_id'=>$workshop->id,'user_id'=>Auth::id()])
             ->get();
-            
+
             $already_applied = false;
             // if current user has alredy applied 
             if(count($application_status)>0)
                 $already_applied = true;
             
-
             $workshop_participants = Workshop::Join("workshops_users", function($join){
                 $join->on("workshops.id", "=", "workshops_users.workshop_id");
             })
@@ -196,6 +193,14 @@ class WorkshopController extends Controller
                 );
         }
 
+        $admin_id = Workshop::find($id)->user->id;
+
+         $admin_superadmins = User::where('user_status','superadmin')->orWhere(['id'=>$admin_id])->get();
+         
+        Notification::send($admin_superadmins,new participantRequestNotification(Auth()->user()));
+
+        event(new \App\Events\NotificationEvent());
+
         return redirect()->back()->with('message','Congratulations you have successfuly applied');
     }
 
@@ -244,8 +249,14 @@ class WorkshopController extends Controller
          //Secure
          if( $workshop->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
 
+         $applicant = User::find($participantantID); 
+      
+         DB::table('notifications')->where(['notifiable_id'=>Auth::id(),'data'=>'"'.$applicant->name.'"'])->update(['read_at'=>Carbon::now()]);  //clear notification
+
+
          workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID])->update(['application_status' => 'approved']);
 
+        
         return redirect()->back()->with("tab",request('tab'));
     }
 
@@ -253,6 +264,10 @@ class WorkshopController extends Controller
          $workshop = Workshop::find($workshopid);
          //Secure
          if( $workshop->author != Auth::id() && request()->user()->user_status != 'superadmin') abort(403);
+
+         $applicant = User::find($participantantID); 
+      
+         DB::table('notifications')->where(['notifiable_id'=>Auth::id(),'data'=>'"'.$applicant->name.'"'])->update(['read_at'=>Carbon::now()]);  //clear notification
 
          workshops_users::where(['workshop_id'=>$workshopid,'user_id'=>$participantantID])->update(['application_status' => 'notapproved']);
 

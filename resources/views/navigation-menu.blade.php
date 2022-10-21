@@ -69,8 +69,13 @@
                                 <div>
                                     @if (Auth::user()->unreadNotifications ->count() > 0 )
                                     @foreach(Auth::user()->unreadNotifications as $notification)
-                                    <p class="m-1 text-xs">Workshop <b> {{ $notification->data['name'] }} </b> has just added.</p>
-                                    <hr class="m-1">
+                                    @if($notification->type == "App\Notifications\NewNotification")
+                                        <p class="m-1 text-xs">Workshop <b> {{ $notification->data['name'] }} </b> has just added.</p>
+                                        <hr class="m-1">
+                                    @else
+                                        <p class="m-1 text-xs">New applicant <b> {{ $notification->data }} </b> pending</p>
+                                        <hr class="m-1">
+                                    @endif
                                     @endforeach
                                     <a href="/markAsRead">
                                         <p class="text-red-600 text-xs m-1 text-center">

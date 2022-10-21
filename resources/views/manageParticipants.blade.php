@@ -5,7 +5,7 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
 
 @extends('layouts.app')
 @section('content')
-<div class="w-full h-screen px-5 md:px-10  ">
+<div class="w-full h-screen px-5 md:px-10" id = "participants">
 
   @php
   $tab = 0;
@@ -283,32 +283,37 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
   </div>
 </div>
 <script>
+  Echo.channel('notification')
+      .listen('NotificationEvent', (e) => {
+
+          $("#participants").load(window.location.href + " #participants");
+      });
   function changeURL($param){
-        if (history.pushState) {
-             var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + $param;
-             window.history.pushState({path:newurl},'',newurl);
-         }
-       }
-       var btns = Array.from(document.getElementsByClassName("myBtn"));
-var spans = Array.from(document.getElementsByClassName("close"));
-
-btns.forEach(function(btn) {
-  btn.addEventListener("click", function onClick() {
-    this.nextElementSibling.style.display = "flex";
-  })
-})
-
-spans.forEach(function(span) {
-  span.addEventListener("click", function() {
-    this.closest(".modal").style.display = "";
-  })
-})
-
-window.onclick = function(event) {
-  let modal = event.target.closest(".modal");
-  if (modal) {
-    modal.style.display = "";
+  if (history.pushState) {
+        var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + $param;
+        window.history.pushState({path:newurl},'',newurl);
+    }
   }
+  var btns = Array.from(document.getElementsByClassName("myBtn"));
+  var spans = Array.from(document.getElementsByClassName("close"));
+
+  btns.forEach(function(btn) {
+    btn.addEventListener("click", function onClick() {
+      this.nextElementSibling.style.display = "flex";
+    })
+  })
+
+  spans.forEach(function(span) {
+    span.addEventListener("click", function() {
+      this.closest(".modal").style.display = "";
+    })
+  })
+
+  window.onclick = function(event) {
+    let modal = event.target.closest(".modal");
+    if (modal) {
+      modal.style.display = "";
+    }
 }
 </script>
 
