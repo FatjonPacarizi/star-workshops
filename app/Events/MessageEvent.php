@@ -12,6 +12,7 @@ class MessageEvent implements ShouldBroadcast
 {
     public $msg;
     public $sender;
+    public $sender_id;
     public $sender_status;
     public $msg_time;
     public $is_typing;
@@ -24,10 +25,11 @@ class MessageEvent implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($msg,$sender,$sender_status,$msg_time,$is_typing,$workshop_id)
+    public function __construct($msg,$sender,$sender_id,$sender_status,$msg_time,$is_typing,$workshop_id)
     {
         $this->msg = $msg;
         $this->sender = $sender;
+        $this->sender_id = $sender_id;
         $this->sender_status = $sender_status;
         $this->msg_time = $msg_time;
         $this->is_typing = $is_typing;

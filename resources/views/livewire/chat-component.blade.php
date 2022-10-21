@@ -31,6 +31,7 @@
             <form class= "w-full flex items-center">
                 <textarea  id="chat-input" oninput="auto_height()" class="w-11/12 h-10 border-none  overflow-hidden bg-inherit  focus:ring-0"  placeholder="Send a message..." wire:ignore></textarea>
                 <button type="button" onClick="send()"><i class="fa-regular fa-paper-plane ml-2"></i></button>
+                <input type="hidden" id = "myid" value = {{Auth::id()}}>
             </form>
             <img wire:ignore id = "t" class="hidden rounded w-10 h-6 absolute left-2 -top-8" src="{{asset('/img/typing.gif')}}"/>
         </div>
@@ -42,8 +43,10 @@
             .listen('MessageEvent', (e) => {
                 
                 if(e.is_typing)  {
-                    clearTimeout( hideHyping )
-                    showTyping();
+                    if(e.sender_id != document.getElementById("myid").value){
+                        clearTimeout( hideHyping )
+                        showTyping();
+                    }
                 }
                 else{
                     var color = 'green-500 ';

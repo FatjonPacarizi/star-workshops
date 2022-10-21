@@ -24,7 +24,7 @@ class ChatComponent extends Component
 
             $msg_time = \Carbon\Carbon::now('Europe/Tirane');
 
-            event(new \App\Events\MessageEvent($msg,auth()->user()->name,auth()->user()->user_status,substr($msg_time,11,-3),false,$this->workshop->id));
+            event(new \App\Events\MessageEvent($msg,auth()->user()->name,null,auth()->user()->user_status,substr($msg_time,11,-3),false,$this->workshop->id));
 
             Message::insert([
                 'sender_id' => auth()->user()->id,
@@ -37,7 +37,7 @@ class ChatComponent extends Component
     }
     public function typing()
     {
-            event(new \App\Events\MessageEvent(null,null,null,null,true,$this->workshop->id));
+            event(new \App\Events\MessageEvent(null,null,auth()->user()->id,null,null,true,$this->workshop->id));
     }
     public function test($t)
     {
