@@ -14,11 +14,11 @@ use App\Http\Requests\UpdateLandingRequest;
 class LandingController extends Controller
 {
     public function index(){
-        
+
         $currentTime = Carbon::now('Europe/Tirane');
 
         $upcomings = Workshop::limit(6)
-        ->where('workshops.time','>=',$currentTime)
+        ->whereNull(['workshop_endTime'])
         ->orderBy('id','desc')->get();
         
         return view('landing', ['upcomings' => $upcomings, 'newspage' => NewsPage::limit(3)->orderBy('id', 'DESC')->get(),

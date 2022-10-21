@@ -26,9 +26,7 @@ class ShowUpcomingWorkshopsManage extends Component
 
             $sort = "DESC";
             if($this->sortby != null) $sort =  $this->sortby;
-          
-          $currentTime = Carbon::now('Europe/Tirane');
-  
+            
           if(request()->user()->user_status == 'superadmin'){
             
              
