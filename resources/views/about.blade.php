@@ -6,7 +6,7 @@
 <section class=" body-font bg-white ">
 
 
-    <div class="relative flex items-center justify-center ">
+    <div class="relative mt-20 flex items-center justify-center ">
 
        
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2934.1576688368827!2d21.154011000000004!3d42.658014099999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549ee5514d5483%3A0x5b8362656c47cff7!2sKosta%20Novakoviq%2C%20Prishtina!5e0!3m2!1sen!2s!4v1663744968362!5m2!1sen!2s" class="w-full " style="border:0;height: 500px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
@@ -19,7 +19,7 @@
                         <p><strong><span>{{$about->heading}}</span></strong></p>
                     </span> </h1>
             </div>
-            <p>{{$about->paragraph}}</p>
+            <p>{!! $about->paragraph !!}</p>
             <div class="flex justify-center">
                 <a href="{{$about->button}}"> <button style="margin-top: 20px;margin-left: -4px;" class="ml-4 inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full text-lg">Find out more</button>
                 </a>

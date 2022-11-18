@@ -15,7 +15,7 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
       active : 'bg-white shadow',
       inactive: ' hover:shadow '
      }">
-    <div class="flex border border-gray-200 rounded-xl bg-gray-100  absolute top-3 left-5">
+    <div class="w-fit mx-auto flex border border-gray-200 rounded-xl bg-gray-100  xl:absolute top-3 left-5">
       @php
       $upcomingtab = 1;
       $ongoingtab = 1;
@@ -35,15 +35,15 @@ $date = new DateTime("now", new DateTimeZone('Europe/Tirane') );
     </div>
     <div class="w-full">
       <div class="w-full px-5 pt-3" x-show="tab === 0">
-        <div class = "flex justify-end ">
-          <a href="{{route('adminsuperadmin.showInsert')}}" class = " bg-white w-8 h-8 rounded-lg flex items-center justify-center border border-gray-200 text-gray-400 hover:shadow  "><i class="fa-solid fa-plus font-thin text-2xl"></i></a>
+        <div class = "flex xl:justify-end justify-between">
+          <a href="{{route('adminsuperadmin.showInsert')}}" class = " bg-white w-8 h-8 rounded-lg flex items-center justify-center border border-gray-200 text-gray-400 hover:shadow mr-2 "><i class="fa-solid fa-plus font-thin text-2xl"></i></a>
           <livewire:filter-upcoming-workshops-manage>
         </div>
         <livewire:show-upcoming-workshops-manage />
       </div>
       <div class="w-full px-5 pt-3" x-show="tab === 1">
-        <div class = "flex justify-end ">
-          <a href="{{route('adminsuperadmin.showInsert')}}" class = " bg-white w-8 h-8 rounded-lg flex items-center justify-center border border-gray-200 text-gray-400 hover:shadow  "><i class="fa-solid fa-plus font-thin text-2xl"></i></a>
+        <div class = "flex xl:justify-end justify-between">
+          <a href="{{route('adminsuperadmin.showInsert')}}" class = " bg-white w-8 h-8 rounded-lg flex items-center justify-center border border-gray-200 text-gray-400 hover:shadow mr-2 "><i class="fa-solid fa-plus font-thin text-2xl"></i></a>
           <livewire:filter-ongoing-workshops-manage>
         </div>
         <livewire:show-ongoing-workshops-manage />
